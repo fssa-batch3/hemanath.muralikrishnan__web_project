@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #f2f3f4;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/* start of register main */
+
+.register-logo {
+    text-align: center;
+    margin-top: 1em;
+    color: #429b44;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.register-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+    background-color: #f1fcfc;
+    padding: 1em;
+    border-radius: 10px;
+    
+}
+
+form .act {
+    font-size: 1.5rem;
+    color: #253D4E;
+    font-weight: 500;
+}
+
+form label {
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 400;
+}
+
+form input {
+    height: 45px;
+    border-radius: 10px;
+    padding-left: 1em;
+    outline: none;
+    border: 2px solid #429b44;
+}
+
+form a {
+    text-align: center;
+}
+
+form .register-continue {
+    margin: 1em 4em 1em 4em;
+    padding: 1em;
+    background-color: green;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: white;
+}
+
+form .register-login {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: green;
+}
+
+form .register-already {
+    text-align: center;
+    font-size: 1rem;
+    color: #253D4E;
+}
+
+
+
+/* end of register main */
