@@ -10,7 +10,7 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 
 -> User Flow: https://drive.google.com/file/d/1HeQi3UNsgJjKxJ3PNX1WQPWRB70A-PuQ/view?usp=sharing
 
--> Wireframe: https://drive.google.com/file/d/1ewMPTqoxMrA8ltRKUpYQU2tlFrUV0TYp/view?usp=share_link
+-> Wireframe: https://drive.google.com/file/d/14D6dNG8daewqX7rU0vSFeyGTitoul7YU/view?usp=sharing
 
 -> Live Website: https://hemanath78.github.io/AgroKart-100-Days-Project/
 
