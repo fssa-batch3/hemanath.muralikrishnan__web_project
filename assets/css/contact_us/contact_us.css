@@ -34,7 +34,6 @@ body {
 
 nav {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
     background-color: #FFFFFF;
     z-index: 1;
 }
@@ -273,7 +272,6 @@ nav {
 /* start of list top */
 
 .list-top {
-    font-family: 'Poppins', sans-serif;
     margin: 1em 0 1em 1em;
 
 }
@@ -386,7 +384,6 @@ form input {
     border-left-style: hidden;
     border-bottom-style: groove;
     font-size: 1.2rem;
-    font-family: 'Poppins' ,sans-serif;
     padding-left: .5em;
   }
   
@@ -403,7 +400,6 @@ form textarea {
     border: 2px solid #429b44;
     outline: none;
     font-size: 1.2rem;
-    font-family: 'Poppins' ,sans-serif;
     border-radius: 10px;
     padding-left: .5em;
   }
@@ -428,7 +424,6 @@ form button {
 
 footer {
     background: #f1fcfc;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     margin-top: 4em;
 }

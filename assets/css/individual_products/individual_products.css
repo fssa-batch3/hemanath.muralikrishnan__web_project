@@ -34,7 +34,6 @@ body {
 
 nav {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
     background-color: #FFFFFF;
     z-index: 1;
 }
@@ -273,7 +272,6 @@ nav {
 /* start of list top */
 
 .list-top {
-    font-family: 'Poppins', sans-serif;
     margin: 1em 0 1em 1em;
 
 }
@@ -652,7 +650,6 @@ box-shadow:  11px 11px 22px #c1c0c0,
 /* start of products container */
 
 .products-container {
-    font-family: 'Poppins', sans-serif;
     display: flex;
     overflow-x: scroll;
     margin-top: 2em;
@@ -761,7 +758,6 @@ box-shadow:  11px 11px 22px #c1c0c0,
 
 .dropdown-values select {
     width: 150px;
-    font-family: 'Poppins' sans-serif;
     border-radius: 5px;
 }
 
@@ -805,7 +801,6 @@ box-shadow:  11px 11px 22px #c1c0c0,
 
 footer {
     background: #f1fcfc;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
 }
 

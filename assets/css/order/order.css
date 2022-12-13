@@ -34,7 +34,6 @@ body {
 
 nav {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
     background-color: #FFFFFF;
     z-index: 1;
 }
@@ -507,7 +506,6 @@ details-of-order .all-products .details-products .order-qty, .order-price {
 
 footer {
     background: #f1fcfc;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     margin-top: 2em;
 }

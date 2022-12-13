@@ -34,7 +34,6 @@ body {
 
 nav {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
     background-color: #FFFFFF;
     z-index: 1;
 }
@@ -273,9 +272,9 @@ nav {
 
 /*start of list top */ 
 
-.list-top {
+/* .list-top {
     font-family: 'Poppins', sans-serif;
-}
+} */
 
 .list-top ul {
     display: flex;
@@ -561,7 +560,6 @@ nav {
 
 footer {
     background: #f1fcfc;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     margin-top: 2em;
 }
