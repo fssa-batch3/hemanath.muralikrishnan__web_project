@@ -394,6 +394,7 @@ nav {
 }
 
 .product-img img {
+    height: 200px;
     width: 200px;
     margin: 0 auto;
     border-radius: 10px;
