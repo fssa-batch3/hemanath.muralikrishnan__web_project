@@ -479,9 +479,29 @@ details-of-order .all-products .details-products .order-qty, .order-price {
     height: 175px;
 }
 
+.google-pay{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cash-on{
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .google-pay label, .cash-on label {
     font-size: 1.2rem;
     margin-left: 1em;
+}
+
+.order-main {
+    margin-top: 2em;
 }
 
 .order-main .order-btn {
