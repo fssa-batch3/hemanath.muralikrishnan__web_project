@@ -336,10 +336,19 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: black;
     margin: 1em;
     border: 1px solid black;
     border-radius: 10px;
+    cursor: pointer;
 }
+
+.categories-main ul li a {
+    color: black;
+}
+
+
+
 
 .categories-main ul li img {
     width: 30px;
