@@ -453,11 +453,7 @@ nav {
 }
 
 .amount {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100px;
+    margin: .5em 0;
 }
 
 .qty-cat {
@@ -504,16 +500,13 @@ nav {
 }
 
 .amount .amount-one {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-family: sans-serif;
     color: #253D4E;
+    font-weight: bold;
 }
 
-.amount .amount-two {
-    font-size: 1rem;
-    color: black;
-    text-decoration: line-through;
-}
+
 
 .qty input {
     height: 40px;
