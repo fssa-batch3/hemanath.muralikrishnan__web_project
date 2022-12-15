@@ -312,17 +312,13 @@ nav {
     margin: 2em 1em 1em 1em;
 }
 
-.deliver-time-cont .delivery-cont p {
-    margin-bottom: 2em;
-}
+
 
 .address-section-order {
     margin: 1em;
 }
 
-.address-section-order .address {
-    margin: 1em;
-}
+
 
 .delivery-date-cont > p {
     font-size: 1.8rem;
@@ -330,6 +326,7 @@ nav {
 }
 
 .delivery-date-cont .dates-cont p {
+    
     font-size: 1.2rem;
     padding: 1em;
     border: 2px solid black;
@@ -353,6 +350,7 @@ nav {
 }
 
 .deliver-time-cont .delivery-cont p {
+    margin-bottom: 2em;
     font-size: 1.3rem;
     padding: 1em;
     border: 2px solid black;
@@ -382,6 +380,7 @@ nav {
     padding: 1em;
     border-radius: 10px;
     background-color: white;
+    margin: 1em;
 }
 
 .address-section-order .address:hover {

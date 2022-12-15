@@ -423,6 +423,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     width: 200px;
+    margin-bottom: 1em;
 }
 
 .pro-name p{
@@ -484,9 +485,7 @@ nav {
 }
 
 
-.mobile-number-sec {
-    margin-bottom: 1em;
-}
+
 
 .mobile-number-sec p {
     font-size: 1.2rem; 

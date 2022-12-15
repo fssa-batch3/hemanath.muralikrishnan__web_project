@@ -309,6 +309,11 @@ nav {
 
 /* start of cart cont */
 
+table caption {
+    display: none;
+}
+
+
 .your-cart {
     display: flex;
     flex-direction: row;
@@ -407,6 +412,10 @@ tbody td input{
     border-radius: 20px;
     margin-bottom: 2em;
 
+}
+
+.cart-right-side table thead{
+    display: none;
 }
 
 .cart-right-side table td {

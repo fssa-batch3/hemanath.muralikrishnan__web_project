@@ -328,6 +328,12 @@ nav {
 .categories-main {
     overflow: scroll;
     overflow-x: hidden;
+    margin: 1em;
+    border-radius: 20px;
+    background: #fefbfb;
+    box-shadow:  20px 20px 60px #d8d5d5,
+                -20px -20px 60px #ffffff;
+    height: 675px;
 
 }
 
@@ -355,15 +361,7 @@ nav {
     border-radius: 50%;
 }
 
-.categories-main{
-    margin: 1em;
-    border-radius: 20px;
-    background: #fefbfb;
-    box-shadow:  20px 20px 60px #d8d5d5,
-                -20px -20px 60px #ffffff;
-    height: 675px;
-    
-}
+
 
 .categories-main .categories-main-title, .sortby-main-title, .filterby-main-title {
     padding: 1em;
