@@ -114,4 +114,9 @@
     color: white;
     padding: 1em;border-radius: 10px;
 }
+
+.wish-shop:hover {
+    background-color: white;
+    color: green;
+}
 /* end of wishlist cont */

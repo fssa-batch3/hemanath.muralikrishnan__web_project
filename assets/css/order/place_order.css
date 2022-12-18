@@ -141,7 +141,9 @@
 .all-products .details-products {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    width: 300px;
 }
 
 .all-products .details-products .details-img {
@@ -205,6 +207,17 @@ details-of-order .all-products .details-products .order-qty, .order-price {
     justify-content: space-between;
     height: 175px;
 }
+
+.payment-options .gpay {
+    width: 20px;
+    height: 40px;
+}
+
+.payment-options .cod {
+    width: 20px;
+    height: 40px;
+}
+
 
 .google-pay{
     width: 250px;

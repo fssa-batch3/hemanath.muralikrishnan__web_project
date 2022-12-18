@@ -42,6 +42,7 @@ table caption {
 }
 
 
+
 .your-cart {
     display: flex;
     flex-direction: row;
@@ -99,6 +100,7 @@ tbody td input{
     height: 40px;
     border-radius: 5px;
     padding-left: .5em;
+    font-weight: bold;
 }
 
 .cart-left-side tbody td i {
