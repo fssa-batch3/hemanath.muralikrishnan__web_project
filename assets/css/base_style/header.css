@@ -1,0 +1,238 @@
+/* start of navigation */
+
+nav {
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+
+.nav-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* nav-one start */
+
+.nav-one {
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid gainsboro;
+}
+
+.nav-one .left a {
+    color: black;
+    font-size: 1rem;
+    padding: 1em;
+    font-weight: 400;
+}
+
+.nav-one .left a:hover {
+    color: #429b44;
+    font-weight: 600;
+}
+
+.nav-one .right p {
+    padding: 1em;
+    font-size: 1rem;
+    color: black;
+}
+
+.nav-one .right p span a {
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* nav-one end */
+
+
+/* nav-two start */
+
+.nav-two {
+    border-bottom: 1px solid gainsboro;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.nav-two .logo a {
+    padding: 1em;
+    color: #429b44;
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.nav-two .search {
+    position: relative;
+}
+
+.nav-two input {
+    width: 500px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 1.2em 1em;
+    border: 2px solid #429b44;
+    color: black;
+    font-size: 1rem;
+
+}
+
+.nav-two input:hover {
+    width: 600px;
+}
+
+.nav-two .search i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #429b44;
+}
+
+.nav-two .right-main {
+    width: 300px;
+    padding: 1em;
+}
+
+.option-one, .option-two, .login {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-one a, .option-two a, .login a {
+    font-size: 1rem;
+    color: black;
+    font-weight: 500;
+}
+
+.option-one a:hover, .option-two a:hover, .login a:hover{
+    color: #429b44;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.option-one > i, .option-two > i, .login > i {
+    margin-right: .5em;
+}
+
+/* nav-two end */
+
+/* nav three start */
+
+.nav-three{
+    border-bottom: 1px solid gainsboro;
+    height: 70px;
+    position: sticky;
+    top: 0;
+}
+
+.main-menu {
+    margin: 1em;
+}
+
+.main-menu > ul {
+    width: 440px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-menu > ul > .list-one {
+    position: relative;
+    font-size: 1rem;
+    
+    background-color: green;
+    padding: .5em 1em;
+    border-radius: 10px;
+}
+
+.list-one a {
+    color: #FFF;
+}
+
+.dropdown_menu {
+    width: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px rgb(0 0 0 / 5%);
+    border-radius: 10px;
+    line-height: 2.5em;
+    margin-left: 1em;
+
+}
+
+.dropdown_menu ul li {
+    display: none;
+}
+
+.main-menu .main-ul li:hover > .dropdown_menu ul li {
+    display: block;
+}
+
+.dropdown_menu ul li a {
+    color: black;
+    font-size: 1rem;
+    margin-left: 1em;
+}
+
+.dropdown_menu ul li a:hover {
+    color: #fff;
+    background-color: green;
+    font-size: 1.2rem;
+    margin-left: 1em;
+    font-weight: 500;
+}
+
+.main-ul .home, .products {
+    margin-top: .5em;
+}
+
+.main-ul .home a, .products a {
+    font-size: 1.2rem;
+    margin-left: 1em;
+    font-weight: 600;
+}
+
+.main-ul .home a {
+    color: green;
+}
+
+.main-ul .products a {
+    color: #253D4E;
+}
+
+.main-ul .home a:hover, .products a:hover {
+    font-weight: 400;
+
+}
+
+.nav-three .assistant {
+    width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em;
+}
+
+.assistant > i  {
+    font-size: 2rem;
+    
+}
+
+.assistant a {
+    font-size: 1.2rem;
+    color: green;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* nav-three end */
+
+/* end of navigation */

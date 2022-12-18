@@ -1,0 +1,384 @@
+/* start of list top */
+
+.list-top {
+    margin: 1em 0 1em 1em;
+
+}
+
+.list-top .all-products {
+    border: 2px solid #429b44;
+    width: 130px;
+    margin-bottom: 1em;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.list-top ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #429b44;
+    width: 270px;
+    border-radius: 5px;
+}
+
+.list-top ul li, .list-top ul li a {
+    padding: .2em;
+    color: black;
+}
+
+.list-top ul li a:hover {
+    color: #429b44;
+    font-weight: 500;
+}
+
+/* end of list top */
+
+/* start of indv-prodcts */
+
+
+.individuals-products{
+    width: 90%;
+    height: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.indv-products-cont{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.indv-img img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.indv-farmer-part img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+/* start of left side indv */
+.indv-products-left-side {
+    margin: 1em;
+}
+
+.indv-rating-part {
+    width: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.healthy {
+    width: 380px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3em;
+}
+
+
+.heal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heal .sci {
+    margin-top: .5em;
+    font-size: 1.3rem;
+    color: #253D4E;
+    font-weight: 500;
+}
+
+.circle {
+    border: 5px solid #429b44;
+    padding: 2em;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    background-color: aliceblue;
+    font-weight: bold;
+}
+
+.product-name-rat .indv-product-title {
+    font-size: 1.5rem;
+    color: #253D4E;
+    font-weight: 600;
+    letter-spacing: .2em;
+}
+
+.indv-rating i {
+    color: #FDCC0D;
+    font-size: 1.1rem;
+}
+
+.indv-rating-number {
+    font-size: 1.2rem;
+    color: #253D4E;
+    font-weight: 500;
+}
+
+/* end of left side indv */
+
+/* start of right side and scroll */
+
+/* start of right side product details */
+
+.indv-products-right-side{
+    margin: 2em 0 2em 4em;
+}
+
+.indv-products-right-side-two{
+    height: 750px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 1em;
+
+}
+
+.right-side-three {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+}
+
+.indv-farmer-part {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.indv-product-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100px;
+
+}
+
+.indv-qty-cat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 360px;
+}
+
+.indv-add-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 170px;
+    background-color: #429b44;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+.indv-add-button:hover {
+    background-color: green;
+}
+
+.indv-category-title {
+    font-size: 1.5rem;
+    color: #7E7E7E;
+    font-weight: 500;
+}
+
+.indv-farmer-name {
+    font-size: 1.3rem;
+    color: green;
+    font-weight: 600;
+}
+
+.indv-product-name {
+    font-size: 1.5rem;
+    color: #253D4E;
+    font-weight: 600;
+    letter-spacing: .1em;
+    margin-top: .5em ;
+}
+
+.indv-dropdown-values select {
+    width: 200px;
+    padding: 1em;
+    border-radius: 10px;
+    border: 2px solid #429b44;
+}
+
+.indv-amount-one {
+    font-size: 2rem;
+    font-family: sans-serif;
+    color: #253D4E;
+    font-weight: 600;
+}
+
+
+
+.indv-qty input {
+    height: 60px;
+    width: 100px;
+    border-radius: 10px;
+    border: 2px solid #429b44;
+    padding-left: 1em;
+    outline: none;
+    font-weight: bold;
+}
+
+.indv-add-button a {
+    font-size: 1.3rem;
+    padding: .5em .5em;
+    color: white;
+    text-decoration: none;
+}
+
+.indv-add-button i {
+    padding-right: .5em;
+    font-size: 1.1rem;
+}
+
+.favorite {
+    margin-left: 1em;
+   
+}
+
+.favorite a i:hover {
+    background-color: pink;
+}
+
+.favorite a i {
+    font-size: 1.2rem;
+    background-color: lightcoral;
+    padding: 1em;
+    border-radius: 10px;
+    color: #429b44;
+    cursor: pointer;
+}
+
+/* end of right side product details */
+
+/* start of desc */
+
+.description {
+    width: 800px;
+    margin-top: 4em;
+    border-radius: 20px;
+background: #FFFFFF;
+box-shadow:  11px 11px 22px #c4c4c4,
+             -11px -11px 22px #ffffff;
+}
+
+.desc-cont {
+    padding: 1em;
+}
+
+.desc-cont .desc-title {
+    font-size: 2rem;
+    color: #253D4E; 
+    font-weight: 600;
+
+}
+
+.desc-cont .desc-content {
+    text-align: justify;
+    margin-top: 1em;
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* end of desc */
+
+/* start of rating and reviews */
+
+.rating-reviews {
+    margin-top: 4em;
+    padding: 1em;
+    border-radius: 20px;
+background: #f3f2f2;
+box-shadow:  11px 11px 22px #bbbaba,
+             -11px -11px 22px #ffffff;
+}
+
+.rating-profile img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.rat-title {
+    font-size: 1.5rem;
+    color: #253D4E;
+    
+}
+
+.rating-cont-main {
+    margin: 1em;
+    padding: .5em;
+    border-radius: 20px;
+background: #faf9f9;
+box-shadow:  11px 11px 22px #c1c0c0,
+             -11px -11px 22px #ffffff;
+}
+
+.rating-profile {
+    margin: 1em 1em 1em 0;
+    width: 220px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rating-profile .cust-name {
+    font-weight: 500;
+}
+
+.rating-profile .cust-rat{
+    background-color: #429b44;
+    padding: .3em;
+    border-radius: 5px;
+    color: white;
+}
+
+.rating-profile .cust-rat i {
+    color: #FDCC0D;
+}
+
+.rating-desc {
+    text-align: justify;
+    font-size: .9rem;
+    padding: 0 1em 1em 1em;
+}
+
+/* end of rating and reviews */
+
+
+
+/* end of ride side and scroll */
+
+/* end of indv-prodcts */
+
+
+/* start of related products */
+
+.rela-scroll > p {
+    text-align: center;
+    margin-top: 4em;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+
+/* end of related products */

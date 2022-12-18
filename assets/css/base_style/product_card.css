@@ -1,0 +1,162 @@
+/* start of products container */
+
+/* home page product card */
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* home page product card */
+
+/* product list product card */
+.products-list-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2.5em;
+}
+/* product list product card */
+
+
+/* individual products related products */
+.products-container-indv {
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 2em;
+}
+/* individual products related products */
+
+
+
+/* start of each-individual product container */
+
+.product-container{
+    padding: 1em;   
+}
+
+.product-container:hover {
+    translate: -5px -5px;
+    transition: 3ms;
+
+}
+
+.product-main {
+    width: 240px;
+    height: 550px;
+    padding: 1.2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 17px;
+    background: #ffffff;
+    box-shadow:  5px 5px 14px #636666,
+                -5px -5px 14px #ffffff;
+}
+
+.product-img img {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.farmer-part img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.farmer-part {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.rating-part {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.amount {
+    margin: .5em 0;
+}
+
+.qty-cat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 190px;
+}
+
+.qty-cat .add-button {
+    background-color: green;
+    padding: .5em 1em;
+    margin-left: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.category-title {
+    color: black;
+    font-size: .8rem;
+    font-weight: 400
+}
+
+.farmer-name{
+    color: green;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.product-name p {
+    color: #253D4E;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.product-name p:hover {
+    color: #429b44;
+}
+
+.rating i {
+    color: #FDCC0D;
+}
+
+.dropdown-values select {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.amount .amount-one {
+    font-size: 1.4rem;
+    font-family: sans-serif;
+    color: #253D4E;
+    font-weight: bold;
+}
+
+.qty input {
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    border: 2px solid #429b44;
+    padding-left: 1em;
+}
+
+.add-button a {
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.add-button:hover {
+    background-color: lightgreen;
+    font-size: 1.2rem;
+}
+
+/* end of each-individual product container */
+
+/* end of products container */

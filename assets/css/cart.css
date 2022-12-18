@@ -1,0 +1,177 @@
+/* start of list top */
+
+.list-top {
+    margin: 1em 0 1em 1em;
+
+}
+
+.list-top ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #429b44;
+    width: 220px;
+    border-radius: 5px;
+}
+
+.list-top ul li, .list-top ul li a {
+    padding: .2em;
+    color: black;
+}
+
+.list-top ul li a:hover {
+    color: #429b44;
+    font-weight: 500;
+}
+
+/* end of list top */
+
+.cart-title {
+    margin-left: 4em;
+    margin-top: 2em;
+    font-size: 1.5rem;
+    color: #429b44;
+    font-weight: 800;
+
+}
+
+/* start of cart cont */
+
+table caption {
+    display: none;
+}
+
+
+.your-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 4em;
+}
+
+
+.your-cart .cart-left-side table {
+    border-collapse: collapse ;
+    width: 800px;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 2em;
+}
+
+.cart-left-side .product-name-img img {
+    width: 60px;
+    border-radius: 50%;
+
+}
+
+.cart-left-side .product-name-img {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.your-cart .cart-left-side table thead{
+    background-color: #429b44;
+}
+
+.your-cart .cart-left-side table thead tr th {
+    text-align: left;
+    padding: 1em;
+}
+
+.cart-left-side table td {
+    padding: 2em;
+}
+
+
+.product-name-main p {
+    color: #253D4E;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.cart-price {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+}
+
+tbody td input{
+    height: 40px;
+    border-radius: 5px;
+    padding-left: .5em;
+}
+
+.cart-left-side tbody td i {
+    color: gainsboro;
+    cursor: pointer;
+}
+
+.cart-left-side tbody td i:hover {
+    color: #429b44;
+    cursor: pointer;
+}
+
+
+.cart-left-side .cont-shop{
+    margin: 1em;
+    padding: 1em;
+    background-color: green;
+    width: 260px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-left-side .cont-shop:hover {
+    background-color: white;
+    color: #429b44;
+}
+
+.cart-left-side .cont-shop i {
+    padding: .5em;
+    font-size: 1.5rem;
+}
+
+.cart-right-side table {
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 2em;
+
+}
+
+.cart-right-side table thead{
+    display: none;
+}
+
+.cart-right-side table td {
+    padding: 2em;
+}
+
+.cart-right-side .check-title {
+    font-size: 1rem;
+    color: #253D4E;
+    font-weight: 600;
+}
+
+.cart-right-side  .checkout-btn{
+    margin: 1em;
+    padding: 1em;
+    background-color: green;
+    width: 250px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-right-side  .checkout-btn:hover {
+    background-color: white;
+    color: #429b44;
+}
+
+/* end of cart cont */
+

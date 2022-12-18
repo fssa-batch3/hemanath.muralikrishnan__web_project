@@ -1,0 +1,278 @@
+/*start of list top */ 
+
+.list-top ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #429b44;
+    width: 220px;
+    border-radius: 5px;
+    margin: 2em 0 1em 1em;
+}
+
+.list-top ul li, .list-top ul li a {
+    padding: .2em;
+    color: black;
+}
+
+.list-top ul li a:hover {
+    color: #429b44;
+    font-weight: 500;
+}
+
+/* end of list top */
+
+
+/* start of profile section */
+
+.profile-main {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+}
+
+.profile-title {
+    margin-left: 1em;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #253D4E;
+}
+
+/* start of profile left side */
+.profile-left-side .profile-section .profile-img img {
+    width: 80px;
+    border-radius: 50%;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1em;
+    padding: 1em;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    border-radius: 10px;
+}
+
+.profile-left-side .profile-options {
+    margin: 1em;
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    border-radius: 10px;
+}
+
+.profile-left-side .profile-options .account-settings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.profile-options .profile-links{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.2em;
+    margin-top: 1.5em;
+}
+
+.profile-options .profile-links a {
+    padding: 1em 0 1em 0;
+}
+
+.profile-details p {
+    font-size: 1.2rem;
+    color: #253D4E;
+    font-weight: 500;
+    padding: .2em;
+}
+
+.account-settings i{
+    color: #429b44;
+    font-size: 1.5rem;
+}
+
+.account-settings p {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.profile-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #253D4E;
+    font-weight: 500;
+}
+/* end of profile left side */
+
+/* start of profile right side */
+
+.profile-right-side {
+    margin: 1em;
+    width: 800px;
+}
+
+.pro-settings-sec {
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+    border-radius: 10px;
+}
+
+.profile-right-side .pro-settings-sec .pro-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 270px;
+    margin-bottom: 1em;
+}
+
+.email-id-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 450px;
+    margin-bottom: 1em;
+}
+
+.mobile-number-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+    margin-bottom: 1em;
+}
+
+.pro-name p{
+    font-size: 1.2rem;
+    color: black;
+}
+.pro-name a{
+    font-size: 1rem;
+    color: blue;
+}
+
+.name-input {
+    margin-bottom: 2em;
+}
+
+.name-input input {
+    width: 250px;
+    height: 50px;
+    padding-left: 1em;
+    border-radius: 10px;
+}
+
+.profile-right-side .gender {
+    font-size: 1.2rem;
+    margin-bottom: .5em;
+}
+
+.gender-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 170px;
+    margin-bottom: 2em;
+}
+
+.gender-sec label {
+    font-size: 1.1rem;
+}
+
+.email-id-sec p{
+    font-size: 1.2rem;
+    color: black;
+}
+
+.email-id-sec a {
+    color: blue;
+    font-size: 1rem;
+}
+
+.email-input {
+    margin-bottom: 2em;
+}
+
+.email-input input {
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 1em;
+}
+
+.mobile-number-sec p {
+    font-size: 1.2rem; 
+    color: black;
+}
+
+.mobile-number-sec a {
+    font-size: 1rem;
+    color: blue;
+}
+
+.mobile-input input {
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 1em;
+    margin-bottom: 1em;
+}
+
+/* manage address start */
+
+.manage-address {
+    padding: 1em;
+    background-color: white;
+    margin-top: 1em;
+    border-radius: 10px;
+}
+
+.manage-address > p {
+    font-size: 1.5rem;
+    color: black;
+}
+
+.manage-address-items {
+    margin-top: 1em;
+}
+
+.manage-address-items .add-new-add {
+    text-align: center;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #f2f3f4;
+}
+
+.manage-address-items .home-add {
+    font-size: 1.2rem;
+    border: 1px solid black;
+    text-align: center;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: #f2f3f4;
+}
+
+.home-add i {
+    float: right;
+    color: #429b44;
+}
+
+
+/* manage address end */
+
+/* end of profile right side */
+
+/* end of profile section */
+
+

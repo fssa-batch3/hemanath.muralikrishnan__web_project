@@ -1,0 +1,145 @@
+/* footer starts */
+
+footer {
+    background: #f1fcfc;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.footer-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-flex-two{
+    display: flex;
+    flex-direction: column;
+}
+
+/* footer one starts */
+.footer-one {
+    padding-top: 1em;
+}
+
+.footer-logo a {
+    color: #429b44;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.footer-title {
+    font-weight: bold;
+    padding-bottom: 1em;
+    font-size: 1.3rem;
+    color: #253D4E;
+}
+
+.footer-item{
+    padding-bottom: 1em;
+    color: #253D4E;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.footer-item:hover {
+    color: #429b44;
+    font-size: 1.1rem;
+}
+
+/* footer one ends */
+
+/* footer two starts */
+
+.footer-two {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2em;
+    align-items: center;
+    border-bottom: 2px solid #429b44;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1em;
+}
+
+.footer-contact > i {
+    margin-right: 1em;
+    font-size: 1.2rem;
+    color: #429b44;
+}
+
+.footer-contact p a {
+    color: #253D4E;
+    text-decoration: none;
+}
+
+.footer-right {
+    margin-right: 4em;
+}
+
+
+.footer-two .footer-right p {
+    font-size: 1.2rem;
+    font-weight: 500;
+} 
+
+.footer-two .footer-right .payment i {
+    font-size: 2rem;
+    color: black;
+    padding: 1em;
+}
+/* footer two ends */
+
+/* footer three starts */
+
+.footer-three {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em;
+    align-items: center;
+}
+
+.copyright p {
+    padding: .5em;
+    font-size: 1.1rem;
+}
+
+.copyright p span a {
+    color: #429b44;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.social-media p b {
+    color: #429b44;
+    font-size: 1.3rem;
+}
+
+.social-media .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: .5em;
+
+}
+
+.social-media .links a {
+    padding: .3em;
+    margin: .5em;
+    font-size: 1.1rem;
+    background-color:#429b44;
+    border-radius: 50%;
+    color: white;
+}
+
+/* footer three ends */
+
+/* footer ends */
