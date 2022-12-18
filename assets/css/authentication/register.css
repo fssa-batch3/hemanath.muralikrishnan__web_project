@@ -93,6 +93,11 @@ form .register-continue {
     color: white;
 }
 
+form .register-continue:hover {
+    background-color: #429b44;
+    margin: 1em;
+}
+
 form .register-login {
     font-size: 1.2rem;
     font-weight: 600;
@@ -103,6 +108,11 @@ form .register-already {
     text-align: center;
     font-size: 1rem;
     color: #253D4E;
+}
+
+form .register-login:hover {
+    color: #429b44;
+    text-decoration: underline;
 }
 
 
