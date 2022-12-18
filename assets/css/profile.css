@@ -94,6 +94,18 @@
     padding: .2em;
 }
 
+.profile-details a {
+    font-size: 1.2rem;
+    color: blue;
+    font-weight: 600;
+
+}
+
+.profile-details a:hover {
+    text-decoration: underline;
+    color: aqua;
+}
+
 .account-settings i{
     color: #429b44;
     font-size: 1.5rem;
@@ -110,6 +122,12 @@
     color: #253D4E;
     font-weight: 500;
 }
+
+
+.profile-links a:hover {
+    color: #429b44;
+    text-decoration: underline;
+} 
 /* end of profile left side */
 
 /* start of profile right side */
