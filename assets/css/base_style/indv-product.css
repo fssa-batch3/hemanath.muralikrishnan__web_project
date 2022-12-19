@@ -141,7 +141,6 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 1em;
-
 }
 
 .right-side-three {
@@ -281,6 +280,8 @@ box-shadow:  11px 11px 22px #c4c4c4,
 }
 
 .desc-cont {
+    display: flex;
+    flex-direction: column;
     padding: 1em;
 }
 

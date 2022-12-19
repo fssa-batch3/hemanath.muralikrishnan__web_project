@@ -21,24 +21,25 @@
 
         <div class="register-form">
 
-            <form action="" method="">
+            <form action="login.html" method="">
 
                 <p class="act">Create Account</p>
 
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter Your Name">
+                <input type="text" id="name" placeholder="Enter Your Name" maxlength="20" required title="Please enter your name below 20 characters">
 
                 <label for="mobile-number">Mobile Number</label>
-                <input type="text" id="mobile-number" placeholder="Enter Your mobile number">
+                <input type="tel" id="mobile-number" placeholder="Enter Your Mobile Number" minlength="10" required title="Please enter your mobile number">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter Your email">
+                <label for="email">Email id</label>
+                <input type="email" id="email" placeholder="Enter Your Email id" required>
 
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter Your Password">
+                <input type="password" id="password" placeholder="Enter Your Password" name="password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,24}$" required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters">
 
 
-                <a href="login.html" class="register-continue">Continue</a>
+                <button>Continue</button>
 
                 <p class="register-already">Already have an account?</p>
                 <a href="login.html" class="register-login">Log in</a>

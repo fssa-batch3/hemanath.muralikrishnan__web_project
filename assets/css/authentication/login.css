@@ -89,16 +89,18 @@ form a {
     text-align: center;
 }
 
-form .login-continue {
+form button {
     margin: 1em 4em 1em 4em;
     padding: 1em;
     background-color: green;
     border-radius: 10px;
     font-size: 1.1rem;
     color: white;
+    outline: none;
+    cursor: pointer;
 }
 
-form .login-continue:hover {
+form button:hover {
     background-color: #429b44;
     margin: 1em;
 }
