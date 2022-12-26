@@ -143,3 +143,131 @@ footer {
 /* footer three ends */
 
 /* footer ends */
+
+/* 400px device */
+
+@media screen and (max-width:400px){
+    /* footer small devices layout  */
+
+.footer-one {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1em;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-flex-two {
+    display: flex;
+    flex-direction: column;
+
+}
+.footer-three {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 2fr;
+}
+
+/* footer small devices layout  */
+
+/* start of footer-one */
+
+.footer-logo a {
+    font-size: 1.2rem;
+    color: #429b44;
+    font-weight: bold;
+}
+
+.footer-title {
+    font-weight: bold;
+    padding-bottom: 1em;
+    font-size: 1rem;
+    color: #253D4E;
+}
+
+.footer-item{
+    padding-bottom: 1em;
+    color: #253D4E;
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.footer-item:hover {
+    color: #429b44;
+    font-size: 1.1rem;
+}
+
+/* end of footer-one */
+
+/* footer two starts */
+
+.footer-two {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    border-bottom: 2px solid #429b44;
+}
+
+.footer-contact p b {
+    font-size: .9rem;
+}
+
+.footer-contact p a {
+    color: #253D4E;
+    text-decoration: none;
+    font-size: .8rem;
+}
+
+.footer-two .footer-right p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #253D4E;
+} 
+
+.footer-two .footer-right .payment i  {
+   padding: .5em;
+   font-size: 1.2rem;
+}
+
+/* footer two ends */
+
+/* footer three starts */
+
+
+.copyright p {
+    font-size: .9rem;
+}
+
+.copyright p span a {
+    color: #429b44;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.social-media p b {
+    color: #429b44;
+    font-size: .9rem;
+}
+
+.social-media .links a {
+    padding: .3em;
+    font-size: 1rem;
+    background-color:#429b44;
+    border-radius: 50%;
+    color: white;
+}
+
+/* footer three ends */
+
+/* footer ends */
+
+}
+
+/* end of 400px device */

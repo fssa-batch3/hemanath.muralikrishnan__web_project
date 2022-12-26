@@ -23,6 +23,8 @@ body::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }
 
+
+
 body {
     /* width: 1024px; */
     overflow-x: hidden;
