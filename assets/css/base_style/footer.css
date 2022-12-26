@@ -2,8 +2,8 @@
 
 footer {
     background: #f1fcfc;
-    font-family: 'Poppins', sans-serif;
     width: 100%;
+    margin-top: 4em;
 }
 
 .footer-flex {
@@ -144,82 +144,3 @@ footer {
 
 /* footer ends */
 
-/* media queries start */
-
-@media screen and (min-width: 360px){
-
-/* footer one starts */
-
-
-    .footer-flex{
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .footer-one .footer-logo a, .footer-one .footer-title {
-        font-size: 1.2rem;
-    }
-
-    .footer-item:hover {
-        color: #429b44;
-        font-size: .9rem;
-    }
-/* footer one ends */
-
-/* footer two starts */
-
-
-    .footer-two {
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .footer-contact p {
-        font-size: 1rem;
-    }
-
-    .footer-two .footer-right p {
-        font-size: 1rem;
-        margin: 1em 0 0 1em;
-    }
-
-    .footer-two .footer-right .payment i {
-        font-size: 1.5rem;
-    }
-
-/* footer two ends */
-
-/* footer three starts */
-
-    .footer-three {
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: 100px 250px;
-    }
-
-    .footer-three .copyright p, .footer-three .copyright p a {
-        font-size: .9rem;
-    }
-
-    .footer-three .links p {
-        font-size: .9rem;
-    }
-
-    .footer-three .links a {
-        font-size: .9rem;
-    }
-
-    .footer-three .social-media p {
-        font-size: .9rem;
-    }
-/* footer three ends */
-
-}
-
-/* media queries end */
