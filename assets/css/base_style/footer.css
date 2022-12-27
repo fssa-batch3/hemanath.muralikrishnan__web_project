@@ -101,6 +101,7 @@ footer {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .copyright p {
@@ -150,12 +151,24 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
+    .footer-one .footer-logo a {
+        font-size: 1.2rem;
+    }
+
+    .footer-one .footer-title {
+        font-size: .9rem;
+    }
+
+    .footer-one .footer-item {
+        font-size: .8rem;
+    }
+
     .footer-item:hover{
         font-size: .9rem;
     }
 
     .footer-two .footer-contact p a, .footer-two .footer-contact p b {
-        font-size: .9rem;
+        font-size: .8rem;
     }
 
     .footer-two .footer-right p {
@@ -168,11 +181,11 @@ footer {
     }
 
     .footer-three .copyright p span a, .footer-three .copyright > p {
-        font-size: 1rem;
+        font-size: .8rem;
     }
 
     .footer-three .copyright p {
-        font-size: .9rem;
+        font-size: .8rem;
     }
 
     .footer-three .social-media .links a {
@@ -183,11 +196,11 @@ footer {
     }
 
     .footer-three .social-media .links p {
-        font-size: 1rem;
+        font-size: .8rem;
     }
 
     .footer-three .social-media p, .footer-three .social-media p b {
-        font-size: 1rem;
+        font-size: .8rem;
     }
 
     
