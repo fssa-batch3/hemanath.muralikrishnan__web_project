@@ -235,3 +235,46 @@
 
 /* end of home page main */
 
+/* media queries start */
+
+@media screen and (max-width: 600px) {
+
+    .home-page-adv{
+        height: 200px;
+    }
+
+    .home-page-adv figure img{
+        width: 400px;
+        height: 200px;
+    }
+
+    .home-page-cat {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+
+    .home-page-cat .cat_cont img {
+        width: 40px;
+    }
+
+    .home-page-cat .cat_cont a p {
+        font-size: .8rem;
+    }
+
+    .text-categories-home{
+        display: grid;
+        grid-template-columns: repeat(3, 130px);
+        justify-items: center;
+        row-gap: 20px;
+    }
+
+    .text-categories-home a {
+        font-size: .9rem;
+    }
+    
+}
+
+/* media queries end */
+

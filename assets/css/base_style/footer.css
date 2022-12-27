@@ -143,7 +143,7 @@ footer {
 
 /* media query starts */
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
 
     .footer-flex{
         display: grid;
