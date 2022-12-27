@@ -13,7 +13,7 @@ footer {
    gap: 1em;
    justify-content: space-between;
    align-items: center;
-   margin: 0 2em 0 2em;
+   margin: 0 1em 0 1em;
 }
 
 .footer-flex-two{
@@ -60,7 +60,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #429b44;
-    margin: 0 2em 0 2em;
+    margin: 0 1em 0 1em;
 }
 
 .footer-contact {
@@ -97,7 +97,7 @@ footer {
 /* footer three starts */
 
 .footer-three {
-    margin: 1em;
+    margin: 0 1em 0 1em;
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
@@ -153,7 +153,7 @@ footer {
     .footer-item:hover{
         font-size: .9rem;
     }
-    
+
     .footer-two .footer-contact p a, .footer-two .footer-contact p b {
         font-size: .9rem;
     }
