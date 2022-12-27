@@ -253,15 +253,14 @@ nav {
         display: grid;
         grid-auto-flow: column;
         justify-content: space-between;
-        align-content: center;
         padding: 1em;
         position: sticky;
         top: 0;
     }
 
     .mobile-nav .mobile-burger-menu label {
-        font-size: 2rem;
-        margin: 1em 0 0 0;
+        font-size: 1.5rem;
+        /* margin: 1em 0 0 0; */
         color: #429b44;
         cursor: pointer;
     }
@@ -303,7 +302,7 @@ nav {
         height: 30px;
         width: 200px;
         border-radius: 10px;
-        font-size: 1rem;
+        font-size: .9rem;
         outline: none;
         border-color: #429b44 ;
         padding-left: 10px;
@@ -317,7 +316,7 @@ nav {
 
     .side-menu-mobile p {
         padding: 1em 0 1em 0;
-        font-size: 1.5rem;
+        font-size: .9rem;
         color: #253D4E;
         font-weight: 600;
     }
@@ -334,7 +333,7 @@ nav {
 
     .side-menu-items .side-item a {
         color: #429b44;
-        font-size: 1.2rem;
+        font-size: .8rem;
         font-weight: 500;
     }
 
@@ -353,16 +352,16 @@ nav {
     .mobile-nav .mobile-logo a {
         color: #429b44;
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-decoration: none;
     }
 
     .mobile-nav .mobile-menu {
-        margin: .7em 0 0 0;
+        margin: .5em 0 0 0;
     }
     
     .mobile-nav .mobile-menu a i {
-        font-size: 1.5rem;
+        font-size: 1rem;
         color: #429b44;
     }
 
