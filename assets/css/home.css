@@ -239,6 +239,8 @@
 
 @media screen and (max-width: 600px) {
 
+    /* start of adv */
+
     .home-page-adv{
         height: 200px;
     }
@@ -247,6 +249,10 @@
         width: 400px;
         height: 200px;
     }
+
+    /* end of adv */
+
+    /* start of main cat */
 
     .home-page-cat {
         display: grid;
@@ -273,6 +279,149 @@
     .text-categories-home a {
         font-size: .9rem;
     }
+
+    /* end of main cat */
+
+    /* start of products design */
+    .product-container {
+       padding: .5em;
+    }
+
+    .product-main {
+        width: 200px;
+        height: 450px;
+    }
+
+    .product-img img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .product-main .category-title {
+        font-size: .7rem;
+    }
+
+    .product-main .product-name p {
+        font-size: .9rem;
+    }
+
+    .farmer-part {
+        width: 140px;
+    }
+
+    .farmer-part img {
+        width: 40px;
+    }
+
+    .farmer-part .farmer-name {
+        font-size: .8rem;
+    }
+
+    .rating-part {
+        width: 120px;
+    }
+
+    .rating-part .rating i {
+        font-size: .8rem;
+    }
+
+    .rating-part .rating-number p {
+        font-size: .9rem;
+    }
+
+    .amount .amount-one {
+        font-size: 1.1rem;
+    }
+
+    .qty-cat {
+        width: 150px;
+    }
+
+    .qty-cat .qty input {
+        width: 60px;
+    }
+
+    .qty-cat .add-button a {
+        font-size: .8rem;
+    }
+
+    .qty-cat .add-button:hover {
+        background-color: lightgreen;
+    }
+
+    /* end of products desing */
+
+    /* start of daily best products */
+
+    .daily-best {
+        font-size: 1.1rem;
+    }
+
+    /* end of daily best products */
+
+    /* start of hassle section */
+
+    .hassle-main .hassle-right {
+        margin: 0 auto;
+    }
+
+    .hassle-main .hassle-right img {
+        width: 150px; 
+    }
+
+    .hassle-main {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 1em
+    }
+
+    .hassle-left .hassle-text p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .hassle-left .hassle-input {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        
+    }
+
+    .hassle-left .hassle-input i {
+        display: none;
+    }
+
+    .hassle-left .hassle-input input {
+        margin: 0 auto;
+    }
+
+    .hassle-left .hassle-input a {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+
+    /* end of hassle section */
+
+    /* unique sec start */
+
+    .agrokart-unique {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .agrokart-unique .unique-cont {
+        padding: 0;
+        margin: 1em;
+    }
+
+    .unique-cont .unique-img i {
+        font-size: 1.5rem;
+    }
+
+    /* end unique sec */
     
 }
 

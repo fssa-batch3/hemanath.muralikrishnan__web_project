@@ -154,7 +154,7 @@
 
 .add-button:hover {
     background-color: lightgreen;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
 }
 
 /* end of each-individual product container */
