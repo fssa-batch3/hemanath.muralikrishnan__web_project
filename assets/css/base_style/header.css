@@ -254,7 +254,7 @@ nav {
         grid-auto-flow: column;
         justify-content: space-between;
         padding: 1em;
-        position: fixed;
+        position: sticky;
         top: 0;
     }
 
