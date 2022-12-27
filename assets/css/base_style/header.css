@@ -233,6 +233,145 @@ nav {
     cursor: pointer;
 }
 
+.mobile-nav {
+    display: none;
+}
 /* nav-three end */
 
 /* end of navigation */
+
+@media screen and (max-width: 600px) {
+
+    .nav-one, .nav-two, .nav-three {
+        display: none;
+    }
+
+    .mobile-nav {
+        height: 60px;
+        width: 100%;
+        border-bottom: 1px solid gainsboro;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-content: center;
+        padding: 1em;
+        position: sticky;
+        top: 0;
+    }
+
+    .mobile-nav .mobile-burger-menu label {
+        font-size: 2rem;
+        margin: 1em 0 0 0;
+        color: #429b44;
+        cursor: pointer;
+    }
+
+    .mobile-nav .mobile-burger-menu label:hover {
+        color: black;
+        background-color: #429b44;
+        border-radius: 10px;
+    }
+
+    .mobile-burger-menu input[type=checkbox]{
+        display: none;
+    }
+
+    .mobile-burger-menu .side-menu-mobile {
+        display: none;
+    }
+
+    .mobile-burger-menu input[type=checkbox]:checked ~ .side-menu-mobile{
+        display: block;
+        transition: .5s ease;
+    }
+
+    .mobile-burger-menu .side-menu-mobile {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        background-color: #f1fcfc;
+        padding: 1em;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .side-menu-mobile .mobile-search {
+        position: relative;
+    }
+
+    .side-menu-mobile .mobile-search input {
+        height: 30px;
+        width: 200px;
+        border-radius: 10px;
+        font-size: 1rem;
+        outline: none;
+        border-color: #429b44 ;
+        padding-left: 10px;
+    }
+
+    .side-menu-mobile .mobile-search i {
+        position: absolute;
+        right: 12px;
+        top: 5px;
+    }
+
+    .side-menu-mobile p {
+        padding: 1em 0 1em 0;
+        font-size: 1.5rem;
+        color: #253D4E;
+        font-weight: 600;
+    }
+
+    .side-menu-items {
+        border: 2px solid gray;
+        padding: 1em;
+        border-radius: 10px;
+    }
+
+    .side-menu-items .side-item {
+        padding:  1em 0 1em 0;
+    }
+
+    .side-menu-items .side-item a {
+        color: #429b44;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .side-menu-items .side-item a:hover {
+        text-decoration: underline;
+        text-decoration-color: #253D4E;
+    }
+
+    .side-menu-items .side-item i {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+
+
+    .mobile-nav .mobile-logo a {
+        color: #429b44;
+        font-weight: bold;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+
+    .mobile-nav .mobile-menu {
+        margin: .7em 0 0 0;
+    }
+    
+    .mobile-nav .mobile-menu a i {
+        font-size: 1.5rem;
+        color: #429b44;
+    }
+
+    .mobile-nav .mobile-menu > a {
+        padding: 0 1em 0 0;
+    }
+
+    
+
+    
+    
+}
