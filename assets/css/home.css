@@ -242,6 +242,7 @@
     /* start of adv */
 
     .home-page-adv{
+        margin-top: 5em;
         height: 200px;
     }
 
@@ -393,6 +394,7 @@
 
     .hassle-left .hassle-input input {
         margin: 0 auto;
+        width: 80%;
     }
 
     .hassle-left .hassle-input a {
