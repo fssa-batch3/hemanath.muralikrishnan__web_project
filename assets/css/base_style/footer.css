@@ -1,6 +1,7 @@
 /* footer starts */
 
 footer {
+    margin-top: 2.5em;
     background: #f1fcfc;
     font-family: 'Poppins', sans-serif;
     width: 100%;
@@ -12,7 +13,7 @@ footer {
    gap: 1em;
    justify-content: space-between;
    align-items: center;
-   margin: 0 1em 0 1em;
+   margin: 0 2em 0 2em;
 }
 
 .footer-flex-two{
@@ -59,7 +60,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #429b44;
-    margin: 0 1em 0 1em;
+    margin: 0 2em 0 2em;
 }
 
 .footer-contact {
@@ -149,6 +150,10 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
+    .footer-item:hover{
+        font-size: .9rem;
+    }
+    
     .footer-two .footer-contact p a, .footer-two .footer-contact p b {
         font-size: .9rem;
     }
