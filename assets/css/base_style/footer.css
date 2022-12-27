@@ -10,6 +10,8 @@ footer {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 1em;
+   justify-content: space-between;
+   align-items: center;
    margin: 0 1em 0 1em;
 }
 
@@ -52,8 +54,8 @@ footer {
 /* footer two starts */
 
 .footer-two {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #429b44;
@@ -94,11 +96,10 @@ footer {
 /* footer three starts */
 
 .footer-three {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     margin: 1em;
-    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
 }
 
 .copyright p {
@@ -148,19 +149,42 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
-    .footer-two {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .footer-two .footer-right  {
-        margin: 1em 0 0 0;
+    .footer-two .footer-contact p a, .footer-two .footer-contact p b {
+        font-size: .9rem;
     }
 
     .footer-two .footer-right p {
-        font-size: 1rem;
+        font-size: .8rem;
     
     }
+
+    .footer-two .footer-right .payment i {
+        font-size: .9rem;
+    }
+
+    .footer-three .copyright p span a, .footer-three .copyright > p {
+        font-size: 1rem;
+    }
+
+    .footer-three .copyright p {
+        font-size: .9rem;
+    }
+
+    .footer-three .social-media .links a {
+        background:none;
+        color: #429b44;
+        margin: 0;
+        padding: .3em;
+    }
+
+    .footer-three .social-media .links p {
+        font-size: 1rem;
+    }
+
+    .footer-three .social-media p, .footer-three .social-media p b {
+        font-size: 1rem;
+    }
+
     
 }
 
