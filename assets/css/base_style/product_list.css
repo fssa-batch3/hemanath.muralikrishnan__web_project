@@ -37,21 +37,19 @@
 
 /* start of aside menu */
 
-.left-side-aside {
+.main-container-aside-product {
     display: flex;
     flex-direction: row;
 }
 
 .aside-list {
     margin-top: 1em ;
-}
-
-/* start of categories list */
-
-.aside-categories-list {
     position: sticky;
     top: 80px;
 }
+
+/* start of categories list */
+  
 
 .categories-main {
     overflow: scroll;
@@ -154,4 +152,117 @@
 }
 
 /* mutiple-pages end */
+
+/* start of media queires */
+
+@media screen and (max-width: 600px) {
+
+    aside {
+        display: none;
+    }
+
+    .list-top {
+       margin: 1em 0 0 .5em;
+    }
+
+    .list-top .all-products {
+        font-size: .8rem;
+        width: 100px;
+        background-color: #f1fcfc;
+    }
+
+    .list-top ul {
+        width: 260px;
+        background-color: #f1fcfc;
+    }
+
+    .list-top ul li, .list-top ul li a {
+        font-size: .9rem;
+    }
+
+    .main-container-aside-product .products-list-container{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1em 0 0 0;
+            justify-content: center;
+    }
+
+    .main-container-aside-product .products-list-container .product-container {
+        padding: 0 .5em .5em .5em;
+    }
+
+    .main-container-aside-product .products-list-container .product-main {
+        width: 175px;
+        height: 400px;
+
+    }
+
+    .main-container-aside-product .products-list-container .product-main .product-img img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .products-list-container .product-main .farmer-part{
+        width: 140px;
+    }
+
+    .products-list-container .product-main .farmer-part img {
+        width: 30px;
+    }
+    .products-list-container .product-main .category-title {
+        font-size: .7rem;
+    }
+
+    .products-list-container .product-main .product-name p {
+        font-size: .8rem;
+    }
+
+    .products-list-container .product-main .farmer-part .farmer-name {
+        font-size: .8rem;
+    }
+
+    .products-list-container .product-main .rating-part{
+        width: 120px;
+    }
+
+    .products-list-container .product-main .rating-part .rating i {
+        font-size: .8rem;
+    }
+
+    .products-list-container .product-main .rating-part .rating-number p {
+        font-size: .9rem;
+    }
+
+    .products-list-container .product-main .amount .amount-one {
+        font-size: 1rem;
+    }
+
+    .products-list-container .product-main .qty-cat {
+        width: 140px;
+    }
+
+    .products-list-container .product-main .qty-cat .qty input {
+        width: 50px;
+    }
+    .products-list-container .product-main .qty-cat .add-button a {
+        font-size: .8rem;
+    }
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+} 
+
+
+/* end of media queries */
 
