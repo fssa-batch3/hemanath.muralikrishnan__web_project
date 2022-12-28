@@ -191,7 +191,7 @@
         top: 60px;
         background-color: #429b44;
         padding: .3em;
-        z-index: 2;
+        z-index: 1;
     }
 
     .mobile-categories{
