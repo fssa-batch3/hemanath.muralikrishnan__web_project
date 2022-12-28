@@ -46,7 +46,7 @@
 }
 
 .indv-products-cont{
-    width: 50%;
+    /* width: 50%; */
     display: flex;
     flex-direction: row;
     
@@ -55,7 +55,6 @@
 .indv-img img {
     width: 400px;
     height: 400px;
-    border-radius: 20px;
 }
 
 .indv-farmer-part img {
@@ -383,3 +382,182 @@ box-shadow:  11px 11px 22px #c1c0c0,
 
 
 /* end of related products */
+
+
+/* media queires start */
+
+@media screen and (max-width:600px) {
+
+    .list-top ul {
+        width: 220px;
+    }
+
+    .list-top ul li, .list-top ul li a{
+        font-size: .9rem;
+    }
+
+    .individuals-products {
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .individuals-products .indv-products-cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .indv-products-cont .indv-products-left-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .indv-products-cont .indv-products-left-side .product-name-rat p {
+        text-align: center;
+    }
+
+    .indv-products-cont .indv-products-left-side .indv-img img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .indv-products-cont .indv-products-left-side .healthy{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .indv-products-cont .indv-products-left-side .healthy .heal .circle {
+        font-size: 1rem;
+        padding: 1.5em;
+    }
+
+    .indv-products-cont .indv-products-left-side .healthy .heal .sci {
+        font-size: .9rem;
+    }
+
+    .individuals-products .indv-products-right-side {
+        margin: 0 auto;
+    }
+
+    .right-side-three .indv-category-title {
+        font-size: 1.2rem;
+    }
+
+    .right-side-three .indv-farmer-part{
+        width: 280px;
+    }
+
+    .right-side-three .indv-farmer-part img {
+        width: 60px;
+    }
+
+    .right-side-three .indv-farmer-part .indv-farmer-name {
+        font-size: 1rem;
+    }
+
+    .right-side-three .indv-qty-cat {
+        width: 340px;
+    }
+
+    .right-side-three .indv-qty-cat .indv-qty input {
+        width: 70px;
+    }
+
+    .indv-products-right-side-two .description {
+        width: auto;
+    }
+
+    .indv-products-right-side-two .description .desc-cont .desc-title {
+        font-size: 1.2rem;
+    }
+
+    .indv-products-right-side-two .description .desc-cont .desc-content {
+        font-size: 1rem;
+    }
+
+    .indv-products-right-side-two .rat-title {
+        font-size: 1.2rem;
+    }
+
+
+    .rela-scroll > p {
+        font-size: 1.2rem;
+    }
+
+    /* start of products design */
+    .product-container {
+        padding: .5em;
+     }
+ 
+     .product-container .product-main {
+         width: 200px;
+         height: 450px;
+     }
+ 
+     .product-container .product-img img {
+         width: 150px;
+         height: 150px;
+     }
+ 
+     .product-container .product-main .category-title {
+         font-size: .7rem;
+     }
+ 
+     .product-container .product-main .product-name p {
+         font-size: .9rem;
+     }
+ 
+     .product-container .farmer-part {
+         width: 140px;
+     }
+ 
+     .product-container .farmer-part img {
+         width: 40px;
+     }
+ 
+     .product-container .farmer-part .farmer-name {
+         font-size: .8rem;
+     }
+ 
+     .product-container .rating-part {
+         width: 120px;
+     }
+ 
+     .product-container .rating-part .rating i {
+         font-size: .8rem;
+     }
+ 
+     .product-container .rating-part .rating-number p {
+         font-size: .9rem;
+     }
+ 
+     .product-container .amount .amount-one {
+         font-size: 1.1rem;
+     }
+ 
+     .product-container .qty-cat {
+         width: 150px;
+     }
+ 
+     .product-container .qty-cat .qty input {
+         width: 60px;
+     }
+ 
+     .product-container .qty-cat .add-button a {
+         font-size: .8rem;
+     }
+ 
+     .product-container .qty-cat .add-button:hover {
+         background-color: lightgreen;
+     }
+ 
+     /* end of products desing */
+
+
+}
+
+
+/* media queires end */
