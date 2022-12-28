@@ -439,7 +439,7 @@ box-shadow:  11px 11px 22px #c1c0c0,
     }
 
     .individuals-products .indv-products-right-side {
-        margin: 0 auto;
+        margin: 0;
     }
 
     .right-side-three .indv-category-title {
@@ -462,8 +462,16 @@ box-shadow:  11px 11px 22px #c1c0c0,
         width: 340px;
     }
 
+    .right-side-three .indv-qty-cat .indv-add-button{
+        margin: auto;
+    }
+
     .right-side-three .indv-qty-cat .indv-qty input {
         width: 70px;
+    }
+
+    .right-side-three .indv-qty-cat .favorite{
+        margin: auto;
     }
 
     .indv-products-right-side-two .description {
