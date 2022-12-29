@@ -261,3 +261,85 @@ details-of-order .all-products .details-products .order-qty, .order-price {
 /* end of order right side cont */
 
 /* end of orders */
+
+/* media queries start */
+
+@media screen and (max-width: 600px) {
+
+    .checkout-title {
+        font-size: 1.5rem;
+    }
+
+    .orders-cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .orders-cont .order-left-side .delivery-date-cont{
+        margin: 0;
+    }
+
+    .orders-cont .order-left-side .delivery-date-cont p {
+        font-size: 1.2rem;
+    }
+
+    .orders-cont .order-left-side .delivery-date-cont .dates-cont {
+        width: auto;
+    }
+
+    .orders-cont .order-left-side .delivery-date-cont .dates-cont p{
+        font-size: 1rem;
+    }
+    
+    .orders-cont .order-left-side .deliver-time-cont p {
+        font-size: 1.2rem;
+    }
+
+    .orders-cont .order-left-side .deliver-time-cont  .delivery-cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .orders-cont .order-left-side .deliver-time-cont  .delivery-cont p {
+        font-size: 1rem;
+        width: 200px;
+    }
+
+    .orders-cont .order-left-side .address-section-order .address-title{
+        font-size: 1.2rem;
+    }
+
+    .orders-cont .order-left-side .address-section-order .address{
+        font-size: 1.1rem;
+    }
+
+    .orders-cont .orders-right-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .orders-right-side .details-of-order {
+        margin: 0 auto;
+    }
+
+    .orders-right-side .details-of-order .all-products{
+        margin: 1em;
+    }
+
+    .orders-right-side .details-of-order .all-products .details-products .details-img img{
+        width: 60px;
+    }
+
+}
+
+
+
+
+/* media queires end */

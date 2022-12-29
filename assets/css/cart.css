@@ -233,6 +233,10 @@ tbody td input{
         padding-top: 1em;
     }
 
+    .mobile-cart-main .mobile-cart-product .mobile-cart-img-details .mobile-cart-pro-title {
+        font-weight: 600;
+    }
+
     .mobile-cart-main .mobile-price-cont .mobile-cart-list {
         display: flex;
         flex-direction: row;
@@ -244,6 +248,7 @@ tbody td input{
     .mobile-cart-main .mobile-price-cont .mobile-cart-list > p {
         color: #253D4E;
         font-weight: 600;
+        font-family: sans-serif;
     }
 
     .mobile-cart-main .mobile-price-cont .mobile-stock input {
@@ -251,6 +256,11 @@ tbody td input{
         height: 40px;
         border-radius: 10px;
     }
+
+    .mobile-cart-main .mobile-price-cont .mobile-remove i {
+        color: #429b44;
+    }
+
 
 
     .cart-right-side {
