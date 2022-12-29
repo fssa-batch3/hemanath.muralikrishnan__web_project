@@ -41,8 +41,6 @@ table caption {
     display: none;
 }
 
-
-
 .your-cart {
     display: flex;
     flex-direction: row;
@@ -52,8 +50,7 @@ table caption {
 
 
 .your-cart .cart-left-side table {
-    border-collapse: collapse ;
-    width: 800px;
+    border-collapse: collapse;
     background-color: white;
     border-radius: 20px;
     margin-bottom: 2em;
@@ -175,5 +172,100 @@ tbody td input{
     color: #429b44;
 }
 
+.mobile-cart-main{
+    display: none;
+}
+
 /* end of cart cont */
+
+@media screen and (max-width: 600px) {
+
+    .list-top ul {
+        width: 200px;
+    }
+
+    .list-top ul li a,  .list-top ul li {
+        font-size: .9rem;
+    }
+
+    .cart-title {
+        margin:  1em 0 0 2.5em;
+    }
+
+    .your-cart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2em;
+    }
+
+    .your-cart .cart-left-side table {
+       display: none;
+    }
+
+    /* start of mobile cart */
+
+    .mobile-cart-main{
+        display: block;
+        border: 2px solid gray;
+        background-color: white;
+        border-radius: 10px;
+        margin-bottom: 2em;
+    }
+
+    .mobile-cart-main .mobile-cart-product{
+        border-bottom: 2px solid green;
+    }
+
+    .mobile-cart-main .mobile-cart-product .mobile-cart-img-details img {
+        width: 150px;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin-bottom: 1em;
+    }
+
+    .mobile-cart-main .mobile-cart-product .mobile-cart-img-details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1em;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-cart-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-cart-list > p {
+        color: #253D4E;
+        font-weight: 600;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-stock input {
+        width: 50px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+
+    .cart-right-side {
+        margin-top: 2em;
+    }
+
+    .your-cart .cart-right-side .checkout-btn {
+        margin: 0 2em;
+    }
+
+
+
+
+    /* end of mobile cart */
+    
+    
+}
 
