@@ -31,3 +31,12 @@
 
 /* end of order success */
 
+@media screen and (max-width: 600px) {
+
+    .order-success-main p {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+}
+
