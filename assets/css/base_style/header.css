@@ -316,11 +316,16 @@ nav {
         top: 5px;
     }
 
-    .side-menu-mobile p {
+    .side-menu-mobile a p {
         padding: 1em 0 1em 0;
         font-size: .9rem;
         color: #253D4E;
         font-weight: 600;
+    }
+
+    .side-menu-mobile a p:hover {
+        text-decoration: underline;
+        text-decoration-color: blue;
     }
 
     .side-menu-items {
@@ -329,8 +334,16 @@ nav {
         border-radius: 10px;
     }
 
+
     .side-menu-items .side-item {
         padding:  1em 0 1em 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .side-menu-items .side-item i {
+        margin-right: .5em;
     }
 
     .side-menu-items .side-item a {

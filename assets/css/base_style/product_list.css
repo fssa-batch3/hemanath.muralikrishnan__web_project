@@ -275,6 +275,10 @@
 
     }
 
+    .main-container-aside-product .products-list-container .product-main .product-img{
+       padding: 0 .3em
+    }
+
     .main-container-aside-product .products-list-container .product-main .product-img img {
         width: 125px;
         height: 125px;

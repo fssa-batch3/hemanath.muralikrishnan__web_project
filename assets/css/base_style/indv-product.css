@@ -426,6 +426,10 @@ box-shadow:  11px 11px 22px #c1c0c0,
         text-align: center;
     }
 
+    .indv-products-cont .indv-products-left-side .product-name-rat .indv-rating-part {
+       margin: 0 auto;
+    }
+
     .indv-products-cont .indv-products-left-side .indv-img img {
         width: 200px;
         height: 200px;
