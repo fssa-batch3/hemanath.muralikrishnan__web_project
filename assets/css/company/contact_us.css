@@ -149,3 +149,51 @@ form button {
 /* end of contact us sec */
 
 
+/* media queries start */
+
+@media screen and (max-width: 600px) {
+
+    .list-top ul {
+        width: 190px;
+    }
+
+    .list-top ul li a, .list-top ul li {
+        font-size: .9rem;
+    }
+
+    .contact-us-main{
+        margin: 1.5em 0 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-us-main .contact-us-left-side .contact-title {
+       text-align: center;
+       
+    }
+
+    .contact-us-left-side .google-map iframe {
+        width: auto;
+
+    }
+
+    .contact-us-main .contact-us-right-side{
+        padding: 1em;
+    }
+
+    .contact-us-main .contact-us-right-side >p {
+        font-size: 1.2rem;
+    }
+    
+    .contact-us-main .contact-us-right-side form {
+        width: 300px;
+    }
+
+
+
+}
+
+/* media queries end */
+
+
