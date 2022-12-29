@@ -388,6 +388,8 @@ box-shadow:  11px 11px 22px #c1c0c0,
 
 @media screen and (max-width:600px) {
 
+    /* start of list top */
+
     .list-top ul {
         width: 220px;
     }
@@ -396,8 +398,12 @@ box-shadow:  11px 11px 22px #c1c0c0,
         font-size: .9rem;
     }
 
+    /* end of list top */
+
+    /* start of indv products */
+
     .individuals-products {
-        width: 90%;
+        width: 95%;
         height: auto;
         margin: 0 auto;
     }
@@ -406,6 +412,8 @@ box-shadow:  11px 11px 22px #c1c0c0,
         display: flex;
         flex-direction: column;
     }
+
+    /* start of indv products left side */
 
     .indv-products-cont .indv-products-left-side {
         display: flex;
@@ -437,6 +445,10 @@ box-shadow:  11px 11px 22px #c1c0c0,
     .indv-products-cont .indv-products-left-side .healthy .heal .sci {
         font-size: .9rem;
     }
+
+    /* end of indv products left side */
+
+    /* start of indv products right side */
 
     .individuals-products .indv-products-right-side {
         margin: 0;
@@ -489,6 +501,9 @@ box-shadow:  11px 11px 22px #c1c0c0,
     .indv-products-right-side-two .rat-title {
         font-size: 1.2rem;
     }
+    /* end of indv products right side */
+
+    /* end of indv products  */
 
 
     .rela-scroll > p {
