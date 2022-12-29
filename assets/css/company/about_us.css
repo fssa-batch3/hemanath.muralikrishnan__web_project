@@ -65,3 +65,41 @@
 }
 /* end of about us */
 
+/* start of media queries */
+
+@media screen and (max-width: 600px) {
+
+    .list-top ul{
+        width: 180px;
+    }
+
+    .list-top ul li a, .list-top ul li {
+        font-size: .9rem;
+    }
+
+    .about-us .about-title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 1em;
+    }
+
+    .about-us-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-us-content p {
+        width: auto;
+        font-size: 1rem;
+        margin: 0 1em;
+    }
+
+    .about-us-content img {
+        width: 300px;
+    }
+    
+}
+
+
+/* end of media queries */
+

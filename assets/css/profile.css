@@ -293,4 +293,17 @@
 
 /* end of profile section */
 
+/* start of media queires */
+
+@media screen and (max-width: 600px) {
+
+    .profile-main {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+
+/* end of media queries */
+
 
