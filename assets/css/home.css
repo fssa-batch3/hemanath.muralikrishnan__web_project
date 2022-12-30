@@ -10,34 +10,51 @@
     border-radius: 30px;
     overflow: hidden;
     position: relative;
-  
-  }
-  
+
+}
+
 .home-page-adv figure img {
     width: 1200px;
     height: 400px;
     float: left;
-  
-  }
-  
+
+}
+
 .home-page-adv figure {
     position: relative;
     width: 500%;
     margin: 0;
     left: 0px;
     animation: webzone 10s infinite linear;
-  }
-  
-  
-  @keyframes webzone {
-    0%{left:0%;}
-    15%{left:0%;}
-    20%{left: -100%;}
-    35%{left: -100%;}
-    40%{left: -200%;}
-    60%{left: -200%;}
-  }
-  
+}
+
+
+@keyframes webzone {
+    0% {
+        left: 0%;
+    }
+
+    15% {
+        left: 0%;
+    }
+
+    20% {
+        left: -100%;
+    }
+
+    35% {
+        left: -100%;
+    }
+
+    40% {
+        left: -200%;
+    }
+
+    60% {
+        left: -200%;
+    }
+}
+
 
 /* end of home page adv */
 
@@ -67,7 +84,7 @@
     font-weight: 500;
 }
 
-.home-page-cat .cat_cont a p:hover{
+.home-page-cat .cat_cont a p:hover {
     text-decoration: underline;
     color: blue;
 }
@@ -111,7 +128,7 @@
     font-weight: bold;
 }
 
-.best-sells-container{
+.best-sells-container {
     display: flex;
     overflow-x: scroll;
     margin-top: 2em;
@@ -132,7 +149,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items:center;
+    align-items: center;
     background-color: #F2FCE4;
     margin: 5em 2em 2em 2em;
     border-radius: 20px;
@@ -182,7 +199,7 @@
 }
 
 .hassle-input a {
-    background-color:green;
+    background-color: green;
     padding: 1em;
     color: white;
     border-radius: 20px;
@@ -241,11 +258,11 @@
 
     /* start of adv */
 
-    .home-page-adv{
+    .home-page-adv {
         height: 200px;
     }
 
-    .home-page-adv figure img{
+    .home-page-adv figure img {
         width: 400px;
         height: 200px;
     }
@@ -269,7 +286,7 @@
         font-size: .8rem;
     }
 
-    .text-categories-home{
+    .text-categories-home {
         display: grid;
         grid-template-columns: repeat(3, 130px);
         justify-items: center;
@@ -283,18 +300,39 @@
     /* end of main cat */
 
     /* start of products design */
-    .product-container {
-       padding: .5em;
+
+    .products-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1em 0 0 0;
+        justify-content: center;
+    }
+
+   .product-container {
+        padding: 0 .5em .5em .5em;
     }
 
     .product-main {
-        width: 200px;
-        height: 450px;
+        width: 175px;
+        height: 400px;
+
     }
 
-    .product-img img {
-        width: 150px;
-        height: 150px;
+    .product-main .product-img {
+        padding: 0 .3em
+    }
+
+    .product-main .product-img img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .product-main .farmer-part {
+        width: 140px;
+    }
+
+    .product-main .farmer-part img {
+        width: 30px;
     }
 
     .product-main .category-title {
@@ -302,52 +340,41 @@
     }
 
     .product-main .product-name p {
-        font-size: .9rem;
-    }
-
-    .farmer-part {
-        width: 140px;
-    }
-
-    .farmer-part img {
-        width: 40px;
-    }
-
-    .farmer-part .farmer-name {
         font-size: .8rem;
     }
 
-    .rating-part {
+    .product-main .farmer-part .farmer-name {
+        font-size: .8rem;
+    }
+
+    .product-main .rating-part {
         width: 120px;
     }
 
-    .rating-part .rating i {
+    .product-main .rating-part .rating i {
         font-size: .8rem;
     }
 
-    .rating-part .rating-number p {
+    .product-main .rating-part .rating-number p {
         font-size: .9rem;
     }
 
-    .amount .amount-one {
-        font-size: 1.1rem;
+    .product-main .amount .amount-one {
+        font-size: 1rem;
     }
 
-    .qty-cat {
-        width: 150px;
+    .product-main .qty-cat {
+        width: 140px;
     }
 
-    .qty-cat .qty input {
-        width: 60px;
+    .product-main .qty-cat .qty input {
+        width: 50px;
     }
 
-    .qty-cat .add-button a {
+    .product-main .qty-cat .add-button a {
         font-size: .8rem;
     }
 
-    .qty-cat .add-button:hover {
-        background-color: lightgreen;
-    }
 
     /* end of products desing */
 
@@ -366,13 +393,13 @@
     }
 
     .hassle-main .hassle-right img {
-        width: 150px; 
+        width: 150px;
     }
 
     .hassle-main {
         display: grid;
         grid-template-columns: 1fr;
-        margin: 1em
+        margin: 3em 1em 1em 1em
     }
 
     .hassle-left .hassle-text p {
@@ -384,7 +411,7 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
-        
+
     }
 
     .hassle-left .hassle-input i {
@@ -423,8 +450,7 @@
     }
 
     /* end unique sec */
-    
+
 }
 
 /* media queries end */
-
