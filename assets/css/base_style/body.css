@@ -26,9 +26,9 @@ body::-webkit-scrollbar {
 
 
 body {
-    /* width: 1024px; */
     overflow-x: hidden;
     scroll-behavior: smooth;
     background-color: #f2f3f4;
     font-family: 'Poppins', sans-serif;
 }
+

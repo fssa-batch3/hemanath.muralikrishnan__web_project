@@ -219,10 +219,12 @@
         right: 25%;
         background-color: #fff;
         box-shadow: 5px 5px 15px rgb(0 0 0 / 5%);
-        border-radius: 10px;
         line-height: 2.2em;   
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;  
 
     }
+    
 
     .mobile-categories ul > li .mobile-cat-dropdown-menu ul li {
         display: none;
