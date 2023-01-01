@@ -49,7 +49,7 @@ body {
 }
 
 form {
-    width: 400px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -119,3 +119,32 @@ form .register-login:hover {
 
 
 /* end of register main */
+
+/* start of media queires */
+
+@media screen and (max-width: 600px) {
+
+    .register-logo{
+        font-size: 1.2rem;
+    }
+
+    .register-main form {
+        width: 300px;
+    }
+
+    .register-main form .act {
+        font-size: 1.1rem;
+    }
+
+    .register-main form label {
+        font-size: 1rem;
+    }
+
+    .register-main .forgot-pass {
+        font-size: .9rem;
+    }
+    
+}
+
+
+/* end of media queries */

@@ -125,3 +125,32 @@ form .register-here:hover {
 
 
 /* end of register main */
+
+/* start of media queires */
+
+@media screen and (max-width: 600px) {
+
+    .login-logo{
+        font-size: 1.2rem;
+    }
+
+    .login-main form {
+        width: 300px;
+    }
+
+    .login-main form .act {
+        font-size: 1.1rem;
+    }
+
+    .login-main form label {
+        font-size: 1rem;
+    }
+
+    .login-main form .forgot-pass {
+        font-size: .9rem;
+    }
+    
+}
+
+
+/* end of media queries */
