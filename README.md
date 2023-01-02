@@ -16,5 +16,5 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 
 -> Live Website: https://fssa-batch3.github.io/hemanath.muralikrishnan__web_project/
 
-<h1 style="text-align: center;">AgroKart 100 days</h1>
+<h1 align="center">AgroKart 100 days</h1>
 
