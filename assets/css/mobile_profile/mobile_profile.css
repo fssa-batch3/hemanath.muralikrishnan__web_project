@@ -4,10 +4,11 @@
         width: 200px;
     }
 
-    .list-top ul li a, .list-top ul li  {
+    .list-top ul li a,
+    .list-top ul li {
         font-size: .9rem;
     }
-    
+
     .mobile-profile-title {
         font-size: 1.2rem;
         color: black;
@@ -25,9 +26,14 @@
 
     .mobile-profile-section {
         background-color: white;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
-    border-radius: 10px;
-    padding: 1em;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+        border-radius: 10px;
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
     }
 
     .mobile-profile-section .mobile-profile-img img {
@@ -35,16 +41,9 @@
         border-radius: 50%;
     }
 
-    .mobile-profile-section{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: auto;
+    .mobile-profile-section {}
 
-    }
-
-    .mobile-profile-section .mobile-profile-details p{
+    .mobile-profile-section .mobile-profile-details p {
         font-size: 1rem;
         color: black;
         font-weight: 500;
@@ -52,10 +51,10 @@
 
     .mobile-profile-options {
         background-color: white;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
-    border-radius: 10px;
-    margin-top: 1rem;
-    padding: 1em;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+        border-radius: 10px;
+        margin-top: 1rem;
+        padding: 1em;
     }
 
     .mobile-profile-options .mobile-account-settings {
@@ -79,8 +78,8 @@
     .mobile-profile-options .mobile-account-settings p {
         margin-left: .5em;
         color: black;
-       font-size: 1.1rem;
-       font-weight: 600;
+        font-size: 1.1rem;
+        font-weight: 600;
     }
 
     .mobile-profile-options .mobile-profile-links a {
