@@ -21,7 +21,11 @@
     }
 
     .mobile-pro-settings-sec .mobile-input input {
-       border-radius: 10px;
+       border-top-style: hidden;
+       border-right-style: hidden;
+       border-left-style: hidden;
+       border-bottom-style: groove;
+       border-bottom: 1px solid green;
     }
 
     .mobile-pro-settings-sec .mobile-opt-title p{
