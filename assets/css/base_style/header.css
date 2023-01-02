@@ -278,14 +278,6 @@ nav {
 
     .mobile-burger-menu .side-menu-mobile {
         display: none;
-    }
-
-    .mobile-burger-menu input[type=checkbox]:checked ~ .side-menu-mobile{
-        display: block;
-        transition: .5s ease;
-    }
-
-    .mobile-burger-menu .side-menu-mobile {
         position: absolute;
         top: 65px;
         left: 0;
@@ -293,8 +285,14 @@ nav {
         padding: 1em;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-       
+        
     }
+
+    .mobile-burger-menu input[type=checkbox]:checked ~ .side-menu-mobile{
+        display: block;
+        transition: .5s ease;
+    }
+
 
     .side-menu-mobile .mobile-search {
         position: relative;
@@ -342,9 +340,6 @@ nav {
         align-items: center;
     }
 
-    .side-menu-items .side-item i {
-        margin-right: .5em;
-    }
 
     .side-menu-items .side-item a {
         color: #429b44;
@@ -360,6 +355,7 @@ nav {
     .side-menu-items .side-item i {
         font-size: 1rem;
         font-weight: bold;
+        margin-right: .5em;
     }
 
     .mobile-nav .mobile-logo a {

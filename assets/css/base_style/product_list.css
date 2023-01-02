@@ -204,12 +204,10 @@
         padding: .5em 1em;
         border-radius: 10px;
         text-align: center;
-    }
-
-    .mobile-categories > ul > .mobile-cat-one{
         color: black;
         cursor: pointer;
     }
+
 
     .mobile-categories ul > li .mobile-cat-dropdown-menu {
         width: 180px;
