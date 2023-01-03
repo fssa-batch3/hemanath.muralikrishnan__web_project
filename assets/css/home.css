@@ -2,58 +2,44 @@
 
 /* start of home page adv */
 
-.home-page-adv {
-    width: 80%;
-    height: 400px;
-    margin: 50px auto;
+.home-page-adv{
+    position: relative;
+    box-sizing: content-box;
+    max-width: 1200px;
+    margin-inline: auto;
+    margin-block: 20px;
+    overflow: hidden;
     box-shadow: -7px 7px 3px 0px #00000021;
     border-radius: 30px;
+    
+}
+
+.home-page-adv .slider {
     overflow: hidden;
-    position: relative;
-
 }
 
-.home-page-adv figure img {
-    width: 1200px;
-    height: 400px;
-    float: left;
-
-}
-
-.home-page-adv figure {
+.home-page-adv .slider figure {
     position: relative;
     width: 500%;
     margin: 0;
-    left: 0px;
-    animation: webzone 10s infinite linear;
+    left: 0;
+    animation: webzone 10s infinite linear; 
 }
 
+.home-page-adv .slider figure img {
+    width: 20%;
+    float: left;
+    height: 400px;
+}
 
 @keyframes webzone {
-    0% {
-        left: 0%;
-    }
-
-    15% {
-        left: 0%;
-    }
-
-    20% {
-        left: -100%;
-    }
-
-    35% {
-        left: -100%;
-    }
-
-    40% {
-        left: -200%;
-    }
-
-    60% {
-        left: -200%;
-    }
-}
+    0%{left:0%;}
+    15%{left:0%;}
+    20%{left: -100%;}
+    35%{left: -100%;}
+    40%{left: -200%;}
+    60%{left: -200%;}
+  }
 
 
 /* end of home page adv */
@@ -254,16 +240,20 @@
 
 /* media queries start */
 
+
+
+
 @media screen and (max-width: 600px) {
 
     /* start of adv */
 
-    .home-page-adv {
-        height: 200px;
+    .home-page-adv{
+        width: 80%;
     }
 
-    .home-page-adv figure img {
-        width: 400px;
+    .home-page-adv .slider figure img {
+        width: 20%;
+        float: left;
         height: 200px;
     }
 
