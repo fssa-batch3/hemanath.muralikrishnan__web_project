@@ -7,7 +7,7 @@
     box-sizing: content-box;
     max-width: 1200px;
     margin-inline: auto;
-    margin-block: 4em;
+    margin-block: 2em;
     overflow: hidden;
     box-shadow: -7px 7px 3px 0px #00000021;
     border-radius: 30px;
@@ -76,7 +76,7 @@
 }
 
 .text-categories-home {
-    margin: 3em 1em 1em 1em;
+    margin: 2em 1em 2em 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,7 +105,7 @@
 /* start of best  sells*/
 
 .best-sells {
-    margin-top: 4em;
+    margin-top: 2em;
 }
 
 .daily-best {
@@ -118,7 +118,6 @@
     display: flex;
     overflow-x: scroll;
     margin-top: 2em;
-    margin-bottom: 4em;
     /* flex-wrap: wrap;
     justify-content: flex-end; */
 }
@@ -248,7 +247,7 @@
     /* start of adv */
 
     .home-page-adv{
-        width: 80%;
+        width: 90%;
     }
 
     .home-page-adv .slider figure img {
