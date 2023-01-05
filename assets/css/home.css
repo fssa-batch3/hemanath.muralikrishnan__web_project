@@ -251,8 +251,6 @@
     }
 
     .home-page-adv .slider figure img {
-        width: 20%;
-        float: left;
         height: 200px;
     }
 
@@ -440,6 +438,208 @@
 
     /* end unique sec */
 
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+/* start of adv */
+
+    .home-page-adv{
+        width: 90%;
+    }
+
+    .home-page-adv .slider figure img {
+        height: 275px;
+    }
+
+    /* end of adv */
+
+     /* start of main cat */
+
+    .home-page-cat {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+
+    .home-page-cat .cat_cont img {
+        width: 60px;
+    }
+
+    .home-page-cat .cat_cont a p {
+        font-size: 1rem;
+    }
+
+    .text-categories-home {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        row-gap: 20px;
+    }
+
+    .text-categories-home a {
+        font-size: 1.2rem;
+    }
+
+    /* end of main cat */
+
+    /* start of products design */
+
+    .products-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1em 0 0 0;
+        justify-content: center;
+    }
+
+   .product-container {
+        padding: .5em .5em .5em .5em;
+    }
+
+    .product-main {
+        width: 200px;
+        height: 450px;
+
+    }
+
+    .product-main .product-img {
+        padding: 0 .5em
+    }
+
+    .product-main .product-img img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .product-main .farmer-part {
+        width: 150px;
+    }
+
+    .product-main .farmer-part img {
+        width: 40px;
+    }
+
+    .product-main .category-title {
+        font-size: .8rem;
+    }
+
+    .product-main .product-name p {
+        font-size: .9rem;
+    }
+
+    .product-main .farmer-part .farmer-name {
+        font-size: .9rem;
+    }
+
+    .product-main .rating-part {
+        width: 130px;
+    }
+
+    .product-main .rating-part .rating i {
+        font-size: .9rem;
+    }
+
+    .product-main .rating-part .rating-number p {
+        font-size: .9rem;
+    }
+
+    .product-main .amount .amount-one {
+        font-size: 1.1rem;
+    }
+
+    .product-main .qty-cat {
+        width: 160px;
+    }
+
+    .product-main .qty-cat .qty input {
+        width: 60px;
+    }
+
+    .product-main .qty-cat .add-button a {
+        font-size: .9rem;
+    }
+
+
+    /* end of products desing */
+
+     /* start of daily best products */
+
+    .daily-best {
+        font-size: 1.3rem;
+    }
+
+    /* end of daily best products */
+
+    /* start of hassle section */
+
+    .hassle-main .hassle-right {
+        margin: 0 auto;
+    }
+
+    .hassle-main .hassle-right img {
+        width: 350px;
+    }
+
+    .hassle-main {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 3em 1em 1em 1em
+    }
+
+    .hassle-left .hassle-text p {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .hassle-left .hassle-input {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+    }
+
+    .hassle-left .hassle-input i {
+        display: none;
+    }
+
+    .hassle-left .hassle-input input {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .hassle-left .hassle-input a {
+        text-align: center;
+        margin: 0 auto;
+        font-size: 1.2rem;
+    }
+
+
+    /* end of hassle section */
+
+     /* unique sec start */
+
+    .agrokart-unique {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        
+    }
+
+    .agrokart-unique .unique-cont {
+        padding: 0;
+        margin: 1em;
+    }
+
+    .unique-cont .unique-img i {
+        font-size: 1.5rem;
+    }
+
+    /* end unique sec */
+    
 }
 
 /* media queries end */

@@ -217,9 +217,65 @@
     .orders-histroy-main .order-his-right-side  .product-status .main-status p{
         text-align: center;
     }
+    
+}
 
-    
-    
-    
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    .list-top ul {
+        width: 320px;
+    }
+
+    .order-his-filter {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 2em 0;
+    }
+
+    .order-his-filter select {
+        width: 150px;
+        height: 40px;
+        text-align: center;
+    }
+
+   
+
+    .list-top ul li, .list-top ul li a {
+        font-size: 1.1rem;
+    }
+
+    .orders-histroy-main .order-his-left-side {
+        display: none;
+    }
+
+    .orders-histroy-main .order-his-right-side {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .orders-histroy-main .order-his-right-side .order-his-search {
+        width: auto;
+    }
+
+    .order-his-right-side .order-his-right-main .order-his-search p {
+        font-size: 1rem;
+        width: 100px;
+        text-align: center;
+    }
+
+    .orders-histroy-main .order-his-right-side  .product-status{
+        width: auto;
+        
+    }
+
+
+    .orders-histroy-main .order-his-right-side  .product-status .product-status-img  img {
+        width: 80px;
+    }
+
+    .orders-histroy-main .order-his-right-side  .product-status .main-status p{
+        text-align: center;
+    }
     
 }

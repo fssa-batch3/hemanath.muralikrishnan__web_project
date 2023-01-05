@@ -93,3 +93,98 @@
         text-decoration-color: green;
     }
 }
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .list-top ul {
+        width: 240px;
+    }
+
+    .list-top ul li a,
+    .list-top ul li {
+        font-size: 1.1rem;
+    }
+
+    .mobile-profile-title {
+        font-size: 1.4rem;
+        color: black;
+        font-weight: bold;
+        margin: 1em 0;
+        text-align: left;
+    }
+
+    .mobile-profile-main {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .mobile-profile-section {
+        background-color: white;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+        border-radius: 10px;
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+    }
+
+    .mobile-profile-section .mobile-profile-img img {
+        width: 60px;
+        border-radius: 50%;
+    }
+
+
+    .mobile-profile-section .mobile-profile-details p {
+        font-size: 1.2rem;
+        color: black;
+        font-weight: 500;
+    }
+
+    .mobile-profile-options {
+        background-color: white;
+        box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
+        border-radius: 10px;
+        margin-top: 1rem;
+        padding: 1em;
+    }
+
+    .mobile-profile-options .mobile-account-settings {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .mobile-profile-options .mobile-profile-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 150px
+    }
+
+    .mobile-profile-options .mobile-account-settings i {
+        color: green;
+        font-size: 1.4rem;
+    }
+
+    .mobile-profile-options .mobile-account-settings p {
+        margin-left: .5em;
+        color: black;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .mobile-profile-options .mobile-profile-links a {
+        font-size: 1.1rem;
+        color: green;
+        font-weight: 500;
+    }
+
+    .mobile-profile-options .mobile-profile-links a:hover {
+        text-decoration: underline;
+        color: black;
+        text-decoration-color: green;
+    }
+}

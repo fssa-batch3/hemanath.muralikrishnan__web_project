@@ -153,4 +153,13 @@ form .register-here:hover {
 }
 
 
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    .login-main form {
+        width: 350px;
+    }
+    
+}
+
+
 /* end of media queries */

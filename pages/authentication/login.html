@@ -26,10 +26,10 @@
                 <p class="act">Log in</p>
 
                 <label for="email-number">Email id</label>
-                <input type="text" id="email-number" placeholder="Enter Your Email id" required>
+                <input type="text" id="email" placeholder="Enter Your Email id" required value="hemanath7867@gmail.com">
 
                 <label for="login-password">Password</label>
-                <input type="password" id="login-password" placeholder="Enter Your Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,24}$" required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters" required>
+                <input type="password" id="password" placeholder="Enter Your Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,24}$" required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters" required value="Hem@nath78">
 
                 <a href="#" class="forgot-pass">Forgot Password?</a>
 
@@ -45,4 +45,17 @@
     </div>
 
 </body>
+
+<script>
+
+const email = (document.getElementById("email").value );
+
+const password = (document.getElementById("password").value );
+
+console.log(email);
+console.log(password);
+
+
+</script>
+
 </html>

@@ -1,5 +1,9 @@
 /* start of list top */
 
+.list-top {
+    margin: 1em;
+}
+
 .list-top .all-products {
     border: 2px solid #429b44;
     width: 130px;
@@ -192,56 +196,57 @@
         background-color: #429b44;
         padding: .3em;
         z-index: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
 
-    .mobile-categories{
-       margin: 2em 2em 0 2em;
-    }
-    .mobile-categories > ul > .mobile-cat-one {
-        position: relative;
-        font-size: .8rem;
-        background-color: white;
-        padding: .5em 1em;
-        border-radius: 10px;
-        text-align: center;
-        color: black;
-        cursor: pointer;
-    }
+   .mobile-categories input[type=checkbox]{
+    display: none;
+   }
 
+   .mobile-categories .mobile-menu {
+    background-color: white;
+    border-radius: 10px;
+    padding: .3em;
+    text-align: center;
+    margin: 1em auto;
+   }
 
-    .mobile-categories ul > li .mobile-cat-dropdown-menu {
-        width: 180px;
-        position: absolute;
-        top: 100%;
-        left: 25%;
-        right: 25%;
-        background-color: #fff;
-        box-shadow: 5px 5px 15px rgb(0 0 0 / 5%);
-        line-height: 2.2em;   
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;  
+   .mobile-categories .mobile-menu:hover {
+    background-color: green;
+    color: white;
+   }
 
-    }
-    
+   .mobile-categories .mobile-menu label {
+    cursor: pointer;
+   }
 
-    .mobile-categories ul > li .mobile-cat-dropdown-menu ul li {
-        display: none;
-    }
+   .mobile-categories .mobile-drop-menu {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    padding: 1em;
+    border-radius: 10px;
+    width: 200px;
+    margin-top: .5em;
+   }
 
-    .mobile-categories .mobile-cat-main li:hover > .mobile-cat-dropdown-menu ul li {
-        display: block;
-    }
+   .mobile-categories .mobile-drop-menu a {
+    color: black;
+    font-weight: 600;
+    text-align: center;
+   }
 
-    .mobile-cat-dropdown-menu ul li a {
-        color: #253D4E;
-        font-size: .9rem;
-    }
+   .mobile-categories .mobile-drop-menu a:hover {
+    color: #429b44;
+   }
 
-    .mobile-cat-dropdown-menu ul li a:hover {
-        color: #fff;
-        background-color: green;
-
-    }
+   .mobile-categories input[type=checkbox]:checked ~ .mobile-drop-menu{
+    display: block;
+    transition: .5s ease;
+   }
 
     /* end of products categories */
 
@@ -250,8 +255,10 @@
     .mobile-filters {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        margin: 1em 2em 1em 2em;
+    }
+
+    .mobile-filters select {
+       margin: 0 1em;
     }
 
 /* end of filters */
@@ -332,10 +339,192 @@
 
     /* end of products container */
 
+}
 
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    
+    aside {
+        display: none;
+    }
 
-} 
+    /* start of list top */
+    .list-top {
+       margin: 1em 0 0 .5em;
+    }
 
+    .list-top .all-products {
+        font-size: 1rem;
+        width: 120px;
+        background-color: #f1fcfc;
+    }
+
+    .list-top ul {
+        width: 320px;
+        background-color: #f1fcfc;
+    }
+
+    .list-top ul li, .list-top ul li a {
+        font-size: 1.1rem;
+    }
+
+    /* end of list top */
+
+    /* start of products categories */
+
+    
+    .mobile-categories-main .mobile-categories, .mobile-filters{
+        display: block;
+    }
+
+    .mobile-categories-main {
+        position: sticky;
+        top: 60px;
+        background-color: #429b44;
+        padding: .3em;
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+   .mobile-categories input[type=checkbox]{
+    display: none;
+   }
+
+   .mobile-categories .mobile-menu {
+    background-color: white;
+    border-radius: 10px;
+    padding: .3em;
+    text-align: center;
+    margin: 1em auto;
+   }
+
+   .mobile-categories .mobile-menu:hover {
+    background-color: green;
+    color: white;
+   }
+
+   .mobile-categories .mobile-menu label {
+    cursor: pointer;
+   }
+
+   .mobile-categories .mobile-drop-menu {
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    padding: 1em;
+    border-radius: 10px;
+    width: 200px;
+    margin-top: .5em;
+   }
+
+   .mobile-categories .mobile-drop-menu a {
+    color: black;
+    font-weight: 600;
+    text-align: center;
+   }
+
+   .mobile-categories .mobile-drop-menu a:hover {
+    color: #429b44;
+   }
+
+   .mobile-categories input[type=checkbox]:checked ~ .mobile-drop-menu{
+    display: block;
+    transition: .5s ease;
+   }
+
+    /* end of products categories */
+
+    /* start of filters */
+
+    .mobile-filters {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mobile-filters select {
+       margin: 0 1em;
+    }
+
+/* end of filters */
+
+    /* start of products container */
+
+    .main-container-aside-product .products-list-container{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1em 0 0 0;
+            justify-content: center;
+    }
+
+    .main-container-aside-product .products-list-container .product-container {
+        padding: 0 .5em .5em .5em;
+    }
+
+    .main-container-aside-product .products-list-container .product-main {
+        width: 200px;
+        height: 475px;
+
+    }
+
+    .main-container-aside-product .products-list-container .product-main .product-img{
+       padding: 0 .4em
+    }
+
+    .main-container-aside-product .products-list-container .product-main .product-img img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .products-list-container .product-main .farmer-part{
+        width: 160px;
+    }
+
+    .products-list-container .product-main .farmer-part img {
+        width: 35px;
+    }
+    .products-list-container .product-main .category-title {
+        font-size: .9rem;
+    }
+
+    .products-list-container .product-main .product-name p {
+        font-size: .9rem;
+    }
+
+    .products-list-container .product-main .farmer-part .farmer-name {
+        font-size: .9rem;
+    }
+
+    .products-list-container .product-main .rating-part{
+        width: 135px;
+    }
+
+    .products-list-container .product-main .rating-part .rating i {
+        font-size: .9rem;
+    }
+
+    .products-list-container .product-main .rating-part .rating-number p {
+        font-size: 1rem;
+    }
+
+    .products-list-container .product-main .amount .amount-one {
+        font-size: 1.1rem;
+    }
+
+    .products-list-container .product-main .qty-cat {
+        width: 160px;
+    }
+
+    .products-list-container .product-main .qty-cat .qty input {
+        width: 50px;
+    }
+    .products-list-container .product-main .qty-cat .add-button a {
+        font-size: .9rem;
+    }
+
+    /* end of products container */
+}
 
 /* end of media queries */
 

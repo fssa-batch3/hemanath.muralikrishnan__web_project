@@ -179,4 +179,57 @@
 
 }
 
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+      .list-top ul {
+        width: 200px;
+    }
+
+    .list-top ul li {
+        font-size: 1.1rem;
+    }
+
+    .wishlist-main .wish-title {
+        width: 80%;
+        font-size: 1.1rem;
+    }
+
+    .wishlist-cont {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .wishlist-cont .wishlist-sec {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .wishlist-cont .wishlist-content img {
+        width: 80px;
+    }
+
+    .wishlist-text .wish-pro-title {
+        font-size: 1rem;
+    }
+
+    .wishlist-text .wish-cat {
+        font-size: .9rem;
+    }
+
+    .icon-del a i {
+        font-size: 1.4rem;
+    }
+
+    .wish-shop {
+        font-size: 1.2rem;
+        width: 80%;
+        margin-top: 2em;
+    }
+
+    
+}
+
 /* end of media queries */

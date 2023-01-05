@@ -271,11 +271,113 @@ tbody td input{
         margin: 0 2em;
     }
 
-
-
-
-    /* end of mobile cart */
-    
+    /* end of mobile cart */  
     
 }
 
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+     .list-top ul {
+        width: 240px;
+    }
+
+    .list-top ul li a,  .list-top ul li {
+        font-size: 1.1rem;
+    }
+
+    
+    .your-cart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2em;
+       
+    }
+
+    .your-cart .cart-left-side table {
+       display: none;
+    }
+
+    /* start of mobile cart */
+
+    .mobile-cart-main{
+        display: block;
+        border: 2px solid gray;
+        background-color: white;
+        border-radius: 10px;
+        margin-bottom: 2em;
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .mobile-cart-main .mobile-cart-product{
+        border-bottom: 2px solid green;
+    }
+
+    .mobile-cart-main .mobile-cart-product .mobile-cart-img-details img {
+        width: 150px;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin-bottom: 1em;
+    }
+
+    .mobile-cart-main .mobile-cart-product .mobile-cart-img-details{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding-top: 1em;
+    }
+
+    .mobile-cart-main .mobile-cart-product .mobile-cart-img-details .mobile-cart-pro-title {
+        font-weight: 600;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-cart-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-cart-list > p {
+        color: #253D4E;
+        font-weight: 600;
+        font-family: sans-serif;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-stock input {
+        width: 50px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .mobile-cart-main .mobile-price-cont .mobile-remove i {
+        color: #429b44;
+    }
+
+
+
+    .cart-right-side {
+        margin-top: 2em;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .your-cart .cart-right-side .checkout-btn {
+        margin: 0 2em;
+    }
+
+    .cart-left-side .cont-shop {
+        margin-inline: auto;
+        display: inline-block;
+        text-align: center;
+        margin: 0 0 0 4em;
+    }
+    /* end of mobile cart */ 
+    
+}
