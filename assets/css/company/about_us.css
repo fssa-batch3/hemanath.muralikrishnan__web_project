@@ -39,8 +39,8 @@
 
 .about-title {
     font-size: 2rem;
-    margin-top: 2em;
-    margin-left: 2em;
+    text-align: center;
+    margin-bottom: 2em;
     color: green;
     font-weight: bold;
 }
@@ -130,6 +130,15 @@
 
     .about-us-content img {
         width: 350px;
+    }
+    
+}
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    .about-us-content {
+        display: flex;
+        flex-direction: column;
+        
     }
     
 }

@@ -786,5 +786,64 @@ box-shadow:  11px 11px 22px #c1c0c0,
     
 }
 
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+
+    /* start of indv products right side */
+
+    .individuals-products .indv-products-right-side {
+        margin: 0;
+    }
+
+    .right-side-three .indv-category-title {
+        font-size: 1.3rem;
+    }
+
+    .right-side-three .indv-farmer-part{
+        width: 320px;
+    }
+
+    .right-side-three .indv-farmer-part img {
+        width: 60px;
+    }
+
+    .right-side-three .indv-farmer-part .indv-farmer-name {
+        font-size: 1.2rem;
+    }
+
+    .right-side-three .indv-qty-cat {
+        width: 340px;
+    }
+
+    .right-side-three .indv-qty-cat .indv-add-button{
+        margin: auto;
+    }
+
+    .right-side-three .indv-qty-cat .indv-qty input {
+        width: 70px;
+    }
+
+    .right-side-three .indv-qty-cat .favorite{
+        margin: auto;
+    }
+
+    .indv-products-right-side-two .description {
+        width: auto;
+    }
+
+    .indv-products-right-side-two .description .desc-cont .desc-title {
+        font-size: 1.4rem;
+    }
+
+    .indv-products-right-side-two .description .desc-cont .desc-content {
+        font-size: 1.2rem;
+    }
+
+    .indv-products-right-side-two .rat-title {
+        font-size: 1.4rem;
+    }
+    /* end of indv products right side */
+    
+}
+
 
 /* media queires end */

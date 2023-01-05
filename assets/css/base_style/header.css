@@ -384,8 +384,15 @@ nav {
 }
 
 
-@media screen and (min-width:601px) and (max-width: 900px) {
+@media screen and (min-width:700px) and (max-width: 900px) {
 
-    
+.nav-two .logo a {
+    font-size: 1.5rem;
+}
+
+.nav-two input {
+  width: 250px;
+}
     
 }
+

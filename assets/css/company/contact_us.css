@@ -241,6 +241,15 @@ form button {
 
 }
 
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .contact-us-main{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+
 /* media queries end */
 
 

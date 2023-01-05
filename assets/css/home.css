@@ -642,4 +642,19 @@
     
 }
 
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+    
+    .home-page-adv {
+        width: 90%;
+    }
+
+    .hassle-main .hassle-left .hassle-text p {
+        font-size: 1.2rem;
+    }
+
+    .hassle-main .hassle-right img {
+        width: 350px;
+    }
+}
+
 /* media queries end */

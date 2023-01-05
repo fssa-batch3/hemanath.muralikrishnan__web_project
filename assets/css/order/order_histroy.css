@@ -279,3 +279,36 @@
     }
     
 }
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+
+    .orders-histroy-main .order-his-right-side .order-his-search input{
+        width: 400px;
+    }
+
+    .order-his-right-side .order-his-right-main .order-his-search p {
+        font-size: .8rem;
+        width: 100px;
+        text-align: center;
+    }
+
+    .orders-histroy-main .order-his-right-side  .product-status{
+        width: 480px;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 200px;
+    }
+
+
+    .orders-histroy-main .order-his-right-side  .product-status .product-status-img  img {
+        width: 80px;
+    }
+
+    .orders-histroy-main .order-his-right-side  .product-status .main-status p{
+        text-align: center;
+    }
+    
+    
+}
