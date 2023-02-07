@@ -23,6 +23,7 @@ loginpage.onsubmit = e =>   {
 
     if (Success) {
         alert("Login Success");
+        window.location.href="../../index.html"
     } else {
         alert("Login Failure");
     }

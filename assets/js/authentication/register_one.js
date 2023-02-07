@@ -28,6 +28,8 @@ registration.onsubmit = e => {
 
     localStorage.setItem("users", JSON.stringify(users));
 
+    window.location.href="login.html"
+
     
 
 }
