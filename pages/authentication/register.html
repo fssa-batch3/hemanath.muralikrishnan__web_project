@@ -21,25 +21,25 @@
 
         <div class="register-form">
 
-            <form action="login.html" method="">
+            <form action="" method="" id="registerform">
 
                 <p class="act">Create Account</p>
 
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter Your Name" maxlength="20" required title="Please enter your name below 20 characters">
+                <label for="user_name">Name</label>
+                <input type="text" name="name" id="user_name" placeholder="Enter Your Name" maxlength="20" required title="Please enter your name below 20 characters">
 
-                <label for="mobile-number">Mobile Number</label>
-                <input type="tel" id="mobile-number" placeholder="Enter Your Mobile Number" minlength="10" required title="Please enter your mobile number" >
+                <label for="user_mobile_number">Mobile Number</label>
+                <input type="tel" name="mobile-number" id="user_mobile_number" placeholder="Enter Your Mobile Number" maxlength="10" required title="Please enter your mobile number" >
 
-                <label for="email">Email id</label>
-                <input type="email" id="email" placeholder="Enter Your Email id" required>
+                <label for="user_email">Email id</label>
+                <input type="email" name="email" id="user_email" placeholder="Enter Your Email id" required>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter Your Password" name="password"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,24}$" required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters">
+                <label for="user_password">Password</label>
+                <input type="password" name="password" id="user_password" placeholder="Enter Your Password" name="password"
+                required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters">
 
 
-                <button type="submit" onclick="auth()">Continue</button>
+                <button type="submit">Continue</button>
 
                 <p class="register-already">Already have an account?</p>
                 <a href="login.html" class="register-login">Log in</a>
@@ -53,24 +53,4 @@
 
 </body>
 
-<script>
-
-
-function auth(){
-
-const name = console.log(document.getElementById("name").value);
-
-const mobilenumber = console.log(document.getElementById("mobile-number").value);
-
-const email = console.log(document.getElementById("email"). value);
-
-const password = console.log(document.getElementById("password"). value);
-
-window.location.href ="login.html"
-
-}
-
-
-
-</script>
-</html>
+<script src="../../assets/js/authentication/register_one.js"></script>
