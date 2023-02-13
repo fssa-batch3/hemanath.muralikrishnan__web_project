@@ -23,13 +23,13 @@ loginpage.onsubmit = e => {
         const loginemail = userobj["emailid"];
         const loginpass = userobj["password"];
 
+
         // saving data from input fields
         const emailvalue = emailInput.value;
         const passvalue = passwordInput.value;
 
         if((emailvalue === loginemail) && (passvalue === loginpass)){
             alert("Login Success");
-            window.location.href = "../../index.html"
             return true;
             
         }

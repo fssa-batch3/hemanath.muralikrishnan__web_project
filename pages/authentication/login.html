@@ -21,15 +21,27 @@
 
         <div class="login-form">
 
-            <form action="../../index.html" method="" id="loginform">
+            <form action="#" method="" id="loginform">
 
                 <p class="act">Log in</p>
 
-                <label for="email-number">Email id</label>
-                <input type="text" name="email" id="email-number" placeholder="Enter Your Email id" required>
+                <div class="input-control">
 
-                <label for="login-password">Password</label>
-                <input type="password" name="password" id="login-password" placeholder="Enter Your Password" required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters">
+                    <label for="login-email">Email Id</label>
+                    <input id="login-email" name="login-email" type="text" placeholder="Enter Your Email Id">
+    
+                    <div class="error"></div>
+    
+                </div>
+    
+                <div class="input-control">
+
+                    <label for="login-password">Password</label>
+                    <input id="login-password" name="login-password" type="password" placeholder="Enter Your Password">
+                    <i class="fa fa-eye showpwd" onClick="showPwd('login-password', this)"></i>
+    
+                    <div class="error"></div>
+                </div>
 
                 <a href="#" class="forgot-pass">Forgot Password?</a>
 

@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="../../assets/css/authentication/register.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="icon" type="image/png" sizes="60x32" href="../../assets/images/tabicon/icon.png">
     <title>AgroKart - Ecommerce</title>
 </head>
@@ -19,36 +21,64 @@
 
     <div class="register-main">
 
-        <div class="register-form">
+        <form id="form" action="/">
 
-            <form action="login.html" method="" id="registerform">
+            <h1>Registration</h1>
 
-                <p class="act">Create Account</p>
+            <div class="input-control">
 
-                <label for="user_name">Name</label>
-                <input type="text" name="name" id="user_name" placeholder="Enter Your Name" maxlength="20" required title="Please enter your name below 20 characters">
+                <label for="first_name">Firstname</label>
+                <input id="first_name" name="first_name" type="text" placeholder="Enter Your First Name">
 
-                <label for="user_mobile_number">Mobile Number</label>
-                <input type="tel" name="mobile-number" id="user_mobile_number" placeholder="Enter Your Mobile Number" maxlength="10" required title="Please enter your mobile number" >
+                <div class="error"></div>
 
-                <label for="user_email">Email id</label>
-                <input type="email" name="email" id="user_email" placeholder="Enter Your Email id" required>
+            </div>
 
-                <label for="user_password">Password</label>
-                <input type="password" name="password" id="user_password" placeholder="Enter Your Password" name="password"
-                required maxlength="10" minlength="8" title="Please give one uppercase, one lowercase, one special character and one number miniumum is 8 character maxium 10 characters">
+            <div class="input-control">
 
+                <label for="last_name">Lastname</label>
+                <input id="last_name" name="last_name" type="text" placeholder="Enter Your Last Name">
 
-                <button type="submit">Continue</button>
+                <div class="error"></div>
 
-                <p class="register-already">Already have an account?</p>
-                <a href="login.html" class="register-login">Log in</a>
+            </div>
+            <div class="input-control">
 
-            </form>
+                <label for="email">Email Id</label>
+                <input id="email" name="email" type="text" placeholder="Enter Your Email Id">
 
+                <div class="error"></div>
 
-        </div>
+            </div>
+            <div class="input-control">
 
+                <label for="mobile_number">Mobile Number</label>
+                <input id="mobile_number" name="mobile-number" type="text" placeholder="Enter Your Mobile Number">
+
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter Your Password">
+                <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
+
+                <div class="error"></div>
+            </div>
+
+            <div class="input-control">
+
+                <label for="conf_password">Confirm Password</label>
+                <input id="conf_password" name="conf_password" type="password" placeholder="Enter Your Password again">
+                <i class="fa fa-eye showpwd" onClick="showPwd('conf_password', this)"></i>
+                <div class="error"></div>
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+            <p class="register-already">Already have an account?</p>
+            <a href="login.html" class="register-login">Log in</a>
+        </form>
     </div>
 
 </body>

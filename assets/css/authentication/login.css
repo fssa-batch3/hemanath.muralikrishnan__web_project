@@ -64,20 +64,60 @@ form .act {
     font-size: 1.5rem;
     color: #253D4E;
     font-weight: 500;
+    margin-bottom: 1em;
 }
 
-form label {
+form .input-control label {
     font-size: 1.3rem;
     color: black;
     font-weight: 400;
 }
 
-form input {
-    height: 45px;
-    border-radius: 10px;
-    padding-left: 1em;
-    outline: none;
-    border: 2px solid #429b44;
+.input-control {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
+}
+
+.input-control .showpwd {
+    position: absolute;
+    right: 20px;
+    top: 45px;
+   color: black;
+   cursor: pointer;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    display: block;
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: .8rem;
+    height: 13px;
+    margin-bottom: 1.5em;
+}
+
+::-ms-reveal{
+    display: none;
 }
 
 form .forgot-pass {

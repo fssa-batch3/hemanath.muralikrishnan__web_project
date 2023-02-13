@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,7 +11,7 @@ html {
 }
 
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -20,8 +20,9 @@ li {
 }
 
 body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
+    display: none;
+    /* for Chrome, Safari, and Opera */
+}
 
 body {
     overflow-x: hidden;
@@ -48,43 +49,35 @@ body {
     margin-top: 1em;
 }
 
-form {
-    width: 400px;
+#form {
+    width: 425px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 600px;
+    /* height: 650px; */
     background-color: #f1fcfc;
     padding: 1em;
     border-radius: 10px;
-    
 }
 
-form .act {
-    font-size: 1.5rem;
-    color: #253D4E;
-    font-weight: 500;
+#form h1 {
+    color: #0f2027;
+    text-align: center;
 }
 
-form label {
-    font-size: 1.3rem;
+#form .input-control label {
+    font-size: 1.2rem;
     color: black;
     font-weight: 400;
 }
 
-form input {
-    height: 45px;
-    border-radius: 10px;
-    padding-left: 1em;
-    outline: none;
-    border: 2px solid #429b44;
+#form .input-control input {
+    font-size: 1.1rem;
 }
 
-form a {
-    text-align: center;
-}
 
-form button {
+
+#form button {
     margin: 1em 4em 1em 4em;
     padding: 1em;
     background-color: green;
@@ -94,65 +87,62 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #429b44;
-    margin: 1em;
-}
-
-form .register-login {
+#form .register-login {
     font-size: 1.2rem;
     font-weight: 600;
     color: green;
+    text-align: center;
 }
 
-form .register-already {
+#form .register-already {
     text-align: center;
     font-size: 1rem;
     color: #253D4E;
 }
 
-/* form .register-login:hover {
-    color: #429b44;
-    text-decoration: underline;
-} */
-
-
-
-/* end of register main */
-
-/* start of media queires */
-
-@media screen and (max-width: 600px) {
-
-    .register-logo{
-        font-size: 1.2rem;
-    }
-
-    .register-main form {
-        width: 300px;
-    }
-
-    .register-main form .act {
-        font-size: 1.1rem;
-    }
-
-    .register-main form label {
-        font-size: 1rem;
-    }
-
-    .register-main .forgot-pass {
-        font-size: .9rem;
-    }
-    
+.input-control {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: auto;
 }
 
-@media screen and (min-width: 601px) and (max-width: 900px) {
-
-    .register-main form {
-        width: 350px;
-    }
-    
+.input-control .showpwd {
+    position: absolute;
+    right: 20px;
+    top: 45px;
+   color: black;
+   cursor: pointer;
 }
 
+.input-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+}
 
-/* end of media queries */
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: .8rem;
+    height: 13px;
+    margin-bottom: 1.5em;
+}
+
+::-ms-reveal{
+    display: none;
+}
