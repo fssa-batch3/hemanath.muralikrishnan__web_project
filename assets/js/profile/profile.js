@@ -134,7 +134,6 @@ profile_form.addEventListener('submit', function (e) {
 
 
 
-
     // assign disable values to input
     first_name.disabled = true;
     last_name.disabled = true;
@@ -148,33 +147,40 @@ profile_form.addEventListener('submit', function (e) {
     profile_edit_button.style.display = "";
 
 
+
 });
 
+// gender radio checked button
 
-window.onload = check();
+for (let j = 0; j <= localdata.length; j++) {
 
-function check(e) {
+    if (profile_email_id == localdata[j].email) {
 
-    // radio button checked
-
-    for (let k = 0; k < localdata.length; k++) {
-
-        if ((profile_email_id === localdata[k].email) && (localdata[k].gender === "male")) {
+        if (localdata[j].gender == "male") {
 
             gender_male.checked = true;
             gender_female.checked = false;
+            break;
 
+           
         }
 
-        else {
-
+        else if(localdata[j].gender == "female") {
             gender_female.checked = true;
             gender_male.checked = false;
+            break;
+            
         }
 
-        break;
     }
+
+   
 }
+
+
+
+
+
 
 
 
@@ -265,8 +271,8 @@ edit_address_form.style.display = "none";
 
 const updated_close_form = document.getElementById("updated-close-form");
 
-updated_close_form.addEventListener("click", function(e){
-    edit_address_form.style.display="none";
+updated_close_form.addEventListener("click", function (e) {
+    edit_address_form.style.display = "none";
 })
 
 
@@ -278,7 +284,7 @@ const updated_pincode_input = document.getElementById("update-pincode-input");
 
 // getting address id
 const updated_address_id = document.getElementById("updated-address-id");
-updated_address_id.style.display="none"
+updated_address_id.style.display = "none"
 
 
 
@@ -374,7 +380,7 @@ for (let k = 0; k < localdata.length; k++) {
     }
 
 }
-  
+
 
 
 edit_address_form.addEventListener('submit', function (e) {
