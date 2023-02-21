@@ -1,4 +1,4 @@
-/*start of list top */ 
+/*start of list top */
 
 .list-top ul {
     display: flex;
@@ -10,7 +10,8 @@
     margin: 2em 0 1em 1em;
 }
 
-.list-top ul li, .list-top ul li a {
+.list-top ul li,
+.list-top ul li a {
     padding: .2em;
     color: black;
 }
@@ -42,6 +43,7 @@
 }
 
 /* start of profile left side */
+
 .profile-left-side .profile-section .profile-img img {
     width: 80px;
     border-radius: 50%;
@@ -76,7 +78,7 @@
     width: 200px;
 }
 
-.profile-options .profile-links{
+.profile-options .profile-links {
     display: flex;
     flex-direction: column;
     margin-left: 2.2em;
@@ -106,7 +108,7 @@
     color: aqua;
 }
 
-.account-settings i{
+.account-settings i {
     color: #429b44;
     font-size: 1.5rem;
 }
@@ -127,7 +129,8 @@
 .profile-links a:hover {
     color: #429b44;
     text-decoration: underline;
-} 
+}
+
 /* end of profile left side */
 
 /* start of profile right side */
@@ -142,106 +145,104 @@
     background-color: white;
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
     border-radius: 10px;
+
 }
 
-.profile-right-side .pro-settings-sec .pro-name {
+.pro-settings-sec .profile_form {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 270px;
-    margin-bottom: 1em;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 375px;
+    padding: 1em;
 }
 
-.email-id-sec {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 450px;
-    margin-bottom: 1em;
+
+
+.profile-right-side .pro-settings-sec .profile_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: .2em 0 1.2em 0;
 }
 
-.mobile-number-sec {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 200px;
-    margin-bottom: 1em;
-}
 
-.pro-name p{
-    font-size: 1.2rem;
-    color: black;
-}
-.pro-name a{
+.profile-right-side .pro-settings-sec .profile_buttons .edit_profile {
+    border: none;
+    background-color: #429b44;
+    color: white;
+    padding: 1em;
     font-size: 1rem;
-    color: blue;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.name-input {
+.profile-right-side .pro-settings-sec .profile_buttons .save_profile {
+    border: none;
+    background-color: #429b44;
+    color: white;
+    padding: 1em;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-right-side .pro-settings-sec .profile_buttons button:hover {
+    background-color: orangered;
+    color: white;
+}
+
+.profile-right-side .pro-settings-sec .flex_so {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 2em;
 }
+
 
 .name-input input {
     width: 250px;
     height: 50px;
     padding-left: 1em;
     border-radius: 10px;
+    margin-left: 1.7em;
 }
 
-.profile-right-side .gender {
-    font-size: 1.2rem;
-    margin-bottom: .5em;
+.name-input label {
+    font-weight: 500;
 }
 
-.gender-sec {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 170px;
-    margin-bottom: 2em;
-}
 
 .gender-sec label {
-    font-size: 1.1rem;
+    margin-left: 1em;
 }
 
-.email-id-sec p{
-    font-size: 1.2rem;
-    color: black;
+.gender-sec .gender {
+    font-weight: 500;
 }
 
-.email-id-sec a {
-    color: blue;
-    font-size: 1rem;
-}
-
-.email-input {
-    margin-bottom: 2em;
-}
 
 .email-input input {
     width: 250px;
     height: 50px;
     border-radius: 10px;
     padding-left: 1em;
+    margin-left: 2em;
 }
 
-.mobile-number-sec p {
-    font-size: 1.2rem; 
-    color: black;
+.email-input label {
+    font-weight: 500;
 }
 
-.mobile-number-sec a {
-    font-size: 1rem;
-    color: blue;
-}
 
 .mobile-input input {
     width: 250px;
     height: 50px;
     border-radius: 10px;
     padding-left: 1em;
-    margin-bottom: 1em;
+    margin-left: .8em;
+}
+
+.mobile-input label {
+    font-weight: 500;
 }
 
 /* manage address start */
@@ -253,38 +254,131 @@
     border-radius: 10px;
 }
 
-.manage-address > p {
+.manage-address .address_title {
     font-size: 1.5rem;
     color: black;
+    font-weight: bold;
+    margin: .3em 0 1em 0;
 }
 
-.manage-address-items {
-    margin-top: 1em;
-}
 
-.manage-address-items .add-new-add {
+.manage-address .add-new-address {
     text-align: center;
     font-size: 1.2rem;
     border: 1px solid black;
     margin-bottom: 1em;
-    padding: 1em;
     border-radius: 10px;
     background-color: #f2f3f4;
+    cursor: pointer;
+    font-weight: 500;
+    padding: .5em;
 }
 
-.manage-address-items .home-add {
+
+.manage-address form .address-form {
+    background-color: #f2f3f4;
+    padding: 1em;
+    height: 300px;
+    border: 2px solid #429b44;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.manage-address form .address-form .address_input_label{
+    width: 100px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.manage-address form .address-form .address_input_label label {
     font-size: 1.2rem;
-    border: 1px solid black;
-    text-align: center;
-    padding: 1em;
-    border-radius: 10px;
-    background-color: #f2f3f4;
+    font-weight: 600;
+    display: block;
 }
 
-.home-add i {
-    float: right;
-    color: #429b44;
+.manage-address .address-form .address_inputs {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 280px;
+    justify-content: space-around;
 }
+
+.manage-address .address-form .address_inputs input {
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 1em;
+}
+
+.manage-address form .address-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.manage-address form .address-buttons button{
+    background-color: #429b44;
+    color: white;
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1em 1em 1em 1em;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.manage-address form .address-buttons button:hover{
+    background-color: orangered;
+    color: white;
+}
+
+.manage-address .show-address{
+    border-radius: 5px;
+    background: #d0e9f0;
+    padding: .5em;
+  
+}
+
+.manage-address .show-address .address-show .user-address{
+    text-align: center;
+    font-weight: 500;
+    border: 2px solid black;
+    padding: .5em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.show-address .address-show {
+    margin-bottom: 1em;
+}
+
+.show-address .address-show .address-edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .5em;
+    margin-bottom: .5em;
+} 
+
+.show-address .address-show .address-edit button {
+    border: none;
+    padding: 1em;
+    background-color: #429b44;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
 
 
 /* manage address end */
@@ -292,7 +386,3 @@
 /* end of profile right side */
 
 /* end of profile section */
-
-
-
-

@@ -1,4 +1,6 @@
 const form = document.getElementById('form');
+
+
 const first_name = document.getElementById('first_name');
 const last_name = document.getElementById('last_name');
 const email = document.getElementById('email');
@@ -24,7 +26,6 @@ function showPwd(id, el) {
 }
 
 
-
 const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -42,6 +43,7 @@ const setSuccess = element => {
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
 };
+
 
 const isValidfirstname = firstname_reg => {
     const firstname_match = /^[a-zA-Z]*$/;
@@ -141,7 +143,7 @@ const validateInputs = () => {
 
                 if (user_data[i].email == emailValue) {
 
-                    setError(email, 'Already created a account using this email id \n try another email id');
+                    setError(email, 'Already Have an account');
                     eamil_check = false;
                     break;
 
@@ -197,7 +199,7 @@ const validateInputs = () => {
 
                 if (user_data[k].mobilenumber === mobilenumberValue) {
 
-                    setError(mobilenumber, 'Already created a account using this mobile number \n try another mobile number');
+                    setError(mobilenumber, 'Already Have an account');
                     mobile_check = false;
                     break;
 
@@ -274,14 +276,14 @@ const validateInputs = () => {
 
         localStorage.setItem("users", JSON.stringify(users));
 
-        alert("Account created Successfully");
+        alert("Account Created Successfully");
 
         window.location.href = "login.html";
 
     }
 
     else {
-        alert("check details");
+        alert("Plese Check Details");
     }
 
 

@@ -61,10 +61,10 @@ const validateInputs = () => {
     // email validation
     if (emailValue === '') {
         setError(email_id, 'Email is required');
-        eamil_check = false;
+       email_check = false;
     } else if (!isValidEmail(emailValue)) {
         setError(email_id, 'Provide a valid email address');
-        eamil_check = false;
+        email_check = false;
     }
 
     else {
@@ -109,20 +109,20 @@ const validateInputs = () => {
 
         }
 
-        if (success == true) {
+        if (success) {
 
             const profile_email = emailValue;
 
             localStorage.setItem("profile_email", profile_email);
 
-            alert("Login Success");
+            alert("Login Successfull");
 
             window.location.href = "../profile.html"
 
         }
 
         else {
-            alert("Invadli User Credentials");
+            alert("Invalid User Credentials");
             setError(email_id, 'Invalid User Credentials');
             setError(password, 'Invalid User Credentials');
         }
@@ -131,7 +131,7 @@ const validateInputs = () => {
 
 
     else{
-        alert("Check Details");
+        alert("Plese Check Details");
     }
 
 };
