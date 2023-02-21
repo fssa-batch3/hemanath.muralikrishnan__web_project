@@ -9,7 +9,7 @@ let product_details =
                     "tamil": "பச்சை ஆப்பிள்"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=18xjO4LVAlkvOov_AwZbeTuIIioRA3fif",
+                    "source": "https://drive.google.com/uc?export=view&id=18xjO4LVAlkvOov_AwZbeTuIIioRA3fif",
                     "alt": "apple green fruits"
                 },
                 "category":{
@@ -60,7 +60,7 @@ let product_details =
                     "tamil": "அவோகேடோ"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=1M6izGNJEDgLubvw09ZjlN5vXtdGcexf9",
+                    "source": "https://drive.google.com/uc?export=view&id=1M6izGNJEDgLubvw09ZjlN5vXtdGcexf9",
                     "alt": "avocado fruits"
                 },
                 "category":{
@@ -111,7 +111,7 @@ let product_details =
                     "tamil": "அவுரிநெல்லி"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=1W9S1VNv_gRdHV0Wmk-BsiYyp7etvegSb",
+                    "source": "https://drive.google.com/uc?export=view&id=1W9S1VNv_gRdHV0Wmk-BsiYyp7etvegSb",
                     "alt": "blueberry fruit"
                 },
                 "category":{
@@ -162,7 +162,7 @@ let product_details =
                     "tamil": "டிராகன் பழம்"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=1ZIxlRAGpd8rB5mft2zRxwnyj_LuPJR74",
+                    "source": "https://drive.google.com/uc?export=view&id=1ZIxlRAGpd8rB5mft2zRxwnyj_LuPJR74",
                     "alt": "dragon fruit"
                 },
                 "category":{
@@ -216,7 +216,7 @@ let product_details =
                     "tamil": "கிவி"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=1PNSz2yILtYkS7Yq-sS7wthChYi47YCoB",
+                    "source": "https://drive.google.com/uc?export=view&id=1PNSz2yILtYkS7Yq-sS7wthChYi47YCoB",
                     "alt": "kiwi green fruit"
                 },
                 "category":{
@@ -267,7 +267,7 @@ let product_details =
                     "tamil": "பச்சை பேரிக்காய்"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=1DVwLMuy-p0I8EQMkMmiUG3ZfEyEYuBzY",
+                    "source": "https://drive.google.com/uc?export=view&id=1DVwLMuy-p0I8EQMkMmiUG3ZfEyEYuBzY",
                     "alt": "pears green fruit"
                 },
                 "category":{
@@ -318,7 +318,7 @@ let product_details =
                     "tamil": "ஸ்ட்ராபெர்ரி"
                 },
                 "image": {
-                    "source": "http://drive.google.com/uc?export=view&id=1PBv3aOXVPORzpgKH0qprKX6VdNkpFgQ-",
+                    "source": "https://drive.google.com/uc?export=view&id=1PBv3aOXVPORzpgKH0qprKX6VdNkpFgQ-",
                     "alt": "stawberry fruit"
                 },
                 "category":{
