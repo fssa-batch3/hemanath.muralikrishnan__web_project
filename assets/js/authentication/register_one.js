@@ -45,6 +45,16 @@ const setSuccess = element => {
 };
 
 
+
+
+
+
+
+
+
+
+
+
 const isValidfirstname = firstname_reg => {
     const firstname_match = /^[a-zA-Z]*$/;
     return firstname_match.test(String(firstname_reg));
@@ -130,6 +140,7 @@ const validateInputs = () => {
     if (emailValue === '') {
         setError(email, 'Email is required');
         eamil_check = false;
+        
     } else if (!isValidEmail(emailValue)) {
         setError(email, 'Provide a valid email address');
         eamil_check = false;
@@ -267,6 +278,9 @@ const validateInputs = () => {
     if ((first_name_check === true) && (last_name_check === true) && (eamil_check === true) && (mobile_check === true) && (conf_pass_check === true)) {
 
         // checking in localstorage for the available of the array of object otherwise create new one
+
+        // const hi = [];
+
 
         const users = (JSON.parse(localStorage.getItem("users"))) ?? usersList;
 
