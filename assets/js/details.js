@@ -367,8 +367,6 @@ let product_details =
     const urlParams = new URLSearchParams(url);        // converting string into key value pair
     const product_id = urlParams.get("id")             // return value of the "name" key
     const product_cat = urlParams.get("cat");
-    console.log(product_id);
-    console.log(product_cat);
 
 //     const user = product_details.find(
 //         function (userObj) {  //  

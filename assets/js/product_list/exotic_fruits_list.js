@@ -365,9 +365,6 @@ let product_details =
 
 
 
-console.log(product_details);
-
-
 let product_container_div;
 let container_start_div;
 let product_main_div;

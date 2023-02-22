@@ -1,8 +1,8 @@
 const localdata = JSON.parse(localStorage.getItem("users"));
-console.log(localdata);
+
 
 const profile_email = localStorage.getItem("profile_email");
-console.log(profile_email);
+
 
 
 // profile form
@@ -162,25 +162,20 @@ for (let j = 0; j <= localdata.length; j++) {
             gender_female.checked = false;
             break;
 
-           
+
         }
 
-        else if(localdata[j].gender == "female") {
+        else if (localdata[j].gender == "female") {
             gender_female.checked = true;
             gender_male.checked = false;
             break;
-            
+
         }
 
     }
 
-   
+
 }
-
-
-
-
-
 
 
 
@@ -239,14 +234,19 @@ address_form.addEventListener('submit', function (e) {
 
             const address_array = localdata[i].address ?? [];
 
+
+
+
             localdata[i].address = address_array;
+
+
 
             let address_data = {
                 "street": address_value,
                 "district": district_value,
                 "state": state_value,
                 "pincode": pincode_value,
-                "address_id": address_array.length
+                "address_id": address_array.length*2+1
             }
             address_array.push(address_data);
 
@@ -259,7 +259,7 @@ address_form.addEventListener('submit', function (e) {
 
     address_form.style.display = "none";
 
-    self.location.assign(window.location)
+    self.location.assign(window.location);
 
 });
 
@@ -299,10 +299,10 @@ for (let k = 0; k < localdata.length; k++) {
         if (localdata[k].address != null) {
 
             // saving the each address key and their in a object
+
             let address_len = localdata[k]["address"];
+
             console.log(address_len);
-
-
 
             for (let j = 0; j < address_len.length; j++) {
 
@@ -357,7 +357,7 @@ for (let k = 0; k < localdata.length; k++) {
 
 
 
-
+                // edit address assign value to input
                 address_edit_btn.addEventListener('click', function (e) {
 
                     edit_address_form.style.display = "";
@@ -373,6 +373,44 @@ for (let k = 0; k < localdata.length; k++) {
 
                 });
 
+                //delete logic
+
+                let delete_check;
+
+                address_delete_btn.addEventListener('click', function (e) {
+
+                    if (confirm("Are you sure?")) {
+
+                        delete_check = true;
+
+                    }
+
+                    else {
+
+                        delete_check = false;
+
+                    }
+
+                    if (delete_check) {
+
+                        address_len.splice(j, 1);
+
+                        localStorage.setItem("users", JSON.stringify(localdata));
+
+                        alert("Address Deleted");
+
+                        self.location.assign(window.location);
+
+                    }
+
+                    else {
+                        alert("ASD");
+                    }
+
+
+
+                });
+
             }
         }
 
@@ -382,7 +420,7 @@ for (let k = 0; k < localdata.length; k++) {
 }
 
 
-
+// edit address form
 edit_address_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
@@ -394,7 +432,6 @@ edit_address_form.addEventListener('submit', function (e) {
     const updated_pincode_value = updated_pincode_input.value.trim();
 
     const updated_address_id_value = updated_address_id.value;
-    console.log(updated_address_id_value);
 
 
     for (let k = 0; k < localdata.length; k++) {
@@ -405,7 +442,6 @@ edit_address_form.addEventListener('submit', function (e) {
 
                 // saving the each address key and their in a object
                 let address_len = localdata[k]["address"];
-                console.log(address_len);
 
 
                 for (let j = 0; j < address_len.length; j++) {

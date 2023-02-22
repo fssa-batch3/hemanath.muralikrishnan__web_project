@@ -277,10 +277,6 @@ const validateInputs = () => {
 
     if ((first_name_check === true) && (last_name_check === true) && (eamil_check === true) && (mobile_check === true) && (conf_pass_check === true)) {
 
-        // checking in localstorage for the available of the array of object otherwise create new one
-
-        // const hi = [];
-
 
         const users = (JSON.parse(localStorage.getItem("users"))) ?? usersList;
 
