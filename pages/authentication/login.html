@@ -11,6 +11,10 @@
     
     <link rel="icon" type="image/png" sizes="60x32" href="../../assets/images/tabicon/icon.png">
 
+     <!-- notify css -->
+
+   <link rel="stylesheet" href="../../assets/css/notify.css">
+
     <title>AgroKart - Ecommerce</title>
 </head>
 
@@ -26,23 +30,16 @@
 
                 <p class="act">Log in</p>
 
-                <div class="input-control">
+                <div class="input-wrapper">
+                    <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id">
+                    <label for="email-id" class="control-label">Email id</label>
+                  </div>
 
-                    <label for="login-email">Email Id</label>
-                    <input id="login-email" name="login-email" type="text" placeholder="Enter Your Email Id">
-    
-                    <div class="error"></div>
-    
-                </div>
-    
-                <div class="input-control">
-
-                    <label for="login-password">Password</label>
-                    <input id="login-password" name="login-password" type="password" placeholder="Enter Your Password">
-                    <i class="fa fa-eye showpwd" onClick="showPwd('login-password', this)"></i>
-    
-                    <div class="error"></div>
-                </div>
+                  <div class="input-wrapper">
+                    <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
+                    <input type="password" id="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" title="Please Enter Valid Password">
+                    <label for="password" class="control-label">Password</label>
+                  </div>
 
                 <a href="#" class="forgot-pass">Forgot Password?</a>
 
@@ -57,8 +54,11 @@
 
     </div>
 
-    <script src="../../assets/js/authentication/login_one.js"></script>
+    <script src="../../assets/js/authentication/login.js"></script>
 
+    <!-- notify script -->
+
+    <script src="../../assets/js/notify.js"></script>
      
 
 </body>

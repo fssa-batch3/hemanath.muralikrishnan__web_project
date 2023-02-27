@@ -63,8 +63,8 @@ form {
 form .act {
     font-size: 1.5rem;
     color: #253D4E;
-    font-weight: 500;
-    margin-bottom: 1em;
+    font-weight: bold;
+    text-align: center;
 }
 
 form .input-control label {
@@ -73,12 +73,7 @@ form .input-control label {
     font-weight: 400;
 }
 
-.input-control {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: auto;
-}
+
 
 .input-control .showpwd {
     position: absolute;
@@ -88,33 +83,67 @@ form .input-control label {
    cursor: pointer;
 }
 
-.input-control input {
-    border: 2px solid #f0f0f0;
-    border-radius: 5px;
+
+.input-wrapper {
+    position: relative;
+    margin: 1.5em auto;
+  }
+
+  .input-wrapper .showpwd {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+   color: black;
+   cursor: pointer;
+}
+
+
+  .form-control {
     display: block;
-    font-size: 1rem;
-    padding: 10px;
-    width: 100%;
-}
+    line-height: 2em;
+    margin: 0;
+    padding-left: 10px;
+    width: 275px;
+    font-size: medium;
+    border: 2px solid #131313;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  
 
-.input-control input:focus {
-    outline: 0;
-}
-
-.input-control.success input {
+  .form-control:valid{
     border-color: #09c372;
-}
+  }
 
-.input-control.error input {
+  .form-control:invalid{
     border-color: #ff3860;
-}
+  }
 
-.input-control .error {
-    color: #ff3860;
-    font-size: .8rem;
-    height: 13px;
-    margin-bottom: 1.5em;
-}
+  .control-label {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    bottom: 1.9rem;
+    color: black;
+    transition: 0.2s ease-in-out transform;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  /* .form-control:placeholder-shown + .control-label {
+    visibility: hidden;
+    z-index: -1;
+    transition: 0.2s ease-in-out;
+  } */
+  .form-control:not(:placeholder-shown) + .control-label,
+  .form-control:focus:not(:placeholder-shown) + .control-label {
+    visibility: visible;
+    z-index: 1;
+    opacity: 1;
+    transform: translateY(-10px);
+    transition: 0.2s ease-in-out transform;
+  }
+
 
 ::-ms-reveal{
     display: none;
@@ -133,16 +162,18 @@ form button {
     margin: 1em 4em 1em 4em;
     padding: 1em;
     background-color: green;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.1rem;
     color: white;
-    outline: none;
     cursor: pointer;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem
 }
 
 form button:hover {
-    background-color: #429b44;
-    margin: 1em;
+    background-color: black;
+    color: white;
 }
 
 form .register-here {

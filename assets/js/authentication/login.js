@@ -1,47 +1,54 @@
-// converting string into array of objects
+const form = document.getElementById('loginform');
 
+// password eye
 
-const loginUser =JSON.parse(localStorage.getItem("usersList"));
+function showPwd(id, el) {
+    let x = document.getElementById(id);
+    if (x.type === "password") {
+        x.type = "text";
+        el.className = 'fa fa-eye-slash showpwd';
+    } else {
+        x.type = "password";
+        el.className = 'fa fa-eye showpwd';
+    }
+}
 
-console.log(loginUser);
+function validateInputs(){
 
-const loginpage = document.getElementById("loginform");
-const emailInput = loginpage["email"];
-const passwordInput = loginpage["password"];
+    const email_id = document.getElementById('email-id').value.trim();
+    const password = document.getElementById('password').value.trim();
 
+    const user_data = JSON.parse(localStorage.getItem("users"));
 
+    user_data.find(function(loginobj){
 
-loginpage.onsubmit = e => {
-    
-    e.preventDefault();
-    
-    loginUser.find (
+        if((email_id === loginobj["emailid"]) && (password === loginobj["password"])){
 
-    function(userobj){
+            const profile_email = email_id;
 
-        // saving data from array of objects
-        const loginemail = userobj["emailid"];
-        const loginpass = userobj["password"];
+            localStorage.setItem("profile_email", profile_email);
 
+            Notify.success("Login Successfull!");
 
-        // saving data from input fields
-        const emailvalue = emailInput.value;
-        const passvalue = passwordInput.value;
-
-        if((emailvalue === loginemail) && (passvalue === loginpass)){
-            alert("Login Success");
-            return true;
-            
+            window.location.href = "../profile.html"
+        
         }
 
         else{
-            alert("Login Failure");
-            return false;
-        }
-    }
-);
 
+            Notify.error("Invalid User Credentials!");
+
+        }
+
+    });  
 
 }
 
 
+form.addEventListener('submit', e => {
+
+    e.preventDefault();
+
+    validateInputs();
+
+});

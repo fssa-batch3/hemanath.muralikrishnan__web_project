@@ -30,6 +30,10 @@
 
     <link rel="icon" type="image/png" sizes="60x32" href="../assets/images/tabicon/icon.png">
 
+     <!-- notify css -->
+
+   <link rel="stylesheet" href="../assets/css/notify.css">
+
 
     <title>AgroKart - Ecommerce</title>
 </head>
@@ -243,13 +247,13 @@
             <div class="profile-section">
 
                 <div class="profile-img">
-                    <img src="../assets/images/profile/profile.jpg" alt="profile-image">
+                    <img src="../assets/images/profile/blank_profile.png" alt="profile-image">
                 </div>
 
                 <div class="profile-details">
                     <p>Hello,</p>
-                    <p>Hemanath M</p>
-                    <a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    <p id="user-profile-name"></p>
+                    <p class="logout-btn" id="logout-user"><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
                 </div>
 
             </div>
@@ -540,6 +544,11 @@
 
 
     <script src="../assets/js/profile/profile.js"></script>
+
+
+    <!-- notify script -->
+
+    <script src="../assets/js/notify.js"></script>
 
     
 </body>

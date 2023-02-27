@@ -96,16 +96,17 @@
     padding: .2em;
 }
 
-.profile-details a {
+.profile-details .logout-btn {
     font-size: 1.2rem;
     color: blue;
     font-weight: 600;
 
 }
 
-.profile-details a:hover {
+.profile-details .logout-btn:hover {
     text-decoration: underline;
-    color: aqua;
+    cursor: pointer;
+    color: skyblue;
 }
 
 .account-settings i {

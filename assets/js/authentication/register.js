@@ -1,42 +1,87 @@
-// DOM elements
+const form = document.getElementById('form');
 
-const registration = document.getElementById("registerform");
-const nameInput = registration["name"];
-const mobileInput = registration["mobile-number"];
-const emailInput = registration["email"];
-const passwordInput = registration["password"];
+// password eye
+function showPwd(id, el) {
+    let x = document.getElementById(id);
+    if (x.type === "password") {
+        x.type = "text";
+        el.className = 'fa fa-eye-slash showpwd';
+    } else {
+        x.type = "password";
+        el.className = 'fa fa-eye showpwd';
+    }
+}
 
-// adding users in array of the objects
+function validateInputs() {
 
-const usersList = []; // empty array
+    const first_name = document.getElementById('first-name').value.trim();
+    const last_name = document.getElementById('last-name').value.trim();
+    const email_id = document.getElementById('email-id').value.trim();
+    const mobilenumber = document.getElementById('mobile-number').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const conf_password = document.getElementById('conf-password').value.trim();
 
-const addUser = (name, mobilenumber, emailid, password) => {
 
-    let records = JSON.parse(localStorage.getItem("usersList")) || usersList;
+    let user_data = JSON.parse(localStorage.getItem("users")) ?? [];
 
-    // array.push("Hemanath");
-    records.push( {
-        name,
-        mobilenumber,
-        emailid,
-        password,
-    } );
 
-    localStorage.setItem("usersList", JSON.stringify(records));
+    let check_value = true;
 
-    return { name, mobilenumber, emailid, password };
+    if (user_data != null) {
 
-};
+        user_data.find(function (userobj) {
 
-registration.onsubmit = e => {
+            if ((email_id === userobj["emailid"]) && (mobilenumber === userobj["mobilenumber"])) {
+
+                check_value = false;
+
+                Notify.error("Already Have a Account");
+
+            }
+        });
+
+    }
+
+
+    if (check_value) {
+
+        if (password == conf_password) {
+
+            let user = {
+                "firstname": first_name,
+                "lastname": last_name,
+                "emailid": email_id,
+                "mobilenumber": mobilenumber,
+                "password": conf_password
+            }
+
+            user_data.push(user);
+
+            localStorage.setItem("users", JSON.stringify(user_data));
+
+            Notify.success("Account Created Successfully!");
+
+            window.location.href = "login.html"
+
+
+        }
+
+        else {
+
+            Notify.error("Confirm password doesn't match password!");
+
+        }
+
+    }
+
+
+}
+
+form.addEventListener('submit', e => {
+
     e.preventDefault();
 
-    const newUser = addUser(
-        nameInput.value,
-        mobileInput.value,
-        emailInput.value,
-        passwordInput.value
-    );
+    validateInputs();
 
-    window.location.href = "login.html";
-};
+});
+

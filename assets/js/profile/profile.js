@@ -1,9 +1,6 @@
 const localdata = JSON.parse(localStorage.getItem("users"));
 
-
 const profile_email = localStorage.getItem("profile_email");
-
-
 
 // profile form
 
@@ -15,6 +12,7 @@ const gender_male = document.getElementById("male");
 const gender_female = document.getElementById("female")
 const email_Input = document.getElementById("email-address");
 const mobile_Input = document.getElementById("mobile-number");
+const profile_user_name = document.getElementById("user-profile-name");
 
 
 // localdata.find (
@@ -41,26 +39,31 @@ const mobile_Input = document.getElementById("mobile-number");
 // showing data from already having data
 let Success = false, i;
 
+
+
 for (i = 0; i < localdata.length; i++) {
-    if (localdata[i].email == profile_email) {
+    if (localdata[i].emailid == profile_email) {
         Success = true;
         break;
     }
 }
 
 
+
+
 if (Success == true) {
 
-    first_name.value = localdata[i].first_name;
-    last_name.value = localdata[i].last_name;
-    email_Input.value = localdata[i].email;
+    first_name.value = localdata[i].firstname;
+    last_name.value = localdata[i].lastname;
+    email_Input.value = localdata[i].emailid;
     mobile_Input.value = localdata[i].mobilenumber;
+    profile_user_name.innerText = localdata[i].firstname + " " + localdata[i].lastname
 
 }
 
 else {
 
-    alert("Error");
+    Notify.error("Error");
 
 }
 
@@ -109,7 +112,7 @@ profile_form.addEventListener('submit', function (e) {
     let profile_updated = false;
     for (let i = 0; i < localdata.length; i++) {
 
-        if (profile_email_id == localdata[i].email) {
+        if (profile_email_id == localdata[i].emailid) {
             profile_updated = true;
             break;
 
@@ -118,18 +121,18 @@ profile_form.addEventListener('submit', function (e) {
 
 
     if (profile_updated) {
-        localdata[i].first_name = profile_first_name;
-        localdata[i].last_name = profile_last_name;
+        localdata[i].firstname = profile_first_name;
+        localdata[i].lastname = profile_last_name;
         localdata[i].gender = gender;
         localdata[i].mobilenumber = profile_mobile_number;
 
         localStorage.setItem("users", JSON.stringify(localdata));
 
-        alert("Profile Details Updated");
+        Notify.success("Profile Details Updated");
     }
 
     else {
-        alert("You are mad at me");
+        Notify.error("You are mad at me");
     }
 
 
@@ -154,30 +157,35 @@ profile_form.addEventListener('submit', function (e) {
 
 for (let j = 0; j <= localdata.length; j++) {
 
-    if (profile_email_id == localdata[j].email) {
+    if (profile_email_id == localdata[j].emailid) {
 
-        if (localdata[j].gender == "male") {
-
-            gender_male.checked = true;
-            gender_female.checked = false;
+        if (localdata[j].gender == null) {
             break;
+        }
+        else {
+            if (localdata[j].gender == "male") {
+
+                gender_male.checked = true;
+                gender_female.checked = false;
+                break;
 
 
+            }
+
+            else if (localdata[j].gender == "female") {
+                gender_female.checked = true;
+                gender_male.checked = false;
+                break;
+
+            }
         }
 
-        else if (localdata[j].gender == "female") {
-            gender_female.checked = true;
-            gender_male.checked = false;
-            break;
 
-        }
 
     }
 
 
 }
-
-
 
 
 // address form show and close
@@ -230,7 +238,7 @@ address_form.addEventListener('submit', function (e) {
 
     for (let i = 0; i < localdata.length; i++) {
 
-        if (profile_email_id == localdata[i].email) {
+        if (profile_email_id == localdata[i].emailid) {
 
             const address_array = localdata[i].address ?? [];
 
@@ -246,7 +254,7 @@ address_form.addEventListener('submit', function (e) {
                 "district": district_value,
                 "state": state_value,
                 "pincode": pincode_value,
-                "address_id": address_array.length*2+1
+                "address_id": address_array.length * 2 + 1
             }
             address_array.push(address_data);
 
@@ -255,7 +263,7 @@ address_form.addEventListener('submit', function (e) {
     }
     localStorage.setItem("users", JSON.stringify(localdata));
 
-    alert("Address Added");
+    Notify.success("Address Added");
 
     address_form.style.display = "none";
 
@@ -269,11 +277,7 @@ address_form.addEventListener('submit', function (e) {
 const edit_address_form = document.getElementById("edit_address_form_two");
 edit_address_form.style.display = "none";
 
-const updated_close_form = document.getElementById("updated-close-form");
 
-updated_close_form.addEventListener("click", function (e) {
-    edit_address_form.style.display = "none";
-})
 
 
 // saving address id 
@@ -294,7 +298,7 @@ updated_address_id.style.display = "none"
 // showing user address from the localstorage
 for (let k = 0; k < localdata.length; k++) {
 
-    if (profile_email_id == localdata[k].email) {
+    if (profile_email_id == localdata[k].emailid) {
 
         if (localdata[k].address != null) {
 
@@ -302,10 +306,8 @@ for (let k = 0; k < localdata.length; k++) {
 
             let address_len = localdata[k]["address"];
 
-            console.log(address_len);
 
             for (let j = 0; j < address_len.length; j++) {
-
 
 
                 let address_show_div = document.createElement("div");
@@ -326,19 +328,19 @@ for (let k = 0; k < localdata.length; k++) {
                 let address_edit_btn = document.createElement("button");
                 address_edit_btn.setAttribute("class", "show-address-edit");
                 address_edit_btn.setAttribute("id", "address_edit");
-                address_edit_btn.innerText = "Edit";
+                address_edit_btn.innerHTML = '<i class="fa-solid fa-pen"></i>';
                 address_edit_div.append(address_edit_btn);
 
                 let address_delete_btn = document.createElement("button");
                 address_delete_btn.setAttribute("class", "show-address-delete");
                 address_delete_btn.setAttribute("id", "address_delete");
-                address_delete_btn.innerText = "Delete";
+                address_delete_btn.innerHTML = '<i class="fa-solid fa-trash"></i>';
                 address_edit_div.append(address_delete_btn);
 
                 let address_close_btn = document.createElement("button");
                 address_close_btn.setAttribute("class", "close-address");
                 address_close_btn.setAttribute("id", "close_address");
-                address_close_btn.innerText = "Close";
+                address_close_btn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
                 address_edit_div.append(address_close_btn);
 
 
@@ -397,14 +399,14 @@ for (let k = 0; k < localdata.length; k++) {
 
                         localStorage.setItem("users", JSON.stringify(localdata));
 
-                        alert("Address Deleted");
+                        Notify.success("Address Deleted");
 
                         self.location.assign(window.location);
 
                     }
 
                     else {
-                        alert("ASD");
+                        Notify.error("ASD");
                     }
 
 
@@ -419,6 +421,12 @@ for (let k = 0; k < localdata.length; k++) {
 
 }
 
+const updated_close_form = document.getElementById("updated-close-form");
+updated_close_form.addEventListener('click', function (e) {
+
+    e.preventDefault();
+    edit_address_form.style.display = "none"
+})
 
 // edit address form
 edit_address_form.addEventListener('submit', function (e) {
@@ -436,7 +444,7 @@ edit_address_form.addEventListener('submit', function (e) {
 
     for (let k = 0; k < localdata.length; k++) {
 
-        if (profile_email_id == localdata[k].email) {
+        if (profile_email_id == localdata[k].emailid) {
 
             if (localdata[k].address != null) {
 
@@ -457,15 +465,15 @@ edit_address_form.addEventListener('submit', function (e) {
 
                         self.location.assign(window.location);
 
-                        alert("Address Updated")
+                        Notify.success("Address Updated");
 
                         break;
 
                     }
 
-
-
                 }
+
+
             }
 
 
@@ -477,6 +485,54 @@ edit_address_form.addEventListener('submit', function (e) {
 
 
 });
+
+
+// logout
+
+const logout_btn = document.getElementById("logout-user");
+
+logout_btn.addEventListener('click', function (e) {
+
+
+    for (let k = 0; k <=localdata.length-1; k++) {
+
+        if (profile_email_id == localdata[k].emailid) {
+
+            if (confirm("Are you sure?")) {
+
+                // removing user object
+               localdata.splice(k, 1);
+
+               localStorage.setItem("users", JSON.stringify(localdata));
+
+                // removing the profile email while we get from login page
+                localStorage.removeItem("profile_email")
+
+                Notify.success("logout successfull");
+
+                window.location.href = "../index.html";
+
+                break;
+
+            }
+
+            else {
+
+                Notify.error("Canceled");
+
+                break;
+
+            }
+
+
+        }
+
+    }
+
+})
+
+
+
 
 
 

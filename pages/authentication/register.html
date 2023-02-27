@@ -11,7 +11,9 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   
+   <!-- notify css -->
+
+   <link rel="stylesheet" href="../../assets/css/notify.css">
 
     <link rel="icon" type="image/png" sizes="60x32" href="../../assets/images/tabicon/icon.png">
     <title>AgroKart - Ecommerce</title>
@@ -25,56 +27,40 @@
 
         <form id="form" action="/">
 
-            <h1>Registration</h1>
+            <h1>Sign Up</h1>
 
-            <div class="input-control">
+            <div class="input-wrapper">
+                <input type="text" id="first-name" class="form-control" placeholder="Enter Your First Name" required="true" pattern="[A-Za-z]{1,16}" title="Please Enter Valid First Name" maxlength="16">
+                <label for="first-name" class="control-label">Firstname</label>
+              </div>
 
-                <label for="first_name">Firstname</label>
-                <input id="first_name" name="first_name" type="text" placeholder="Enter Your First Name">
+              <div class="input-wrapper">
+                <input type="text" id="last-name" class="form-control" placeholder="Enter Your Last Name" required="true" pattern="[A-Za-z]{1,16}" title="Please Enter Valid Last Name" maxlength="16">
+                <label for="last-name" class="control-label">Lastname</label>
+              </div>
 
-                <div class="error"></div>
+              <div class="input-wrapper">
+                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id">
+                <label for="email-id" class="control-label">Email id</label>
+              </div>
 
-            </div>
+              <div class="input-wrapper">
+                <input type="tel" id="mobile-number" class="form-control" placeholder="Enter Your Mobile Number" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10" title="Please Enter Valid Mobile Number">
+                <label for="mobile-number" class="control-label">Mobile Number</label>
+              </div>
 
-            <div class="input-control">
-
-                <label for="last_name">Lastname</label>
-                <input id="last_name" name="last_name" type="text" placeholder="Enter Your Last Name">
-
-                <div class="error"></div>
-
-            </div>
-            <div class="input-control">
-
-                <label for="email">Email Id</label>
-                <input id="email" name="email" type="text" placeholder="Enter Your Email Id">
-
-                <div class="error"></div>
-
-            </div>
-            <div class="input-control">
-
-                <label for="mobile_number">Mobile Number</label>
-                <input id="mobile_number" name="mobile-number" type="text" placeholder="Enter Your Mobile Number">
-
-                <div class="error"></div>
-            </div>
-            <div class="input-control">
-
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" placeholder="Enter Your Password">
+              <div class="input-wrapper">
                 <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
+                <input type="password" id="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" title="Please Enter Valid Password">
+                <label for="password" class="control-label">Password</label>
+              </div>
+              
 
-                <div class="error"></div>
-            </div>
-
-            <div class="input-control">
-
-                <label for="conf_password">Confirm Password</label>
-                <input id="conf_password" name="conf_password" type="password" placeholder="Enter Your Password again">
-                <i class="fa fa-eye showpwd" onClick="showPwd('conf_password', this)"></i>
-                <div class="error"></div>
-            </div>
+              <div class="input-wrapper">
+                <i class="fa fa-eye showpwd" onClick="showPwd('conf-password', this)"></i>
+                <input type="password" id="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="[A-Za-z0-9]{8,16}" minlength="8" maxlength="16" title="Please Enter Valid Password">
+                <label for="conf-password" class="control-label">Confirm Password</label>
+              </div>
 
             <button type="submit">Sign Up</button>
 
@@ -83,7 +69,11 @@
         </form>
     </div>
 
-    <script src="../../assets/js/authentication/register_one.js"></script>
+    <script src="../../assets/js/authentication/register.js"></script>
+
+    <!-- notify script -->
+
+    <script src="../../assets/js/notify.js"></script>
 
     
 
