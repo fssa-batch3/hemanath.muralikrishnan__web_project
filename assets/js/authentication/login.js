@@ -20,27 +20,36 @@ function validateInputs(){
 
     const user_data = JSON.parse(localStorage.getItem("users"));
 
+    let check_account;
     user_data.find(function(loginobj){
 
         if((email_id === loginobj["emailid"]) && (password === loginobj["password"])){
 
-            const profile_email = email_id;
-
-            localStorage.setItem("profile_email", profile_email);
-
-            Notify.success("Login Successfull!");
-
-            window.location.href = "../profile.html"
-        
+               return check_account = true;
         }
 
-        else{
+        else {
 
-            Notify.error("Invalid User Credentials!");
-
+             return check_account = false;
         }
+
 
     });  
+
+    if(check_account){
+
+        const profile_email = email_id;
+
+        localStorage.setItem("profile_email", profile_email);
+
+        Notify.success("Login Successfull!");
+
+        window.location.href = "../profile.html"
+    }
+
+    else{
+        Notify.error("Invalid User Credentials");
+    }
 
 }
 

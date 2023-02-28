@@ -120,7 +120,7 @@
             </div>
 
             <div class="mobile-name-input mobile-input">
-                <input type="text" disabled placeholder="Hemanath"/>
+                <input type="text" id="user_name" disabled placeholder="Hemanath"/>
                 <input type="text" disabled placeholder="M">
             </div>
 
@@ -138,7 +138,7 @@
             </div>
 
             <div class="mobile-email-input mobile-input">
-                <input type="text" disabled placeholder="exmaple@gmail.com">
+                <input type="email" id="email_id" disabled placeholder="exmaple@gmail.com">
             </div>
 
             <div class="mobile-mobile-number-sec mobile-opt-title">
@@ -147,7 +147,7 @@
             </div>
 
             <div class="mobile-mobile-input mobile-input">
-                <input type="tel" disabled placeholder="+91 1234567890">
+                <input type="tel" id="mobile_number" disabled placeholder="+91 1234567890">
             </div>
 
            
@@ -285,6 +285,29 @@
 </footer>
 
 <!-- footer ends -->
+
+<script>
+
+const user_name = localStorage.getItem("user_name");
+
+const email = localStorage.getItem("email_id");
+
+const mobile_number = localStorage.getItem("mobile_number");
+
+console.log(user_name);
+
+console.log(email);
+
+console.log(mobile_number);
+
+document.getElementById("user_name").value = user_name;
+
+document.getElementById("email_id").value = email;
+
+document.getElementById("mobile_number").value = mobile_number;
+
+
+</script>
 
 </body>
 </html>
