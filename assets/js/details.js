@@ -1043,7 +1043,7 @@ product_details.filter( function(rel) {
 
         real_products(product);
 
-        return rel;
+        return product;
     }
 
     
