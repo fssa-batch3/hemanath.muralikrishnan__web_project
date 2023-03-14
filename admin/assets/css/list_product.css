@@ -1,0 +1,334 @@
+.filter-search-main {
+    display: flex;
+    flex-direction: row;
+    margin: 2em 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-search-main .filter {
+    margin: 0 2em;
+}
+
+.filter-search-main .filter select {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.filter-search-main .list-search #site-search {
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 1em;
+}
+
+.filter-search-main .list-search button{
+    padding: 1em;
+    margin: 0 2em;
+    border-radius: 5px;
+    background-color: #09c372;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+
+table {
+    margin: 2em auto;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    /* border-bottom: 2px solid #000; */
+    background-color: white;
+    border-collapse: collapse;
+    padding: 1em;
+}
+
+table tbody .success {
+    border: 4px solid #09c372;
+}
+
+table tbody .fail {
+    border: 4px solid #ff3860;
+}
+
+table tbody tr td{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+table tbody tr td img {
+    width: 80px;
+}
+
+table tbody tr td .fa-eye {
+    font-size: 1.5rem;
+    color: blue;
+    cursor: pointer;
+}
+
+table tbody tr td .fa-pen-to-square {
+    font-size: 1.5rem;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+
+
+table tbody tr td .fa-trash {
+    font-size: 1.5rem;
+    color: red;
+    cursor: pointer;
+}
+
+table tbody tr td .fa-check{
+    color: #09c372;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+table tbody tr td .fa-xmark{
+    color: #ff3860;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+/* form starts */
+
+.edit-product-all{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgb(0,0,0); */
+    background-color: rgba(0,0,0,0.2);
+}
+
+.close i {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-left: 87%;
+}
+.close i:hover, .close i:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.edit-product-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.edit-product-main .edit_product_two_sides {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    border-radius: 11px;
+    background: #f1fcfc;
+    box-shadow: 5px 5px 16px #bcc5c5,
+        -5px -5px 16px #ffffff;
+    width: 1200px;
+}
+
+
+
+.edit-product-main form .save-product-btn{
+    background-color: #09c372;
+    padding: 1em;
+    margin: 1.5em auto;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .product-healthy .healthy-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.edit-product-main .edit-product-left-side .input-control,
+.edit-product-main .edit-product-right-side .input-control {
+    margin: 1.5em 0;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control label,
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control label {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control-two-main label,
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control-two-main label{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control-two-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control-two-main .input-control-two input{
+    margin: 1em .5em;
+    height: 1.2em;
+    width: 1.5em;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control .product_protein_unit,
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control .product_carbo_unit,
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .product_stock_unit {
+    width: 60px;
+    background-color: #ecb45f;
+    border: 2px solid black;
+    text-align: center;
+    padding: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control input,
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control input {
+    height: 50px;
+    width: 300px;
+    margin: .5em 0;
+    border-radius: 5px;
+    padding-left: .5em;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control input:valid,
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control input:valid {
+    border-color: #09c372;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control input:invalid,
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control input:invalid {
+    border-color: #ff3860;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control select {
+    padding: .5em;
+    border-radius: 5px;
+    width: 300px;
+    font-size: .9rem;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-left-side .input-control textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    padding-left: .5em;
+    border-radius: 5px;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .weight_input {
+    width: 100px;
+    margin: .5em 1em;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .price_input {
+    width: 100px;
+    margin: .5em .5em;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .weight_unit {
+    height: 50px;
+    width: 60px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .fa-indian-rupee-sign {
+    margin-left: .5em;
+    font-size: 1.2rem;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .quantity-price-list {
+    background-color: #bcc5c5;
+    border-radius: 5px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .quantity-price-list .quantity_price_list_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin: 1em 0;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .quantity-price-list .quantity_price_list_item .quantity_price_p {
+    background-color: white;
+    padding: 1em;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .quantity-price-list .quantity_price_list_item .quantity_price_delete{
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3860;
+    cursor: pointer;
+
+} 
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .quantity-price-list .quantity_price_list_item .quantity_price_delete .fa-trash {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: .5em;
+    margin-top: .3em;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .quantity_price_list_add {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.edit-product-main .edit_product_two_sides .edit-product-right-side .input-control .quantity_price_list_add .fa-plus {
+    padding: .5em;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+

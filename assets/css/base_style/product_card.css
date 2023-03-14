@@ -6,16 +6,18 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 /* home page product card */
 
 /* product list product card */
-.products-list-container{
+.products-list-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: .5em;
-   
+
 }
+
 /* product list product card */
 
 
@@ -25,14 +27,15 @@
     overflow-x: scroll;
     margin-top: 2em;
 }
+
 /* individual products related products */
 
 
 
 /* start of each-individual product container */
 
-.product-container{
-    padding: 1em;   
+.product-container {
+    padding: 1em;
 }
 
 .product-container:hover {
@@ -43,15 +46,15 @@
 
 .product-main {
     width: 240px;
-    height: 550px;
+    height: 525px;
     padding: 1.2em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 17px;
     background: #ffffff;
-    box-shadow:  5px 5px 14px #636666,
-                -5px -5px 14px #ffffff;
+    box-shadow: 5px 5px 14px #636666,
+        -5px -5px 14px #ffffff;
 }
 
 .product-img img {
@@ -61,7 +64,67 @@
     border-radius: 10px;
 }
 
-.farmer-part img {
+.dropdown {
+    position: relative;
+    display: inline-block;
+    font-family: sans-serif;
+}
+
+.dropdown-header {
+    cursor: pointer;
+    padding: .5em;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    font-weight: 500;
+}
+
+.dropdown-header .fa-caret-down {
+    font-size: 18px;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+
+
+}
+
+.dropdown-option {
+    padding: 1em;
+    font-weight: 600;
+}
+
+.dropdown-option:hover {
+    background-color: #429b44;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+}
+
+
+.show {
+    display: block;
+}
+
+.amount {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+
+/* .farmer-part img {
     width: 40px;
     border-radius: 50%;
 }
@@ -72,7 +135,7 @@
     align-items: center;
     justify-content: space-between;
     width: 160px;
-}
+} */
 
 .rating-part {
     width: 150px;
@@ -82,22 +145,55 @@
     justify-content: space-between;
 }
 
-.amount {
-    margin: .5em 0;
-}
 
 .qty-cat {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 190px;
+    width: 200px;
+}
+
+.qty {
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+   width: 97px;
+    border-radius: 10px;
+}
+
+.qty span {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.qty .qty-plus,
+.qty .qty-minus {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.qty .qty-number {
+    font-size: 1.1em;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    margin: 0 .3em;
+    padding: 0 .3em;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .qty-cat .add-button {
     background-color: green;
     padding: .5em 1em;
-    margin-left: 1em;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -108,11 +204,11 @@
     font-weight: 400
 }
 
-.farmer-name{
+/* .farmer-name{
     color: green;
     font-size: .9rem;
     font-weight: 500;
-}
+} */
 
 .product-name p {
     color: #253D4E;
@@ -128,26 +224,7 @@
     color: #FDCC0D;
 }
 
-.dropdown-values select {
-    width: 150px;
-    border-radius: 5px;
-}
-
-.amount .amount-one {
-    font-size: 1.4rem;
-    font-family: sans-serif;
-    color: #253D4E;
-    font-weight: bold;
-}
-
-.qty input {
-    height: 40px;
-    width: 80px;
-    border-radius: 10px;
-    border: 2px solid #429b44;
-    padding-left: 1em;
-}
-
+ 
 .add-button a {
     font-size: 1rem;
     color: #ffffff;

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.create-title {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.list-page {
+   display: block;
+   margin: 2em;
+   font-weight: bold;
+   font-size: 1.3rem;
+   text-align: right;
+}
+
+.list-page:hover {
+    text-decoration: underline;
+}
+
+
+.create-product-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.create-product-main .create_product_two_sides {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    border-radius: 11px;
+    background: #f1fcfc;
+    box-shadow: 5px 5px 16px #bcc5c5,
+        -5px -5px 16px #ffffff;
+    width: 1200px;
+}
+
+
+
+.create-product-main form .save-product-btn{
+    background-color: #09c372;
+    padding: 1em;
+    margin: 1.5em auto;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.create-product-main .create_product_two_sides .create-product-left-side .product-healthy .healthy-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.create-product-main .create-product-left-side .input-control,
+.create-product-main .create-product-right-side .input-control {
+    margin: 1.5em 0;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control label,
+.create-product-main .create_product_two_sides .create-product-right-side .input-control label {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control-two-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control-two-main label,
+.create-product-main .create_product_two_sides .create-product-right-side .input-control-two-main label{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control .product_protein_unit,
+.create-product-main .create_product_two_sides .create-product-left-side .input-control .product_carbo_unit,
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .product_stock_unit {
+    width: 60px;
+    background-color: #ecb45f;
+    border: 2px solid black;
+    text-align: center;
+    padding: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control input,
+.create-product-main .create_product_two_sides .create-product-right-side .input-control input {
+    height: 50px;
+    width: 300px;
+    margin: .5em 0;
+    border-radius: 5px;
+    padding-left: .5em;
+    font-size: .9rem;
+    font-weight: 400;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control-two-main .input-control-two input{
+    margin: 1em .5em;
+    height: 1.2em;
+    width: 1.5em;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control-two-main .input-control-two input{
+    height: 1.2em;
+    width: 1.5em;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control input:valid,
+.create-product-main .create_product_two_sides .create-product-right-side .input-control input:valid {
+    border-color: #09c372;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control input:invalid,
+.create-product-main .create_product_two_sides .create-product-right-side .input-control input:invalid {
+    border-color: #ff3860;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control select {
+    padding: .5em;
+    border-radius: 5px;
+    width: 300px;
+    font-size: .9rem;
+}
+
+.create-product-main .create_product_two_sides .create-product-left-side .input-control textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    padding-left: .5em;
+    border-radius: 5px;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .weight_input {
+    width: 100px;
+    margin: .5em 1em;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .price_input {
+    width: 100px;
+    margin: .5em .5em;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .weight_unit {
+    height: 50px;
+    width: 60px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .fa-indian-rupee-sign {
+    margin-left: .5em;
+    font-size: 1.2rem;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .quantity-price-list {
+    background-color: #bcc5c5;
+    border-radius: 5px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .quantity-price-list .quantity_price_list_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin: 1em 0;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .quantity-price-list .quantity_price_list_item .quantity_price_p {
+    background-color: white;
+    padding: 1em;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .quantity-price-list .quantity_price_list_item .quantity_price_delete{
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3860;
+    cursor: pointer;
+
+} 
+
+.create-product-main .create_product_two_sides .create-product-right-side .quantity-price-list .quantity_price_list_item .quantity_price_delete .fa-trash {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: .5em;
+    margin-top: .3em;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .quantity_price_list_add {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.create-product-main .create_product_two_sides .create-product-right-side .input-control .quantity_price_list_add .fa-plus {
+    padding: .5em;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+

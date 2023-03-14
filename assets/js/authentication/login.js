@@ -40,7 +40,7 @@ function validateInputs(){
 
         const profile_email = email_id;
 
-        localStorage.setItem("profile_email", profile_email);
+        localStorage.setItem("logged_in", profile_email);
 
         Notify.success("Login Successfull!");
 

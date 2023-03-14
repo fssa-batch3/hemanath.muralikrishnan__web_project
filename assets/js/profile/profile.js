@@ -1,6 +1,6 @@
 const localdata = JSON.parse(localStorage.getItem("users"));
 
-const profile_email = localStorage.getItem("profile_email");
+const profile_email = localStorage.getItem("logged_in");
 
 // profile form
 
@@ -96,8 +96,6 @@ profile_edit_button.addEventListener('click', function (e) {
 });
 
 // save button
-const profile_email_id = email_Input.value.trim();
-
 
 profile_form.addEventListener('submit', function (e) {
 
@@ -112,7 +110,7 @@ profile_form.addEventListener('submit', function (e) {
     let profile_updated = false;
     for (let i = 0; i < localdata.length; i++) {
 
-        if (profile_email_id == localdata[i].emailid) {
+        if (profile_email == localdata[i].emailid) {
             profile_updated = true;
             break;
 
@@ -157,7 +155,7 @@ profile_form.addEventListener('submit', function (e) {
 
 for (let j = 0; j <= localdata.length; j++) {
 
-    if (profile_email_id == localdata[j].emailid) {
+    if (profile_email == localdata[j].emailid) {
 
         if (localdata[j].gender == null) {
             break;
@@ -238,7 +236,7 @@ address_form.addEventListener('submit', function (e) {
 
     for (let i = 0; i < localdata.length; i++) {
 
-        if (profile_email_id == localdata[i].emailid) {
+        if (profile_email == localdata[i].emailid) {
 
             const address_array = localdata[i].address ?? [];
 
@@ -298,7 +296,7 @@ updated_address_id.style.display = "none"
 // showing user address from the localstorage
 for (let k = 0; k < localdata.length; k++) {
 
-    if (profile_email_id == localdata[k].emailid) {
+    if (profile_email == localdata[k].emailid) {
 
         if (localdata[k].address != null) {
 
@@ -444,7 +442,7 @@ edit_address_form.addEventListener('submit', function (e) {
 
     for (let k = 0; k < localdata.length; k++) {
 
-        if (profile_email_id == localdata[k].emailid) {
+        if (profile_email == localdata[k].emailid) {
 
             if (localdata[k].address != null) {
 
@@ -496,17 +494,13 @@ logout_btn.addEventListener('click', function (e) {
 
     for (let k = 0; k <=localdata.length-1; k++) {
 
-        if (profile_email_id == localdata[k].emailid) {
+        if (profile_email == localdata[k].emailid) {
 
             if (confirm("Are you sure?")) {
 
-                // removing user object
-               localdata.splice(k, 1);
-
-               localStorage.setItem("users", JSON.stringify(localdata));
 
                 // removing the profile email while we get from login page
-                localStorage.removeItem("profile_email")
+                localStorage.removeItem("logged_in")
 
                 Notify.success("logout successfull");
 

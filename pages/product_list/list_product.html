@@ -19,7 +19,7 @@
     <!-- footer stylesheet -->
 
     <!-- stylesheet -->
-    <link rel="stylesheet" href="../../assets/css/base_style/indv-product.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/base_style/product_list.css" type="text/css">
     <!-- stylesheet -->
 
     <!-- product_card stylesheet -->
@@ -87,14 +87,14 @@
 
             <div class="option-one">
 
-                <a href="../wishlist/wishlist.html"><i class="fa-regular fa-heart"></i>
+                <a href="../wishlist.html"><i class="fa-regular fa-heart"></i>
                     Wishlist</a>
 
             </div>
 
             <div class="option-two">
 
-                <a href="../cart/cart.html"><i class="fa-solid fa-cart-shopping"></i>
+                <a href="../cart.html"><i class="fa-solid fa-cart-shopping"></i>
                     Cart</a>
 
             </div>
@@ -106,6 +106,7 @@
 
             </div>
 
+        </div>
         </div>
 
     </nav>
@@ -126,12 +127,12 @@
                     <div class="dropdown_menu">
 
                         <ul>
-                            <li><a href="../product_list/list_product.html?cat=01">Exotic Fruits</a></li>
-                            <li><a href="../product_list/list_product.html?cat=02">Exotic Veggies</a></li>
-                            <li><a href="../product_list/list_product.html?cat=03">Fresh Fruits</a></li>
-                            <li><a href="../product_list/list_product.html?cat=04">Fresh Veggies</a></li>
-                            <li><a href="../product_list/list_product.html?cat=04">Leafy Green</a></li>
-                            <li><a href="../product_list/list_product.html?cat=05">Tubers</a></li>
+                            <li><a href="list_product.html?cat=01">Exotic Fruits</a></li>
+                            <li><a href="list_product.html?cat=02">Exotic Veggies</a></li>
+                            <li><a href="list_product.html?cat=03">Fresh Veggies</a></li>
+                            <li><a href="list_product.html?cat=04">Fresh Fruits</a></li>
+                            <li><a href="list_product.html?cat=05">Leafy Green</a></li>
+                            <li><a href="list_product.html?cat=06">Tubers</a></li>
 
                         </ul>
 
@@ -139,7 +140,7 @@
 
                 </li>
                 <li class="home"><a href="../../index.html">Home</a></li>
-                <li class="products"><a href="../product_list/main_list.html">Products</a></li>
+                <li class="products"><a href="list_product.html?cat=00">Products</a></li>
             </ul>
 
         </div>
@@ -153,7 +154,6 @@
     </nav>
     <!-- nav three end -->
 
-    
      <!-- mobile device nav bar start -->
 
      <nav class="mobile-nav" aria-label="mobile-nav">
@@ -175,7 +175,7 @@
 
                     <div class="side-products side-item">
                         <i class="fa-solid fa-list"></i>
-                        <a href="../product_list/list_product.html?cat=00">Products</a>
+                        <a href="main_list.html">Products</a>
                     </div>
 
                     <div class="side-auth side-item">
@@ -219,64 +219,222 @@
     <!-- start of list top -->
     <div class="list-top">
 
-        <ul>
+        <p class="all-products">All Products</p>
 
+        <ul>
             <li><i class="fa-solid fa-house"></i></li>
             <li><a href="../../index.html">Home</a></li>
             <li><i class="fa-solid fa-angle-right"></i></li>
             <li>Shop</li>
             <li><i class="fa-solid fa-angle-right"></i></li>
-            <li>Product</li>
+            <li>All Products</li>
 
         </ul>
 
     </div>
     <!-- end of list top -->
 
-    <!-- start of individuals products -->
+    <!-- start of mobile categories -->
 
-    <div class="individuals-products">
+<div class="mobile-categories-main">
 
-        <!-- start of another invidual products cont -->
-
-        <div class="indv-products-cont">
-
-       
-
-               
-            <!-- end of indvidual products right side -->
-        </div>
-        <!-- end of another invidual products cont -->
-    </div>
-    <!-- end of individual products -->
-
-    <!-- start of related products -->
-
-    <div class="rela-cont">
-
-        <div class="rela-scroll">
-
-            <p>Related Products</p>
-
-            <!-- rela products start -->
-
-            <!-- start of products container -->
-
-            <div class="products-container-indv">
-
+    <div class="mobile-categories">
+    
+        <input type="checkbox" id="mobile-list-categories">
+        <p class="mobile-menu"><label for="mobile-list-categories">Categories <i
+            class="fa-solid fa-caret-down"></i></label></p>
+    
+            <div class="mobile-drop-menu">
+    
+                <a href="exotic_fruits_list.html"><p>Exotic Fruits</p></a>
+                <a href="exotic_veggies_list.html"><p>Exotic Veggies</p></a>
+                <a href="fresh_fruits_list.html"><p>Fresh Fruits</p></a>
+                <a href="fresh_veggies_list.html"><p>Fresh Veggies</p></a>
+                <a href="leafy_green_list.html"><p>Leafy Green</p></a>
+                <a href="tubers_list.html"><p>Tubers</p></a>
+    
             </div>
-            <!-- end of products container -->
+        
+    </div>
+    
+    <div class="mobile-filters">
+    
+        <select>
+            <option>Sort By</option>
+            <option>Name</option>
+            <option>Categories</option>
+            <option>Ratings</option>
+        </select>
+    
+        <select>
+            <option>Filter By</option>
+            <option>Popularity Low to High</option>
+            <option>Popularity High to Low</option>
+            <option>Cost Low to High</option>
+            <option>Cost High to Low</option>
+        </select>
+    
+    </div>
+    
+    </div>
+    
+    <!-- end of mobile categories -->
+
+    <div class="main-container-aside-product">
+
+    <div class="left-side-aside">
+
+        <!-- start of aside -->
+
+        <aside class="aside-list">
+
+            <!-- start of categories list -->
+            <div class="aside-categories-list">
+
+                <!-- start of categories main -->
+                <div class="categories-main">
+
+                    <p class="categories-main-title">Categories <i class="fa-solid fa-border-all"></i></p>
+
+                    <ul>
+
+                        <li>
+                            <input type="checkbox" id="exocit-fruits">
+                            <img src="../../assets/images/categories/exotic_fruits.png" alt="exotic_fruits">
+                            <label for="exocit-fruits"><a href="list_product.html?cat=01">Exotic Fruits</a></label>
+                        </li></a>
+
+                        <li>
+                            <input type="checkbox" id="exocit-veggies">
+                            <img src="../../assets/images/categories/exotic_veggies.png" alt="exotic_veggies">
+                            <label for="exocit-veggies"><a href="list_product.html?cat=02">Exotic Veggies</a></label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" id="fresh-veggies">
+                            <img src="../../assets/images/categories/fresh_veggies.png" alt="fresh_veggies">
+                            <label for="fresh-veggies"><a href="list_product.html?cat=03">Fresh Veggies</a></label>
+                        </li>
+
+                        <li>
+                            <input type="checkbox" id="fresh-fruits">
+                            <img src="../../assets/images/categories/fresh_fruits.png" alt="fresh_fruits">
+                            <label for="fresh-fruits"><a href="list_product.html?cat=04">Fresh Fruits</a></label>
+                        </li>
+
+                       
+
+                        <li>
+                            <input type="checkbox" id="leafy-green">
+                            <img src="../../assets/images/categories/leafy_green.png" alt="leafy_green">
+                            <label for="leafy-green"><a href="list_product.html?cat=05">Leafy Green</a></label>
+                        </li>
 
 
-            
-            <!-- end of products container -->
+                        <li>
+                            <input type="checkbox" id="tubers">
+                            <img src="../../assets/images/categories/tubers.png" alt="tubers">
+                            <label for="tubers"><a href="list_product.html?cat=06">Tubers</a></label>
+                        </li>
 
-            <!-- rela products end -->
-        </div>
+
+
+                    </ul>
+
+                    <!-- start of sortby -->
+                    <div class="aside-sortby-list">
+
+                        <div class="sortby-main">
+                            <p class="sortby-main-title">Sort By <i class="fa-solid fa-sort"></i></p>
+
+                            <ul>
+
+                                <li>
+                                    <input type="radio" id="name">
+                                    <label for="name">Name</label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" id="categories">
+                                    <label for="categories">Categories</label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" id="ratings">
+                                    <label for="ratings">Ratings</label>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- end of sortby -->
+
+                    <!-- start of filter by -->
+
+                    <div class="aside-filterby-list">
+
+                        <div class="filterby-main">
+                            <p class="filterby-main-title">Filter By <i class="fa-solid fa-filter"></i></p>
+
+                            <ul>
+
+                                <li>
+                                    <input type="radio" id="popular-low">
+                                    <label for="popular-low">Popularity Low to High</label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" id="popular-high">
+                                    <label for="popular-high">Popularity High to Low</label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" id="cost-low">
+                                    <label for="cost-low">Cost Low to High</label>
+                                </li>
+
+                                <li>
+                                    <input type="radio" id="cost-high">
+                                    <label for="cost-high">Cost High to Low</label>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- end of filter by -->
+
+                </div>
+                <!-- end of categories main -->
+            </div>
+            <!-- end of categories list -->
+
+        </aside>
 
     </div>
 
-    <!-- end of related products -->
+        <!-- end of aside -->
+
+        <!-- start of products container -->
+
+        <div class="products-list-container">
+
+           
+
+          
+
+
+
+
+
+        </div>
+
+        <!-- end of products container -->
+
+    </div>
+    
 
     <!-- footer start -->
 
@@ -299,6 +457,7 @@
                 <a href="../company/contact_us.html" class="footer-item">Contact US</a>
 
             </div>
+
 
             <div class="account footer-flex-two">
 
@@ -401,7 +560,9 @@
 
     <!-- footer ends -->
 
-    <script src="../../assets/js/product_curd/details.js"></script>
+    <!-- script -->
+
+    <script src="../../assets/js/product_curd/list_product.js"></script>
 
 </body>
 

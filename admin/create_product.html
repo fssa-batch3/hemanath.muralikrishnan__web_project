@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- body css -->
+
+    <link rel="stylesheet" href="../assets/css/base_style/body.css">
+
+    <link rel="stylesheet" href="assets/css/create-product.css">
+
+    <!-- fontawesome stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- fontawesome stylesheet -->
+
+    <!-- notify css -->
+    <link rel="stylesheet" href="assets/css/notify.css">
+
+    <title>Agrokart - Create Product</title>
+</head>
+
+<body>
+
+    <h2 class="create-title">Create Product</h2>
+
+    <a href="list_proudct.html" class="list-page" target="_blank">Go to Product created listed page</a>
+
+    <div class="create-product-main">
+
+
+
+        <form id="create-product">
+
+           
+
+            <!-- start of create product two side -->
+            <div class="create_product_two_sides">
+
+                <!-- create product left side start -->
+
+                <div class="create-product-left-side">
+
+
+                    <div class="input-control">
+                        <label for="product-image-url">Product Image(URL)</label><br>
+                        <input type="url" id="product-image-url" placeholder="Enter your product image url"
+                            title="please enter valid URL" required>
+                    </div>
+
+                    <div class="input-control">
+                        <label for="product-english-name">Product English Name</label><br>
+                        <input type="text" id="product-english-name" placeholder="Enter your product english name"
+                            pattern="[a-zA-z ]{1,50}" title="please enter valid product name" required>
+                    </div>
+
+                    <div class="input-control">
+                        <label for="product-tamil-name">Product Tamil Name</label><br>
+                        <input type="text" id="product-tamil-name" placeholder="Enter your product tamil name"
+                           minlength="1" maxlength="20" title="please enter valid product name" required>
+                    </div>
+
+                    <div class="input-control-two-main">
+
+                        <label for="select-category">Select Product Category</label><br>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="pro_cat" value="01" id="exotic-fruits" required>
+                            <label for="exotic-fruits">Exotic Fruits</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="pro_cat" value="02" id="exotic-veggies" required>
+                            <label for="exotic-veggies">Exotic Veggies</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="pro_cat" value="03" id="fresh-veggies" required>
+                            <label for="fresh-veggies">Fresh Veggies</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="pro_cat" value="04" id="fresh-fruits" required>
+                            <label for="fresh-fruits">Fresh Fruits</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="pro_cat" value="05" id="leafy-green" required>
+                            <label for="leafy-green">Leafy Green</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="pro_cat" value="06" id="tubers" required>
+                            <label for="tubers">Tubers</label>
+                        </div>
+                      
+
+                    </div>
+
+                    <div class="input-control">
+                        <label for="product-description">Product Description</label><br>
+                        <textarea id="product-description" cols="40" rows="5"
+                            placeholder="Enter your product description" required></textarea>
+                    </div>
+
+                    <div class="product-healthy">
+
+                        <p class="healthy-title">Product Nutrition Contents(per 100gm)</p>
+
+                        <div class="input-control">
+                            <label for="product-protein">Protein</label><br>
+                            <input type="text" id="product-protein" placeholder="Enter product protein value"
+                                pattern="[0-9]{1,3}" title="please enter valid protein value" required maxlength="3">
+                            <input type="text" id="product-protein-unit" value="gm" disabled="true"
+                                class="product_protein_unit">
+                        </div>
+
+                        <div class="input-control">
+                            <label for="product-carbo">Carbohydrates</label><br>
+                            <input type="text" id="product-carbo" placeholder="Enter product carbohydrates value"
+                                pattern="[0-9]{1,3}" title="please enter valid carbohydrates value" required
+                                maxlength="3">
+                            <input type="text" id="product-carbo-unit" value="gm" disabled="true"
+                                class="product_carbo_unit">
+                        </div>
+
+                        <div class="input-control">
+                            <label for="product-kcal">Calories</label><br>
+                            <input type="text" id="product-kcal" placeholder="Enter product kcal values"
+                                pattern="[0-9]{2,3}" title="please enter valid kcal value" required maxlength="3">
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+                <!-- create product left side end -->
+
+                <!-- create product right side start -->
+
+                <div class="create-product-right-side">
+
+                    <div class="input-control">
+                        <label for="product-available-stock">Available Stock (in KG)</label><br>
+                        <input type="text" id="product-available-stock" placeholder="Enter product available stock"
+                            step="any" pattern="[0-9]{1,3}" title="please enter valid available stock value" required
+                            maxlength="3">
+                    </div>
+
+                    <div class="input-control-two-main">
+
+                        <div class="input-control-two">
+                            <input type="radio" name="aval_unit" value="kg" id="aval-kg" required>
+                            <label for="aval-kg">KG</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="aval_unit" value="nos" id="aval-nos" required>
+                            <label for="aval-nos">NOS</label>
+                        </div>
+
+                        <div class="input-control-two">
+                            <input type="radio" name="aval_unit" value="pkt" id="aval-pkt" required>
+                            <label for="aval-pkt">PKT</label>
+                        </div>
+          
+
+                    </div>
+
+                    
+                    <div class="input-control">
+
+                        <label for="quantity-price">Product Quantity and Price</label><br>
+                        <input type="text" placeholder="quantity" id="weight-number" class="weight_input"
+                            pattern="[0-9.]{1,3}" title="please enter valid quantity" minlength="1" maxlength="3"
+                            >
+
+                        <select id="weight-unit" class="weight_unit">
+                            <option value="gm">gm</option>
+                            <option value="kg">kg</option>
+                            <option value="nos">nos</option>
+                            <option value="pkt">pkt</option>
+                        </select>
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                        <input type="text" id="quantity-price" placeholder="price" class="price_input"
+                            pattern="[0-9]{2,3}" title="please enter valid price" maxlength="3" minlength="2">
+
+                        <p class="quantity_price_list_add" id="add-quantity-price"><i class="fa-solid fa-plus"></i></p>
+
+                    </div>
+
+                    <!-- displaying quantity price list start -->
+                    <div class="quantity-price-list">
+
+                        <!-- <div class="quantity_price_list_item">
+                <p class="quantity_price_p">500gm - ₹23</p>
+                <button class="quantity_price_delete"><i class="fa-solid fa-trash"></i></button>
+            </div> -->
+
+
+                    </div>
+                    <!-- end of displaying quantity price list end -->
+
+                    <div class="input-control">
+                        <label for="farmer-user-id">Farmer Id(user-id)</label><br>
+                        <input type="text" id="farmer-user-id" placeholder="Enter farmer user id" pattern="[0-9]{1,3}"
+                            title="please enter farmer id value" required maxlength="3">
+                    </div>
+
+                    <div class="input-control">
+                        <label for="farmer-name">Farmer name</label><br>
+                        <input type="text" id="farmer-name" placeholder="Enter farmer name" pattern="[a-zA-z ]{1,16}"
+                            title="please enter valid farmer name" required maxlength="16">
+                    </div>
+
+                    <div class="input-control">
+                        <label for="farmer-image-url">Farmer Image(URL)</label><br>
+                        <input type="url" id="farmer-image-url" placeholder="Enter farmer image url" required>
+                    </div>
+
+                </div>
+
+                <!-- create product right side end -->
+
+                
+
+            </div>
+            <!-- end of create product two side -->
+
+            <button type="submit" class="save-product-btn">Save Product</button>
+
+
+        </form>
+
+    </div>
+
+    <script src="assets/js/create-product.js"></script>
+
+    <!-- notify js -->
+
+    <script src="assets/js/notify.js"></script>
+ 
+</body>
+
+</html>
