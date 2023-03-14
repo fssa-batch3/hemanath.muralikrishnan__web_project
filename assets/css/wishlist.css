@@ -66,6 +66,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding: 2em;
 }
 
@@ -86,14 +87,19 @@
 }
 
 .wish-pro-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #253D4E;
     font-weight: 600;
 }
 
 .wish-cat {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: black;
+}
+
+.wishlist-qunatity{
+    display: flex;
+    flex-direction: row;
 }
 
 .wish-price {
@@ -101,9 +107,10 @@
     font-weight: 600;
 }
 
-.icon-del a i {
+.icon-del i {
     color: #429b44;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .wish-shop {

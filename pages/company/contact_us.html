@@ -44,7 +44,7 @@
 
                         <a href="about_us.html">About Us</a>
                         <a href="contact_us.html">Contact Us</a>
-                        <a href="../profile.html">My Account</a>
+                        <a href="../profile.html" id="my-account">My Account</a>
 
                     </div>
                     
@@ -95,7 +95,7 @@
 
             <div class="login">
 
-                <a href="../authentication/login.html"><i class="fa-solid fa-right-to-bracket"></i>
+                <a href="../authentication/login.html" id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>
                Login</a>
 
             </div>
@@ -118,20 +118,19 @@
                     <div class="dropdown_menu">
 
                         <ul>
-                            <li><a href="../product_list/exotic_fruits_list.html">Exotic Fruits</a></li>
-                            <li><a href="../product_list/exotic_veggies_list.html">Exotic Veggies</a></li>
-                            <li><a href="../product_list/fresh_fruits_list.html">Fresh Fruits</a></li>
-                            <li><a href="../product_list/fresh_veggies_list.html">Fresh Veggies</a></li>
-                            <li><a href="../product_list/leafy_green_list.html">Leafy Green</a></li>
-                            <li><a href="../product_list/tubers_list.html">Tubers</a></li>
-
+                            <li><a href="../product_list/list_product.html?cat=01">Exotic Fruits</a></li>
+                            <li><a href="../product_list/list_product.html?cat=02">Exotic Veggies</a></li>
+                            <li><a href="../product_list/list_product.html?cat=03">Fresh Veggies</a></li>
+                            <li><a href="../product_list/list_product.html?cat=04">Fresh Fruits</a></li>
+                            <li><a href="../product_list/list_product.html?cat=05">Leafy Green</a></li>
+                            <li><a href="../product_list/list_product.html?cat=06">Tubers</a></li>
                         </ul>
 
                     </div>
                 
                 </li>
                     <li class="home"><a href="../../index.html">Home</a></li>
-                    <li class="products"><a href="../product_list/main_list.html">Products</a></li>
+                    <li class="products"><a href="../product_list/list_product.html?cat=00">Products</a></li>
             </ul>
 
         </div>
@@ -316,7 +315,7 @@
                     <div class="account footer-flex-two">
             
                         <p class="footer-title">Account</p>
-                        <a href="../authentication/login.html" class="footer-item">Sign in</a>
+                        <a href="../authentication/login.html" class="footer-item" id="login-btn-foot">Sign in</a>
                         <a href="../cart.html" class="footer-item">View Cart</a>
                         <a href="../wishlist.html" class="footer-item">My Wishlist</a>
             
@@ -413,6 +412,10 @@
             </footer>
             
             <!-- footer ends -->
+
+             <!-- logged check js -->
+
+    <script src="../../assets/js/is_logged.js"></script>
             
 </body>
             

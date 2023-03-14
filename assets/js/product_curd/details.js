@@ -397,7 +397,7 @@ if (success) {
 
     // indv add button a
     indv_add_button_a = document.createElement("a");
-    indv_add_button_a.setAttribute("href", "../../cart.html");
+    indv_add_button_a.setAttribute("href", "../cart.html");
     indv_add_button_div.append(indv_add_button_a);
 
     // indv add button b
