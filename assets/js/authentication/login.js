@@ -1,4 +1,4 @@
-let created_products = [
+let created_products =[
     {
       "id": 0,
       "name": {
@@ -1175,60 +1175,6 @@ let created_products = [
           "unit": "gm",
           "qty": "500",
           "rs": "100"
-        }
-      ],
-      "status": true,
-      "farmer": {
-        "id": "01",
-        "name": "Nammalvar G",
-        "image": {
-          "source": "https://freeimghost.net/images/2023/03/01/nammalvar.jpeg",
-          "alt": "Nammalvar G"
-        }
-      }
-    },
-    {
-      "id": 22,
-      "name": {
-        "eng": "Apple Indian",
-        "tam": "ஆப்பிள் இந்தியன்"
-      },
-      "image": {
-        "source": "https://freeimghost.net/images/2023/03/01/apple_india.png",
-        "alt": "Apple Indian"
-      },
-      "category": {
-        "id": "01",
-        "name": "Fresh Fruits"
-      },
-      "description": "This mighty fruit is known to maintain oral health. Thanks to malic acid that keeps your teeth white and shiny. It is widely used by companies to prepare commercial whitening toothpaste. It is worth mentioning that chewing apple stimulates saliva production that keeps risks of tooth decay at bay.",
-      "nutritions": {
-        "protein": {
-          "num": "26",
-          "unit": "gm"
-        },
-        "carbo": {
-          "num": "81",
-          "unit": "gm"
-        },
-        "kcal": "72"
-      },
-      "avail_stock": {
-        "num": "20",
-        "unit": "kg"
-      },
-      "quantity": [
-        {
-          "text": "250gm - ₹90",
-          "unit": "gm",
-          "qty": "250",
-          "rs": "90"
-        },
-        {
-          "text": "500gm - ₹140",
-          "unit": "gm",
-          "qty": "500",
-          "rs": "140"
         }
       ],
       "status": true,
@@ -3738,47 +3684,6 @@ let created_products = [
       }
     },
     {
-      "id": 72,
-      "name": {
-        "eng": "Drumstick",
-        "tam": "முருங்கைக்காய்"
-      },
-      "image": {
-        "source": "https://freeimghost.net/images/2023/03/01/drumstick.png",
-        "alt": "Drumstick"
-      },
-      "category": {
-        "id": "06",
-        "name": "Tubers"
-      },
-      "description": "The green vegetable features large quantities of iron, Vitamins and calcium. Drumsticks are recognized to offer healthy and strong bones and are also believed to purify the blood. Drumstick pods and leaves particularly are said to be the blood purifier. For better outcomes have smashed drumstick leaves along with milk.",
-      "nutritions": {
-        "protein": {
-          "num": "0",
-          "unit": "gm"
-        },
-        "carbo": {
-          "num": "0",
-          "unit": "gm"
-        },
-        "kcal": "00"
-      },
-      "avail_stock": {
-        "num": "35",
-        "unit": "nos"
-      },
-      "quantity": null,
-      "status": true,
-      "farmer": {
-        "id": "01",
-        "name": "Nammalvar G",
-        "image": {
-          "source": "https://freeimghost.net/images/2023/03/01/nammalvar.jpeg",
-          "alt": "Nammalvar G"
-        }
-      }
-    },
-    {
       "id": 73,
       "name": {
         "eng": "Karunai Kilangu",
@@ -3939,8 +3844,62 @@ let created_products = [
           "alt": "Nammalvar G"
         }
       }
+    },
+    {
+      "id": 74,
+      "name": {
+        "eng": "Apple Indian",
+        "tam": "ஆப்பிள் இந்தியன்"
+      },
+      "image": {
+        "source": "https://freeimghost.net/images/2023/03/01/apple_india.png",
+        "alt": "Apple Indian"
+      },
+      "category": {
+        "id": "04",
+        "name": "Fresh Fruits"
+      },
+      "description": "This mighty fruit is known to maintain oral health. Thanks to malic acid that keeps your teeth white and shiny. It is widely used by companies to prepare commercial whitening toothpaste. It is worth mentioning that chewing apple stimulates saliva production that keeps risks of tooth decay at bay.",
+      "nutritions": {
+        "protein": {
+          "num": "26",
+          "unit": "gm"
+        },
+        "carbo": {
+          "num": "81",
+          "unit": "gm"
+        },
+        "kcal": "72"
+      },
+      "avail_stock": {
+        "num": "20",
+        "unit": "kg"
+      },
+      "quantity": [
+        {
+          "text": "500gm - ₹80",
+          "unit": "gm",
+          "qty": "500",
+          "rs": "80"
+        },
+        {
+          "text": "1kg - ₹156",
+          "unit": "kg",
+          "qty": "1",
+          "rs": "156"
+        }
+      ],
+      "status": true,
+      "farmer": {
+        "id": "01",
+        "name": "Nammalvar G",
+        "image": {
+          "source": "https://freeimghost.net/images/2023/03/01/nammalvar.jpeg",
+          "alt": "Nammalvar G"
+        }
+      }
     }
-  ] 
+  ]
 
 const form = document.getElementById('loginform');
 
