@@ -57,8 +57,6 @@ search_input.addEventListener("keydown", function(e){
 
     created_products.filter((item,index) => {
 
-        
-
 
     })
 
