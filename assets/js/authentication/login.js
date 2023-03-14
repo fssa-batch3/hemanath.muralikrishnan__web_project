@@ -1,4 +1,4 @@
-let created_products =[
+let created_products = [
     {
       "id": 0,
       "name": {
