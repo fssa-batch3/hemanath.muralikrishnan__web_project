@@ -48,6 +48,7 @@ function validateInputs() {
         if (password == conf_password) {
 
             let user = {
+                "user_id" : user_data.length,
                 "firstname": first_name,
                 "lastname": last_name,
                 "emailid": email_id,
