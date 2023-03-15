@@ -81,7 +81,7 @@ function list_products(item) {
    let product_id = item["id"];
    let product_cat = item["category"]["id"]
 
-   let href_link = "../product_details/details.html?" + "id=" + product_id  + "&" + "cat=" + product_cat;
+   let href_link = "pages/product_details/details.html?" + "id=" + product_id  + "&" + "cat=" + product_cat;
 
 
     // indv product link
@@ -297,7 +297,7 @@ function list_products_two(item) {
    let product_id = item["id"];
    let product_cat = item["category"]["id"]
 
-   let href_link = "../product_details/details.html?" + "id=" + product_id  + "&" + "cat=" + product_cat;
+   let href_link = "pages/product_details/details.html?" + "id=" + product_id  + "&" + "cat=" + product_cat;
 
 
     // indv product link
