@@ -56,14 +56,8 @@ const delete_quantity_price_list = document.getElementById("delete_list");
 
 // delete the already price list available in the localstorage
 
-window.onload = deletequantitylist();
+window.onload = localStorage.removeItem("price_list");
 
-
-function deletequantitylist() {
-
-    localStorage.removeItem("price_list");
-
-}
 
 // add the quantity and price list
 
@@ -239,23 +233,18 @@ create_form.addEventListener('submit', function (e) {
 
     if (all_products != null) {
 
-        for (let i = 0; i < all_products.length; i++) {
+        all_products.find(function (obj) {
 
-            if (all_products[i]["name"]["eng"] === english_name) {
+            if (obj["name"]["eng"] === english_name) {
 
                 check = true;
 
-                break;
             }
 
-            else {
-
-                check = false;
-
-                break;
-            }
         }
-    }
+)};
+
+
     if (check) {
 
         Notify.error("Product already available");

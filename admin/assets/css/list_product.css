@@ -39,6 +39,10 @@ table {
     text-align: center;
 }
 
+table caption {
+    display: none;
+}
+
 table,
 th,
 td {

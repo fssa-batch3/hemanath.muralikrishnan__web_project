@@ -155,12 +155,7 @@ const close_icon = document.getElementById("close_form");
 
 
 // delete the copy of the product
-window.onload = deletequantitylist();
-
-function deletequantitylist() {
-
-    localStorage.removeItem("copy");
-}
+window.onload = localStorage.removeItem("copy");;
 
 // close the edit the form
 

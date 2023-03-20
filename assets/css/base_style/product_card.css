@@ -181,7 +181,6 @@
 }
 
 .qty .qty-number {
-    font-size: 1.1em;
     border-right: 2px solid rgba(0, 0, 0, 0.2);
     border-left: 2px solid rgba(0, 0, 0, 0.2);
     pointer-events: none;
