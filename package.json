@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/fssa-batch3/hemanath.muralikrishnan__web_project#readme",
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "browser-sync": "^2.27.11",
+    "husky": "^8.0.3",
     "run-script-os": "^1.1.6"
   }
 }

@@ -28,7 +28,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- fontawesome stylesheet -->
 
+
     <link rel="icon" type="image/png" sizes="60x32" href="../assets/images/tabicon/icon.png">
+
+
+    <!-- notify css -->
+
+    <link rel="stylesheet" href="../assets/css/notify.css">
 
     <title>AgroKart - Ecommerce</title>
 </head>
@@ -85,14 +91,15 @@
             <div class="option-one">
 
                 <a href="wishlist.html"><i class="fa-regular fa-heart"></i>
-                    Wishlist</a>
+                   
+                    Wishlist <span class="wishlist-notify" id="wishlist-count"></span></a>
 
             </div>
 
             <div class="option-two">
 
                 <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i>
-                    Cart</a>
+                    Cart <span class="cart-notify" id="cart-count"></span></a>
 
             </div>
 
@@ -234,12 +241,12 @@
     <div class="wishlist-main">
 
 
-        <p class="wish-title">My Wishlist(4)</p>
+        <p class="wish-title" id="wish-title"></p>
 
         <div class="wishlist-cont">
 
             <!-- start of wishlist section -->
-            <div class="wishlist-sec">
+            <!-- <div class="wishlist-sec">
 
                 <div class="wishlist-content">
 
@@ -254,8 +261,9 @@
 
                     <div class="wishlist-text">
 
-                        <p class="wish-cat">Fresh Fruits</p>
+                      
                         <p class="wish-pro-title">Apple India</p>
+                        <p class="wish-cat">Fresh Fruits</p>
 
                         <div class="wishlist-quantity">
                             <p><b>Qty:</b> 500gm</p>
@@ -264,14 +272,14 @@
 
                     </div>
 
-                </div>
+                </div> -->
 
-                <div class="icon-del">
+                <!-- <div class="icon-del">
                         <i class="fa-solid fa-trash"></i>
-                </div>
+                </div> -->
 
 
-            </div>
+            <!-- </div> --> 
 
             <!-- end of wishlist section -->
 
@@ -284,7 +292,7 @@
 
     </div>
 
-    <a href="product_list/main_list.html" class="wish-shop"><i class="fa-solid fa-arrow-right"></i> Continue
+    <a href="product_list/list_product.html?cat=00" class="wish-shop"><i class="fa-solid fa-arrow-right"></i> Continue
         Shopping</a>
 
     <!-- enf of wishlist main -->
@@ -418,6 +426,19 @@
 
      <script src="../assets/js/is_logged.js"></script>
 
+
+     <!-- wishlist js -->
+
+     <script src="../assets/js/wishlist/wishlist.js"></script>
+
+
+     <!-- notify js -->
+
+     <script src="../assets/js/notify.js"></script>
+
+     <!-- wishlist count -->
+
+     <script src="../assets/js/wishlist/wishlist_count.js"></script>
 </body>
 
 </html>

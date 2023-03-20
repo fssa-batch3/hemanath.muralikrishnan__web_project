@@ -33,6 +33,11 @@
     <!-- fontawesome stylesheet -->
 
     <link rel="icon" type="image/png" sizes="60x32" href="../../assets/images/tabicon/icon.png">
+
+    <!-- notify css -->
+
+    <link rel="stylesheet" href="../../assets/css/notify.css">
+
     <title>AgroKart - Ecommerce</title>
 </head>
 
@@ -88,14 +93,14 @@
             <div class="option-one">
 
                 <a href="../wishlist.html"><i class="fa-regular fa-heart"></i>
-                    Wishlist</a>
+                    Wishlist <span class="wishlist-notify" id="wishlist-count"></span></a>
 
             </div>
 
             <div class="option-two">
 
                 <a href="../cart.html"><i class="fa-solid fa-cart-shopping"></i>
-                    Cart</a>
+                    Cart <span class="cart-notify" id="cart-count"></span></a>
 
             </div>
 
@@ -407,6 +412,15 @@
      <!-- logged check js -->
 
      <script src="../../assets/js/is_logged.js"></script>
+
+
+     <!-- notify js -->
+
+     <script src="../../assets/js/notify.js"></script>
+
+     <!-- wishlist count -->
+
+    <script src="../../assets/js/wishlist/wishlist_count.js"></script>
 
 </body>
 

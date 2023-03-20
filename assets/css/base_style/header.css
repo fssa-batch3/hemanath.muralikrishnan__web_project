@@ -122,6 +122,31 @@ nav {
     margin-right: .5em;
 }
 
+.option-one,.option-two{
+    position: relative;
+}
+
+
+.option-one .wishlist-notify{
+    position: absolute;
+    bottom: 1.1em;
+    left: .5em;
+    color: black;
+    padding: 0 .2em;
+    border-radius: 10px;
+    background-color: antiquewhite;
+}
+
+.option-two .cart-notify{
+
+     position: absolute;
+    bottom: 1.1em;
+    left: .5em;
+    color: black;
+    padding: 0 .2em;
+    border-radius: 10px;
+    background-color: antiquewhite;
+}
 /* nav-two end */
 
 /* nav three start */

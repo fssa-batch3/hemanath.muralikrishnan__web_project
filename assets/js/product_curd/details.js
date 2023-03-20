@@ -1,4 +1,30 @@
+// product details JSON
 let product_details = JSON.parse(localStorage.getItem("product_list"));
+
+// wishlist json
+let favourite_list = JSON.parse(localStorage.getItem("wishlist")) ?? [];
+
+// user records json
+let user_records = JSON.parse(localStorage.getItem("users"));
+
+// user logged_in value
+let user_details = localStorage.getItem("logged_in");
+
+let user_id;
+
+user_records.find(function(obj){
+
+    if(user_details == obj.emailid){
+
+        user_id = obj.user_id;
+    
+        return user_id;
+
+
+    }
+})
+
+
 
 const url = window.location.search;                // ?name=Arun
 const urlParams = new URLSearchParams(url);        // converting string into key value pair
@@ -329,7 +355,7 @@ if (success) {
 
     select_tag.addEventListener("change", function () {
         // Get the selected value
-        var selectedValue = select_tag.value;
+        let selectedValue = select_tag.value;
 
         // Log the selected value to the console
         indv_amount_one_p.innerText = "₹ " + selectedValue;
@@ -415,16 +441,17 @@ if (success) {
     favorite_div.setAttribute("class", "favorite");
     indv_qty_cat_div.append(favorite_div);
 
-    // favorite a
-    favorite_a = document.createElement("a");
-    favorite_a.setAttribute("href", "../../wishlist.html");
-    favorite_a.setAttribute("aria-lable", "favorite");
-    favorite_div.append(favorite_a);
+    // // favorite a
+    // favorite_a = document.createElement("a");
+    // favorite_a.setAttribute("href", "../../wishlist.html");
+    // favorite_a.setAttribute("aria-lable", "favorite");
+    // favorite_div.append(favorite_a);
 
     // favorite i
     favorite_i = document.createElement("i");
     favorite_i.setAttribute("class", "fa-regular fa-heart");
-    favorite_a.append(favorite_i);
+    favorite_i.setAttribute("id", "indv-fav-btn");
+    favorite_div.append(favorite_i);
 
     // description div
     desc_div = document.createElement("div");
@@ -449,8 +476,58 @@ if (success) {
     desc_cont_div.append(desc_content_p);
 
 
+    // even listner for add to wishlist
+
+    
+
+    favorite_i.addEventListener('click', function(e){
+
+        let fav_check = false;
+        favourite_list.find(function(obj){
+
+            if(user_id == obj.user_id){
+
+                if(product_details[k].id == obj.product_id){
+
+                    return fav_check = true;
+                }
+
+            }
+
+        });
+
+        if(fav_check){
+
+            Notify.error("Product was already added to wishlist");
+
+        }
+
+        else {
+
+            favourite_list.push({
+                "user_id" : user_id,
+                "wishlist_item_id" : favourite_list.length,
+                "product_id" : product_details[k].id,
+                "category" : product_details[k].category,
+               "product_eng_name": product_details[k].name.eng,
+               "product_image" : product_details[k].image,
+               "quantity" : product_details[k]["quantity"]
+            });
+
+            localStorage.setItem("wishlist", JSON.stringify(favourite_list));
+    
+            Notify.success("Added to Wishlist");
+
+        }
+
+       
+
+    })
+
+
 
 }
+
 else {
     alert("product not found")
 }

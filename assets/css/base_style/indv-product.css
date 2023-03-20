@@ -278,11 +278,11 @@
    
 }
 
-.favorite a i:hover {
+.favorite:hover {
     background-color: pink;
 }
 
-.favorite a i {
+.favorite i {
     font-size: 1.2rem;
     background-color: lightcoral;
     padding: 1em;
