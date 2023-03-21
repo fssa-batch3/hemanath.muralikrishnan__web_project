@@ -8,68 +8,56 @@ let search_input = document.getElementById("site-search")
 
 let k = 1;
 
-
-
+let output = "";
 
 
 // show the products regarding the selected value
+// select_category_filter.addEventListener('input', function (e) {
 
-select_category_filter.addEventListener('input', function(e) {
+//     table_body.innerHTML = "";
 
-    table_body.innerHTML = "";
+//     k = 1;
 
-    k = 1;
-
-    let selectedvalue = select_category_filter.value;
-
+//     let selectedvalue = select_category_filter.value;
 
 
+//     if (selectedvalue != 00) {
 
-    if (selectedvalue != 00) {
+//         created_products.filter(function (item) {
 
-        created_products.filter( function(item,index) {
+//             if (item.category.id.includes(selectedvalue)) {
 
-            if (item.category.id.includes(selectedvalue)) {
+//                 list(item);
 
-                list(item,index);
+//             }
 
-            }
+//         });
 
-        });
+//     }
 
-    }
+//     else {
+//         created_products.forEach((item) => {
 
-    else {
-            created_products.forEach((item,index) => {
-                
-                list(item,index);
-            });
-        }
+//             list(item);
+//         });
+//     }
 
 
 
-});
+// });
 
-search_input.addEventListener("keydown", function(e){
+// search_input.addEventListener("keydown", function (e) {
 
-    let search_value = search_input.value.trim().toLowerCase();
-    console.log(search_value)
+//     let search_value = search_input.value.trim().toLowerCase();
+//     console.log(search_value)
 
-    created_products.filter((item,index) => {
-
-
-    })
+//     created_products.filter((item, index) => {
 
 
-})
-
-created_products.forEach((item, index) => {
-    
-    list(item,index);
-
-});
+//     })
 
 
+// })
 
 
 // getting input elements from the form
@@ -167,348 +155,364 @@ close_icon.addEventListener("click", function (e) {
 
 })
 
+// function it contains for each to list the products
 
+function list_products() {
 
-function list(item,index) {
+    created_products.forEach((item, index) => {
 
-    let table_tr = document.createElement("tr");
+        list(item, index);
 
-    if (item.status === true) {
+    });
 
-        table_tr.setAttribute("class", "success");
-    }
+}
 
-    else if(item.status == false) {
+// function it will append the table rows from the above list products function
 
-        table_tr.setAttribute("class", "fail");
+function list(item, index) {
 
-    }
-    table_body.append(table_tr);
-
-    let sn_no = document.createElement("td");
-    sn_no.innerText = k + ".";
-    table_tr.append(sn_no);
-
-
-    let pro_id = document.createElement("td");
-    pro_id.innerText = item.id;
-    table_tr.append(pro_id);
-
-    let pro_cat = document.createElement("td");
-    pro_cat.innerText = item.category.name
-    table_tr.append(pro_cat);
-
-    let img_td = document.createElement("td");
-    table_tr.append(img_td);
-
-    let pro_img = document.createElement("img");
-    pro_img.setAttribute("src", item.image.source);
-    pro_img.setAttribute("alt", "image of" + item.name.eng);
-    img_td.append(pro_img);
-
-    let pro_name_td = document.createElement("td");
-    pro_name_td.innerHTML = item.name.eng + `<br>` + item.name.tam;
-    table_tr.append(pro_name_td);
-
-    let pro_avail = document.createElement("td");
-    pro_avail.innerText = item.avail_stock.num + " " +item.avail_stock.unit;
-    table_tr.append(pro_avail);
-
-    let pro_view = document.createElement("td");
-    pro_view.setAttribute("id", "viewproduct");
-    pro_view.innerHTML = `<i class="fa-solid fa-eye"></i>`;
-    table_tr.append(pro_view);
-
-    let pro_edit = document.createElement("td");
-    pro_edit.setAttribute("id", "editproduct")
-    pro_edit.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
-    table_tr.append(pro_edit);
-
-    let pro_available = document.createElement("td");
-    pro_available.setAttribute("id", "proavailable");
-    pro_available.innerHTML = `<i class="fa-solid fa-check"></i><br>` + "Available";
-
-    let pro_notavailable = document.createElement("td");
-    pro_notavailable.setAttribute("id", "pronotavailable");
-    pro_notavailable.innerHTML = `<i class="fa-solid fa-xmark"></i><br>` + "NotAvailable";
 
     if (item.status == true) {
 
-        table_tr.append(pro_available);
+        output += `<tr class="success">
+        <td>${k}.</td>
+        <td>${item.id}</td>
+        <td>${item.category.name}</td>
+        <td><img src="${item.image.source}" alt="image of " + ${item.name.eng}></td>
+        <td>${item.name.eng}<br>(${item.name.tam})</td>
+        <td>${item.avail_stock.num} ${item.avail_stock.unit} <br></td>
+        <td onclick="viewproduct(${item.id})"><i class="fa-solid fa-eye"></i></td>
+        <td onclick="editproduct(${item.id})"><i class="fa-regular fa-pen-to-square"></i></td>
+        <td onclick="notavailableproduct(${item.id})"><i class="fa-solid fa-check"></i><br>Available</td>
+        <td onclick="deleteproduct(${index})"><i class="fa-solid fa-trash"></i></td>
+        </tr>`
+
     }
 
     else {
 
-        table_tr.append(pro_notavailable);
+        output += `<tr class="fail">
+        <td>${k}.</td>
+        <td>${item.id}</td>
+        <td>${item.category.name}</td>
+        <td><img src="${item.image.source}" alt="image of " + ${item.name.eng}></td>
+        <td>${item.name.eng}<br>(${item.name.tam})</td>
+        <td>${item.avail_stock.num}<br></td>
+        <td onclick="viewproduct(${item.id})"><i class="fa-solid fa-eye"></i></td>
+        <td onclick="editproduct(${item.id})"><i class="fa-regular fa-pen-to-square"></i></td>
+        <td onclick="availableproduct(${item.id})"><i class="fa-solid fa-xmark"></i><br>Not Available</td>
+        <td onclick="deleteproduct(${index})"><i class="fa-solid fa-trash"></i></td>
+        </tr>`
+
     }
-
-
-    let pro_delete = document.createElement("td");
-    pro_delete.setAttribute("id", "deleteproduct");
-    pro_delete.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-    table_tr.append(pro_delete);
 
     k++;
 
-    // view product logic
-    pro_view.addEventListener("click", function (e) {
+    table_body.innerHTML = output;
 
-        all_elements.style.display = "block";
+}
 
-        edit_save_btn.style.display = "none";
+// function view product
+function viewproduct(id) {
 
-        quantity_price_div.style.display = "none";
+    created_products.find(function (obj) {
 
-        product_image_url.disabled = true;
-        product_image_url.value = item.image.source;
+        if (id == obj.id) {
 
-        product_english_name.disabled = true;
-        product_english_name.value = item.name.eng;
+            all_elements.style.display = "block";
 
-        product_tamil_name.disabled = true;
-        product_tamil_name.value = item.name.tam;
+            edit_save_btn.style.display = "none";
 
-        cat_exotic_fruits.disabled = true;
-        cat_exotic_veggies.disabled = true;
-        cat_fresh_veggies.disabled = true;
-        cat_fresh_fruits.disabled = true;
-        cat_leafy_green.disabled = true;
-        cat_tubers.disabled = true;
+            quantity_price_div.style.display = "none";
 
-        if(item.category.id == 01){
+            product_image_url.disabled = true;
+            product_image_url.value = obj.image.source;
 
-            cat_exotic_fruits.checked = true;
-        }
-        if(item.category.id == 02){
-            
-            cat_exotic_veggies.checked = true;
-        }
+            product_english_name.disabled = true;
+            product_english_name.value = obj.name.eng;
 
-        if(item.category.id == 03){
-            
-            cat_fresh_veggies.checked = true;
-        }
+            product_tamil_name.disabled = true;
+            product_tamil_name.value = obj.name.tam;
 
-        if(item.category.id == 04){
+            cat_exotic_fruits.disabled = true;
+            cat_exotic_veggies.disabled = true;
+            cat_fresh_veggies.disabled = true;
+            cat_fresh_fruits.disabled = true;
+            cat_leafy_green.disabled = true;
+            cat_tubers.disabled = true;
 
-            cat_fresh_fruits.checked = true;
+            if (obj.category.id == 01) {
 
-        }
+                cat_exotic_fruits.checked = true;
+            }
+            if (obj.category.id == 02) {
 
-        if(item.category.id == 05){
-            
-            cat_leafy_green.checked = true;
-        }
+                cat_exotic_veggies.checked = true;
+            }
 
-        if(item.category.id == 06){
-            
-            cat_tubers.checked = true;
-        }
+            if (obj.category.id == 03) {
 
+                cat_fresh_veggies.checked = true;
+            }
 
-        product_description.disabled = true;
-        product_description.innerText = item.description;
+            if (obj.category.id == 04) {
 
-        protein_input.disabled = true;
-        protein_input.value = item.nutritions.protein.num;
+                cat_fresh_fruits.checked = true;
 
-        carbo_input.disabled = true;
-        carbo_input.value = item.nutritions.carbo.num;
+            }
 
-        kcal_input.disabled = true;
-        kcal_input.value = item.nutritions.kcal;
+            if (obj.category.id == 05) {
 
-        available_stock_input.disabled = true;
-        available_stock_input.value = item.avail_stock.num;
+                cat_leafy_green.checked = true;
+            }
 
-        avail_kg.disabled = true;
-        avail_nos.disabled = true;
-        avail_pkt.disabled = true;
+            if (obj.category.id == 06) {
 
-        if(item.avail_stock.unit == "kg"){
-            avail_kg.checked = true;
-        }
-
-        if(item.avail_stock.unit == "nos"){
-            avail_nos.checked = true;
-        }
-
-        if(item.avail_stock.unit == "pkt"){
-            avail_pkt.checked = true;
-        }
-       
+                cat_tubers.checked = true;
+            }
 
 
+            product_description.disabled = true;
+            product_description.innerText = obj.description;
 
-        // show the already having quantities
+            protein_input.disabled = true;
+            protein_input.value = obj.nutritions.protein.num;
 
-        let output = '';
+            carbo_input.disabled = true;
+            carbo_input.value = obj.nutritions.carbo.num;
 
-        let list_show = document.querySelector(".quantity-price-list");
+            kcal_input.disabled = true;
+            kcal_input.value = obj.nutritions.kcal;
 
-        if (item != null) {
+            available_stock_input.disabled = true;
+            available_stock_input.value = obj.avail_stock.num;
 
-            item.quantity.forEach((element) => {
+            avail_kg.disabled = true;
+            avail_nos.disabled = true;
+            avail_pkt.disabled = true;
 
-                output += `<div class="quantity_price_list_item">
-                <p class="quantity_price_p">${element.text}</p>
-            </div>`
+            if (obj.avail_stock.unit == "kg") {
+                avail_kg.checked = true;
+            }
 
-            });
+            if (obj.avail_stock.unit == "nos") {
+                avail_nos.checked = true;
+            }
 
-            list_show.innerHTML = output;
-
-        }
-
-
-    });
-
-
-    // edit or update product
-    pro_edit.addEventListener("click", function (e) {
-
-        all_elements.style.display = "block";
+            if (obj.avail_stock.unit == "pkt") {
+                avail_pkt.checked = true;
+            }
 
 
-        edit_save_btn.style.display = "";
+            // show the already having quantities
 
-        quantity_price_div.style.display = "";
+            let output = '';
 
-        let copy_product = item;
+            let list_show = document.querySelector(".quantity-price-list");
 
-        localStorage.setItem("copy", JSON.stringify(copy_product));
+            if (obj != null) {
 
-        let edit_product = JSON.parse(localStorage.getItem("copy"));
+                obj.quantity.forEach((element) => {
 
-        product_image_url.disabled = false;
-        product_image_url.value = edit_product.image.source;
+                    output += `<div class="quantity_price_list_item">
+                        <p class="quantity_price_p">${element.text}</p>
+                    </div>`
 
-        product_english_name.disabled = false;
-        product_english_name.value = edit_product.name.eng;
+                });
 
-        product_tamil_name.disabled = false;
-        product_tamil_name.value = edit_product.name.tam;
+                list_show.innerHTML = output;
 
-        cat_exotic_fruits.disabled = false;
-        cat_exotic_veggies.disabled = false;
-        cat_fresh_veggies.disabled = false;
-        cat_fresh_fruits.disabled = false;
-        cat_leafy_green.disabled = false;
-        cat_tubers.disabled = false;
-
-        if(item.category.id == 01){
-
-            cat_exotic_fruits.checked = true;
-        }
-        if(item.category.id == 02){
-            
-            cat_exotic_veggies.checked = true;
-        }
-
-        if(item.category.id == 03){
-            
-            cat_fresh_veggies.checked = true;
-        }
-
-        if(item.category.id == 04){
-
-            cat_fresh_fruits.checked = true;
+            }
 
         }
+    })
 
-        if(item.category.id == 05){
-            
-            cat_leafy_green.checked = true;
+
+
+
+}
+
+// function for edit product
+
+function editproduct(id) {
+
+    created_products.find(function (obj) {
+
+        if (id == obj.id) {
+
+            all_elements.style.display = "block";
+
+            edit_save_btn.style.display = "";
+
+            quantity_price_div.style.display = "";
+
+            let copy_product = obj;
+
+            localStorage.setItem("copy", JSON.stringify(copy_product));
+
+            let edit_product = JSON.parse(localStorage.getItem("copy"));
+
+            product_image_url.disabled = false;
+            product_image_url.value = edit_product.image.source;
+
+            product_english_name.disabled = false;
+            product_english_name.value = edit_product.name.eng;
+
+            product_tamil_name.disabled = false;
+            product_tamil_name.value = edit_product.name.tam;
+
+            cat_exotic_fruits.disabled = false;
+            cat_exotic_veggies.disabled = false;
+            cat_fresh_veggies.disabled = false;
+            cat_fresh_fruits.disabled = false;
+            cat_leafy_green.disabled = false;
+            cat_tubers.disabled = false;
+
+            if (obj.category.id == 01) {
+
+                cat_exotic_fruits.checked = true;
+            }
+            if (obj.category.id == 02) {
+
+                cat_exotic_veggies.checked = true;
+            }
+
+            if (obj.category.id == 03) {
+
+                cat_fresh_veggies.checked = true;
+            }
+
+            if (obj.category.id == 04) {
+
+                cat_fresh_fruits.checked = true;
+
+            }
+
+            if (obj.category.id == 05) {
+
+                cat_leafy_green.checked = true;
+            }
+
+            if (obj.category.id == 06) {
+
+                cat_tubers.checked = true;
+            }
+
+            product_description.disabled = false;
+            product_description.innerText = edit_product.description;
+
+            protein_input.disabled = false;
+            protein_input.value = edit_product.nutritions.protein.num;
+
+            carbo_input.disabled = false;
+            carbo_input.value = edit_product.nutritions.carbo.num;
+
+            kcal_input.disabled = false;
+            kcal_input.value = edit_product.nutritions.kcal;
+
+            available_stock_input.disabled = false;
+            available_stock_input.value = edit_product.avail_stock.num;
+
+            avail_kg.disabled = false;
+            avail_nos.disabled = false;
+            avail_pkt.disabled = false;
+
+            if (obj.avail_stock.unit == "kg") {
+                avail_kg.checked = true;
+            }
+
+            if (obj.avail_stock.unit == "nos") {
+                avail_nos.checked = true;
+            }
+
+            if (obj.avail_stock.unit == "pkt") {
+                avail_pkt.checked = true;
+            }
+
+
+            // showing the pricelist in the edit form
+            displaypricelist();
+
+            // adding price list
+
+            add_quantity_list();
+
+
         }
-
-        if(item.category.id == 06){
-            
-            cat_tubers.checked = true;
-        }
-
-        product_description.disabled = false;
-        product_description.innerText = edit_product.description;
-
-        protein_input.disabled = false;
-        protein_input.value = edit_product.nutritions.protein.num;
-
-        carbo_input.disabled = false;
-        carbo_input.value = edit_product.nutritions.carbo.num;
-
-        kcal_input.disabled = false;
-        kcal_input.value = edit_product.nutritions.kcal;
-
-        available_stock_input.disabled = false;
-        available_stock_input.value = edit_product.avail_stock.num;
-
-        avail_kg.disabled = false;
-        avail_nos.disabled = false;
-        avail_pkt.disabled = false;
-
-        if(item.avail_stock.unit == "kg"){
-            avail_kg.checked = true;
-        }
-
-        if(item.avail_stock.unit == "nos"){
-            avail_nos.checked = true;
-        }
-
-        if(item.avail_stock.unit == "pkt"){
-            avail_pkt.checked = true;
-        }
-
-
-        // showing the pricelist in the edit form
-        displaypricelist();
-
-        // adding price list
-
-        add_quantity_list();
 
     })
 
-    // product available
+}
 
-    pro_available.addEventListener("click", function(e){
+// function for not product available or not
 
-        item.status = false;
+function notavailableproduct(id) {
 
-        localStorage.setItem("product_list", JSON.stringify(created_products));
-    
-        self.location.assign(window.location);
+    created_products.find(function (obj) {
 
-    });
+        if (id == obj.id) {
 
+            obj.status = false;
 
-    // not available
+            localStorage.setItem("product_list", JSON.stringify(created_products));
 
-    pro_notavailable.addEventListener("click", function(e){
+            Notify.success("Status Updated");
 
-        item.status = true;
+            output = " ";
 
-        localStorage.setItem("product_list", JSON.stringify(created_products));
-    
-        self.location.assign(window.location);
+            k = 1;
 
-    });
-
-
-    // delete product 
-    pro_delete.addEventListener("click", function(e){
-
-        created_products.splice(index, 1);
-
-        localStorage.setItem("product_list", JSON.stringify(created_products));
-    
-        Notify.success("Product Deleted");
-
-        self.location.assign(window.location);
-    
+            list_products();
+        }
     })
 
 
 }
 
+
+// function for product available
+
+function availableproduct(id) {
+
+    created_products.find(function (obj) {
+
+        if (id == obj.id) {
+
+            obj.status = true;
+
+            localStorage.setItem("product_list", JSON.stringify(created_products));
+
+            Notify.success("Status Updated");
+
+            output = " ";
+
+            k = 1;
+
+            list_products();
+
+        }
+    })
+
+
+}
+
+// function to delete the product 
+
+function deleteproduct(index) {
+
+    created_products.splice(index, 1);
+
+    localStorage.setItem("product_list", JSON.stringify(created_products));
+
+    Notify.success("Product Deleted");
+
+    output = " ";
+
+    k = 1;
+
+    list_products();
+
+}
 
 // add price list in the popup form box
 function add_quantity_list(e) {
@@ -608,32 +612,32 @@ edit_form.addEventListener("submit", function (e) {
 
     let cat_name = "";
 
-    if(category_id == 01){
+    if (category_id == 01) {
 
         cat_name += "Exotic Fruits";
     }
 
-    if(category_id == 02){
+    if (category_id == 02) {
 
         cat_name += "Exotic Veggies";
     }
 
-    if(category_id == 03){
+    if (category_id == 03) {
 
         cat_name += "Fresh Veggies";
     }
 
-    if(category_id == 04){
+    if (category_id == 04) {
 
         cat_name += "Fresh Fruits";
     }
 
-    if(category_id == 05){
+    if (category_id == 05) {
 
         cat_name += "Leafy Green";
     }
 
-    if(category_id == 06){
+    if (category_id == 06) {
 
         cat_name += "Tubers";
     }
@@ -727,3 +731,4 @@ edit_form.addEventListener("submit", function (e) {
 });
 
 
+list_products();

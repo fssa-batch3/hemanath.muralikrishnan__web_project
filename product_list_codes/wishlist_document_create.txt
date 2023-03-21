@@ -1,0 +1,63 @@
+let wishlist_sec_div = document.createElement("div");
+    wishlist_sec_div.setAttribute("class", "wishlist-sec");
+    appen_div.append(wishlist_sec_div);
+
+
+    let wishlist_content_div = document.createElement("div");
+    wishlist_content_div.setAttribute("class", "wishlist-content");
+    wishlist_sec_div.append(wishlist_content_div);
+
+    let wishlist_prog_image_div = document.createElement("div");
+    wishlist_prog_image_div.setAttribute("class", "wishlist-pro-image");
+    wishlist_content_div.append(wishlist_prog_image_div);
+
+    let product_id = item["product_id"];
+    let product_cat = item["category"]["id"]
+
+    let href_link = "product_details/details.html?" + "id=" + product_id + "&" + "cat=" + product_cat;
+
+    let wishlist_pro_a = document.createElement("a");
+    wishlist_pro_a.setAttribute("href", href_link);
+    wishlist_prog_image_div.append(wishlist_pro_a);
+
+
+    let wishlist_pro_image = document.createElement("img");
+    wishlist_pro_image.setAttribute("src", item.product_image.source);
+    wishlist_pro_image.setAttribute("alt", "image of " + item.product_image.alt);
+    wishlist_pro_a.append(wishlist_pro_image);
+
+    let wishlist_text_div = document.createElement("div");
+    wishlist_text_div.setAttribute("class", "wishlist-text");
+    wishlist_content_div.append(wishlist_text_div);
+
+    let wishlist_pro_title_p = document.createElement("p");
+    wishlist_pro_title_p.setAttribute("class", "wish-pro-title");
+    wishlist_pro_title_p.innerText = item.product_eng_name;
+    wishlist_text_div.append(wishlist_pro_title_p);
+
+    let wishlist_pro_cat_p = document.createElement("p");
+    wishlist_pro_cat_p.setAttribute("class", "wish-cat");
+    wishlist_pro_cat_p.innerText = item.category.name;
+    wishlist_text_div.append(wishlist_pro_cat_p);
+
+    let wishlist_quantity_div = document.createElement("div");
+    wishlist_quantity_div.setAttribute("class", "wishlist-quantity");
+    wishlist_text_div.append(wishlist_quantity_div);
+
+    let wishlist_qty_p = document.createElement("p");
+    wishlist_qty_p.innerHTML = `<b>Qty:</b> ` + item.quantity[0].qty;
+    wishlist_quantity_div.append(wishlist_qty_p);
+
+    let wishlist_pro_price_p = document.createElement("p");
+    wishlist_pro_price_p.setAttribute("class", "wish-price");
+    wishlist_pro_price_p.innerHTML = `₹ ` + item.quantity[0].rs;
+    wishlist_quantity_div.append(wishlist_pro_price_p);
+
+
+    let wishlist_pro_delete_div = document.createElement("div");
+    wishlist_pro_delete_div.setAttribute("class", "icon-del");
+    wishlist_sec_div.append(wishlist_pro_delete_div);
+
+    let wishlist_pro_delete_icon = document.createElement("i");
+    wishlist_pro_delete_icon.setAttribute("class", "fa-solid fa-trash");
+    wishlist_pro_delete_div.append(wishlist_pro_delete_icon);

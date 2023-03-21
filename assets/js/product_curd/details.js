@@ -518,12 +518,13 @@ if (success) {
     
             Notify.success("Added to Wishlist");
 
+            
+
         }
 
-       
+             
 
     })
-
 
 
 }

@@ -1,0 +1,339 @@
+function list(item,index) {
+
+    let table_tr = document.createElement("tr");
+
+    if (item.status === true) {
+
+        table_tr.setAttribute("class", "success");
+    }
+
+    else if(item.status == false) {
+
+        table_tr.setAttribute("class", "fail");
+
+    }
+    table_body.append(table_tr);
+
+    let sn_no = document.createElement("td");
+    sn_no.innerText = k + ".";
+    table_tr.append(sn_no);
+
+
+    let pro_id = document.createElement("td");
+    pro_id.innerText = item.id;
+    table_tr.append(pro_id);
+
+    let pro_cat = document.createElement("td");
+    pro_cat.innerText = item.category.name
+    table_tr.append(pro_cat);
+
+    let img_td = document.createElement("td");
+    table_tr.append(img_td);
+
+    let pro_img = document.createElement("img");
+    pro_img.setAttribute("src", item.image.source);
+    pro_img.setAttribute("alt", "image of" + item.name.eng);
+    img_td.append(pro_img);
+
+    let pro_name_td = document.createElement("td");
+    pro_name_td.innerHTML = item.name.eng + `<br>` + item.name.tam;
+    table_tr.append(pro_name_td);
+
+    let pro_avail = document.createElement("td");
+    pro_avail.innerText = item.avail_stock.num + " " +item.avail_stock.unit;
+    table_tr.append(pro_avail);
+
+    let pro_view = document.createElement("td");
+    pro_view.setAttribute("id", "viewproduct");
+    pro_view.innerHTML = `<i class="fa-solid fa-eye"></i>`;
+    table_tr.append(pro_view);
+
+    let pro_edit = document.createElement("td");
+    pro_edit.setAttribute("id", "editproduct")
+    pro_edit.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
+    table_tr.append(pro_edit);
+
+    let pro_available = document.createElement("td");
+    pro_available.setAttribute("id", "proavailable");
+    pro_available.innerHTML = `<i class="fa-solid fa-check"></i><br>` + "Available";
+
+    let pro_notavailable = document.createElement("td");
+    pro_notavailable.setAttribute("id", "pronotavailable");
+    pro_notavailable.innerHTML = `<i class="fa-solid fa-xmark"></i><br>` + "NotAvailable";
+
+    if (item.status == true) {
+
+        table_tr.append(pro_available);
+    }
+
+    else {
+
+        table_tr.append(pro_notavailable);
+    }
+
+
+    let pro_delete = document.createElement("td");
+    pro_delete.setAttribute("id", "deleteproduct");
+    pro_delete.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+    table_tr.append(pro_delete);
+
+    k++;
+
+    // view product logic
+    pro_view.addEventListener("click", function (e) {
+
+        all_elements.style.display = "block";
+
+        edit_save_btn.style.display = "none";
+
+        quantity_price_div.style.display = "none";
+
+        product_image_url.disabled = true;
+        product_image_url.value = item.image.source;
+
+        product_english_name.disabled = true;
+        product_english_name.value = item.name.eng;
+
+        product_tamil_name.disabled = true;
+        product_tamil_name.value = item.name.tam;
+
+        cat_exotic_fruits.disabled = true;
+        cat_exotic_veggies.disabled = true;
+        cat_fresh_veggies.disabled = true;
+        cat_fresh_fruits.disabled = true;
+        cat_leafy_green.disabled = true;
+        cat_tubers.disabled = true;
+
+        if(item.category.id == 01){
+
+            cat_exotic_fruits.checked = true;
+        }
+        if(item.category.id == 02){
+            
+            cat_exotic_veggies.checked = true;
+        }
+
+        if(item.category.id == 03){
+            
+            cat_fresh_veggies.checked = true;
+        }
+
+        if(item.category.id == 04){
+
+            cat_fresh_fruits.checked = true;
+
+        }
+
+        if(item.category.id == 05){
+            
+            cat_leafy_green.checked = true;
+        }
+
+        if(item.category.id == 06){
+            
+            cat_tubers.checked = true;
+        }
+
+
+        product_description.disabled = true;
+        product_description.innerText = item.description;
+
+        protein_input.disabled = true;
+        protein_input.value = item.nutritions.protein.num;
+
+        carbo_input.disabled = true;
+        carbo_input.value = item.nutritions.carbo.num;
+
+        kcal_input.disabled = true;
+        kcal_input.value = item.nutritions.kcal;
+
+        available_stock_input.disabled = true;
+        available_stock_input.value = item.avail_stock.num;
+
+        avail_kg.disabled = true;
+        avail_nos.disabled = true;
+        avail_pkt.disabled = true;
+
+        if(item.avail_stock.unit == "kg"){
+            avail_kg.checked = true;
+        }
+
+        if(item.avail_stock.unit == "nos"){
+            avail_nos.checked = true;
+        }
+
+        if(item.avail_stock.unit == "pkt"){
+            avail_pkt.checked = true;
+        }
+       
+
+
+
+        // show the already having quantities
+
+        let output = '';
+
+        let list_show = document.querySelector(".quantity-price-list");
+
+        if (item != null) {
+
+            item.quantity.forEach((element) => {
+
+                output += `<div class="quantity_price_list_item">
+                <p class="quantity_price_p">${element.text}</p>
+            </div>`
+
+            });
+
+            list_show.innerHTML = output;
+
+        }
+
+
+    });
+
+
+    // edit or update product
+    pro_edit.addEventListener("click", function (e) {
+
+        all_elements.style.display = "block";
+
+
+        edit_save_btn.style.display = "";
+
+        quantity_price_div.style.display = "";
+
+        let copy_product = item;
+
+        localStorage.setItem("copy", JSON.stringify(copy_product));
+
+        let edit_product = JSON.parse(localStorage.getItem("copy"));
+
+        product_image_url.disabled = false;
+        product_image_url.value = edit_product.image.source;
+
+        product_english_name.disabled = false;
+        product_english_name.value = edit_product.name.eng;
+
+        product_tamil_name.disabled = false;
+        product_tamil_name.value = edit_product.name.tam;
+
+        cat_exotic_fruits.disabled = false;
+        cat_exotic_veggies.disabled = false;
+        cat_fresh_veggies.disabled = false;
+        cat_fresh_fruits.disabled = false;
+        cat_leafy_green.disabled = false;
+        cat_tubers.disabled = false;
+
+        if(item.category.id == 01){
+
+            cat_exotic_fruits.checked = true;
+        }
+        if(item.category.id == 02){
+            
+            cat_exotic_veggies.checked = true;
+        }
+
+        if(item.category.id == 03){
+            
+            cat_fresh_veggies.checked = true;
+        }
+
+        if(item.category.id == 04){
+
+            cat_fresh_fruits.checked = true;
+
+        }
+
+        if(item.category.id == 05){
+            
+            cat_leafy_green.checked = true;
+        }
+
+        if(item.category.id == 06){
+            
+            cat_tubers.checked = true;
+        }
+
+        product_description.disabled = false;
+        product_description.innerText = edit_product.description;
+
+        protein_input.disabled = false;
+        protein_input.value = edit_product.nutritions.protein.num;
+
+        carbo_input.disabled = false;
+        carbo_input.value = edit_product.nutritions.carbo.num;
+
+        kcal_input.disabled = false;
+        kcal_input.value = edit_product.nutritions.kcal;
+
+        available_stock_input.disabled = false;
+        available_stock_input.value = edit_product.avail_stock.num;
+
+        avail_kg.disabled = false;
+        avail_nos.disabled = false;
+        avail_pkt.disabled = false;
+
+        if(item.avail_stock.unit == "kg"){
+            avail_kg.checked = true;
+        }
+
+        if(item.avail_stock.unit == "nos"){
+            avail_nos.checked = true;
+        }
+
+        if(item.avail_stock.unit == "pkt"){
+            avail_pkt.checked = true;
+        }
+
+
+        // showing the pricelist in the edit form
+        displaypricelist();
+
+        // adding price list
+
+        add_quantity_list();
+
+    })
+
+    // product available
+
+    pro_available.addEventListener("click", function(e){
+
+        item.status = false;
+
+        localStorage.setItem("product_list", JSON.stringify(created_products));
+    
+        self.location.assign(window.location);
+
+    });
+
+
+    // not available
+
+    pro_notavailable.addEventListener("click", function(e){
+
+        item.status = true;
+
+        localStorage.setItem("product_list", JSON.stringify(created_products));
+    
+        self.location.assign(window.location);
+
+    });
+
+
+    // delete product 
+    pro_delete.addEventListener("click", function(e){
+
+        created_products.splice(index, 1);
+
+        localStorage.setItem("product_list", JSON.stringify(created_products));
+    
+        Notify.success("Product Deleted");
+
+        self.location.assign(window.location);
+    
+    })
+
+
+}
