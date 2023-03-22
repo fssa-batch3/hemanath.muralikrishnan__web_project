@@ -241,36 +241,7 @@ function viewproduct(id) {
             cat_leafy_green.disabled = true;
             cat_tubers.disabled = true;
 
-            if (obj.category.id == 01) {
-
-                cat_exotic_fruits.checked = true;
-            }
-            if (obj.category.id == 02) {
-
-                cat_exotic_veggies.checked = true;
-            }
-
-            if (obj.category.id == 03) {
-
-                cat_fresh_veggies.checked = true;
-            }
-
-            if (obj.category.id == 04) {
-
-                cat_fresh_fruits.checked = true;
-
-            }
-
-            if (obj.category.id == 05) {
-
-                cat_leafy_green.checked = true;
-            }
-
-            if (obj.category.id == 06) {
-
-                cat_tubers.checked = true;
-            }
-
+            check_cat(obj);
 
             product_description.disabled = true;
             product_description.innerText = obj.description;
@@ -291,17 +262,7 @@ function viewproduct(id) {
             avail_nos.disabled = true;
             avail_pkt.disabled = true;
 
-            if (obj.avail_stock.unit == "kg") {
-                avail_kg.checked = true;
-            }
-
-            if (obj.avail_stock.unit == "nos") {
-                avail_nos.checked = true;
-            }
-
-            if (obj.avail_stock.unit == "pkt") {
-                avail_pkt.checked = true;
-            }
+            check_unit_cat(obj);
 
 
             // show the already having quantities
@@ -368,36 +329,8 @@ function editproduct(id) {
             cat_leafy_green.disabled = false;
             cat_tubers.disabled = false;
 
-            if (obj.category.id == 01) {
-
-                cat_exotic_fruits.checked = true;
-            }
-            if (obj.category.id == 02) {
-
-                cat_exotic_veggies.checked = true;
-            }
-
-            if (obj.category.id == 03) {
-
-                cat_fresh_veggies.checked = true;
-            }
-
-            if (obj.category.id == 04) {
-
-                cat_fresh_fruits.checked = true;
-
-            }
-
-            if (obj.category.id == 05) {
-
-                cat_leafy_green.checked = true;
-            }
-
-            if (obj.category.id == 06) {
-
-                cat_tubers.checked = true;
-            }
-
+            check_cat(obj);
+           
             product_description.disabled = false;
             product_description.innerText = edit_product.description;
 
@@ -417,17 +350,7 @@ function editproduct(id) {
             avail_nos.disabled = false;
             avail_pkt.disabled = false;
 
-            if (obj.avail_stock.unit == "kg") {
-                avail_kg.checked = true;
-            }
-
-            if (obj.avail_stock.unit == "nos") {
-                avail_nos.checked = true;
-            }
-
-            if (obj.avail_stock.unit == "pkt") {
-                avail_pkt.checked = true;
-            }
+            check_unit_cat(obj);
 
 
             // showing the pricelist in the edit form
@@ -442,6 +365,59 @@ function editproduct(id) {
 
     })
 
+}
+
+// checked cat the category
+
+function check_cat(obj){
+
+    if (obj.category.id == 01) {
+
+        cat_exotic_fruits.checked = true;
+    }
+    if (obj.category.id == 02) {
+
+        cat_exotic_veggies.checked = true;
+    }
+
+    if (obj.category.id == 03) {
+
+        cat_fresh_veggies.checked = true;
+    }
+
+    if (obj.category.id == 04) {
+
+        cat_fresh_fruits.checked = true;
+
+    }
+
+    if (obj.category.id == 05) {
+
+        cat_leafy_green.checked = true;
+    }
+
+    if (obj.category.id == 06) {
+
+        cat_tubers.checked = true;
+    }
+
+}
+
+// checked the available stock
+
+function check_unit_cat(obj){
+
+    if (obj.avail_stock.unit == "kg") {
+        avail_kg.checked = true;
+    }
+
+    if (obj.avail_stock.unit == "nos") {
+        avail_nos.checked = true;
+    }
+
+    if (obj.avail_stock.unit == "pkt") {
+        avail_pkt.checked = true;
+    }
 }
 
 // function for not product available or not

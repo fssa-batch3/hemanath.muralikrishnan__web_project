@@ -41,9 +41,16 @@ if(product_cat == 00){
 
         for(let i =0; i <=10; i++){
 
-            let random_product = product_details[i+1];
+            if(product_details[i+1].status == true){
 
-            list_products(random_product);
+                let random_product = product_details[i+1];
+
+                list_products(random_product);
+
+            }
+        
+
+            
 
         }
     }
