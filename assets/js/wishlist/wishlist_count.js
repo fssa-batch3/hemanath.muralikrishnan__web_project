@@ -30,19 +30,21 @@ user_records_se.find(function (obj) {
 
 let user_pro_check_se = false;
 
-if(wish_pro_count_se != null){
+if(wishlist_list_count != null){
 
-for(let i=0; i < wishlist_list_count.length; i++){
+    wishlist_list_count.find(function(obj){
 
-    if(user_id_se == wishlist_list_count[i].user_id){
-
-        user_pro_check_se = true;
-
-        break;
-    }
+        if(user_id == obj.user_id){
+    
+            user_pro_check_se = true;
+        }
+    
+        return user_pro_check_se;
+    })
+    
 
 }
-}
+
 
 if(user_pro_check_se){
 

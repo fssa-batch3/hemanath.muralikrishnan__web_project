@@ -16,11 +16,6 @@ let product_eng_name_p;
 let product_tam_name_p;
 
 
-let rating_div;
-let rating_stars_div;
-let rating_number_div;
-let rating_num;
-
 let dropdown_div;
 
 
@@ -37,11 +32,11 @@ const urlParams = new URLSearchParams(url);        // converting string into key
 const product_cat = urlParams.get("cat");
 
 
-if(product_cat == 00){
+if(product_cat == "00"){
 
         for(let i =0; i <=10; i++){
 
-            if(product_details[i+1].status == true){
+            if(product_details[i+1].status){
 
                 let random_product = product_details[i+1];
 
@@ -59,7 +54,7 @@ product_details.filter( function(item) {
 
     if(product_details != null){
 
-    if ((item["category"]["id"] == product_cat) && (item["status"] == true)) {
+    if ((item["category"]["id"] == product_cat) && (item["status"])) {
 
         list_products(item);
 
@@ -134,38 +129,7 @@ function list_products(item) {
     product_tam_name_p.innerText = item["name"]["tam"];
     product_name_div.append(product_tam_name_p);
 
-   /* // rating_div
-    rating_div = document.createElement("div");
-    rating_div.setAttribute("class", "rating-part");
-    product_main_div.append(rating_div);
-
-    // rating stars div
-    rating_stars_div = document.createElement("div");
-    rating_stars_div.setAttribute("class", "rating");
-    rating_div.append(rating_stars_div);
-
-
-    
-    let rating_round = Math.round(product.rating);
-
-    let stars = "";
-    for (let j = 0; j < rating_round; j++) {
-        stars += "⭐";
-    }
-
-    rating_stars_div.append(stars);
-
-    // rating number
-    rating_number_div = document.createElement("div");
-    rating_number_div.setAttribute("class", "rating-number");
-    rating_div.append(rating_number_div);
-
-    // rating num
-    rating_num = document.createElement("p");
-    rating_num.innerText = product_details[k]["product"]["rating"];
-    rating_number_div.append(rating_num);
-
-    */
+   
 
     // dropdown_div
     let dropdown_div = document.createElement("div");
@@ -183,8 +147,8 @@ function list_products(item) {
     dropdown_div.appendChild(dropdown_options);
 
     let selectedValue;
-    for (let j = 0; j < item.quantity.length; j++) {
-        let option = item.quantity[j];
+    for (let item_qty of item.quantity) {
+        let option = item_qty;
 
         let dropdown_option = document.createElement("div");
         dropdown_option.className = "dropdown-option";
@@ -209,11 +173,6 @@ function list_products(item) {
         dropdown_options.classList.toggle("show");
     });
 
-
-    // let amount = document.createElement("div");
-    // amount.className = "amount";
-    // amount.innerText = "Total: ₹" + product["unit_price"];
-    // product_main_div.appendChild(amount);
 
 
     let qty_value = 1;

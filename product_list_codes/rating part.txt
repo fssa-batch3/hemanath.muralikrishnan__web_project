@@ -1,0 +1,92 @@
+product list page rating code:
+
+/* // rating_div
+    rating_div = document.createElement("div");
+    rating_div.setAttribute("class", "rating-part");
+    product_main_div.append(rating_div);
+
+    // rating stars div
+    rating_stars_div = document.createElement("div");
+    rating_stars_div.setAttribute("class", "rating");
+    rating_div.append(rating_stars_div);
+
+
+    
+    let rating_round = Math.round(product.rating);
+
+    let stars = "";
+    for (let j = 0; j < rating_round; j++) {
+        stars += "⭐";
+    }
+
+    rating_stars_div.append(stars);
+
+    // rating number
+    rating_number_div = document.createElement("div");
+    rating_number_div.setAttribute("class", "rating-number");
+    rating_div.append(rating_number_div);
+
+    // rating num
+    rating_num = document.createElement("p");
+    rating_num.innerText = product_details[k]["product"]["rating"];
+    rating_number_div.append(rating_num);
+
+    */
+
+
+
+/* // rating_div
+    rating_div = document.createElement("div");
+    rating_div.setAttribute("class", "rating-part");
+    product_main_div.append(rating_div);
+
+    // rating stars div
+    rating_stars_div = document.createElement("div");
+    rating_stars_div.setAttribute("class", "rating");
+    rating_div.append(rating_stars_div);
+
+
+    
+    let rating_round = Math.round(product.rating);
+
+    let stars = "";
+    for (let j = 0; j < rating_round; j++) {
+        stars += "⭐";
+    }
+
+    rating_stars_div.append(stars);
+
+    // rating number
+    rating_number_div = document.createElement("div");
+    rating_number_div.setAttribute("class", "rating-number");
+    rating_div.append(rating_number_div);
+
+    // rating num
+    rating_num = document.createElement("p");
+    rating_num.innerText = product_details[k]["product"]["rating"];
+    rating_number_div.append(rating_num);
+
+    */
+
+details page list rating div: 
+
+// // appending stars
+    // let product_rating = product_details[k]["product"]["rating"]
+    // let rating_round = Math.round(product_rating);
+
+    // let stars = "";
+    // for (let j = 0; j < rating_round; j++) {
+    //     stars += "⭐";
+    // }
+
+    // indv_rating_div.append(stars);
+
+    // // indv rating number div
+    // indv_rating_number_div = document.createElement("div");
+    // indv_rating_number_div.setAttribute("class", "indv-rating-number");
+    // indv_rating_part_div.append(indv_rating_number_div);
+
+    // // indv rating number p 
+    // indv_rating_number_p = document.createElement("p");
+    // indv_rating_number_p.innerText = product_rating;
+    // indv_rating_number_div.append(indv_rating_number_p);

@@ -41,17 +41,19 @@ let wish_pro_count = 0;
 
 let user_pro_check = false;
 
-for(let i=0; i < wishlist_list.length; i++){
+if(wishlist_list != null){
 
-    if(user_id == wishlist_list[i].user_id){
+wishlist_list.find(function(obj){
+
+    if(user_id == obj.user_id){
 
         user_pro_check = true;
-
-        break;
     }
 
-}
+    return user_pro_check;
+})
 
+}
 
 if(user_pro_check){
 

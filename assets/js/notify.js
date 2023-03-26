@@ -36,7 +36,7 @@ class Notify {
         if (!document.querySelector('.notify')) {
             this.#createParent();
         }
-        const body = document.querySelector('body');
+
         const elem = document.createElement("div");
         elem.innerText = message;
         elem.classList.add("notify-success", "show");
@@ -56,7 +56,6 @@ class Notify {
         if (!document.querySelector('.notify')) {
             this.#createParent();
         }
-        const body = document.querySelector('body');
         const elem = document.createElement("div");
         elem.innerText = message;
         elem.classList.add("notify-error", "show");;

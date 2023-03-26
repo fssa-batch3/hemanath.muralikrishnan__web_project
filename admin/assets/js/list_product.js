@@ -11,53 +11,7 @@ let k = 1;
 let output = "";
 
 
-// show the products regarding the selected value
-// select_category_filter.addEventListener('input', function (e) {
 
-//     table_body.innerHTML = "";
-
-//     k = 1;
-
-//     let selectedvalue = select_category_filter.value;
-
-
-//     if (selectedvalue != 00) {
-
-//         created_products.filter(function (item) {
-
-//             if (item.category.id.includes(selectedvalue)) {
-
-//                 list(item);
-
-//             }
-
-//         });
-
-//     }
-
-//     else {
-//         created_products.forEach((item) => {
-
-//             list(item);
-//         });
-//     }
-
-
-
-// });
-
-// search_input.addEventListener("keydown", function (e) {
-
-//     let search_value = search_input.value.trim().toLowerCase();
-//     console.log(search_value)
-
-//     created_products.filter((item, index) => {
-
-
-//     })
-
-
-// })
 
 
 // getting input elements from the form
@@ -172,7 +126,7 @@ function list_products() {
 function list(item, index) {
 
 
-    if (item.status == true) {
+    if (item.status) {
 
         output += `<tr class="success">
         <td>${k}.</td>
@@ -371,32 +325,32 @@ function editproduct(id) {
 
 function check_cat(obj){
 
-    if (obj.category.id == 01) {
+    if (obj.category.id == "01") {
 
         cat_exotic_fruits.checked = true;
     }
-    if (obj.category.id == 02) {
+    if (obj.category.id == "02") {
 
         cat_exotic_veggies.checked = true;
     }
 
-    if (obj.category.id == 03) {
+    if (obj.category.id == "03") {
 
         cat_fresh_veggies.checked = true;
     }
 
-    if (obj.category.id == 04) {
+    if (obj.category.id == "04") {
 
         cat_fresh_fruits.checked = true;
 
     }
 
-    if (obj.category.id == 05) {
+    if (obj.category.id == "05") {
 
         cat_leafy_green.checked = true;
     }
 
-    if (obj.category.id == 06) {
+    if (obj.category.id == "06") {
 
         cat_tubers.checked = true;
     }
@@ -501,8 +455,6 @@ function add_quantity_list(e) {
 
     const quantity_price_input_value = quantity_price_input.value.trim();
 
-    // hello["text"] = quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value;
-    // hello["value"] = quantity_price_input_value;
 
     if ((quantity_input_value != "") && (quantity_price_input_value != "")) {
 
@@ -588,32 +540,32 @@ edit_form.addEventListener("submit", function (e) {
 
     let cat_name = "";
 
-    if (category_id == 01) {
+    if (category_id == "01") {
 
         cat_name += "Exotic Fruits";
     }
 
-    if (category_id == 02) {
+    if (category_id == "02") {
 
         cat_name += "Exotic Veggies";
     }
 
-    if (category_id == 03) {
+    if (category_id == "03") {
 
         cat_name += "Fresh Veggies";
     }
 
-    if (category_id == 04) {
+    if (category_id == "04") {
 
         cat_name += "Fresh Fruits";
     }
 
-    if (category_id == 05) {
+    if (category_id == "05") {
 
         cat_name += "Leafy Green";
     }
 
-    if (category_id == 06) {
+    if (category_id == "06") {
 
         cat_name += "Tubers";
     }

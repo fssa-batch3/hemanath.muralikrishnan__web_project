@@ -31,25 +31,10 @@ const urlParams = new URLSearchParams(url);        // converting string into key
 const product_id = urlParams.get("id")             // return value of the "name" key
 const product_cat = urlParams.get("cat");
 
-//     const user = product_details.find(
-//         function (userObj) {  //  
-
-//                 const indv_product_id = userObj["id"];
-
-
-//                 if (product_id === indv_product_id) {
-//                         console.log("HI");
-//                         return true;
-//                 } else {
-//                         return false;
-//                 }
-
-//         }
-// )
 let k;
 let success = false;
 for (k = 0; k < product_details.length; k++) {
-    if ((product_id == product_details[k].id) && (product_details[k].status == true)) {
+    if ((product_id == product_details[k].id) && (product_details[k].status)) {
 
         success = true;
         break;
@@ -70,8 +55,6 @@ if (success) {
 
     let indv_rating_part_div;
     let indv_rating_div;
-    let indv_rating_number_div;
-    let indv_rating_number_p;
 
 
     let healthy_div;
@@ -104,7 +87,6 @@ if (success) {
     let indv_farmer_img;
     let indv_farmer_p;
 
-    // let indv_product_right_name_div;
     let indv_product_name_english_p;
     let indv_product_name_tamil_p;
 
@@ -124,7 +106,6 @@ if (success) {
     let indv_add_button_i;
 
     let favorite_div;
-    let favorite_a;
     let favorite_i;
 
     let desc_div;
@@ -179,26 +160,7 @@ if (success) {
     indv_rating_div.setAttribute("class", "indv-rating");
     indv_rating_part_div.append(indv_rating_div);
 
-    // // appending stars
-    // let product_rating = product_details[k]["product"]["rating"]
-    // let rating_round = Math.round(product_rating);
-
-    // let stars = "";
-    // for (let j = 0; j < rating_round; j++) {
-    //     stars += "⭐";
-    // }
-
-    // indv_rating_div.append(stars);
-
-    // // indv rating number div
-    // indv_rating_number_div = document.createElement("div");
-    // indv_rating_number_div.setAttribute("class", "indv-rating-number");
-    // indv_rating_part_div.append(indv_rating_number_div);
-
-    // // indv rating number p 
-    // indv_rating_number_p = document.createElement("p");
-    // indv_rating_number_p.innerText = product_rating;
-    // indv_rating_number_div.append(indv_rating_number_p);
+    
 
     // healthy div
     healthy_div = document.createElement("div");
@@ -441,11 +403,6 @@ if (success) {
     favorite_div.setAttribute("class", "favorite");
     indv_qty_cat_div.append(favorite_div);
 
-    // // favorite a
-    // favorite_a = document.createElement("a");
-    // favorite_a.setAttribute("href", "../../wishlist.html");
-    // favorite_a.setAttribute("aria-lable", "favorite");
-    // favorite_div.append(favorite_a);
 
     // favorite i
     favorite_i = document.createElement("i");
@@ -489,10 +446,12 @@ if (success) {
 
                 if(product_details[k].id == obj.product_id){
 
-                    return fav_check = true;
+                   fav_check = true;
                 }
 
             }
+
+            return fav_check;
 
         });
 
@@ -532,6 +491,32 @@ if (success) {
 else {
     alert("product not found")
 }
+
+
+let product_container_div;
+let container_start_div;
+let product_main_div;
+
+let indv_product_link;
+
+let product_image_div;
+let product_image_src;
+let product_cat_title;
+
+let product_name_div;
+let product_eng_name_p;
+let product_tam_name_p;
+
+
+let dropdown_div;
+
+
+let quantity_cart_div;
+let qty_div;
+let add_cart_div;
+let add_cart;
+let add_text;
+let add_bag;
 
 
 function real_products(product){
@@ -591,36 +576,6 @@ function real_products(product){
     product_tam_name_p.innerText = product["name"]["tam"];
     product_name_div.append(product_tam_name_p);
 
-    // // rating_div
-    // rating_div = document.createElement("div");
-    // rating_div.setAttribute("class", "rating-part");
-    // product_main_div.append(rating_div);
-
-    // // rating stars div
-    // rating_stars_div = document.createElement("div");
-    // rating_stars_div.setAttribute("class", "rating");
-    // rating_div.append(rating_stars_div);
-
-
-
-    // let rating_round = Math.round(product.rating);
-
-    // let stars = "";
-    // for (let j = 0; j < rating_round; j++) {
-    //     stars += "⭐";
-    // }
-
-    // rating_stars_div.append(stars);
-
-    // // rating number
-    // rating_number_div = document.createElement("div");
-    // rating_number_div.setAttribute("class", "rating-number");
-    // rating_div.append(rating_number_div);
-
-    // // rating num
-    // rating_num = document.createElement("p");
-    // rating_num.innerText = product["rating"];
-    // rating_number_div.append(rating_num);
 
     // dropdown_div
     let dropdown_div = document.createElement("div");
@@ -638,8 +593,8 @@ function real_products(product){
     dropdown_div.appendChild(dropdown_options);
 
     let selectedValue;
-    for (let j = 0; j <  product.quantity.length; j++) {
-        let option =  product.quantity[j];
+    for (let item_qty of product.quantity) {
+        let option =  item_qty;
 
         let dropdown_option = document.createElement("div");
         dropdown_option.className = "dropdown-option";
@@ -664,12 +619,6 @@ function real_products(product){
         dropdown_options.classList.toggle("show");
     });
 
-
-
-    // let amount = document.createElement("div");
-    // amount.className = "amount";
-    // amount.innerText = "Total: ₹" + product["unit_price"];
-    // product_main_div.appendChild(amount);
 
 
     let qty_value = 1;
@@ -749,7 +698,7 @@ function real_products(product){
 
 product_details.filter( function(rel) {
 
-    if ((rel["category"]["id"] == product_cat) && (rel["status"] == true)) {
+    if ((rel["category"]["id"] == product_cat) && (rel["status"])) {
 
         let product = rel;
 

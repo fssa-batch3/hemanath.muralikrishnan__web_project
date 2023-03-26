@@ -15,30 +15,9 @@ const mobile_Input = document.getElementById("mobile-number");
 const profile_user_name = document.getElementById("user-profile-name");
 
 
-// localdata.find (
-
-//     function(userobj){
-
-//         if(profile_email === profile_check){
-
-//           name_Input.value = userobj["name"];
-//           email_Input.value = userobj["email"];
-//           mobile_Input.value = userobj["mobilenumber"];  
-
-//           return true;
-//         }
-
-//         else{
-//             alert("Profile Failure");
-//             return false;
-//         }
-//     }
-// );
-
 
 // showing data from already having data
 let Success = false, i;
-
 
 
 for (i = 0; i < localdata.length; i++) {
@@ -51,7 +30,7 @@ for (i = 0; i < localdata.length; i++) {
 
 
 
-if (Success == true) {
+if (Success) {
 
     first_name.value = localdata[i].firstname;
     last_name.value = localdata[i].lastname;
@@ -107,31 +86,20 @@ profile_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
 
-    let profile_updated = false;
-    for (let i = 0; i < localdata.length; i++) {
+    localdata.find(function (obj) {
 
-        if (profile_email == localdata[i].emailid) {
-            profile_updated = true;
-            break;
+        if (profile_email == obj.emailid) {
 
+            obj.firstname = profile_first_name;
+            obj.lastname = profile_last_name;
+            obj.gender = gender;
+            obj.mobilenumber = profile_mobile_number;
+
+            localStorage.setItem("users", JSON.stringify(localdata));
+
+            Notify.success("Profile Details Updated");
         }
-    }
-
-
-    if (profile_updated) {
-        localdata[i].firstname = profile_first_name;
-        localdata[i].lastname = profile_last_name;
-        localdata[i].gender = gender;
-        localdata[i].mobilenumber = profile_mobile_number;
-
-        localStorage.setItem("users", JSON.stringify(localdata));
-
-        Notify.success("Profile Details Updated");
-    }
-
-    else {
-        Notify.error("You are mad at me");
-    }
+    })
 
 
 
@@ -234,16 +202,13 @@ address_form.addEventListener('submit', function (e) {
     const pincode_value = pincode_input.value.trim();
 
 
-    for (let i = 0; i < localdata.length; i++) {
+    localdata.find(function (obj) {
 
-        if (profile_email == localdata[i].emailid) {
+        if (profile_email == obj.emailid) {
 
-            const address_array = localdata[i].address ?? [];
+            const address_array = obj.address ?? [];
 
-
-
-
-            localdata[i].address = address_array;
+            obj.address = address_array;
 
 
 
@@ -256,9 +221,9 @@ address_form.addEventListener('submit', function (e) {
             }
             address_array.push(address_data);
 
-            break;
         }
-    }
+    })
+
     localStorage.setItem("users", JSON.stringify(localdata));
 
     Notify.success("Address Added");
@@ -294,19 +259,17 @@ updated_address_id.style.display = "none"
 
 
 // showing user address from the localstorage
-for (let k = 0; k < localdata.length; k++) {
+for (let user_addr of localdata) {
 
-    if (profile_email == localdata[k].emailid) {
+    if (profile_email == user_addr.emailid) {
 
-        if (localdata[k].address != null) {
+        if (user_addr.address != null) {
 
             // saving the each address key and their in a object
 
-            let address_len = localdata[k]["address"];
+            let address_len = user_addr["address"];
 
-
-            for (let j = 0; j < address_len.length; j++) {
-
+            address_len.forEach((item, index) => {
 
                 let address_show_div = document.createElement("div");
                 address_show_div.setAttribute("class", "address-show");
@@ -315,7 +278,7 @@ for (let k = 0; k < localdata.length; k++) {
                 let user_address_p = document.createElement("p");
                 user_address_p.setAttribute("class", "user-address");
                 user_address_p.setAttribute("id", "user_address");
-                user_address_p.innerText = address_len[j]["street"] + "," + address_len[j]["district"] + "," + address_len[j]["state"] + "," + address_len[j]["pincode"];
+                user_address_p.innerText = item["street"] + "," + item["district"] + "," + item["state"] + "," + item["pincode"];
                 address_show_div.append(user_address_p);
 
                 let address_edit_div = document.createElement("div");
@@ -332,7 +295,8 @@ for (let k = 0; k < localdata.length; k++) {
                 let address_delete_btn = document.createElement("button");
                 address_delete_btn.setAttribute("class", "show-address-delete");
                 address_delete_btn.setAttribute("id", "address_delete");
-                address_delete_btn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+                address_delete_btn.setAttribute("onclick", `deleteaddress(${index})`)
+                address_delete_btn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
                 address_edit_div.append(address_delete_btn);
 
                 let address_close_btn = document.createElement("button");
@@ -363,61 +327,72 @@ for (let k = 0; k < localdata.length; k++) {
                     edit_address_form.style.display = "";
 
 
-                    updated_address_input.value = address_len[j]["street"];
-                    updated_district_input.value = address_len[j]["district"];
-                    updated_state_input.value = address_len[j]["state"];
-                    updated_pincode_input.value = address_len[j]["pincode"];
-                    updated_address_id.value = address_len[j]["address_id"];
+                    updated_address_input.value = item["street"];
+                    updated_district_input.value = item["district"];
+                    updated_state_input.value = item["state"];
+                    updated_pincode_input.value = item["pincode"];
+                    updated_address_id.value = item["address_id"];
 
 
 
                 });
 
-                //delete logic
+                
 
-                let delete_check;
+                
+            });
 
-                address_delete_btn.addEventListener('click', function (e) {
-
-                    if (confirm("Are you sure?")) {
-
-                        delete_check = true;
-
-                    }
-
-                    else {
-
-                        delete_check = false;
-
-                    }
-
-                    if (delete_check) {
-
-                        address_len.splice(j, 1);
-
-                        localStorage.setItem("users", JSON.stringify(localdata));
-
-                        Notify.success("Address Deleted");
-
-                        self.location.assign(window.location);
-
-                    }
-
-                    else {
-                        Notify.error("ASD");
-                    }
-
-
-
-                });
-
-            }
         }
 
 
     }
 
 }
+
+
+ //delete logic
+
+ let delete_check;
+
+ function deleteaddress(index) {
+
+     if (confirm("Are you sure?")) {
+
+         delete_check = true;
+
+     }
+
+     else {
+
+         delete_check = false;
+
+     }
+
+     if (delete_check) {
+
+        localdata.find(function(obj){
+
+            if(profile_email == obj.emailid){
+
+                let address_len = obj.address;
+
+                address_len.splice(index, 1);
+
+                localStorage.setItem("users", JSON.stringify(localdata));
+       
+                Notify.success("Address Deleted");
+       
+                self.location.assign(window.location);
+            }
+        })
+
+        
+
+     }
+
+ }
+
+
 
 const updated_close_form = document.getElementById("updated-close-form");
 updated_close_form.addEventListener('click', function (e) {
@@ -440,24 +415,24 @@ edit_address_form.addEventListener('submit', function (e) {
     const updated_address_id_value = updated_address_id.value;
 
 
-    for (let k = 0; k < localdata.length; k++) {
+    for (let user_data of localdata) {
 
-        if (profile_email == localdata[k].emailid) {
+        if (profile_email == user_data.emailid) {
 
-            if (localdata[k].address != null) {
+            if (user_data.address != null) {
 
                 // saving the each address key and their in a object
-                let address_len = localdata[k]["address"];
+                let address_len = user_data["address"];
 
 
-                for (let j = 0; j < address_len.length; j++) {
+                for (let addr_arr of address_len) {
 
-                    if (updated_address_id_value == address_len[j]["address_id"]) {
+                    if (updated_address_id_value == addr_arr["address_id"]) {
 
-                        address_len[j]["street"] = updated_address_value;
-                        address_len[j]["district"] = updated_district_value;
-                        address_len[j]["state"] = updated_state_value;
-                        address_len[j]["pincode"] = updated_pincode_value;
+                        addr_arr["street"] = updated_address_value;
+                        addr_arr["district"] = updated_district_value;
+                        addr_arr["state"] = updated_state_value;
+                        addr_arr["pincode"] = updated_pincode_value;
 
                         localStorage.setItem("users", JSON.stringify(localdata));
 
@@ -492,9 +467,9 @@ const logout_btn = document.getElementById("logout-user");
 logout_btn.addEventListener('click', function (e) {
 
 
-    for (let k = 0; k <=localdata.length-1; k++) {
+    for (let user_data of localdata) {
 
-        if (profile_email == localdata[k].emailid) {
+        if (profile_email == user_data.emailid) {
 
             if (confirm("Are you sure?")) {
 

@@ -73,9 +73,6 @@ add_quantity_price.addEventListener("click", function (e) {
 
     const quantity_price_input_value = quantity_price_input.value.trim();
 
-    // hello["text"] = quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value;
-    // hello["value"] = quantity_price_input_value;
-
     if ((quantity_input_value != "") && (quantity_price_input_value != "")) {
 
         price_list.push({
@@ -170,32 +167,32 @@ create_form.addEventListener('submit', function (e) {
 
     let cat_name = "";
 
-    if(category_id == 01){
+    if(category_id == "01"){
 
         cat_name += "Exotic Fruits";
     }
 
-    if(category_id == 02){
+    if(category_id == "02"){
 
         cat_name += "Exotic Veggies";
     }
 
-    if(category_id == 03){
+    if(category_id == "03"){
 
         cat_name += "Fresh Veggies";
     }
 
-    if(category_id == 04){
+    if(category_id == "04"){
 
         cat_name += "Fresh Fruits";
     }
 
-    if(category_id == 05){
+    if(category_id == "05"){
 
         cat_name += "Leafy Green";
     }
 
-    if(category_id == 06){
+    if(category_id == "06"){
 
         cat_name += "Tubers";
     }
