@@ -435,8 +435,6 @@ if (success) {
 
     // even listner for add to wishlist
 
-    
-
     favorite_i.addEventListener('click', function(e){
 
         let fav_check = false;
