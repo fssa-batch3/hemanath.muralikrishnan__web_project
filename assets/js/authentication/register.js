@@ -1,4 +1,3 @@
-import Notify from "./../notify"
 
 const form = document.getElementById('form');
 

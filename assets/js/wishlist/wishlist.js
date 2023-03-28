@@ -1,5 +1,3 @@
-import Notify from "./../notify"
-
 // getting the element to append the div
 let appen_div = document.querySelector(".wishlist-cont");
 
