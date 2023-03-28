@@ -34,7 +34,7 @@ if(wishlist_list_count != null){
 
     wishlist_list_count.find(function(obj){
 
-        if(user_id == obj.user_id){
+        if(user_id_se == obj.user_id){
     
             user_pro_check_se = true;
         }

@@ -26,7 +26,7 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 - Scenario 1: Successfully create an account
     - Steps:
         1. Navigate to the registration page.
-        2. Enter the required information such as name, email, and password.
+        2. Enter the required information such as name, email, mobile number and password.
         3. Click the "Create Account" button.
     - Expected Result:
         - The user is redirected to the login page.
@@ -40,6 +40,14 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
     - Expected Result:
         - The user is redirected to the user profile page.
 
+### Profile page
+- Scenario 1: Successfully showing the profile page.
+    - Steps:
+        1. Navigate to the profile page.
+        2. The user can updae their informations and add there address,update address.
+        3. click the edit button to update or add details and click save button to update the details.
+    - Expected Result:
+        The user profile gets updated.
 
 ### View products/items
 - Scenario 1: Successfully view products/items
@@ -58,3 +66,4 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         3. Select a product/item to view its details.
     - Expected Result:
         - The user can view the details of the selected product/item.
+
