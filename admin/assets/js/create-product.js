@@ -25,7 +25,6 @@ const kcal_input = document.getElementById("product-kcal");
 
 // available stock
 const available_stock_input = document.getElementById("product-available-stock");
-const available_stock_unit = document.getElementById("avail-unit");
 
 
 // quantity and price
@@ -52,8 +51,6 @@ const famer_image_url = document.getElementById("farmer-image-url")
 // get buttons by id
 
 const add_quantity_price = document.getElementById("add-quantity-price");
-
-const delete_quantity_price_list = document.getElementById("delete_list");
 
 
 // delete the already price list available in the localstorage
@@ -241,7 +238,7 @@ create_form.addEventListener('submit', function (e) {
             }
 
         }
-)};
+)}
 
 
     if (check) {

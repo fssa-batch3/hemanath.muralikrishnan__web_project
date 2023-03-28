@@ -4,15 +4,10 @@ let created_products = JSON.parse(localStorage.getItem("product_list"));
 
 let table_body = document.querySelector(".table_body");
 
-let select_category_filter = document.getElementById("select-category-filter");
-
-let search_input = document.getElementById("site-search")
 
 let k = 1;
 
 let output = "";
-
-
 
 
 
@@ -44,10 +39,8 @@ const product_description = document.getElementById("edit-product-description");
 // healthy part
 
 const protein_input = document.getElementById("edit-product-protein");
-const protein_unit = document.getElementById("product-protein-unit");
 
 const carbo_input = document.getElementById("edit-product-carbo");
-const carbo_unit = document.getElementById("edit-product-carbo-unit");
 
 const kcal_input = document.getElementById("edit-product-kcal");
 
@@ -71,16 +64,6 @@ const quantity_unit_select = document.getElementById("edit-weight-unit");
 // quantity price
 const quantity_price_input = document.getElementById("edit-quantity-price");
 
-
-// farmer user id
-const farmer_user_id = document.getElementById("edit-farmer-user-id");
-
-// farmer name 
-const farmer_name = document.getElementById("edit-farmer-name");
-
-// farmer image url
-const famer_image_url = document.getElementById("edit-farmer-image-url");
-
 // save button getting by id
 const edit_save_btn = document.getElementById("edit-product-save");
 
@@ -99,11 +82,11 @@ const close_icon = document.getElementById("close_form");
 
 
 // delete the copy of the product
-window.onload = localStorage.removeItem("copy");;
+window.onload = localStorage.removeItem("copy");
 
 // close the edit the form
 
-close_icon.addEventListener("click", function (e) {
+close_icon.addEventListener("click", function () {
 
     all_elements.style.display = "none";
 
@@ -119,7 +102,7 @@ function list_products() {
 
         list(item, index);
 
-    });
+    })
 
 }
 
@@ -447,7 +430,7 @@ function deleteproduct(index) {
 }
 
 // add price list in the popup form box
-function add_quantity_list(e) {
+function add_quantity_list() {
 
     let copy = JSON.parse(localStorage.getItem("copy"));
 

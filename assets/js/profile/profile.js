@@ -1,5 +1,6 @@
 import Notify from "./../notify"
 
+
 const localdata = JSON.parse(localStorage.getItem("users"));
 
 const profile_email = localStorage.getItem("logged_in");
@@ -168,7 +169,7 @@ const address_form_close = document.getElementById("close-form");
 
 
 
-new_address.addEventListener('click', function (e) {
+new_address.addEventListener('click', function () {
 
     address_form.style.display = "";
 });
@@ -312,19 +313,19 @@ for (let user_addr of localdata) {
 
                 // when user click on address p tag show edit buttons
 
-                user_address_p.addEventListener('click', function (e) {
+                user_address_p.addEventListener('click', function () {
                     address_edit_div.style.display = "";
                 })
 
                 // when user click on close btn don't show the edit btn div
-                address_close_btn.addEventListener('click', function (e) {
+                address_close_btn.addEventListener('click', function () {
                     address_edit_div.style.display = "none";
                 })
 
 
 
                 // edit address assign value to input
-                address_edit_btn.addEventListener('click', function (e) {
+                address_edit_btn.addEventListener('click', function () {
 
                     edit_address_form.style.display = "";
 
@@ -339,9 +340,9 @@ for (let user_addr of localdata) {
 
                 });
 
+                
 
-
-
+                
             });
 
         }
@@ -352,47 +353,47 @@ for (let user_addr of localdata) {
 }
 
 
-//delete logic
+ //delete logic
 
-let delete_check;
+ let delete_check;
 
-function deleteaddress(index) {
+ function deleteaddress(index) {
 
-    if (confirm("Are you sure?")) {
+     if (confirm("Are you sure?")) {
 
-        delete_check = true;
+         delete_check = true;
 
-    }
+     }
 
-    else {
+     else {
 
-        delete_check = false;
+         delete_check = false;
 
-    }
+     }
 
-    if (delete_check) {
+     if (delete_check) {
 
-        localdata.find(function (obj) {
+        localdata.find(function(obj){
 
-            if (profile_email == obj.emailid) {
+            if(profile_email == obj.emailid){
 
                 let address_len = obj.address;
 
                 address_len.splice(index, 1);
 
                 localStorage.setItem("users", JSON.stringify(localdata));
-
+       
                 Notify.success("Address Deleted");
-
+       
                 self.location.assign(window.location);
             }
         })
 
+        
 
+     }
 
-    }
-
-}
+ }
 
 
 
@@ -466,7 +467,7 @@ edit_address_form.addEventListener('submit', function (e) {
 
 const logout_btn = document.getElementById("logout-user");
 
-logout_btn.addEventListener('click', function (e) {
+logout_btn.addEventListener('click', function () {
 
 
     for (let user_data of localdata) {

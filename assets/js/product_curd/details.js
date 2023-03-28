@@ -437,7 +437,7 @@ if (success) {
 
     // even listner for add to wishlist
 
-    favorite_i.addEventListener('click', function(e){
+    favorite_i.addEventListener('click', function(){
 
         let fav_check = false;
         favourite_list.find(function(obj){
@@ -494,7 +494,6 @@ else {
 
 
 let product_container_div;
-let container_start_div;
 let product_main_div;
 
 let indv_product_link;
@@ -506,9 +505,6 @@ let product_cat_title;
 let product_name_div;
 let product_eng_name_p;
 let product_tam_name_p;
-
-
-let dropdown_div;
 
 
 let quantity_cart_div;
