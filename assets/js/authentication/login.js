@@ -1,4 +1,6 @@
-import Notify from "../notify";
+import {
+  alert_notify as Notify
+} from '../notify';
 
 let created_products = [
   {

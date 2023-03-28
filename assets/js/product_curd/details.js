@@ -1,4 +1,6 @@
-import Notify from "../notify";
+import {
+    alert_notify as Notify
+  } from '../notify';
 
 // product details JSON
 let product_details = JSON.parse(localStorage.getItem("product_list"));

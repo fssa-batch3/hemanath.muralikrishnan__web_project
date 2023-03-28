@@ -1,4 +1,4 @@
-export default class Notify {
+const alert_notify_ad = class Notify {
 
     /**
      * Create a div element with the class `notify` and append it to the body of the document
@@ -64,3 +64,5 @@ export default class Notify {
         this.#timeOut(elem);
     }
 }
+
+module.exports = {alert_notify_ad};
