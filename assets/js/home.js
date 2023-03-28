@@ -23,11 +23,6 @@ let add_text;
 let add_bag;
 
 
-const url = window.location.search;                // ?name=Arun
-const urlParams = new URLSearchParams(url);        // converting string into key value pair
-const product_cat = urlParams.get("cat");
-
-
     // for related products
 for(let i=0; i < 12; i++){
 

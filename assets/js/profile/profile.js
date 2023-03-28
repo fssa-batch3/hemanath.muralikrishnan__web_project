@@ -1,3 +1,5 @@
+import Notify from "../notify";
+
 const localdata = JSON.parse(localStorage.getItem("users"));
 
 const profile_email = localStorage.getItem("logged_in");

@@ -1,3 +1,5 @@
+import Notify from "notify";
+
 let created_products = JSON.parse(localStorage.getItem("product_list"));
 
 let table_body = document.querySelector(".table_body");

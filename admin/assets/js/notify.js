@@ -1,4 +1,4 @@
-class Notify {
+export default class Notify {
 
     /**
      * Create a div element with the class `notify` and append it to the body of the document
