@@ -1,4 +1,4 @@
-const alert_notify = class Notify {
+class Notify {
 
     /**
      * Create a div element with the class `notify` and append it to the body of the document
@@ -64,5 +64,3 @@ const alert_notify = class Notify {
         this.#timeOut(elem);
     }
 }
-
-module.exports = {alert_notify};

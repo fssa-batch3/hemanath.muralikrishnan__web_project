@@ -1,7 +1,3 @@
-import {
-  alert_notify as Notify
-} from '../notify';
-
 let created_products = [
   {
     "id": 0,
