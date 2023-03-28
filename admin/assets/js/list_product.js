@@ -154,7 +154,7 @@ function viewproduct(id) {
 
     created_products.find(function (obj) {
 
-        if (id == obj.id) {
+        if (id === obj.id) {
 
             all_elements.style.display = "block";
 
@@ -208,7 +208,7 @@ function viewproduct(id) {
 
             let list_show = document.querySelector(".quantity-price-list");
 
-            if (obj != null) {
+            if (obj !== null) {
 
                 obj.quantity.forEach((element) => {
 
@@ -236,7 +236,7 @@ function editproduct(id) {
 
     created_products.find(function (obj) {
 
-        if (id == obj.id) {
+        if (id === obj.id) {
 
             all_elements.style.display = "block";
 
@@ -308,32 +308,32 @@ function editproduct(id) {
 
 function check_cat(obj){
 
-    if (obj.category.id == "01") {
+    if (obj.category.id === "01") {
 
         cat_exotic_fruits.checked = true;
     }
-    if (obj.category.id == "02") {
+    if (obj.category.id === "02") {
 
         cat_exotic_veggies.checked = true;
     }
 
-    if (obj.category.id == "03") {
+    if (obj.category.id === "03") {
 
         cat_fresh_veggies.checked = true;
     }
 
-    if (obj.category.id == "04") {
+    if (obj.category.id === "04") {
 
         cat_fresh_fruits.checked = true;
 
     }
 
-    if (obj.category.id == "05") {
+    if (obj.category.id === "05") {
 
         cat_leafy_green.checked = true;
     }
 
-    if (obj.category.id == "06") {
+    if (obj.category.id === "06") {
 
         cat_tubers.checked = true;
     }
@@ -344,15 +344,15 @@ function check_cat(obj){
 
 function check_unit_cat(obj){
 
-    if (obj.avail_stock.unit == "kg") {
+    if (obj.avail_stock.unit === "kg") {
         avail_kg.checked = true;
     }
 
-    if (obj.avail_stock.unit == "nos") {
+    if (obj.avail_stock.unit === "nos") {
         avail_nos.checked = true;
     }
 
-    if (obj.avail_stock.unit == "pkt") {
+    if (obj.avail_stock.unit === "pkt") {
         avail_pkt.checked = true;
     }
 }
@@ -363,7 +363,7 @@ function notavailableproduct(id) {
 
     created_products.find(function (obj) {
 
-        if (id == obj.id) {
+        if (id === obj.id) {
 
             obj.status = false;
 
@@ -389,7 +389,7 @@ function availableproduct(id) {
 
     created_products.find(function (obj) {
 
-        if (id == obj.id) {
+        if (id === obj.id) {
 
             obj.status = true;
 
@@ -439,7 +439,7 @@ function add_quantity_list() {
     const quantity_price_input_value = quantity_price_input.value.trim();
 
 
-    if ((quantity_input_value != "") && (quantity_price_input_value != "")) {
+    if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
 
         copy.quantity.push({
             "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
@@ -474,7 +474,7 @@ function displaypricelist() {
 
     let list_type = JSON.parse(localStorage.getItem("copy"));
 
-    if (list_type != null) {
+    if (list_type !== null) {
 
         list_type.quantity.forEach((element, index) => {
 
@@ -523,32 +523,32 @@ edit_form.addEventListener("submit", function (e) {
 
     let cat_name = "";
 
-    if (category_id == "01") {
+    if (category_id === "01") {
 
         cat_name += "Exotic Fruits";
     }
 
-    if (category_id == "02") {
+    if (category_id === "02") {
 
         cat_name += "Exotic Veggies";
     }
 
-    if (category_id == "03") {
+    if (category_id === "03") {
 
         cat_name += "Fresh Veggies";
     }
 
-    if (category_id == "04") {
+    if (category_id === "04") {
 
         cat_name += "Fresh Fruits";
     }
 
-    if (category_id == "05") {
+    if (category_id === "05") {
 
         cat_name += "Leafy Green";
     }
 
-    if (category_id == "06") {
+    if (category_id === "06") {
 
         cat_name += "Tubers";
     }
@@ -625,7 +625,7 @@ edit_form.addEventListener("submit", function (e) {
 
     for (let i = 0; i <= created_products.length - 1; i++) {
 
-        if (copy["id"] == created_products[i]["id"]) {
+        if (copy["id"] === created_products[i]["id"]) {
 
             created_products[i] = one_product;
 

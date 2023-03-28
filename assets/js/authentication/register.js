@@ -28,7 +28,7 @@ function validateInputs() {
 
     let check_value = true;
 
-    if (user_data != null) {
+    if (user_data !== null) {
 
         user_data.find(function (userobj) {
 
@@ -46,7 +46,7 @@ function validateInputs() {
 
     if (check_value) {
 
-        if (password == conf_password) {
+        if (password === conf_password) {
 
             let user = {
                 "user_id" : user_data.length,

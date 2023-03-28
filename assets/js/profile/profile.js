@@ -21,7 +21,7 @@ let Success = false, i;
 
 
 for (i = 0; i < localdata.length; i++) {
-    if (localdata[i].emailid == profile_email) {
+    if (localdata[i].emailid === profile_email) {
         Success = true;
         break;
     }
@@ -88,7 +88,7 @@ profile_form.addEventListener('submit', function (e) {
 
     localdata.find(function (obj) {
 
-        if (profile_email == obj.emailid) {
+        if (profile_email === obj.emailid) {
 
             obj.firstname = profile_first_name;
             obj.lastname = profile_last_name;
@@ -123,13 +123,13 @@ profile_form.addEventListener('submit', function (e) {
 
 for (let j = 0; j <= localdata.length; j++) {
 
-    if (profile_email == localdata[j].emailid) {
+    if (profile_email === localdata[j].emailid) {
 
-        if (localdata[j].gender == null) {
+        if (localdata[j].gender === null) {
             break;
         }
         else {
-            if (localdata[j].gender == "male") {
+            if (localdata[j].gender === "male") {
 
                 gender_male.checked = true;
                 gender_female.checked = false;
@@ -138,7 +138,7 @@ for (let j = 0; j <= localdata.length; j++) {
 
             }
 
-            else if (localdata[j].gender == "female") {
+            else if (localdata[j].gender === "female") {
                 gender_female.checked = true;
                 gender_male.checked = false;
                 break;
@@ -204,7 +204,7 @@ address_form.addEventListener('submit', function (e) {
 
     localdata.find(function (obj) {
 
-        if (profile_email == obj.emailid) {
+        if (profile_email === obj.emailid) {
 
             const address_array = obj.address ?? [];
 
@@ -261,9 +261,9 @@ updated_address_id.style.display = "none"
 // showing user address from the localstorage
 for (let user_addr of localdata) {
 
-    if (profile_email == user_addr.emailid) {
+    if (profile_email === user_addr.emailid) {
 
-        if (user_addr.address != null) {
+        if (user_addr.address !== null) {
 
             // saving the each address key and their in a object
 
@@ -372,7 +372,7 @@ for (let user_addr of localdata) {
 
         localdata.find(function(obj){
 
-            if(profile_email == obj.emailid){
+            if(profile_email === obj.emailid){
 
                 let address_len = obj.address;
 
@@ -417,9 +417,9 @@ edit_address_form.addEventListener('submit', function (e) {
 
     for (let user_data of localdata) {
 
-        if (profile_email == user_data.emailid) {
+        if (profile_email === user_data.emailid) {
 
-            if (user_data.address != null) {
+            if (user_data.address !== null) {
 
                 // saving the each address key and their in a object
                 let address_len = user_data["address"];
@@ -427,7 +427,7 @@ edit_address_form.addEventListener('submit', function (e) {
 
                 for (let addr_arr of address_len) {
 
-                    if (updated_address_id_value == addr_arr["address_id"]) {
+                    if (updated_address_id_value === addr_arr["address_id"]) {
 
                         addr_arr["street"] = updated_address_value;
                         addr_arr["district"] = updated_district_value;
@@ -469,7 +469,7 @@ logout_btn.addEventListener('click', function () {
 
     for (let user_data of localdata) {
 
-        if (profile_email == user_data.emailid) {
+        if (profile_email === user_data.emailid) {
 
             if (confirm("Are you sure?")) {
 

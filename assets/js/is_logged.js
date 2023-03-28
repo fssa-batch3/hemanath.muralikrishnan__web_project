@@ -8,7 +8,7 @@ const login_btn = document.getElementById("login-btn");
 const login_btn_foot = document.getElementById("login-btn-foot");
 
 
-if(logged_email == null){
+if(logged_email === null){
 
     window.location.href="pages/authentication/login.html";
 }

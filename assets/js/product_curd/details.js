@@ -14,7 +14,7 @@ let user_id;
 
 user_records.find(function(obj){
 
-    if(user_details == obj.emailid){
+    if(user_details === obj.emailid){
 
         user_id = obj.user_id;
     
@@ -28,13 +28,13 @@ user_records.find(function(obj){
 
 const url = window.location.search;                // ?name=Arun
 const urlParams = new URLSearchParams(url);        // converting string into key value pair
-const product_id = urlParams.get("id")             // return value of the "name" key
+const product_id = Number(urlParams.get("id"));             // return value of the "name" key
 const product_cat = urlParams.get("cat");
 
 let k;
 let success = false;
 for (k = 0; k < product_details.length; k++) {
-    if ((product_id == product_details[k].id) && (product_details[k].status)) {
+    if ((product_id === product_details[k].id) && (product_details[k].status)) {
 
         success = true;
         break;
@@ -440,9 +440,9 @@ if (success) {
         let fav_check = false;
         favourite_list.find(function(obj){
 
-            if(user_id == obj.user_id){
+            if(user_id === obj.user_id){
 
-                if(product_details[k].id == obj.product_id){
+                if(product_details[k].id === obj.product_id){
 
                    fav_check = true;
                 }
@@ -692,7 +692,7 @@ function real_products(product){
 
 product_details.filter( function(rel) {
 
-    if ((rel["category"]["id"] == product_cat) && (rel["status"])) {
+    if ((rel["category"]["id"] === product_cat) && (rel["status"])) {
 
         let product = rel;
 

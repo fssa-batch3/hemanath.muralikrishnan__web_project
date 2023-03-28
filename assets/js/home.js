@@ -28,17 +28,6 @@ const urlParams = new URLSearchParams(url);        // converting string into key
 const product_cat = urlParams.get("cat");
 
 
-if(product_cat == "00"){
-
-        for(let i =0; i <=10; i++){
-
-            let random_product = product_details[i+1];
-
-            list_products(random_product);
-
-        }
-    }
-
     // for related products
 for(let i=0; i < 12; i++){
 

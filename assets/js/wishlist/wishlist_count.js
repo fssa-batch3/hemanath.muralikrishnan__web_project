@@ -16,7 +16,7 @@ let user_id_se;
 
 user_records_se.find(function (obj) {
 
-    if (user_details_se == obj.emailid) {
+    if (user_details_se === obj.emailid) {
 
         user_id_se = obj.user_id;
 
@@ -30,11 +30,11 @@ user_records_se.find(function (obj) {
 
 let user_pro_check_se = false;
 
-if(wishlist_list_count != null){
+if(wishlist_list_count !== null){
 
     wishlist_list_count.find(function(obj){
 
-        if(user_id_se == obj.user_id){
+        if(user_id_se === obj.user_id){
     
             user_pro_check_se = true;
         }
@@ -50,7 +50,7 @@ if(user_pro_check_se){
 
     wishlist_list_count.filter(function (obj) {
     
-        if (user_id_se == obj.user_id) {
+        if (user_id_se === obj.user_id) {
 
             return ++wish_pro_count_se;
         }

@@ -24,7 +24,7 @@ let user_id;
 
 user_records.find(function (obj) {
 
-    if (user_details == obj.emailid) {
+    if (user_details === obj.emailid) {
 
         user_id = obj.user_id;
 
@@ -41,11 +41,11 @@ let wish_pro_count = 0;
 
 let user_pro_check = false;
 
-if(wishlist_list != null){
+if(wishlist_list !== null){
 
 wishlist_list.find(function(obj){
 
-    if(user_id == obj.user_id){
+    if(user_id === obj.user_id){
 
         user_pro_check = true;
     }
@@ -59,7 +59,7 @@ if(user_pro_check){
 
     wishlist_list.filter(function (obj,index) {
     
-        if (user_id == obj.user_id) {
+        if (user_id === obj.user_id) {
 
             wish_list(obj,index);
 

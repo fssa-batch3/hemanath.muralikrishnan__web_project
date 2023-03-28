@@ -28,7 +28,7 @@ const urlParams = new URLSearchParams(url);        // converting string into key
 const product_cat = urlParams.get("cat");
 
 
-if(product_cat == "00"){
+if(product_cat === "00"){
 
         for(let i =0; i <=10; i++){
 
@@ -48,9 +48,9 @@ if(product_cat == "00"){
 
 product_details.filter( function(item) {
 
-    if(product_details != null){
+    if(product_details !== null){
 
-    if ((item["category"]["id"] == product_cat) && (item["status"])) {
+    if ((item["category"]["id"] === product_cat) && (item["status"])) {
 
         list_products(item);
 
