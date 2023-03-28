@@ -1,3 +1,5 @@
+import Notify from "./../notify"
+
 let created_products = [
   {
     "id": 0,

@@ -1,4 +1,4 @@
-class Notify {
+export default class Notify {
 
     /**
      * Create a div element with the class `notify` and append it to the body of the document
@@ -36,6 +36,7 @@ class Notify {
         if (!document.querySelector('.notify')) {
             this.#createParent();
         }
+
         const elem = document.createElement("div");
         elem.innerText = message;
         elem.classList.add("notify-success", "show");

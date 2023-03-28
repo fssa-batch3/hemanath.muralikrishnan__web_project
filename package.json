@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "run-script-os",
-    "start:win32": "browser-sync start --server --files '**/*.html, **/*.css, **/*.js, !node_modules/**/*' --directory --port 1212 --browser \"C:\\Users\\HemanathMuralikrishn\\AppData\\Local\\Firefox Developer Edition\\firefox.exe\""
+    "start:win32": "browser-sync start --server --files '**/*.html, **/*.css, **/*.js, !node_modules/**/*' --directory --port 1212 --browser \"C:\\Users\\HemanathMuralikrishn\\AppData\\Local\\Firefox Developer Edition\\firefox.exe\"",
+    "lint": "npx eslint ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "browser-sync": "^2.27.11",
+    "eslint": "^8.36.0",
     "husky": "^8.0.3",
     "run-script-os": "^1.1.6"
   }

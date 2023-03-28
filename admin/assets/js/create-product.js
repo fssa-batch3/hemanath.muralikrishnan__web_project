@@ -1,3 +1,5 @@
+import Notify from "notify"
+
 const create_form = document.getElementById("create-product");
 
 // image url input

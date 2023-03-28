@@ -1,3 +1,5 @@
+import Notify from "./../notify"
+
 const localdata = JSON.parse(localStorage.getItem("users"));
 
 const profile_email = localStorage.getItem("logged_in");
@@ -337,9 +339,9 @@ for (let user_addr of localdata) {
 
                 });
 
-                
 
-                
+
+
             });
 
         }
@@ -350,47 +352,47 @@ for (let user_addr of localdata) {
 }
 
 
- //delete logic
+//delete logic
 
- let delete_check;
+let delete_check;
 
- function deleteaddress(index) {
+function deleteaddress(index) {
 
-     if (confirm("Are you sure?")) {
+    if (confirm("Are you sure?")) {
 
-         delete_check = true;
+        delete_check = true;
 
-     }
+    }
 
-     else {
+    else {
 
-         delete_check = false;
+        delete_check = false;
 
-     }
+    }
 
-     if (delete_check) {
+    if (delete_check) {
 
-        localdata.find(function(obj){
+        localdata.find(function (obj) {
 
-            if(profile_email == obj.emailid){
+            if (profile_email == obj.emailid) {
 
                 let address_len = obj.address;
 
                 address_len.splice(index, 1);
 
                 localStorage.setItem("users", JSON.stringify(localdata));
-       
+
                 Notify.success("Address Deleted");
-       
+
                 self.location.assign(window.location);
             }
         })
 
-        
 
-     }
 
- }
+    }
+
+}
 
 
 
