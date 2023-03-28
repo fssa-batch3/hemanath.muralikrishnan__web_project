@@ -18,3 +18,43 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 
 <hr>
 
+# E-commerce
+
+## Buyer
+
+### Create an account
+- Scenario 1: Successfully create an account
+    - Steps:
+        1. Navigate to the registration page.
+        2. Enter the required information such as name, email, and password.
+        3. Click the "Create Account" button.
+    - Expected Result:
+        - The user is redirected to the login page.
+
+### Create an account
+- Scenario 1: Successfully login in to account
+    - Steps:
+        1. Navigate to the login page.
+        2. Enter the required information such as email, and password.
+        3. Click the "login" button.
+    - Expected Result:
+        - The user is redirected to the user profile page.
+
+
+### View products/items
+- Scenario 1: Successfully view products/items
+    - Steps:
+        1. Log in as a buyer.
+        2. Navigate to the product listing page.
+        3. View the list of available products/items.
+    - Expected Result:
+        - The user can view the list of available products/items.
+
+### View product/item details
+- Scenario 1: Successfully view product/item details
+    - Steps:
+        1. Log in as a buyer.
+        2. Navigate to the product listing page.
+        3. Select a product/item to view its details.
+    - Expected Result:
+        - The user can view the details of the selected product/item.
