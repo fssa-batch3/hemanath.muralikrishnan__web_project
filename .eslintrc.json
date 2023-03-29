@@ -5,13 +5,10 @@
         "es2021": true
     },
     "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+        "ecmaVersion": 12
     },
     "rules": {
         "no-unused-vars": "error",
-        "no-console": "off",
-        "eqeqeq": "error",
-        "strict": "off"
+        "no-console": "off"
     }
 }
