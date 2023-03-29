@@ -1,4 +1,4 @@
-const localdata = JSON.parse(localStorage.getItem("users"));
+let localdata = JSON.parse(localStorage.getItem("users"));
 
 const profile_email = localStorage.getItem("logged_in");
 
@@ -121,15 +121,17 @@ profile_form.addEventListener('submit', function (e) {
 
 // gender radio checked button
 
+if(localdata !== null){
+
 for (let j = 0; j <= localdata.length; j++) {
 
-    if (profile_email === localdata[j].emailid) {
+    if (profile_email == localdata[j].emailid) {
 
-        if (localdata[j].gender === null) {
+        if (localdata[j].gender == null) {
             break;
         }
         else {
-            if (localdata[j].gender === "male") {
+            if (localdata[j].gender == "male") {
 
                 gender_male.checked = true;
                 gender_female.checked = false;
@@ -138,7 +140,7 @@ for (let j = 0; j <= localdata.length; j++) {
 
             }
 
-            else if (localdata[j].gender === "female") {
+            else if (localdata[j].gender == "female") {
                 gender_female.checked = true;
                 gender_male.checked = false;
                 break;
@@ -152,7 +154,7 @@ for (let j = 0; j <= localdata.length; j++) {
 
 
 }
-
+}
 
 // address form show and close
 
@@ -263,11 +265,13 @@ for (let user_addr of localdata) {
 
     if (profile_email === user_addr.emailid) {
 
-        if (user_addr.address !== null) {
+        if (user_addr["address"] !== undefined) {
 
             // saving the each address key and their in a object
 
             let address_len = user_addr["address"];
+
+            console.log(address_len);
 
             address_len.forEach((item, index) => {
 
