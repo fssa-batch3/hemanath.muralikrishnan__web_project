@@ -271,8 +271,6 @@ for (let user_addr of localdata) {
 
             let address_len = user_addr["address"];
 
-            console.log(address_len);
-
             address_len.forEach((item, index) => {
 
                 let address_show_div = document.createElement("div");
@@ -418,6 +416,8 @@ edit_address_form.addEventListener('submit', function (e) {
 
     const updated_address_id_value = updated_address_id.value;
 
+    console.log(updated_address_id_value)
+
 
     for (let user_data of localdata) {
 
@@ -431,7 +431,7 @@ edit_address_form.addEventListener('submit', function (e) {
 
                 for (let addr_arr of address_len) {
 
-                    if (updated_address_id_value === addr_arr["address_id"]) {
+                    if (Number(updated_address_id_value) === addr_arr["address_id"]) {
 
                         addr_arr["street"] = updated_address_value;
                         addr_arr["district"] = updated_district_value;
