@@ -243,7 +243,6 @@ else{
 
     document.body.insertAdjacentHTML("afterend", footer);
 
-
     document.getElementById("my-account").style.display ="none";
 
     window.location.href=`${root}/pages/authentication/login.html`;

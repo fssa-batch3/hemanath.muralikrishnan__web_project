@@ -30,9 +30,9 @@
 
     <link rel="icon" type="image/png" sizes="60x32" href="../assets/images/tabicon/icon.png">
 
-     <!-- notify css -->
+    <!-- notify css -->
 
-   <link rel="stylesheet" href="../assets/css/notify.css">
+    <link rel="stylesheet" href="../assets/css/notify.css">
 
 
     <title>AgroKart - Ecommerce</title>
@@ -168,6 +168,7 @@
                 <p class="profile_title">Personal Information</p>
 
                 <form id="profile_form">
+                    
                     <div class="name-input flex_so">
                         <label for="first_name">Name</label>
                         <input type="text" id="first_name" pattern="[A-Za-z]{1,16}" title="please enter valid firstname"
@@ -215,75 +216,55 @@
 
                 <p class="add-new-address" id="add_new_address">+ Add a new address</p>
 
+
                 <form id="address_form">
 
                     <div class="address-form">
 
+                        <span class="close" id="address_close_form"><i class="fa-solid fa-square-xmark"></i></span>
 
-                        <div class="address_input_label">
-                            <label for="address-input">Address</label><br>
-                            <label for="district-input">District</label><br>
-                            <label for="state-input">State</label><br>
-                            <label for="pincode-input">pincode</label><br>
+                        <div class="address-form-layers">
 
-                        </div>
+                            <div class="address_input">
+                                <label for="address-input">Address</label>
+                                <input type="text" id="address-input" placeholder="Enter your address" required
+                                    title="please enter your street">
+                            </div>
 
+                            <div class="address_input">
+                                <label for="district-input">District</label>
+                                <input type="text" id="district-input" placeholder="Enter your district" required
+                                    title="please enter your district" pattern="[A-za-z ]{1,16}">
+                            </div>
 
-                        <div class="address_inputs">
-                            <input type="text" id="address-input" placeholder="Enter your address"><br>
-                            <input type="text" id="district-input" placeholder="Enter your district"><br>
-                            <input type="text" id="state-input" placeholder="Enter your state"><br>
-                            <input type="text" id="pincode-input" placeholder="Enter your pincode" pattern="[0-9]{6}"
-                                title="Please enter valid pin code" maxlength="6"><br>
-                        </div>
+                            <div class="address_input">
+                                <label for="state-input">State</label>
+                                <input type="text" id="state-input" placeholder="Enter your state" disabled="true"
+                                    value="Tamil Nadu">
+                            </div>
 
-
-                    </div>
-
-                    <div class="address-buttons">
-                        <button type="submit" class="address-save-btn">Save address</button>
-                        <button id="close-form">Close</button>
-                    </div>
-
-                </form>
-
-                <form id="edit_address_form_two">
-
-                    <div class="address-form">
+                            <div class="address_input">
+                                <label for="pincode-input">pincode</label>
+                                <input type="text" id="pincode-input" placeholder="Enter your pincode"
+                                    pattern="[0-9]{6}" title="Please enter valid pin code" maxlength="6">
+                            </div>
 
 
-                        <div class="address_input_label">
-                            <label for="update-address-input">Address</label><br>
-                            <label for="update-district-input">District</label><br>
-                            <label for="update-state-input">State</label><br>
-                            <label for="update-pincode-input">pincode</label><br>
+                            <button type="submit" class="address-save-btn">Save address</button>
 
                         </div>
 
 
-                        <div class="address_inputs">
-                            <input type="text" id="update-address-input" placeholder="Enter your address"><br>
-                            <input type="text" id="update-district-input" placeholder="Enter your district"><br>
-                            <input type="text" id="update-state-input" placeholder="Enter your state"><br>
-                            <input type="text" id="update-pincode-input" placeholder="Enter your pincode" pattern="[0-9]{6}"
-                                title="Please enter valid pin code" maxlength="6"><br>
-                            <input type="text" id="updated-address-id">
-                        </div>
 
-
-                    </div>
-
-                    <div class="address-buttons">
-                        <button type="submit" class="address-save-btn">Update address</button>
-                        <button id="updated-close-form">Close</button>
                     </div>
 
                 </form>
+
+
 
                 <!-- show address from the localstorage -->
 
-                <div class="show-address">
-
+                <div class="show-address">                    
 
                 </div>
 
@@ -298,7 +279,6 @@
     <!-- profile section right side start -->
 
     <!-- profile section right side ends -->
-    </div>
 
     <!-- main profile container ends -->
 
@@ -326,7 +306,7 @@
 
     <script src="../assets/js/wishlist/wishlist_count.js"></script>
 
-    
+
 </body>
 
 </html>

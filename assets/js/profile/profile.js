@@ -1,6 +1,6 @@
 let localdata = JSON.parse(localStorage.getItem("users"));
 
-const profile_email = localStorage.getItem("logged_in");
+let profile_email = localStorage.getItem("logged_in");
 
 // profile form
 
@@ -121,76 +121,79 @@ profile_form.addEventListener('submit', function (e) {
 
 // gender radio checked button
 
-if(localdata !== null){
+if (localdata !== null) {
 
-for (let j = 0; j <= localdata.length; j++) {
+    for (let j = 0; j <= localdata.length; j++) {
 
-    if (profile_email == localdata[j].emailid) {
+        if (profile_email == localdata[j].emailid) {
 
-        if (localdata[j].gender == null) {
-            break;
-        }
-        else {
-            if (localdata[j].gender == "male") {
-
-                gender_male.checked = true;
-                gender_female.checked = false;
+            if (localdata[j].gender == null) {
                 break;
+            }
+            else {
+                if (localdata[j].gender == "male") {
+
+                    gender_male.checked = true;
+                    gender_female.checked = false;
+                    break;
 
 
+                }
+
+                else if (localdata[j].gender == "female") {
+                    gender_female.checked = true;
+                    gender_male.checked = false;
+                    break;
+
+                }
             }
 
-            else if (localdata[j].gender == "female") {
-                gender_female.checked = true;
-                gender_male.checked = false;
-                break;
 
-            }
+
         }
-
 
 
     }
-
-
-}
 }
 
-// address form show and close
+// start of add address operations
 
 const new_address = document.getElementById("add_new_address");
 
+// div contains all address form elements 
+
+const address_div = document.querySelector(".address-form");
+
 const address_form = document.getElementById("address_form");
-address_form.style.display = "none"
-
-const address_form_close = document.getElementById("close-form");
 
 
+const address_form_close = document.getElementById("address_close_form");
+
+
+let id_input;
 
 
 new_address.addEventListener('click', function () {
 
-    address_form.style.display = "";
+    address_div.style.display = "block";
 });
 
 
 address_form_close.addEventListener('click', function (e) {
 
-    e.preventDefault();
-    address_form.style.display = "none";
-})
+    address_div.style.display = "none";
 
-// creating empty array because user can have multiple 
+    address_form.reset();
 
-// getting address from the user
+});
+
+
+// getting input using id
 
 const address_input = document.getElementById("address-input");
 const district_input = document.getElementById("district-input");
 const state_input = document.getElementById("state-input");
 const pincode_input = document.getElementById("pincode-input");
-
-
-
 
 
 address_form.addEventListener('submit', function (e) {
@@ -202,266 +205,225 @@ address_form.addEventListener('submit', function (e) {
     const district_value = district_input.value.trim();
     const state_value = state_input.value.trim();
     const pincode_value = pincode_input.value.trim();
+    const address_id_input = document.getElementById("address_id_input");
 
 
-    localdata.find(function (obj) {
+    if ((address_value !== "") && (district_value !== "") && (state_value !== "") && (pincode_value !== "")) {
 
-        if (profile_email === obj.emailid) {
+        if (address_id_input === null) {
 
-            const address_array = obj.address ?? [];
+            localdata.find(function (obj) {
 
-            obj.address = address_array;
+                if (profile_email === obj.emailid) {
 
+                    const address_array = obj.address ?? [];
 
+                    obj.address = address_array;
 
-            let address_data = {
-                "street": address_value,
-                "district": district_value,
-                "state": state_value,
-                "pincode": pincode_value,
-                "address_id": address_array.length * 2 + 1
-            }
-            address_array.push(address_data);
+                    let address_data = {
+                        "street": address_value,
+                        "district": district_value,
+                        "state": state_value,
+                        "pincode": pincode_value,
+                        "address_id": address_array.length * 2 + 1
+                    }
+                    address_array.push(address_data);
 
-        }
-    })
-
-    localStorage.setItem("users", JSON.stringify(localdata));
-
-    Notify.success("Address Added");
-
-    address_form.style.display = "none";
-
-    self.location.assign(window.location);
-
-});
+                    Notify.success("Address Added");
+                }
 
 
-// form for edit user address
-
-const edit_address_form = document.getElementById("edit_address_form_two");
-edit_address_form.style.display = "none";
-
-
-
-
-// saving address id 
-const updated_address_input = document.getElementById("update-address-input");
-const updated_district_input = document.getElementById("update-district-input");
-const updated_state_input = document.getElementById("update-state-input");
-const updated_pincode_input = document.getElementById("update-pincode-input");
-
-// getting address id
-const updated_address_id = document.getElementById("updated-address-id");
-updated_address_id.style.display = "none"
-
-
-
-
-
-
-// showing user address from the localstorage
-for (let user_addr of localdata) {
-
-    if (profile_email === user_addr.emailid) {
-
-        if (user_addr["address"] !== undefined) {
-
-            // saving the each address key and their in a object
-
-            let address_len = user_addr["address"];
-
-            address_len.forEach((item, index) => {
-
-                let address_show_div = document.createElement("div");
-                address_show_div.setAttribute("class", "address-show");
-                document.querySelector(".show-address").append(address_show_div);
-
-                let user_address_p = document.createElement("p");
-                user_address_p.setAttribute("class", "user-address");
-                user_address_p.setAttribute("id", "user_address");
-                user_address_p.innerText = item["street"] + "," + item["district"] + "," + item["state"] + "," + item["pincode"];
-                address_show_div.append(user_address_p);
-
-                let address_edit_div = document.createElement("div");
-                address_edit_div.setAttribute("class", "address-edit");
-                address_edit_div.setAttribute("id", "address_btn");
-                address_show_div.append(address_edit_div);
-
-                let address_edit_btn = document.createElement("button");
-                address_edit_btn.setAttribute("class", "show-address-edit");
-                address_edit_btn.setAttribute("id", "address_edit");
-                address_edit_btn.innerHTML = '<i class="fa-solid fa-pen"></i>';
-                address_edit_div.append(address_edit_btn);
-
-                let address_delete_btn = document.createElement("button");
-                address_delete_btn.setAttribute("class", "show-address-delete");
-                address_delete_btn.setAttribute("id", "address_delete");
-                address_delete_btn.setAttribute("onclick", `deleteaddress(${index})`)
-                address_delete_btn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-                address_edit_div.append(address_delete_btn);
-
-                let address_close_btn = document.createElement("button");
-                address_close_btn.setAttribute("class", "close-address");
-                address_close_btn.setAttribute("id", "close_address");
-                address_close_btn.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
-                address_edit_div.append(address_close_btn);
-
-
-                address_edit_div.style.display = "none";
-
-                // when user click on address p tag show edit buttons
-
-                user_address_p.addEventListener('click', function () {
-                    address_edit_div.style.display = "";
-                })
-
-                // when user click on close btn don't show the edit btn div
-                address_close_btn.addEventListener('click', function () {
-                    address_edit_div.style.display = "none";
-                })
-
-
-
-                // edit address assign value to input
-                address_edit_btn.addEventListener('click', function () {
-
-                    edit_address_form.style.display = "";
-
-
-                    updated_address_input.value = item["street"];
-                    updated_district_input.value = item["district"];
-                    updated_state_input.value = item["state"];
-                    updated_pincode_input.value = item["pincode"];
-                    updated_address_id.value = item["address_id"];
-
-
-
-                });
-
-                
-
-                
             });
 
+
+
+        }
+
+        else if (address_id_input !== null) {
+
+            localdata.find(function (obj_user) {
+
+                if (profile_email === obj_user.emailid) {
+
+                    let address_array = obj_user["address"];
+
+                    address_array.find(function (addr_data) {
+
+                        if (address_id_input.value == addr_data.address_id) {
+
+                            addr_data.street = address_value;
+                            addr_data.district = district_value;
+                            addr_data.pincode = pincode_value;
+
+                            Notify.success("Address Updated");
+                        }
+                    });
+                }
+            });
+
+            address_id_input.remove();
         }
 
 
     }
 
+    else {
+
+        Notify.error("Please provide valid details");
+
+    }
+
+    localStorage.setItem("users", JSON.stringify(localdata));
+
+    address_div.style.display = "none";
+
+    document.querySelector(".show-address").innerHTML = " ";
+
+    load_address();
+
+    address_form.reset();
+
+
+});
+
+
+// creating element for each address element
+
+// address menus show menu or hide menu
+function load_address() {
+
+    localdata.find(function (obj) {
+
+        if (profile_email === obj.emailid) {
+
+            if (obj.address !== undefined) {
+
+                let address_array = obj["address"];
+
+                address_array.forEach((item, index) => {
+
+                    let addresses_show_div = document.createElement("div");
+                    addresses_show_div.setAttribute("class", "addresses-show-div");
+                    document.querySelector(".show-address").append(addresses_show_div)
+
+                    let address_show_main = document.createElement("div");
+                    address_show_main.setAttribute("class", "address-show-main");
+                    addresses_show_div.append(address_show_main);
+
+                    let address_p = document.createElement("p");
+                    address_p.innerHTML = `${item.street} ${item.district} ${item.state} ${item.pincode}`;
+                    address_show_main.append(address_p);
+
+                    let address_show_menu = document.createElement("div");
+                    address_show_menu.setAttribute("class", "address-show-menu");
+                    addresses_show_div.append(address_show_menu);
+
+                    let i_menu = document.createElement("i");
+                    i_menu.setAttribute("class", "fa-solid fa-ellipsis-vertical");
+                    address_show_menu.append(i_menu);
+
+                    let address_menus = document.createElement("div");
+                    address_menus.setAttribute("class", "address-menus");
+                    address_show_menu.append(address_menus);
+
+                    let address_p_edit = document.createElement("p");
+                    address_p_edit.innerHTML = `<i class="fa-solid fa-pen"></i> Edit`;
+                    address_menus.append(address_p_edit);
+
+                    let address_p_delete = document.createElement("p");
+                    address_p_delete.innerHTML = `<i class="fa-solid fa-trash"></i> Delete`;
+                    address_p_delete.setAttribute("onclick", `deleteaddress(${index})`)
+                    address_menus.append(address_p_delete);
+
+
+                    address_menus.style.display = "none";
+
+                    i_menu.addEventListener("click", function () {
+
+                        if (address_menus.style.display === "none") {
+
+                            address_menus.style.display = "block"; // to show the element
+                        } else {
+                            address_menus.style.display = "none"; // to hide the element
+                        }
+
+                    })
+
+                    address_p_edit.addEventListener("click", function () {
+
+                        address_menus.style.display = "none";
+
+                        address_div.style.display = "block";
+
+                        document.getElementById("address-input").value = item.street;
+                        document.getElementById("district-input").value = item.district;
+                        document.getElementById("pincode-input").value = item.pincode;
+
+                        id_input = document.createElement("input");
+                        id_input.setAttribute("type", "text");
+                        id_input.setAttribute("disabled", "true");
+                        id_input.setAttribute("value", `${item.address_id}`);
+                        id_input.setAttribute("id", "address_id_input")
+                        document.querySelector(".address-form-layers").append(id_input);
+
+                        id_input.style.display="none";
+                    });
+
+
+                });
+
+            }
+        }
+    });
 }
 
+load_address();
 
- //delete logic
 
- let delete_check;
+//delete logic
 
- function deleteaddress(index) {
+let delete_check;
 
-     if (confirm("Are you sure?")) {
+function deleteaddress(index) {
 
-         delete_check = true;
+    if (confirm("Are you sure?")) {
 
-     }
+        delete_check = true;
 
-     else {
 
-         delete_check = false;
+    }
 
-     }
+    else {
 
-     if (delete_check) {
+        delete_check = false;
 
-        localdata.find(function(obj){
 
-            if(profile_email === obj.emailid){
+    }
+
+    if (delete_check) {
+
+        localdata.find(function (obj) {
+
+            if (profile_email === obj.emailid) {
 
                 let address_len = obj.address;
 
                 address_len.splice(index, 1);
 
                 localStorage.setItem("users", JSON.stringify(localdata));
-       
+
                 Notify.success("Address Deleted");
-       
-                self.location.assign(window.location);
+
+                document.querySelector(".show-address").innerHTML = " ";
+
+                load_address();
+
             }
         })
 
-        
-
-     }
-
- }
-
-
-
-const updated_close_form = document.getElementById("updated-close-form");
-updated_close_form.addEventListener('click', function (e) {
-
-    e.preventDefault();
-    edit_address_form.style.display = "none"
-})
-
-// edit address form
-edit_address_form.addEventListener('submit', function (e) {
-
-    e.preventDefault();
-
-    // getting values from inputs
-    const updated_address_value = updated_address_input.value.trim();
-    const updated_district_value = updated_district_input.value.trim();
-    const updated_state_value = updated_state_input.value.trim();
-    const updated_pincode_value = updated_pincode_input.value.trim();
-
-    const updated_address_id_value = updated_address_id.value;
-
-    console.log(updated_address_id_value)
-
-
-    for (let user_data of localdata) {
-
-        if (profile_email === user_data.emailid) {
-
-            if (user_data.address !== null) {
-
-                // saving the each address key and their in a object
-                let address_len = user_data["address"];
-
-
-                for (let addr_arr of address_len) {
-
-                    if (Number(updated_address_id_value) === addr_arr["address_id"]) {
-
-                        addr_arr["street"] = updated_address_value;
-                        addr_arr["district"] = updated_district_value;
-                        addr_arr["state"] = updated_state_value;
-                        addr_arr["pincode"] = updated_pincode_value;
-
-                        localStorage.setItem("users", JSON.stringify(localdata));
-
-                        self.location.assign(window.location);
-
-                        Notify.success("Address Updated");
-
-                        break;
-
-                    }
-
-                }
-
-
-            }
-
-
-
-
-        }
-
     }
 
-
-});
+}
 
 
 // logout
@@ -503,6 +465,11 @@ logout_btn.addEventListener('click', function () {
     }
 
 })
+
+
+
+
+
 
 
 
