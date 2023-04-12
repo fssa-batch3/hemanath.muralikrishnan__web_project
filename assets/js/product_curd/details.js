@@ -463,7 +463,7 @@ if (success) {
 
             favourite_list.push({
                 "user_id" : user_id,
-                "wishlist_item_id" : favourite_list.length,
+                "wishlist_item_id" : favourite_list.length*2*2+1,
                 "product_id" : product_details[k].id,
                 "category" : product_details[k].category,
                "product_eng_name": product_details[k].name.eng,

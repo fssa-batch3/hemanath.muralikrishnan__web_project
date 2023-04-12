@@ -70,28 +70,44 @@ add_quantity_price.addEventListener("click", function (e) {
 
     const quantity_price_input_value = quantity_price_input.value.trim();
 
-    if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
+    let price_list_check = true;
 
-        price_list.push({
-            "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
-            "unit": selectedValue,
-            "qty": quantity_input_value,
-            "rs": quantity_price_input_value
-        });
+    price_list.find(function (obj) {
 
-        localStorage.setItem("price_list", JSON.stringify(price_list));
+        if (quantity_input_value == obj.qty) {
 
-        displaypricelist();
+            price_list_check = false;
+        }
+    })
 
-        Notify.success("Quantity Added");
+    if (price_list_check) {
 
+        if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
+
+            price_list.push({
+                "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
+                "unit": selectedValue,
+                "qty": quantity_input_value,
+                "rs": quantity_price_input_value
+            });
+
+            localStorage.setItem("price_list", JSON.stringify(price_list));
+
+            displaypricelist();
+
+            Notify.success("Quantity Added");
+
+        }
+
+        else {
+
+            Notify.error("Enter Valid quanity and price");
+        }
     }
 
     else {
-
-        Notify.error("Enter Valid quanity and price");
+        Notify.error("Already" + " " + quantity_input_value + selectedValue + " " + "Added")
     }
-
 
 });
 
@@ -164,32 +180,32 @@ create_form.addEventListener('submit', function (e) {
 
     let cat_name = "";
 
-    if(category_id === "01"){
+    if (category_id === "01") {
 
         cat_name += "Exotic Fruits";
     }
 
-    if(category_id === "02"){
+    if (category_id === "02") {
 
         cat_name += "Exotic Veggies";
     }
 
-    if(category_id === "03"){
+    if (category_id === "03") {
 
         cat_name += "Fresh Veggies";
     }
 
-    if(category_id === "04"){
+    if (category_id === "04") {
 
         cat_name += "Fresh Fruits";
     }
 
-    if(category_id === "05"){
+    if (category_id === "05") {
 
         cat_name += "Leafy Green";
     }
 
-    if(category_id === "06"){
+    if (category_id === "06") {
 
         cat_name += "Tubers";
     }
@@ -236,12 +252,19 @@ create_form.addEventListener('submit', function (e) {
             }
 
         }
-)}
+        )
+    }
+
+    if ((price_list === null) || (price_list === undefined)) {
+
+        Notify.error("Please Add product quantity and price");
+
+    }
 
 
-    if (check) {
+    else if(check) {
 
-        Notify.error("Product already available");
+        Notify.error("Product"+" "+ english_name +" "+"already available");
 
     }
 
@@ -249,7 +272,7 @@ create_form.addEventListener('submit', function (e) {
 
         product_list.push({
 
-            "id": product_list.length,
+            "id": product_list.length*2*2+1,
 
             "name": {
                 "eng": english_name,

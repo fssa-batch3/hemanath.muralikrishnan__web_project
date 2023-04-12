@@ -208,6 +208,8 @@ address_form.addEventListener('submit', function (e) {
     const address_id_input = document.getElementById("address_id_input");
 
 
+
+
     if ((address_value !== "") && (district_value !== "") && (state_value !== "") && (pincode_value !== "")) {
 
         if (address_id_input === null) {
@@ -218,18 +220,29 @@ address_form.addEventListener('submit', function (e) {
 
                     const address_array = obj.address ?? [];
 
-                    obj.address = address_array;
+                    if (address_array.length < 5) {
 
-                    let address_data = {
-                        "street": address_value,
-                        "district": district_value,
-                        "state": state_value,
-                        "pincode": pincode_value,
-                        "address_id": address_array.length * 2 + 1
+                        obj.address = address_array;
+
+                        let address_data = {
+                            "street": address_value,
+                            "district": district_value,
+                            "state": state_value,
+                            "pincode": pincode_value,
+                            "address_id": address_array.length*2*2+1
+                        }
+                        address_array.push(address_data);
+
+                        Notify.success("Address Added");
+
                     }
-                    address_array.push(address_data);
 
-                    Notify.success("Address Added");
+                    else {
+
+                        Notify.error("You can't add more than 5 address");
+                    }
+
+
                 }
 
 
@@ -292,6 +305,7 @@ address_form.addEventListener('submit', function (e) {
 // address menus show menu or hide menu
 function load_address() {
 
+    let address_append_div = document.querySelector(".show-address");
     localdata.find(function (obj) {
 
         if (profile_email === obj.emailid) {
@@ -304,7 +318,7 @@ function load_address() {
 
                     let addresses_show_div = document.createElement("div");
                     addresses_show_div.setAttribute("class", "addresses-show-div");
-                    document.querySelector(".show-address").append(addresses_show_div)
+                    address_append_div.append(addresses_show_div)
 
                     let address_show_main = document.createElement("div");
                     address_show_main.setAttribute("class", "address-show-main");
@@ -366,13 +380,21 @@ function load_address() {
                         id_input.setAttribute("id", "address_id_input")
                         document.querySelector(".address-form-layers").append(id_input);
 
-                        id_input.style.display="none";
+                        id_input.style.display = "none";
                     });
 
 
                 });
 
             }
+
+            else if (obj.address == null) {
+
+               address_append_div.innerHTML = `<h3 style="text-align:center;">No Address Please Add</h3>`
+            }
+
+
+
         }
     });
 }

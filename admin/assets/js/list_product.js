@@ -1,12 +1,8 @@
 let created_products = JSON.parse(localStorage.getItem("product_list"));
 
+let sorty_json = JSON.parse(localStorage.getItem("product_list"));
+
 let table_body = document.querySelector(".table_body");
-
-
-let k = 1;
-
-let output = "";
-
 
 
 // getting input elements from the form
@@ -90,64 +86,417 @@ close_icon.addEventListener("click", function () {
 
     localStorage.removeItem("copy");
 
-})
+});
 
-// function it contains for each to list the products
-
-function list_products() {
-
-    created_products.forEach((item, index) => {
-
-        list(item, index);
-
-    })
-
-}
 
 // function it will append the table rows from the above list products function
 
-function list(item, index) {
+function list_products(array = []) {
+
+    let k = 1;
+
+    table_body.innerHTML = "";
+
+    array.forEach((item, index) => {
+
+        let table_tr = document.createElement("tr");
+
+        if (item.status) {
+
+            table_tr.setAttribute("class", "success");
+
+        }
+        else {
+
+            table_tr.setAttribute("class", "fail");
+        }
+
+        let td_ser_no = document.createElement("td");
+        td_ser_no.innerHTML = `${k}`
+        table_tr.appendChild(td_ser_no);
+
+        let td_pro_id = document.createElement("td");
+        td_pro_id.innerHTML = `${item.id}`
+        table_tr.appendChild(td_pro_id);
+
+        let td_cat_name = document.createElement("td");
+        td_cat_name.innerHTML = `${item.category.name}`;
+        table_tr.appendChild(td_cat_name);
+
+        let td_pro_img = document.createElement("td");
+        td_pro_img.innerHTML = `<img src="${item.image.source}" alt="image of " + ${item.name.eng}>`;
+        table_tr.appendChild(td_pro_img);
+
+        let td_pro_name = document.createElement("td");
+        td_pro_name.innerHTML = `${item.name.eng}<br>(${item.name.tam})`;
+        table_tr.appendChild(td_pro_name);
+
+        let td_avail_stock = document.createElement("td");
+        td_avail_stock.innerHTML = `${item.avail_stock.num} ${item.avail_stock.unit}`;
+        table_tr.appendChild(td_avail_stock);
+
+        let td_pro_view = document.createElement("td");
+        td_pro_view.setAttribute("onclick", `viewproduct(${item.id})`);
+        td_pro_view.innerHTML = `<i class="fa-solid fa-eye"></i>`;
+        table_tr.appendChild(td_pro_view);
 
 
-    if (item.status) {
+        let td_pro_edit = document.createElement("td");
+        td_pro_edit.setAttribute("onclick", `editproduct(${item.id})`);
+        td_pro_edit.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
+        table_tr.appendChild(td_pro_edit);
 
-        output += `<tr class="success">
-        <td>${k}.</td>
-        <td>${item.id}</td>
-        <td>${item.category.name}</td>
-        <td><img src="${item.image.source}" alt="image of " + ${item.name.eng}></td>
-        <td>${item.name.eng}<br>(${item.name.tam})</td>
-        <td>${item.avail_stock.num} ${item.avail_stock.unit} <br></td>
-        <td onclick="viewproduct(${item.id})"><i class="fa-solid fa-eye"></i></td>
-        <td onclick="editproduct(${item.id})"><i class="fa-regular fa-pen-to-square"></i></td>
-        <td onclick="notavailableproduct(${item.id})"><i class="fa-solid fa-check"></i><br>Available</td>
-        <td onclick="deleteproduct(${index})"><i class="fa-solid fa-trash"></i></td>
-        </tr>`
+        let td_pro_avail_or_not = document.createElement("td");
 
-    }
+        if (item.status) {
 
-    else {
+            td_pro_avail_or_not.setAttribute("onclick", `notavailableproduct(${item.id})`);
+            td_pro_avail_or_not.innerHTML = `<i class="fa-solid fa-check"></i><br>Available`;
 
-        output += `<tr class="fail">
-        <td>${k}.</td>
-        <td>${item.id}</td>
-        <td>${item.category.name}</td>
-        <td><img src="${item.image.source}" alt="image of " + ${item.name.eng}></td>
-        <td>${item.name.eng}<br>(${item.name.tam})</td>
-        <td>${item.avail_stock.num}<br></td>
-        <td onclick="viewproduct(${item.id})"><i class="fa-solid fa-eye"></i></td>
-        <td onclick="editproduct(${item.id})"><i class="fa-regular fa-pen-to-square"></i></td>
-        <td onclick="availableproduct(${item.id})"><i class="fa-solid fa-xmark"></i><br>Not Available</td>
-        <td onclick="deleteproduct(${index})"><i class="fa-solid fa-trash"></i></td>
-        </tr>`
+        }
 
-    }
+        else {
+            td_pro_avail_or_not.setAttribute("onclick", `availableproduct(${item.id})`);
+            td_pro_avail_or_not.innerHTML = `<i class="fa-solid fa-xmark"></i><br>Not Available`;
+        }
+        table_tr.appendChild(td_pro_avail_or_not);
 
-    k++;
 
-    table_body.innerHTML = output;
+        let td_pro_dele = document.createElement("td");
+        td_pro_dele.setAttribute("onclick", `deleteproduct(${index})`);
+        td_pro_dele.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        table_tr.appendChild(td_pro_dele);
+
+
+        k++;
+
+        table_body.appendChild(table_tr);
+
+    });
+
 
 }
+
+// filter by category logic
+
+let filter_by_cat = document.getElementById("select-category-filter");
+
+let newarray = [];
+
+let status_array = [];
+
+let search_array = [];
+
+
+filter_by_cat.addEventListener("change", function () {
+
+    newarray = [];
+
+    let selectedValue = filter_by_cat.value;
+
+    if (selectedValue !== "00") {
+
+        created_products.filter(function (val) {
+
+            if (val["category"]["id"] === selectedValue) {
+
+                newarray.push(val);
+
+            }
+
+        })
+    }
+
+    else if (selectedValue === "00") {
+
+
+        created_products.filter(function (val) {
+
+            if (val["category"]["id"] !== selectedValue) {
+
+                newarray.push(val);
+
+            }
+
+        })
+    }
+
+    list_products(newarray);
+
+});
+
+let select_status = document.getElementById("select-status");
+
+select_status.addEventListener('change', function () {
+
+    status_array = [];
+
+    let selectedValue = select_status.value;
+
+    let filter_cat_value = filter_by_cat.value;
+
+
+    if (selectedValue === "yes") {
+
+        created_products.filter(function (status_obj) {
+
+            if ((status_obj["category"]["id"] === filter_cat_value) && (status_obj["status"] === true)) {
+
+                status_array.push(status_obj);
+
+                list_products(status_array);
+            }
+
+            else if ((filter_cat_value === "00") && (status_obj["status"] === true)) {
+
+                status_array.push(status_obj);
+
+                list_products(status_array);
+            }
+        });
+    }
+
+    else if (selectedValue === "no") {
+
+        created_products.filter(function (status_obj) {
+
+            if ((status_obj["category"]["id"] === filter_cat_value) && (status_obj["status"] === false)) {
+
+                status_array.push(status_obj);
+
+                list_products(status_array);
+            }
+            else if ((filter_cat_value === "00") && (status_obj["status"] === false)) {
+
+                status_array.push(status_obj);
+
+                list_products(status_array);
+            }
+        });
+    }
+
+    else if (selectedValue === "default") {
+
+        created_products.filter(function (status_obj) {
+
+            if (status_obj["category"]["id"] === filter_cat_value) {
+
+                status_array.push(status_obj);
+
+                list_products(status_array);
+            }
+            else if (filter_cat_value === "00") {
+
+                status_array.push(status_obj);
+
+                list_products(status_array);
+            }
+        });
+
+    }
+
+
+});
+
+
+
+// search by selected category
+
+let search_by_pro_name = document.getElementById("site-search");
+
+
+search_by_pro_name.addEventListener("keyup", function () {
+
+    search_array = [];
+
+    let search = this.value.toLowerCase();
+
+    let get_cat_value = filter_by_cat.value;
+
+
+    if (get_cat_value !== "00") {
+
+        created_products.filter(function (search_fil) {
+
+            let pro_name = search_fil["name"]["eng"];
+
+            let lc_pro_name = pro_name.toLowerCase();
+
+
+            if ((search_fil["category"]["id"] === get_cat_value) && (lc_pro_name.includes(search))) {
+
+
+                search_array.push(search_fil);
+
+                list_products(search_array);
+
+            }
+
+
+        });
+    }
+
+    else if (get_cat_value === "00") {
+
+        created_products.filter(function (val) {
+
+            let pro_name = val["name"]["eng"];
+
+            let lc_pro_name = pro_name.toLowerCase();
+
+            if ((val["category"]["id"] !== get_cat_value) && (lc_pro_name.includes(search))) {
+
+                search_array.push(val);
+
+                list_products(search_array);
+
+            }
+
+        });
+    }
+
+
+});
+
+
+// sorty by logic
+
+let sortyby = document.getElementById("sorty-by");
+
+sortyby.addEventListener('change', function () {
+
+    let sortby;
+
+    let sortybyvalue = sortyby.value;
+
+    if (sortybyvalue === "default") {
+
+        list_products(created_products);
+
+    }
+
+    else if (sortybyvalue === "nameatoz") {
+
+        sortby = sorty_json.sort((a, b) => {
+
+
+            let x = a["name"]["eng"].toLowerCase();
+
+            let y = b["name"]["eng"].toLowerCase();
+
+            if (x < y) {
+
+                return -1;
+
+            }
+
+            else if (x > y) {
+
+                return 1;
+            }
+
+            else {
+                return 0;
+            }
+
+        });
+
+        list_products(sortby);
+
+    }
+
+    else if (sortybyvalue === "nameztoa") {
+
+        sortby = sorty_json.sort((a, b) => {
+
+
+            let x = a["name"]["eng"].toLowerCase();
+
+            let y = b["name"]["eng"].toLowerCase();
+
+            if (x > y) {
+
+                return -1;
+
+            }
+
+            else if (x < y) {
+
+                return 1;
+            }
+
+            else {
+                return 0;
+            }
+
+        });
+
+        list_products(sortby);
+
+    }
+
+    else if (sortybyvalue === "availlowtohigh") {
+
+        sortby = sorty_json.sort((a, b) => {
+
+            let x = a["avail_stock"]["num"];
+
+            let y = b["avail_stock"]["num"];
+
+            if (x < y) {
+
+                return -1;
+
+            }
+
+            else if (x > y) {
+
+                return 1;
+            }
+
+            else {
+                return 0;
+            }
+
+
+        });
+        list_products(sortby);
+
+    }
+
+    else if (sortybyvalue === "availhightolow") {
+
+        sortby = sorty_json.sort((a, b) => {
+
+            let x = a["avail_stock"]["num"];
+
+            let y = b["avail_stock"]["num"];
+
+            if (x > y) {
+
+                return -1;
+
+            }
+
+            else if (x < y) {
+
+                return 1;
+            }
+
+            else {
+                return 0;
+            }
+
+        });
+
+        list_products(sortby);
+    }
+
+
+});
+
+
+
 
 // function view product
 function viewproduct(id) {
@@ -267,7 +616,7 @@ function editproduct(id) {
             cat_tubers.disabled = false;
 
             check_cat(obj);
-           
+
             product_description.disabled = false;
             product_description.innerText = edit_product.description;
 
@@ -306,7 +655,7 @@ function editproduct(id) {
 
 // checked cat the category
 
-function check_cat(obj){
+function check_cat(obj) {
 
     if (obj.category.id === "01") {
 
@@ -342,7 +691,7 @@ function check_cat(obj){
 
 // checked the available stock
 
-function check_unit_cat(obj){
+function check_unit_cat(obj) {
 
     if (obj.avail_stock.unit === "kg") {
         avail_kg.checked = true;
@@ -371,11 +720,10 @@ function notavailableproduct(id) {
 
             Notify.success("Status Updated");
 
-            output = " ";
+            list_products(created_products);
 
-            k = 1;
+            search_by_pro_name.value = "";
 
-            list_products();
         }
     })
 
@@ -397,11 +745,9 @@ function availableproduct(id) {
 
             Notify.success("Status Updated");
 
-            output = " ";
+            list_products(created_products);
 
-            k = 1;
-
-            list_products();
+            search_by_pro_name.value = "";
 
         }
     })
@@ -419,11 +765,9 @@ function deleteproduct(index) {
 
     Notify.success("Product Deleted");
 
-    output = " ";
+    list_products(created_products);
 
-    k = 1;
-
-    list_products();
+    search_by_pro_name.value = "";
 
 }
 
@@ -438,29 +782,45 @@ function add_quantity_list() {
 
     const quantity_price_input_value = quantity_price_input.value.trim();
 
+    let price_list_check = true;
 
-    if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
+    copy.quantity.find(function (obj) {
 
-        copy.quantity.push({
-            "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
-            "unit": selectedValue,
-            "qty": quantity_input_value,
-            "rs": quantity_price_input_value
-        });
+        if (quantity_input_value == obj.qty) {
 
-        localStorage.setItem("copy", JSON.stringify(copy));
+            price_list_check = false;
+        }
+    })
 
-        Notify.success("Quantity Added");
+    if (price_list_check) {
 
-        displaypricelist();
+        if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
 
+            copy.quantity.push({
+                "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
+                "unit": selectedValue,
+                "qty": quantity_input_value,
+                "rs": quantity_price_input_value
+            });
+
+            localStorage.setItem("copy", JSON.stringify(copy));
+
+            Notify.success("Quantity Added");
+
+            displaypricelist();
+
+        }
+
+        else {
+
+            Notify.error("Enter Valid quanity and price");
+        }
     }
 
     else {
 
-        Notify.error("Enter Valid quanity and price");
+        Notify.error("Already" + " " + quantity_input_value + selectedValue + " " + "Added")
     }
-
 
 }
 
@@ -555,7 +915,6 @@ edit_form.addEventListener("submit", function (e) {
 
     const category_name = cat_name;
 
-
     const product_desc = product_description.value.trim();
 
     const protein_value = protein_input.value.trim();
@@ -623,23 +982,42 @@ edit_form.addEventListener("submit", function (e) {
 
     }
 
-    for (let i = 0; i <= created_products.length - 1; i++) {
 
-        if (copy["id"] === created_products[i]["id"]) {
 
-            created_products[i] = one_product;
+    if (copy["quantity"].length <= 0) {
 
-            localStorage.setItem("product_list", JSON.stringify(created_products));
+        Notify.error("Please Add product quantity and price");
 
-            Notify.success("Product Updated");
+    }
 
-            self.location.assign(window.location);
+    else {
 
-            break;
+
+        for (let i = 0; i <= created_products.length - 1; i++) {
+
+            if (copy["id"] === created_products[i]["id"]) {
+
+                created_products[i] = one_product;
+
+                localStorage.setItem("product_list", JSON.stringify(created_products));
+
+                Notify.success("Product Updated");
+
+                all_elements.style.display = "none";
+
+                localStorage.removeItem("copy");
+
+                list_products(created_products);
+
+                search_by_pro_name.value = "";
+
+                break;
+            }
         }
+
     }
 
 });
 
 
-list_products();
+list_products(created_products);
