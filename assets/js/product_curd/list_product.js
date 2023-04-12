@@ -32,7 +32,7 @@ if(product_cat === "00"){
 
         for(let i =0; i <=10; i++){
 
-            if(product_details[i+1].status){
+            if(product_details[i].status){
 
                 let random_product = product_details[i+1];
 
