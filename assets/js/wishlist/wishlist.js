@@ -22,6 +22,8 @@ let user_details = localStorage.getItem("logged_in");
 
 let user_id;
 
+if(user_records !== null){
+
 user_records.find(function (obj) {
 
     if (user_details === obj.emailid) {
@@ -33,6 +35,7 @@ user_records.find(function (obj) {
 
     }
 });
+}
 
 function check_wishlist(){
 
@@ -73,7 +76,7 @@ if(user_pro_check){
 
 else {
 
-    appen_div.innerHTML = `<h1 style="text-align:center;">No favourite products</h1>`;
+    appen_div.innerHTML = `<p class="no-wishlist-pro">No favourite products</p>`;
 }
 
 // my title count increasing

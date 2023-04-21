@@ -1,36 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-}
-
-
-a{
-    text-decoration: none;
-}
-
-li {
-    list-style-type: none;
-}
-
-body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
-
-body {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    background-color: #f2f3f4;
-    font-family: 'Poppins', sans-serif;
-
-}
-
 /* start of register main */
 
 .login-logo {
@@ -42,10 +9,19 @@ body {
 }
 
 .login-main {
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 1em;
+}
+
+.login-main .login-close i{
+    font-size: 2rem;
+    margin: .2em;
+    color: red;
+    cursor: pointer;
+
 }
 
 form {
@@ -179,6 +155,8 @@ form .register-here {
     font-size: 1.2rem;
     font-weight: 600;
     color: green;
+    text-align: center;
+    cursor: pointer;
 }
 
 form .dont-have {
@@ -214,6 +192,10 @@ form .dont-have {
 
     .login-main form label {
         font-size: 1rem;
+    }
+
+    .login-main form .input-wrapper input {
+        width: 220px;
     }
 
     .login-main form .forgot-pass {

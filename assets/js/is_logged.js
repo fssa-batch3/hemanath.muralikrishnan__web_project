@@ -3,14 +3,13 @@ const root = window.location.origin;
 const logged_email = localStorage.getItem("logged_in");
 
 
-
 const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
 
 <div class="left">
 
     <a href="${root}/pages/company/about_us.html">About Us</a>
     <a href="${root}/pages/company/contact_us.html">Contact Us</a>
-    <a href="${root}/pages/profile.html" id="my-account">My Account</a>
+    <a href="${root}/pages/profile.html" id="my-profile">My Profile</a>
 
 </div>
 
@@ -55,15 +54,14 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
     </div>
 
     <div class="login">
-
-        <a href="${root}/pages/authentication/login.html" id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>
-            Login</a>
-
+        <p id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>
+            Login</p>
     </div>
 
 </div>
 
 </nav>
+
 
 <nav class="nav-three nav-flex" aria-label="nav-three">
 
@@ -102,8 +100,163 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
 </div>
 
 </nav>
-`
 
+
+<nav class="mobile-nav" aria-label="mobile-nav">
+
+        <div class="mobile-burger-menu">
+
+           <label for="side-menu" class="mobile-open">&#9776;</label>
+
+            <div class="side-menu-mobile">
+
+                <div class="mobile-search">
+
+                    <input type="text" placeholder="Search Products">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    
+                </div>
+
+                <a href="${root}/index.html"><p>Home</p></a>
+
+                <div class="side-menu-items">
+
+                    <div class="side-products side-item">
+                        <i class="fa-solid fa-list"></i>
+                        <a href="${root}/pages/product_list/list_product.html?cat=00">Products</a>
+                    </div>
+
+                    <div class="side-auth side-item" id="mobile-login">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <p id="mobile-login-btn">Log in/Sign Up</p>
+                    </div>
+
+                    <div class="side-auth side-item" id="mobile-profile">
+                        <i class="fa-solid fa-user"></i>
+                        <a href="${root}/pages/profile.html">My Account</a>
+                    </div>
+
+                    <div class="side-ass side-item">
+                        <i class="fa-solid fa-headset headphone"></i>
+                        <a href="tel:+91 1234567890">+91 1234567890</a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="mobile-logo">
+            <a href="${root}/index.html" aria-label="mobile-nav">Agrokart</a>
+        </div>
+
+        <div class="mobile-menu">
+            <a href="${root}/pages/wishlist.html"><i class="fa-regular fa-heart"></i></a>
+            <a href="${root}/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+
+    </nav>
+
+<div class="one-form">
+
+
+<div class="login-main">
+
+    <div class="login-form">
+
+    <span class="login-close" id="login_close"><i class="fa-solid fa-square-xmark"></i></span>
+
+        <form action="#" method="" id="loginform">
+
+            <p class="act">Log in</p>
+
+            <div class="input-wrapper">
+                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id">
+                <label for="email-id" class="control-label">Email id</label>
+              </div>
+
+              <div class="input-wrapper">
+                <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
+                <input type="password" id="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <label for="password" class="control-label">Password</label>
+              </div>
+
+            <a href="#" class="forgot-pass">Forgot Password?</a>
+
+            <button type="submit">Continue</button>
+
+            <p class="dont-have">Don't have an account?</p>
+            <p class="register-here">Create Account</p>
+        </form>
+
+    </div>
+   
+</div>
+
+</div>
+
+<div class="two-form">
+
+<div class="register-main">
+
+<div class="register-bond">
+
+<span class="register-close" id="register_close"><i class="fa-solid fa-square-xmark"></i></span>
+
+
+    <form id="form">
+
+        <h1>Sign Up</h1>
+
+        <div class="input-wrapper">
+            <input type="text" id="first-name" class="form-control" placeholder="Enter Your First Name" required="true" pattern="[A-Za-z]{1,16}" title="Please Enter Valid First Name" maxlength="16">
+            <label for="first-name" class="control-label">Firstname</label>
+          </div>
+
+          <div class="input-wrapper">
+            <input type="text" id="last-name" class="form-control" placeholder="Enter Your Last Name" required="true" pattern="[A-Za-z]{1,16}" title="Please Enter Valid Last Name" maxlength="16">
+            <label for="last-name" class="control-label">Lastname</label>
+          </div>
+
+          <div class="input-wrapper">
+            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id">
+            <label for="email-id" class="control-label">Email id</label>
+          </div>
+
+          <div class="input-wrapper">
+            <input type="tel" id="mobile-number" class="form-control" placeholder="Enter Your Mobile Number" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10" title="Please Enter Valid Mobile Number">
+            <label for="mobile-number" class="control-label">Mobile Number</label>
+          </div>
+
+          <div class="input-wrapper">
+            <i class="fa fa-eye showpwd" onClick="showPwd('reg-password', this)"></i>
+            <input type="password" id="reg-password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Please Enter Valid Password">
+            <label for="password" class="control-label">Password</label>
+          </div>
+          
+
+          <div class="input-wrapper">
+            <i class="fa fa-eye showpwd" onClick="showPwd('conf-password', this)"></i>
+            <input type="password" id="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Please Enter Valid Password">
+            <label for="conf-password" class="control-label">Confirm Password</label>
+          </div>
+
+        <button type="submit">Sign Up</button>
+
+        <p class="register-already">Already have an account?</p>
+        <p class="register-login">Log in</p>
+    </form>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+`
 
 const footer = `<footer>
 
@@ -127,7 +280,7 @@ const footer = `<footer>
     <div class="account footer-flex-two">
 
         <p class="footer-title">Account</p>
-        <a href="${root}/pages/authentication/login.html" class="footer-item" id="login-btn-foot">Sign in</a>
+        <p class="footer-item" id="login-btn-foot">Sign in</p>
         <a href="${root}/pages/cart.html" class="footer-item">View Cart</a>
         <a href="${root}/pages/wishlist.html" class="footer-item">My Wishlist</a>
 
@@ -223,31 +376,319 @@ const footer = `<footer>
 
 </footer>`;
 
+let today = new Date();
+
+let month = today.getMonth()+1;
+let year = today.getFullYear();
+let date = today.getDate();
+
+let current_date = `${month}/${date}/${year}`;
+
+console.log(current_date);
 
 
-if(logged_email !== null){
+// to append the above elements 
+
+if (logged_email !== null) {
 
     document.body.insertAdjacentHTML("afterbegin", header);
 
     document.body.insertAdjacentHTML("afterend", footer);
 
-    document.getElementById("login-btn").style.display="none";
+    document.getElementById("login-btn").style.display = "none";
 
-    document.getElementById("login-btn-foot").style.display="none";
+    document.getElementById("mobile-login").style.display = "none";
+
+    document.getElementById("login-btn-foot").style.display = "none";
 
 
 }
-else{
+
+else {
 
     document.body.insertAdjacentHTML("afterbegin", header);
 
+    document.getElementById("my-profile").style.display = "none";
+
+    document.getElementById("mobile-profile").style.display = "none";
+
     document.body.insertAdjacentHTML("afterend", footer);
 
-    document.getElementById("my-account").style.display ="none";
+}
 
-    window.location.href=`${root}/pages/authentication/login.html`;
+// to show the login form
+
+document.getElementById("login-btn").addEventListener("click", function (e) {
+
+    document.querySelector(".one-form").style.display = "block";
+
+   
+});
+
+// redirect to the register page
+
+document.querySelector(".register-here").addEventListener("click", function (e) {
+
+    document.querySelector(".one-form").style.display = "none";
+
+    document.querySelector(".two-form").style.display = "block";
+
+
+});
+
+// in register btn to direct to login page
+
+document.querySelector(".register-login").addEventListener("click", function (e) {
+
+    document.querySelector(".one-form").style.display = "block";
+
+    document.querySelector(".two-form").style.display = "none";
+
+});
+
+// footer register bth
+
+document.getElementById("login-btn-foot").addEventListener("click", function (e) {
+
+    document.querySelector(".one-form").style.display = "block";
+});
+
+
+// to close the login form
+
+document.querySelector(".login-close").addEventListener("click", function (e) {
+
+    document.querySelector(".one-form").style.display = "none";
+
+   
+
+
+});
+
+// to close the register form
+
+document.querySelector(".register-close").addEventListener("click", function (e) {
+
+    document.querySelector(".two-form").style.display = "none";
+
+
+});
+
+
+
+// mobile nav
+
+document.querySelector(".side-menu-mobile").style.display="none";
+
+
+document.querySelector(".mobile-open").addEventListener("click", function(e){
+
+   if((document.querySelector(".side-menu-mobile").style.display)==="none"){
+
+    document.querySelector(".side-menu-mobile").style.display="block";
+   }
+
+   else {
+    document.querySelector(".side-menu-mobile").style.display="none";
+   }
+})
+
+
+document.getElementById("mobile-login-btn").addEventListener("click", function(e){
+
+    document.querySelector(".one-form").style.display = "block";
+
+    document.querySelector(".side-menu-mobile").style.display="none";
+})
+
+
+// functions for login
+
+
+
+const form = document.getElementById('loginform');
+
+// variable to check the account is available or not
+
+let check_account = false;
+
+// password eye
+
+function showPwd(id, el) {
+    let x = document.getElementById(id);
+    if (x.type === "password") {
+        x.type = "text";
+        el.className = 'fa fa-eye-slash showpwd';
+    } else {
+        x.type = "password";
+        el.className = 'fa fa-eye showpwd';
+    }
+}
+
+// function to validate inputs
+
+function login_validateInputs() {
+
+    const email_id = document.getElementById('email-id').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+
+    //  check the user is registered or not
+
+    find_user(email_id, password);
+
+
+    if (check_account) {
+
+        const profile_email = email_id;
+
+        localStorage.setItem("logged_in", profile_email);
+
+        Notify.success("Login Successfull!");
+
+        form.reset();
+
+        window.location.href = `${root}/index.html`;
+    }
+
+    else {
+
+        Notify.error("Invalid User Credentials");
+    }
+
 }
 
 
 
+// function to find the user in already registered data
+
+function find_user(email_id, password) {
+
+    const user_data = JSON.parse(localStorage.getItem("users"));
+    user_data.find(loginobj => {
+
+        if ((email_id === loginobj["emailid"]) && (password === loginobj["password"])) {
+
+            check_account = true;
+
+        }
+
+    });
+
+}
+
+
+// event lister for login submit btn
+form.addEventListener('submit', e => {
+
+    e.preventDefault();
+
+    login_validateInputs();
+
+});
+
+// functions for register form
+
+let user_data_two = JSON.parse(localStorage.getItem("users")) ?? [];
+
+const reg_form = document.getElementById('form');
+
+// variable already have a account
+
+let check_user = true;
+
+
+// functions to validate the user inputs
+function validateInputs() {
+
+    const first_name = document.getElementById('first-name').value.trim();
+    const last_name = document.getElementById('last-name').value.trim();
+    const email_id = document.getElementById('reg-email-id').value.trim();
+    const mobilenumber = document.getElementById('mobile-number').value.trim();
+    const password = document.getElementById('reg-password').value.trim();
+    const conf_password = document.getElementById('conf-password').value.trim();
+
+    // this function returns the check user true or false
+
+    check_already_user(email_id, mobilenumber);
+
+    if (check_user) {
+
+        if (password === conf_password) {
+
+            let user = {
+                "user_id": user_data_two.length * 2 * 2 + 1,
+                "firstname": first_name,
+                "lastname": last_name,
+                "emailid": email_id,
+                "mobilenumber": mobilenumber,
+                "password": conf_password,
+                "user_account_created_time": current_date
+            }
+
+            user_data_two.push(user);
+
+            localStorage.setItem("users", JSON.stringify(user_data_two));
+
+            Notify.success("Account Created Successfully!");
+
+            document.querySelector(".two-form").style.display = "none";
+
+            document.querySelector(".one-form").style.display = "block";
+
+            reg_form.reset();
+        }
+
+        else {
+
+            Notify.error("Confirm password doesn't match password!");
+
+        }
+
+    }
+
+    else {
+
+        Notify.error("Already Have a Account Please Login");
+
+        document.querySelector(".two-form").style.display = "none";
+
+        document.querySelector(".one-form").style.display = "block";
+
+        reg_form.reset();
+
+    }
+
+
+}
+
+// check the user already registered or not
+
+function check_already_user(email_id, mobilenumber) {
+
+    if (user_data_two !== null) {
+
+        user_data_two.find(userobj => {
+
+            if ((email_id === userobj["emailid"]) && (mobilenumber === userobj["mobilenumber"])) {
+
+                check_user = false;
+
+            }
+        });
+
+    }
+
+}
+
+
+// event listner for register submit
+
+reg_form.addEventListener('submit', e => {
+
+    e.preventDefault();
+
+    validateInputs();
+
+});
 

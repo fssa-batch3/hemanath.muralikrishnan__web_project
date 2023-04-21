@@ -16,12 +16,7 @@ let product_tam_name_p;
 
 
 let quantity_cart_div;
-let qty_div;
-let add_cart_div;
-let add_cart;
-let add_text;
-let add_bag;
-
+let add_to_cart;
 
 const url = window.location.search;                // ?name=Arun
 const urlParams = new URLSearchParams(url);        // converting string into key value pair
@@ -58,9 +53,6 @@ product_details.filter( function(item) {
 
 
 }
-
-    
-
    
 });
 
@@ -81,7 +73,6 @@ function list_products(item) {
 
    let product_id = item["id"];
    let product_cat = item["category"]["id"]
-
    let href_link = "../product_details/details.html?" + "id=" + product_id  + "&" + "cat=" + product_cat;
 
 
@@ -125,8 +116,6 @@ function list_products(item) {
     product_tam_name_p.innerText = item["name"]["tam"];
     product_name_div.append(product_tam_name_p);
 
-   
-
     // dropdown_div
     let dropdown_div = document.createElement("div");
     dropdown_div.className = "dropdown";
@@ -143,19 +132,23 @@ function list_products(item) {
     dropdown_div.appendChild(dropdown_options);
 
     let selectedValue;
+
     for (let item_qty of item.quantity) {
         let option = item_qty;
 
         let dropdown_option = document.createElement("div");
         dropdown_option.className = "dropdown-option";
         dropdown_option.innerText = option.text;
+
         dropdown_option.addEventListener("click", function () {
             selectedValue = option.rs;
             amount.innerText = "Rs. " + selectedValue;
             dropdown_header.innerHTML = option.text + '<i class="fas fa-caret-down"></i>';
             dropdown_options.classList.remove("show");
         });
+
         dropdown_options.appendChild(dropdown_option);
+        
     }
 
     // amount
@@ -168,7 +161,6 @@ function list_products(item) {
     dropdown_header.addEventListener("click", function () {
         dropdown_options.classList.toggle("show");
     });
-
 
 
     let qty_value = 1;
@@ -219,25 +211,9 @@ function list_products(item) {
 
     // add button div
 
-    add_cart_div = document.createElement("div");
-    add_cart_div.setAttribute("class", "add-button");
-    quantity_cart_div.append(add_cart_div);
-
-    // add cart 
-    add_cart = document.createElement("a");
-    add_cart.setAttribute("href", "../cart.html");
-    add_cart.setAttribute("class", "add-to-cart")
-    add_cart_div.append(add_cart);
-
-    // add text
-    add_text = document.createElement("b");
-    add_text.innerText = "Add ";
-    add_cart.append(add_text);
-
-    // add bag
-    add_bag = document.createElement("i");
-    add_bag.setAttribute("class", "fa-solid fa-bag-shopping");
-    add_cart.append(add_bag);
+   add_to_cart = document.createElement("div");
+   add_to_cart.setAttribute("class", "fa-solid fa-cart-plus")
+   quantity_cart_div.append(add_to_cart);
 
 
 

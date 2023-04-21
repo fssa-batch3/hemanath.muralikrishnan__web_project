@@ -12,6 +12,8 @@ let user_details = localStorage.getItem("logged_in");
 
 let user_id;
 
+if(user_records !== null){
+
 user_records.find(function(obj){
 
     if(user_details === obj.emailid){
@@ -22,8 +24,8 @@ user_records.find(function(obj){
 
 
     }
-})
-
+});
+}
 
 
 const url = window.location.search;                // ?name=Arun
@@ -101,9 +103,8 @@ if (success) {
     let qty_div;
 
     let indv_add_button_div;
-    let indv_add_button_a;
-    let indv_add_button_b;
-    let indv_add_button_i;
+    let indv_add_to_cart;
+    
 
     let favorite_div;
     let favorite_i;
@@ -383,20 +384,10 @@ if (success) {
     indv_add_button_div.setAttribute("class", "indv-add-button");
     indv_qty_cat_div.append(indv_add_button_div);
 
-    // indv add button a
-    indv_add_button_a = document.createElement("a");
-    indv_add_button_a.setAttribute("href", "../cart.html");
-    indv_add_button_div.append(indv_add_button_a);
 
-    // indv add button b
-    indv_add_button_b = document.createElement("b");
-    indv_add_button_b.innerText = "Add to Cart";
-    indv_add_button_a.append(indv_add_button_b);
-
-    // indv add button i
-    indv_add_button_i = document.createElement("i");
-    indv_add_button_i.setAttribute("class", "fa-solid fa-bag-shopping");
-    indv_add_button_div.append(indv_add_button_i);
+    indv_add_to_cart = document.createElement("div");
+    indv_add_to_cart.setAttribute("class", "fa-solid fa-cart-plus");
+    indv_add_button_div.append(indv_add_to_cart);
 
     // favorite div
     favorite_div = document.createElement("div");
@@ -506,11 +497,7 @@ let product_tam_name_p;
 
 
 let quantity_cart_div;
-let qty_div;
-let add_cart_div;
-let add_cart;
-let add_text;
-let add_bag;
+let add_to_cart;
 
 
 function real_products(product){
@@ -663,26 +650,9 @@ function real_products(product){
 
     // add button div
 
-    add_cart_div = document.createElement("div");
-    add_cart_div.setAttribute("class", "add-button");
-    quantity_cart_div.append(add_cart_div);
-
-    // add cart 
-    add_cart = document.createElement("a");
-    add_cart.setAttribute("href", "../cart.html");
-    add_cart.setAttribute("class", "add-to-cart")
-    add_cart_div.append(add_cart);
-
-    // add text
-    add_text = document.createElement("b");
-    add_text.innerText = "Add ";
-    add_cart.append(add_text);
-
-    // add bag
-    add_bag = document.createElement("i");
-    add_bag.setAttribute("class", "fa-solid fa-bag-shopping");
-    add_cart.append(add_bag);
-
+    add_to_cart = document.createElement("div");
+   add_to_cart.setAttribute("class", "fa-solid fa-cart-plus")
+   quantity_cart_div.append(add_to_cart);
 
 
     document.querySelector(".products-container-indv").append(product_container_div);
@@ -701,9 +671,6 @@ product_details.filter( function(rel) {
         return product;
     }
 
-    
-
-   
 });
 
 

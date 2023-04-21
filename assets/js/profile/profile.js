@@ -14,6 +14,12 @@ const email_Input = document.getElementById("email-address");
 const mobile_Input = document.getElementById("mobile-number");
 const profile_user_name = document.getElementById("user-profile-name");
 
+window.onload = remove_address();
+
+function remove_address() {
+
+    localStorage.removeItem("copy_address");
+}
 
 
 // showing data from already having data
@@ -160,17 +166,27 @@ if (localdata !== null) {
 
 const new_address = document.getElementById("add_new_address");
 
-// div contains all address form elements 
+// div contains all address form elements new address
 
 const address_div = document.querySelector(".address-form");
 
 const address_form = document.getElementById("address_form");
 
 
+// update address form elements
+
+const upt_address_div = document.querySelector(".upt_address-form");
+
+const upt_address_form = document.getElementById("upt_address_form");
+
+// close for new address
+
 const address_form_close = document.getElementById("address_close_form");
 
 
-let id_input;
+// close for update address
+
+const upt_address_form_close = document.getElementById("upt_address_close_form");
 
 
 new_address.addEventListener('click', function () {
@@ -179,6 +195,7 @@ new_address.addEventListener('click', function () {
 });
 
 
+// close for new address
 address_form_close.addEventListener('click', function (e) {
 
     address_div.style.display = "none";
@@ -187,13 +204,29 @@ address_form_close.addEventListener('click', function (e) {
 
 });
 
+// close for update address form
 
-// getting input using id
+upt_address_form_close.addEventListener("click", function (e) {
+
+    upt_address_div.style.display = "none"
+
+    localStorage.removeItem("copy_address");
+})
+
+
+// getting input using id for new address form
 
 const address_input = document.getElementById("address-input");
 const district_input = document.getElementById("district-input");
 const state_input = document.getElementById("state-input");
 const pincode_input = document.getElementById("pincode-input");
+
+// getting input using id for update address form
+
+const upt_address_input = document.getElementById("upt_address-input");
+const upt_district_input = document.getElementById("upt_district-input");
+const upt_state_input = document.getElementById("upt_state-input");
+const upt_pincode_input = document.getElementById("upt_pincode-input");
 
 
 address_form.addEventListener('submit', function (e) {
@@ -205,77 +238,53 @@ address_form.addEventListener('submit', function (e) {
     const district_value = district_input.value.trim();
     const state_value = state_input.value.trim();
     const pincode_value = pincode_input.value.trim();
-    const address_id_input = document.getElementById("address_id_input");
-
-
-
 
     if ((address_value !== "") && (district_value !== "") && (state_value !== "") && (pincode_value !== "")) {
 
-        if (address_id_input === null) {
+        localdata.find(function (obj) {
 
-            localdata.find(function (obj) {
+            if (profile_email === obj.emailid) {
 
-                if (profile_email === obj.emailid) {
+                const address_array = obj.address ?? [];
 
-                    const address_array = obj.address ?? [];
+                if (address_array.length < 5) {
 
-                    if (address_array.length < 5) {
+                    obj.address = address_array;
 
-                        obj.address = address_array;
-
-                        let address_data = {
-                            "street": address_value,
-                            "district": district_value,
-                            "state": state_value,
-                            "pincode": pincode_value,
-                            "address_id": address_array.length*2*2+1
-                        }
-                        address_array.push(address_data);
-
-                        Notify.success("Address Added");
-
+                    let address_data = {
+                        "street": address_value,
+                        "district": district_value,
+                        "state": state_value,
+                        "pincode": pincode_value,
+                        "address_id": address_array.length * 2 * 2 + 1
                     }
+                    address_array.push(address_data);
 
-                    else {
+                    Notify.success("Address Added");
 
-                        Notify.error("You can't add more than 5 address");
-                    }
+                    localStorage.setItem("users", JSON.stringify(localdata));
 
+                    address_div.style.display = "none";
+
+                    document.querySelector(".show-address").innerHTML = " ";
+
+                    load_address();
+
+                    address_form.reset();
 
                 }
 
+                else {
 
-            });
-
-
-
-        }
-
-        else if (address_id_input !== null) {
-
-            localdata.find(function (obj_user) {
-
-                if (profile_email === obj_user.emailid) {
-
-                    let address_array = obj_user["address"];
-
-                    address_array.find(function (addr_data) {
-
-                        if (address_id_input.value == addr_data.address_id) {
-
-                            addr_data.street = address_value;
-                            addr_data.district = district_value;
-                            addr_data.pincode = pincode_value;
-
-                            Notify.success("Address Updated");
-                        }
-                    });
+                    Notify.error("You can't add more than 5 address");
                 }
-            });
 
-            address_id_input.remove();
-        }
+
+            }
+
+
+        });
+
 
 
     }
@@ -285,16 +294,6 @@ address_form.addEventListener('submit', function (e) {
         Notify.error("Please provide valid details");
 
     }
-
-    localStorage.setItem("users", JSON.stringify(localdata));
-
-    address_div.style.display = "none";
-
-    document.querySelector(".show-address").innerHTML = " ";
-
-    load_address();
-
-    address_form.reset();
 
 
 });
@@ -310,7 +309,11 @@ function load_address() {
 
         if (profile_email === obj.emailid) {
 
-            if (obj.address !== undefined) {
+            let user_add_arr = obj.address;
+
+            if(user_add_arr != null){
+
+            if ((user_add_arr.length) > 0) {
 
                 let address_array = obj["address"];
 
@@ -342,6 +345,7 @@ function load_address() {
 
                     let address_p_edit = document.createElement("p");
                     address_p_edit.innerHTML = `<i class="fa-solid fa-pen"></i> Edit`;
+                    address_p_edit.setAttribute("onclick", `updateaddress(${item.address_id})`);
                     address_menus.append(address_p_edit);
 
                     let address_p_delete = document.createElement("p");
@@ -363,36 +367,16 @@ function load_address() {
 
                     })
 
-                    address_p_edit.addEventListener("click", function () {
-
-                        address_menus.style.display = "none";
-
-                        address_div.style.display = "block";
-
-                        document.getElementById("address-input").value = item.street;
-                        document.getElementById("district-input").value = item.district;
-                        document.getElementById("pincode-input").value = item.pincode;
-
-                        id_input = document.createElement("input");
-                        id_input.setAttribute("type", "text");
-                        id_input.setAttribute("disabled", "true");
-                        id_input.setAttribute("value", `${item.address_id}`);
-                        id_input.setAttribute("id", "address_id_input")
-                        document.querySelector(".address-form-layers").append(id_input);
-
-                        id_input.style.display = "none";
-                    });
-
 
                 });
 
             }
 
-            else if (obj.address == null) {
+            else if ((user_add_arr.length) === 0) {
 
-               address_append_div.innerHTML = `<h3 style="text-align:center;">No Address Please Add</h3>`
+                address_append_div.innerHTML = `<h3 style="text-align:center;">No Address Please Add</h3>`
             }
-
+        }
 
 
         }
@@ -400,6 +384,93 @@ function load_address() {
 }
 
 load_address();
+
+// update address logic
+function updateaddress(id) {
+
+    localdata.find(function (obj) {
+
+        if (profile_email === obj.emailid) {
+
+            let user_address = obj.address;
+
+            user_address.find(function (add_data) {
+
+                if (add_data.address_id == id) {
+
+                    localStorage.setItem("copy_address", JSON.stringify(add_data));
+
+                    let get_copy = JSON.parse(localStorage.getItem("copy_address"));
+
+                    document.querySelector(".address-menus").style.display = "none";
+
+                    upt_address_div.style.display = "block";
+
+                    upt_address_input.value = get_copy.street;
+                    upt_district_input.value = get_copy.district;
+                    upt_pincode_input.value = get_copy.pincode;
+                }
+            })
+        }
+    })
+}
+
+// update address form logic
+
+upt_address_form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    let copy = JSON.parse(localStorage.getItem("copy_address"));
+
+    let two_upt_address_input = upt_address_input.value.trim();
+    let two_upt_district_input = upt_district_input.value.trim();
+    let two_upt_pincode_input = upt_pincode_input.value.trim();
+
+    let update_address = {
+
+        "street": two_upt_address_input,
+        "district": two_upt_district_input,
+        "state": copy.state,
+        "pincode": two_upt_pincode_input,
+        "address_id": copy.address_id
+
+    }
+
+
+    localdata.find(function (obj) {
+
+        if (profile_email === obj.emailid) {
+
+            let user_address = obj.address;
+
+            for (let i = 0; i < user_address.length; i++) {
+
+                if (user_address[i].address_id == copy.address_id) {
+
+                    user_address[i] = update_address;
+
+                    localStorage.setItem("users", JSON.stringify(localdata));
+
+                    Notify.success("Address Updated");
+
+                    upt_address_div.style.display = "none";
+
+                    upt_address_form.reset();
+
+                    document.querySelector(".show-address").innerHTML = " ";
+
+                    load_address();
+
+                    break;
+                }
+            }
+
+        }
+    });
+
+
+});
 
 
 //delete logic

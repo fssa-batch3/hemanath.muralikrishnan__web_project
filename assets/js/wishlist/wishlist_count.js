@@ -14,6 +14,7 @@ let user_details_se = localStorage.getItem("logged_in");
 
 let user_id_se;
 
+if(user_records_se !== null){
 user_records_se.find(function (obj) {
 
     if (user_details_se === obj.emailid) {
@@ -25,7 +26,7 @@ user_records_se.find(function (obj) {
 
     }
 });
-
+}
 
 
 let user_pro_check_se = false;

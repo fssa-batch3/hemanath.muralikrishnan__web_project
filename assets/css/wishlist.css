@@ -129,6 +129,12 @@
     background-color: white;
     color: green;
 }
+
+.no-wishlist-pro{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
 /* end of wishlist cont */
 
 /* start of media queries */
@@ -149,38 +155,18 @@
     }
 
     .wishlist-cont {
-        width: 90%;
-        margin: 0 auto;
+        width: auto;
+       
     }
 
-    .wishlist-cont .wishlist-sec {
-        display: grid;
-        grid-template-columns: 80% 20%;
-        padding: 0;
-        margin: 0;
+    .wishlist-sec{
+        justify-content: space-around;
     }
 
-
-    .wishlist-cont .wishlist-content img {
-        width: 60px;
-    }
-
-    .wishlist-text .wish-pro-title {
-        font-size: .9rem;
-    }
-
-    .wishlist-text .wish-cat {
-        font-size: .8rem;
-    }
-
-    .icon-del a i {
-        font-size: 1.2rem;
-    }
-
-    .wish-shop {
-        font-size: 1rem;
-        width: 80%;
-        margin-top: 2em;
+    .no-wishlist-pro{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 
 

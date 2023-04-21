@@ -289,6 +289,8 @@
     background-color: rgba(0,0,0,0.2);
 }
 
+
+
 .manage-address .address-form-layers{
     display: flex;
     flex-direction: column;
@@ -331,7 +333,7 @@
 }
 
 
-.manage-address form button{
+.manage-address .address-form button{
     background-color: #429b44;
     color: white;
     border: none;
@@ -343,7 +345,7 @@
     font-weight: 500;
 }
 
-.manage-address form button:hover{
+.manage-address .address-form button:hover{
     background-color: orangered;
     color: white;
 }
@@ -406,10 +408,135 @@
 }
 
 
-
-
 /* manage address end */
 
 /* end of profile right side */
 
 /* end of profile section */
+
+
+
+/* update address form */
+
+.manage-address .upt_address-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgb(0,0,0); */
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+
+.manage-address .upt_address-form-layers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #f1fcfc;
+    box-shadow: 5px 5px 16px #bcc5c5,
+        -5px -5px 16px #ffffff;
+        width: 600px;
+        margin: 0 auto;
+}
+
+.upt_close i {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-left: 67%;
+}
+.upt_close i:hover, .upt_close i:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.manage-address .upt_address-form .upt_address-form-layers .address_input label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    margin: 1em 0;
+}
+
+
+.manage-address .upt_address-form .upt_address-form-layers .address_input input {
+    height: 50px;
+    width: 250px;
+    border-radius: 10px;
+    padding-left: 1em;
+}
+
+
+.manage-address .upt_address-form button{
+    background-color: #429b44;
+    color: white;
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1em 1em 1em 1em;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.manage-address .upt_address-form button:hover{
+    background-color: orangered;
+    color: white;
+}
+
+
+/* start of media queires */
+
+@media screen and (max-width: 700px) {
+
+    .profile-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .profile-right-side{
+        width:auto;
+    }
+
+    .profile-right-side .pro-settings-sec .flex_so{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .profile-right-side .pro-settings-sec form input {
+        margin: 1em 0 0 0;
+    }
+
+
+    /* manager address new */
+
+    .manage-address .address-form-layers{
+        width: 300px;
+    }
+
+    .close i {
+       margin: 0 1em;
+       
+    }
+
+    .manage-address .upt_address-form-layers{
+        width: 300px;
+    }
+
+    .upt_close i {
+        margin: 0 1em;
+    }
+}

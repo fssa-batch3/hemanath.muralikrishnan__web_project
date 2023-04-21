@@ -307,7 +307,7 @@ let search_by_pro_name = document.getElementById("site-search");
 
 search_by_pro_name.addEventListener("keyup", function () {
 
-    search_array = [];
+    // search_array = [];
 
     let search = this.value.toLowerCase();
 

@@ -1,0 +1,161 @@
+.top_navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #323233;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.125);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5em;
+}
+
+.top_navbar .logo_menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.top_navbar .logo {
+    width: 250px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0 25px;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-right: 1px solid #f5f5f5;
+}
+
+.top_navbar .menu {
+    width: calc(100% - 250px);
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_navbar .hamburger {
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+}
+
+.top_navbar .hamburger:hover {
+    color: #007dc3;
+}
+
+.top_navbar .admin-profile .profile-cont{
+    cursor: pointer;
+}
+
+.top_navbar .admin-profile .profile-cont .icon{
+    font-size: 18px;
+    color: white;
+    vertical-align: middle;
+}
+
+.top_navbar .admin-profile .profile-cont .text{
+    margin-left: 19px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.top_navbar .admin-profile .profile-opt {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background-color: #007dc3;
+    border-radius: 5px;
+}
+
+.top_navbar .admin-profile .profile-opt .profile-opt-item{
+    padding: .5em;
+    display: block;
+}
+
+.top_navbar .admin-profile .profile-opt .profile-opt-item:hover {
+    border: 2px solid salmon;
+}
+
+.top_navbar .admin-profile .profile-opt .profile-opt-item .icon{
+    font-size: 18px;
+    color: white;
+    vertical-align: middle;
+}
+
+.top_navbar .admin-profile .profile-opt .profile-opt-item .text{
+    margin-left: 19px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background: #042331;
+    z-index: 5;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 16px 25px;
+    border-bottom: 1px solid #03374e;
+    color: #0e94d4;
+}
+
+.sidebar ul li a .icon {
+    font-size: 18px;
+    color: white;
+    vertical-align: middle;
+}
+
+.sidebar ul li a .text {
+    margin-left: 19px;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+.sidebar ul li a:hover {
+    background: #0e94d4;
+    color: #fff;
+}
+
+.sidebar ul li .dropdown li {
+    display: block;
+}
+
+.sidebar ul li .dropdown{
+    width: 100%;
+    background-color: white;
+    /* position: absolute; */
+    z-index: 3;
+    display: none;
+
+}
+
+.sidebar ul li:hover .dropdown{
+    display: block;
+}
+
+.hover_collapse .sidebar {
+    width: 70px;
+}
+
+.hover_collapse .sidebar ul li a .text {
+    display: none;
+}

@@ -138,6 +138,10 @@ footer {
     color: white;
 }
 
+.account p{
+    cursor: pointer;
+}
+
 /* footer three ends */
 
 /* footer ends */

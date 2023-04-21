@@ -106,13 +106,14 @@ nav {
     align-items: center;
 }
 
-.option-one a, .option-two a, .login a {
+.option-one a, .option-two a, .login p {
     font-size: 1rem;
     color: black;
     font-weight: 500;
+    cursor: pointer;
 }
 
-.option-one a:hover, .option-two a:hover, .login a:hover{
+.option-one a:hover, .option-two a:hover, .login p:hover{
     color: #429b44;
     font-size: 1.1rem;
     font-weight: 300;
@@ -305,7 +306,6 @@ nav {
     }
 
     .mobile-burger-menu .side-menu-mobile {
-        display: none;
         position: absolute;
         top: 60px;
         left: 0;
@@ -315,12 +315,6 @@ nav {
         border-bottom-right-radius: 10px;
         
     }
-
-    .mobile-burger-menu input[type=checkbox]:checked ~ .side-menu-mobile{
-        display: block;
-        transition: .5s ease;
-    }
-
 
     .side-menu-mobile .mobile-search {
         position: relative;
@@ -369,7 +363,7 @@ nav {
     }
 
 
-    .side-menu-items .side-item a {
+    .side-menu-items .side-item a, .side-menu-items .side-item p {
         color: #429b44;
         font-size: .8rem;
         font-weight: 500;

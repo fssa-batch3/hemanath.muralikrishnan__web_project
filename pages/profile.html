@@ -42,61 +42,6 @@
 
     <!-- mobile device nav bar start -->
 
-    <nav class="mobile-nav" aria-label="mobile-nav">
-
-        <div class="mobile-burger-menu">
-            <input type="checkbox" id="side-menu">
-            <label for="side-menu">&#9776;</label>
-
-            <div class="side-menu-mobile">
-
-                <div class="mobile-search">
-                    <input type="text" placeholder="Search Products">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-
-                <a href="../index.html">
-                    <p>Home</p>
-                </a>
-
-                <div class="side-menu-items">
-
-                    <div class="side-products side-item">
-                        <i class="fa-solid fa-list"></i>
-                        <a href="product_list/main_list.html">Products</a>
-                    </div>
-
-                    <div class="side-auth side-item">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        <a href="authentication/login.html">Log in/Sign Up</a>
-                    </div>
-
-                    <div class="side-auth side-item">
-                        <i class="fa-solid fa-user"></i>
-                        <a href="profile.html">My Account</a>
-                    </div>
-
-                    <div class="side-ass side-item">
-                        <i class="fa-solid fa-headset headphone"></i>
-                        <a href="tel:+91 1234567890">+91 1234567890</a>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-
-        <div class="mobile-logo">
-            <a href="../index.html" aria-label="mobile-nav">Agrokart</a>
-        </div>
-
-        <div class="mobile-menu">
-            <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-
-    </nav>
 
     <!-- mobile device nav bar end  -->
 
@@ -196,7 +141,7 @@
 
 
                     <div class="mobile-input flex_so">
-                        <label for="mobile-number">Mobile <br> Number</label>
+                        <label for="mobile-number">Mobile Number</label>
                         <input type="tel" placeholder="+1234567890" id="mobile-number" pattern="[0-9]{10}"
                             title="Please enter valid mobile number" disabled="true" maxlength="10" required>
                     </div>
@@ -215,6 +160,9 @@
                 <p class="address_title">Manage Address</p>
 
                 <p class="add-new-address" id="add_new_address">+ Add a new address</p>
+
+
+                <!-- new address form -->
 
 
                 <form id="address_form">
@@ -251,6 +199,51 @@
 
 
                             <button type="submit" class="address-save-btn">Save address</button>
+
+                        </div>
+
+
+
+                    </div>
+
+                </form>
+
+                <!-- update address form -->
+
+                <form id="upt_address_form">
+
+                    <div class="upt_address-form">
+
+                        <span class="upt_close" id="upt_address_close_form"><i class="fa-solid fa-square-xmark"></i></span>
+
+                        <div class="upt_address-form-layers">
+
+                            <div class="address_input">
+                                <label for="address-input">Address</label>
+                                <input type="text" id="upt_address-input" placeholder="Enter your address" required
+                                    title="please enter your street">
+                            </div>
+
+                            <div class="address_input">
+                                <label for="district-input">District</label>
+                                <input type="text" id="upt_district-input" placeholder="Enter your district" required
+                                    title="please enter your district" pattern="[A-za-z ]{1,16}">
+                            </div>
+
+                            <div class="address_input">
+                                <label for="state-input">State</label>
+                                <input type="text" id="upt_state-input" placeholder="Enter your state" disabled="true"
+                                    value="Tamil Nadu">
+                            </div>
+
+                            <div class="address_input">
+                                <label for="pincode-input">pincode</label>
+                                <input type="text" id="upt_pincode-input" placeholder="Enter your pincode"
+                                    pattern="[0-9]{6}" title="Please enter valid pin code" maxlength="6">
+                            </div>
+
+
+                            <button type="submit" class="address-save-btn">Update address</button>
 
                         </div>
 

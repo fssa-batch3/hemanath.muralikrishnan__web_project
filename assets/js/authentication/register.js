@@ -1,4 +1,10 @@
+let user_data = JSON.parse(localStorage.getItem("users")) ?? [];
+
 const form = document.getElementById('form');
+
+// variable already have a account
+
+let check_user = true;
 
 // password eye
 function showPwd(id, el) {
@@ -12,6 +18,8 @@ function showPwd(id, el) {
     }
 }
 
+
+// functions to validate the user inputs
 function validateInputs() {
 
     const first_name = document.getElementById('first-name').value.trim();
@@ -21,34 +29,16 @@ function validateInputs() {
     const password = document.getElementById('password').value.trim();
     const conf_password = document.getElementById('conf-password').value.trim();
 
+    // this function returns the check user true or false
 
-    let user_data = JSON.parse(localStorage.getItem("users")) ?? [];
+   check_already_user(email_id, mobilenumber);
 
-
-    let check_value = true;
-
-    if (user_data !== null) {
-
-        user_data.find(function (userobj) {
-
-            if ((email_id === userobj["emailid"]) && (mobilenumber === userobj["mobilenumber"])) {
-
-                check_value = false;
-
-                Notify.error("Already Have a Account");
-
-            }
-        });
-
-    }
-
-
-    if (check_value) {
+    if (check_user) {
 
         if (password === conf_password) {
 
             let user = {
-                "user_id" : user_data.length*2*2+1,
+                "user_id": user_data.length * 2 * 2 + 1,
                 "firstname": first_name,
                 "lastname": last_name,
                 "emailid": email_id,
@@ -75,8 +65,36 @@ function validateInputs() {
 
     }
 
+    else {
+
+        Notify.error("Already Have a Account");
+
+    }
+
 
 }
+
+// check the user already registered or not
+
+function check_already_user(email_id,mobilenumber) {
+
+    if (user_data !== null) {
+
+        user_data.find(userobj =>{
+
+            if ((email_id === userobj["emailid"]) && (mobilenumber === userobj["mobilenumber"])) {
+
+                check_user = false;
+
+            }
+        });
+
+    }
+
+}
+
+
+// event listner for register submit
 
 form.addEventListener('submit', e => {
 
