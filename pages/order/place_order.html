@@ -48,6 +48,7 @@
 
     <!-- orders starts -->
 
+   <form id="place-order-form">
     <div class="orders-cont">
 
         <!-- start of left side  orders cont -->
@@ -58,8 +59,7 @@
                 <p>Select Your Date</p>
 
                 <div class="dates-cont">
-                    <p>8-12-2022</p>
-                    <p>9-12-2022</p>
+
                 </div>
 
             </div>
@@ -69,22 +69,30 @@
                 <p>Select Your Delivery Time</p>
 
                 <div class="delivery-cont">
-                    <p>08:00AM to 11:00AM</p>
 
-                    <p>11:00AM to 02:00PM</p>
+                    <div class="time-cont">
+
+                    <input type="radio" name="select_time" id="morning" value="08:00AM to 11:00AM" required>
+                    <label for="morning">08:00AM to 11:00AM</label><br>
+                    
+                   
+                    <input type="radio" name="select_time" id="afternoon" value="11:00AM to 02:00PM" required>
+                    <label for="afternoon">11:00AM to 02:00PM</label>
+
                 </div>
 
+            </div>
             </div>
 
             <div class="address-section-order">
 
                 <p class="address-title">Address</p>
 
-                <p class="address">Hemanath <span>HOME</span> 7867979731<br> 2-2/8 K.P.V street Elampillai, Salem Tamil
-                    Nadu - 637502</p>
+                <div class="append_available_address">
 
-                <p class="address">Hemanath <span>HOME</span> 7867979731<br> 2-2/8 K.P.V street Elampillai, Salem Tamil
-                    Nadu - 637502</p>
+
+                </div>
+
             </div>
 
         </div>
@@ -95,116 +103,28 @@
 
         <div class="orders-right-side">
 
-            <div class="details-of-order">
+            <section class="table__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Detail</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody class="body_table">
+    
+                    </tbody>
+                </table>
+            </section>
 
-                <div class="all-products">
+            <div class="main-place-order-details">
 
-                    <div class="details-products">
-
-                        <div class="details-img">
-
-                            <img src="../../assets/images/products/fresh_fruits/apple_india.png" alt="apple_india">
-                            <p>Apple India</p>
-
-                        </div>
-
-                        <p class="order-qty">x1</p>
-
-                        <p class="order-price">₹156</p>
-
-                    </div>
-
-                    <div class="details-products">
-
-                        <div class="details-img">
-
-                            <img src="../../assets/images/products/fresh_fruits/baby_orange.png" alt="apple_india">
-                            <p>Baby Orange</p>
-
-                        </div>
-
-                        <p class="order-qty">x1</p>
-
-                        <p class="order-price">₹345</p>
-
-                    </div>
-
-                    <div class="details-products">
-
-                        <div class="details-img">
-
-                            <img src="../../assets/images/products/fresh_veggies/brinjal_white.png" alt="brinjal-white">
-                            <p>Brinja White</p>
-
-                        </div>
-
-                        <p class="order-qty">x1</p>
-
-                        <p class="order-price">₹24</p>
-
-                    </div>
-
-                    <div class="details-products">
-
-                        <div class="details-img">
-
-                            <img src="../../assets/images/products/fresh_veggies/cocunt-large.png" alt="cocunt-large">
-                            <p>Coconut-Large</p>
-
-                        </div>
-
-                        <p class="order-qty">x1</p>
-
-                        <p class="order-price">₹34</p>
-
-                    </div>
-
-                    <div class="details-products">
-
-                        <div class="details-img">
-
-                            <img src="../../assets/images/products/leafy_green/agathi keerai.png" alt="agathi-keerai">
-                            <p>Agathi Keerai</p>
-
-                        </div>
-
-                        <p class="order-qty">x1</p>
-
-                        <p class="order-price">₹15</p>
-
-                    </div>
-
-
-
-                </div>
-
-                <div class="final-cart-values">
-
-                    <div class="final-charges">
-
-                        <p>Delivery Charge</p>
-                        <p>₹0</p>
-
-                    </div>
-
-                    <div class="final-charges">
-
-                        <p>Total cart value</p>
-                        <p>₹571</p>
-
-                    </div>
-
-                    <div class="final-charges">
-
-                        <p>Subtotal</p>
-                        <p>₹571</p>
-
-                    </div>
-
-                </div>
-
+                <p class="main-total"></p>
 
             </div>
+
 
             <div class="payment-options">
 
@@ -233,6 +153,7 @@
 
     </div>
 
+</form> 
     <!-- end of orders -->
 
 
@@ -248,6 +169,15 @@
      <!-- wishlist count -->
 
     <script src="../../assets/js/wishlist/wishlist_count.js"></script>
+
+    <!-- cart_count -->
+
+    <script src="../../assets/js/cart_count.js"></script>
+
+    <!-- this page script -->
+
+    <script src="../../assets/js/place_order.js"></script>
 </body>
+
 
 </html>

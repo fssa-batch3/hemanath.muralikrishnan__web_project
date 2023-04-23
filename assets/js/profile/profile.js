@@ -38,6 +38,12 @@ for (i = 0; i < localdata.length; i++) {
 
 if (Success) {
 
+
+    let profile_img = document.createElement("img");
+    profile_img.setAttribute("src", "https://ui-avatars.com/api/?name=" + localdata[i].firstname + " "+ localdata[i].lastname + "&background=0D8ABC&color=fff");
+    profile_img.setAttribute("alt", "user image of " + localdata[i].firstname +" "+ localdata[i].lastname);
+    document.querySelector(".profile-img").append(profile_img);
+
     first_name.value = localdata[i].firstname;
     last_name.value = localdata[i].lastname;
     email_Input.value = localdata[i].emailid;
@@ -256,7 +262,7 @@ address_form.addEventListener('submit', function (e) {
                         "district": district_value,
                         "state": state_value,
                         "pincode": pincode_value,
-                        "address_id": address_array.length * 2 * 2 + 1
+                        "address_id": address_array.length+ Math.random().toString(16).slice(2)
                     }
                     address_array.push(address_data);
 

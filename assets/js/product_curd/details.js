@@ -27,6 +27,7 @@ user_records.find(function(obj){
 });
 }
 
+let cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
 
 const url = window.location.search;                // ?name=Arun
 const urlParams = new URLSearchParams(url);        // converting string into key value pair
@@ -316,12 +317,15 @@ if (success) {
         select_tag.appendChild(option);
     });
 
+
     select_tag.addEventListener("change", function () {
         // Get the selected value
         let selectedValue = select_tag.value;
 
         // Log the selected value to the console
         indv_amount_one_p.innerText = "₹ " + selectedValue;
+
+        return get_amount;
     });
 
     // indv product price
@@ -355,7 +359,7 @@ if (success) {
 
 
     let qty_number = document.createElement("div");
-    qty_number.innerText = "01";
+    qty_number.innerText = "1";
     qty_number.className = "qty-number";
     qty_div.append(qty_number);
 
@@ -367,14 +371,14 @@ if (success) {
 
     qty_plus.addEventListener("click", () => {
         qty_value++;
-        qty_plus_value = (qty_value < 10) ? "0" + qty_value : qty_value;
+        qty_plus_value = qty_value;
         qty_number.innerText = qty_plus_value;
     });
 
     qty_minus.addEventListener("click", () => {
         if (qty_value > 1) {
             qty_value--;
-            qty_minus_value = (qty_value < 10) ? "0" + qty_value : qty_value;
+            qty_minus_value = qty_value;
             qty_number.innerText = qty_minus_value;
         }
     });
@@ -428,6 +432,7 @@ if (success) {
 
     favorite_i.addEventListener('click', function(){
 
+    if(user_id != null){        
         let fav_check = false;
         favourite_list.find(function(obj){
 
@@ -454,7 +459,7 @@ if (success) {
 
             favourite_list.push({
                 "user_id" : user_id,
-                "wishlist_item_id" : favourite_list.length*2*2+1,
+                "wishlist_item_id" : favourite_list.length+ Math.random().toString(16).slice(2),
                 "product_id" : product_details[k].id,
                 "category" : product_details[k].category,
                "product_eng_name": product_details[k].name.eng,
@@ -470,12 +475,98 @@ if (success) {
 
         }
 
-             
+    }
+    
+    else {
+        Notify.error("Please login to add product to wishlist");
+    }
 
     })
 
+    
 
+
+    indv_add_to_cart.addEventListener("click", function (e) {
+
+        if(user_id !=null) {
+
+        let get_amount = select_tag.value;
+    
+        let cart_check = true;
+    
+        let cart_item_arr = JSON.parse(localStorage.getItem("cart_items"));
+    
+        if (cart_item_arr != null) {
+            cart_item_arr.find(function (obj) {
+    
+                if (user_id == obj.user_id) {
+
+                    if (product_id == obj.cart_product_id) {
+
+                        if (get_amount == obj["product_details"]["selected_qty"]["rs"]) {
+    
+                            cart_check = false;
+    
+                            Notify.error("Item already added to cart " + obj["product_details"]["name"]["eng"] + " " + obj["product_details"]["selected_qty"]["qty"] + obj["product_details"]["selected_qty"]["unit"]);
+    
+                            return cart_check;
+    
+                        }
+                    }
+                }
+    
+               
+    
+            });
+        }
+    
+        if (cart_check) {
+            product_details.find(function (obj) {
+    
+                if (product_id == obj.id) {
+    
+                    let find_qty = obj.quantity;
+    
+                    find_qty.find(function (qty_obj) {
+    
+                        if (get_amount == qty_obj.rs) {
+    
+                            let cart_obj = {
+                                "cart_product_id": product_id, 
+                                "cart_item_id": cart_items.length+ Math.random().toString(16).slice(2),
+                                "user_id": user_id,
+                                "product_details": {"image": obj.image, "name": obj.name, "farmer": obj.farmer, "selected_qty": qty_obj },
+                                "quantity": qty_number.innerText,
+                                "cart_pro_category": obj.category
+                            }
+    
+                            cart_items.push(cart_obj);
+    
+                            Notify.success("Item added to cart " + obj.name.eng + " " + qty_obj.qty + qty_obj.unit);
+    
+                            localStorage.setItem("cart_items", JSON.stringify(cart_items));
+                        }
+                    });
+    
+                }
+            });
+        }
+    
+    }
+
+    else {
+        Notify.error("Please login to add products to cart")
+    }
+    
+    });
+
+  
 }
+
+
+
+
+
 
 else {
     alert("product not found")
@@ -623,7 +714,7 @@ function real_products(product){
 
 
     let qty_number = document.createElement("div");
-    qty_number.innerText = "01";
+    qty_number.innerText = "1";
     qty_number.className = "qty-number";
     qty_div.append(qty_number);
 
@@ -635,17 +726,21 @@ function real_products(product){
 
     qty_plus.addEventListener("click", () => {
         qty_value++;
-        qty_plus_value = (qty_value < 10) ? "0" + qty_value : qty_value;
+        qty_plus_value = qty_value;
         qty_number.innerText = qty_plus_value;
     });
 
     qty_minus.addEventListener("click", () => {
         if (qty_value > 1) {
             qty_value--;
-            qty_minus_value = (qty_value < 10) ? "0" + qty_value : qty_value;
+            qty_minus_value = qty_value;
             qty_number.innerText = qty_minus_value;
         }
     });
+
+    let rs = amount.innerText.split(" ");
+    let after_rs = rs.splice(1,1);
+    let before_rs = after_rs.join("");
 
 
     // add button div
@@ -653,6 +748,84 @@ function real_products(product){
     add_to_cart = document.createElement("div");
    add_to_cart.setAttribute("class", "fa-solid fa-cart-plus")
    quantity_cart_div.append(add_to_cart);
+
+  
+   add_to_cart.addEventListener("click", function (e) {
+
+    if(user_id != null){
+
+    let rs = amount.innerText.split(" ");
+    let after_rs = rs.splice(1,1);
+
+    let cart_check = true;
+
+    let cart_item_arr = JSON.parse(localStorage.getItem("cart_items"));
+
+    if (cart_item_arr != null) {
+        cart_item_arr.find(function (obj) {
+
+            if (user_id == obj.user_id) {
+
+                if (product_id == obj.cart_product_id) {
+
+                    if (after_rs[0] == obj["product_details"]["selected_qty"]["rs"]) {
+
+                        cart_check = false;
+
+                        Notify.error("Item already added to cart " + obj["product_details"]["name"]["eng"] + " " + obj["product_details"]["selected_qty"]["qty"] + obj["product_details"]["selected_qty"]["unit"]);
+
+                        return cart_check;
+
+                    }
+                }
+            }
+
+           
+
+        });
+    }
+
+    if (cart_check) {
+        product_details.find(function (obj) {
+
+            if (product_id == obj.id) {
+
+                let find_qty = obj.quantity;
+
+                find_qty.find(function (qty_obj) {
+
+
+                    if (after_rs[0] == qty_obj.rs) {
+
+                        let cart_obj = {
+                            "cart_product_id": product_id, 
+                            "cart_item_id": cart_items.length+ Math.random().toString(16).slice(2),
+                            "user_id": user_id,
+                            "product_details": {"image": obj.image, "name": obj.name, "farmer": obj.farmer, "selected_qty": qty_obj },
+                            "quantity": qty_number.innerText,
+                            "cart_pro_category": obj.category
+                        }
+
+                        cart_items.push(cart_obj);
+
+                        Notify.success("Item added to cart " + obj.name.eng + " " + qty_obj.qty + qty_obj.unit);
+
+                        localStorage.setItem("cart_items", JSON.stringify(cart_items));
+                    }
+                });
+
+            }
+        });
+    }
+    }
+
+    else {
+        Notify.error("Please login to add products to cart")
+    }
+
+});
+
+
 
 
     document.querySelector(".products-container-indv").append(product_container_div);

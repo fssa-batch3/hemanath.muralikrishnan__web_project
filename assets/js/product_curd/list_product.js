@@ -1,5 +1,30 @@
 let product_details = JSON.parse(localStorage.getItem("product_list"));
 
+let cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
+
+// user records json
+let user_records = JSON.parse(localStorage.getItem("users"));
+
+// user logged_in value
+let user_details = localStorage.getItem("logged_in");
+
+let user_id;
+
+if (user_records !== null) {
+
+    user_records.find(function (obj) {
+
+        if (user_details === obj.emailid) {
+
+            user_id = obj.user_id;
+
+            return user_id;
+
+
+        }
+    });
+}
+
 
 let product_container_div;
 let product_main_div;
@@ -23,37 +48,37 @@ const urlParams = new URLSearchParams(url);        // converting string into key
 const product_cat = urlParams.get("cat");
 
 
-if(product_cat === "00"){
+if (product_cat === "00") {
 
-        for(let i =0; i <=10; i++){
+    for (let i = 0; i <= 10; i++) {
 
-            if(product_details[i].status){
+        if (product_details[i].status) {
 
-                let random_product = product_details[i+1];
+            let random_product = product_details[i + 1];
 
-                list_products(random_product);
-
-            }
-        
-
-            
+            list_products(random_product);
 
         }
-    }
 
-product_details.filter( function(item) {
 
-    if(product_details !== null){
 
-    if ((item["category"]["id"] === product_cat) && (item["status"])) {
-
-        list_products(item);
 
     }
-
-
 }
-   
+
+product_details.filter(function (item) {
+
+    if (product_details !== null) {
+
+        if ((item["category"]["id"] === product_cat) && (item["status"])) {
+
+            list_products(item);
+
+        }
+
+
+    }
+
 });
 
 
@@ -71,14 +96,14 @@ function list_products(item) {
     product_main_div.setAttribute("class", "product-main");
     product_container_div.append(product_main_div);
 
-   let product_id = item["id"];
-   let product_cat = item["category"]["id"]
-   let href_link = "../product_details/details.html?" + "id=" + product_id  + "&" + "cat=" + product_cat;
+    let product_id = item["id"];
+    let product_cat = item["category"]["id"]
+    let href_link = "../product_details/details.html?" + "id=" + product_id + "&" + "cat=" + product_cat;
 
 
     // indv product link
     indv_product_link = document.createElement("a");
-    indv_product_link.setAttribute("href",href_link);
+    indv_product_link.setAttribute("href", href_link);
     product_main_div.append(indv_product_link);
 
 
@@ -134,21 +159,24 @@ function list_products(item) {
     let selectedValue;
 
     for (let item_qty of item.quantity) {
+
         let option = item_qty;
 
         let dropdown_option = document.createElement("div");
         dropdown_option.className = "dropdown-option";
         dropdown_option.innerText = option.text;
 
-        dropdown_option.addEventListener("click", function () {
+        dropdown_option.addEventListener("click", function() {
+
             selectedValue = option.rs;
             amount.innerText = "Rs. " + selectedValue;
             dropdown_header.innerHTML = option.text + '<i class="fas fa-caret-down"></i>';
             dropdown_options.classList.remove("show");
+
         });
 
         dropdown_options.appendChild(dropdown_option);
-        
+
     }
 
     // amount
@@ -164,7 +192,9 @@ function list_products(item) {
 
 
     let qty_value = 1;
+
     let qty_plus_value;
+
     let qty_minus_value;
 
 
@@ -184,7 +214,7 @@ function list_products(item) {
 
 
     let qty_number = document.createElement("div");
-    qty_number.innerText = "01";
+    qty_number.innerText = "1";
     qty_number.className = "qty-number";
     qty_div.append(qty_number);
 
@@ -194,33 +224,114 @@ function list_products(item) {
     qty_plus.className = "qty-plus";
     qty_div.append(qty_plus);
 
-    qty_plus.addEventListener("click", () => {
+    qty_plus.addEventListener("click", function (e) {
         qty_value++;
-        qty_plus_value = (qty_value < 10) ? "0" + qty_value : qty_value;
+        qty_plus_value = qty_value;
         qty_number.innerText = qty_plus_value;
+
     });
 
-    qty_minus.addEventListener("click", () => {
+    qty_minus.addEventListener("click", function (e) {
         if (qty_value > 1) {
             qty_value--;
-            qty_minus_value = (qty_value < 10) ? "0" + qty_value : qty_value;
+            qty_minus_value = qty_value
             qty_number.innerText = qty_minus_value;
         }
     });
 
 
+    
+
     // add button div
 
-   add_to_cart = document.createElement("div");
-   add_to_cart.setAttribute("class", "fa-solid fa-cart-plus")
-   quantity_cart_div.append(add_to_cart);
+    add_to_cart = document.createElement("div");
+    add_to_cart.setAttribute("class", "fa-solid fa-cart-plus");
+    quantity_cart_div.append(add_to_cart);
 
+    add_to_cart.addEventListener("click", function (e) {
+
+        if(user_id !=null){
+
+        let rs = amount.innerText.split(" ");
+        let after_rs = rs.splice(1,1);
+
+        let cart_check = true;
+
+        let cart_item_arr = JSON.parse(localStorage.getItem("cart_items"));
+
+        if (cart_item_arr != null) {
+            cart_item_arr.find(function (obj) {
+
+                if (user_id == obj.user_id) {
+                
+                    if (product_id == obj.cart_product_id) {
+
+                    
+                        if (after_rs[0] == obj["product_details"]["selected_qty"]["rs"]) {
+
+
+                            cart_check = false;
+
+                            Notify.error("Item already added to cart " + obj["product_details"]["name"]["eng"] + " " + obj["product_details"]["selected_qty"]["qty"] + obj["product_details"]["selected_qty"]["unit"]);
+
+                            return cart_check;
+
+                        }
+                    }
+                }
+
+               
+
+            });
+        }
+
+        if (cart_check) {
+            product_details.find(function (obj) {
+
+                if (product_id == obj.id) {
+
+                    let find_qty = obj.quantity;
+
+                    find_qty.find(function (qty_obj) {
+
+
+                        if (after_rs[0] == qty_obj.rs) {
+
+                            let cart_obj = {
+                                "cart_product_id": product_id, 
+                                "cart_item_id": cart_items.length+ Math.random().toString(16).slice(2),
+                                "user_id": user_id,
+                                "product_details": {"image": obj.image, "name": obj.name, "farmer": obj.farmer, "selected_qty": qty_obj },
+                                "quantity": qty_number.innerText,
+                                "cart_pro_category": obj.category
+                            }
+
+                            cart_items.push(cart_obj);
+
+                            Notify.success("Item added to cart " + obj.name.eng + " " + qty_obj.qty + qty_obj.unit);
+
+                            localStorage.setItem("cart_items", JSON.stringify(cart_items));
+                        }
+                    });
+
+                }
+            });
+        }
+    }
+
+    else {
+        Notify.error("Please login to add products to cart")
+    }
+
+    });
 
 
     document.querySelector(".products-list-container").appendChild(product_container_div);
 
-
 }
+
+
+
 
 
 

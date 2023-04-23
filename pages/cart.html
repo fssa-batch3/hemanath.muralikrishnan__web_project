@@ -6,26 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <!--  header stylesheet -->
-     <link rel="stylesheet" href="../assets/css/base_style/header.css" type="text/css">
-     <!-- header stylesheet -->
-    
-     <!-- body stylesheet -->
-     <link rel="stylesheet" href="../assets/css/base_style/body.css" type="text/css">
-     <!-- body stylesheet -->
-    
-     <!-- footer stylesheet -->
-     <link rel="stylesheet" href="../assets/css/base_style/footer.css" type="text/css">
-     <!-- footer stylesheet -->
- 
-     <!-- stylesheet -->
-     <link rel="stylesheet" href="../assets/css/cart.css" type="text/css">
-     <!-- stylesheet -->
- 
-     <!-- fontawesome stylesheet -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <!-- fontawesome stylesheet -->
-    
+    <!--  header stylesheet -->
+    <link rel="stylesheet" href="../assets/css/base_style/header.css" type="text/css">
+    <!-- header stylesheet -->
+
+    <!-- body stylesheet -->
+    <link rel="stylesheet" href="../assets/css/base_style/body.css" type="text/css">
+    <!-- body stylesheet -->
+
+    <!-- footer stylesheet -->
+    <link rel="stylesheet" href="../assets/css/base_style/footer.css" type="text/css">
+    <!-- footer stylesheet -->
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="../assets/css/cart.css" type="text/css">
+    <!-- stylesheet -->
+
+    <!-- fontawesome stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- fontawesome stylesheet -->
+
     <link rel="icon" type="image/png" sizes="60x32" href="../assets/images/tabicon/icon.png">
 
 
@@ -38,288 +40,96 @@
 
 <body>
 
-      <!-- mobile device nav bar start -->
+    <!-- mobile device nav bar start -->
 
     <!-- mobile device nav bar end  -->
 
-<!-- end of header -->
+    <!-- end of header -->
 
-<!-- end of navigation -->
+    <!-- end of navigation -->
 
-<!-- start of list top -->
+    <!-- start of list top -->
 
-<div class="list-top">
+    <div class="list-top">
 
-    <ul>
-        <li><i class="fa-solid fa-house"></i></li>
-        <li><a href="../index.html">Home</a></li>
-        <li><i class="fa-solid fa-angle-right"></i></li>
-        <li>Shop</li>
-        <li><i class="fa-solid fa-angle-right"></i></li>
-        <li>Cart</li>
+        <ul>
+            <li><i class="fa-solid fa-house"></i></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Shop</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Cart</li>
 
-    </ul>
+        </ul>
 
-</div>
-<!-- end of list top -->
+    </div>
+    <!-- end of list top -->
+    <div class="cart-main">
 
-<p class="cart-title">Your Cart</p>
+        <!-- table starts -->
 
-<!-- start of cart cont -->
-<div class="your-cart">
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Detail</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody class="body_table">
 
-    <!-- start of cart left side -->
-    <div class="cart-left-side">
+                </tbody>
+            </table>
+        </section>
 
-        <!-- start of mobile cart -->
+    </div>
 
-        <div class="mobile-cart-main">
 
-            <div class="mobile-cart-product">
+    <div class="show-total">
 
-                <div class="mobile-cart-img-details">
+        <div class="cart-continue-btn">
 
-                    <a href="individual_products/exotic_fruits/apple_green.html"><img src="../assets/images/products/exotic_fruits/apple-green.jpg" alt="apple_green"></a>
-                    <p class="mobile-cart-pro-title">Apple Green(பச்சை ஆப்பிள்)</p>
-                    <p><b>Qty:</b> 500gm</p>
-
-                </div>
-
-                <div class="mobile-price-cont">
-
-                    <div class="mobile-price-one mobile-cart-list">
-                        <p>Price</p>
-                        <p>₹318</p>
-                    </div>
-
-                    <div class="mobile-stock mobile-cart-list">
-                        <p>Stock</p>
-                        <input type="number" min="1" max="5" placeholder="1">
-                    </div>
-
-                    <div class="mobile-price-one mobile-cart-list">
-                        <p>Price</p>
-                        <p>₹318</p>
-                    </div>
-
-                    <div class="mobile-remove mobile-cart-list">
-                        <p>Remove</p>
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="mobile-cart-product">
-
-                <div class="mobile-cart-img-details">
-
-                    <a href="individual_products/fresh_fruits/guva.html"><img src="../assets/images/products/fresh_fruits/guva.png" alt="guva"></a>
-                    <p class="mobile-cart-pro-title">Guava(கொய்யாப்பழம்)</p>
-                    <p><b>Qty:</b> 1kg</p>
-
-                </div>
-
-                <div class="mobile-price-cont">
-
-                    <div class="mobile-price-one mobile-cart-list">
-                        <p>Price</p>
-                        <p>₹90</p>
-                    </div>
-
-                    <div class="mobile-stock mobile-cart-list">
-                        <p>Stock</p>
-                        <input type="number" min="1" max="5" placeholder="1">
-                    </div>
-
-                    <div class="mobile-price-one mobile-cart-list">
-                        <p>Price</p>
-                        <p>₹90</p>
-                    </div>
-
-                    <div class="mobile-remove mobile-cart-list">
-                        <p>Remove</p>
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-
-                </div>
-
-            </div>
-
-            
-
+            <a href="product_list/list_product.html?cat=00">← Contiue Shopping</a>
         </div>
 
-        <!-- end of mobile cart -->
+        <div class="show-total-elem">
 
-        <table class="cart-items">
-
-            <caption>Your cart items</caption>
-
-            <thead>
-                <tr>
-                    <th>Products</th>
-                    <th>Unit Price</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                    <th>Remove</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                
-                <tr>
-                    <td>
-                        <div class="product-name-img">
-                            <a href="individual_products/fresh_fruits/apple-india.html"><img src="../assets/images/products/fresh_fruits/apple_india.png" alt="apple_image"></a>
-                            <div class="product-name-main">
-                                <p>Apple-Indian</p>
-                                <p>ஆப்பிள்-இந்தியன்</p>
-                                <p><b>Qty:</b> 1kg</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="cart-price">₹156</td>
-                    <td><input type="number" min="1" max="5" placeholder="1"/></td>
-                    <td class="cart-price">₹156</td>
-                    <td><i class="fa-solid fa-trash-can"></i></td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="product-name-img">
-                            <a href="individual_products/fresh_fruits/baby-orange.html"><img src="../assets/images/products/fresh_fruits/baby_orange.png" alt="baby-orange"></a>
-                            <div class="product-name-main">
-                                <p>Baby Orange</p>
-                                <p>மாண்டரின் ஆரஞ்சு</p>
-                                <p><b>Qty:</b> 1kg</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="cart-price">₹345</td>
-                    <td><input type="number" min="1" max="5" placeholder="1"/></td>
-                    <td class="cart-price">₹345</td>
-                    <td><i class="fa-solid fa-trash-can"></i></td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="product-name-img">
-                            <a href="individual_products/fresh_veggies/brinjal-white.html"><img src="../assets/images/products/fresh_veggies/brinjal_white.png" alt="brinjal-white"></a>
-                            <div class="product-name-main">
-                                <p>Brinjal-White</p>
-                                <p>வெள்ளை கத்தரிக்காய்</p>
-                                <p><b>Qty:</b> 500gm</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="cart-price">₹24</td>
-                    <td><input type="number" min="1" max="5" placeholder="1"/></td>
-                    <td class="cart-price">₹24</td>
-                    <td><i class="fa-solid fa-trash-can"></i></td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="product-name-img">
-                            <a href="individual_products/fresh_veggies/cocunt-large.html"><img src="../assets/images/products/fresh_veggies/cocunt-large.png" alt="cocunt-large"></a>
-                            <div class="product-name-main">
-                                <p>Coconut-Large</p>
-                                <p>தேங்காய்</p>
-                                <p><b>Qty:</b> 1Nos</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="cart-price">₹34</td>
-                    <td><input type="number" min="1" max="5" placeholder="1"/></td>
-                    <td class="cart-price">₹34</td>
-                    <td><i class="fa-solid fa-trash-can"></i></td>
-                </tr>
+            <p class="cart-total"></p>
 
 
-                <tr>
-                    <td>
-                        <div class="product-name-img">
-                            <a href="individual_products/leafy_green/agathi-keerai.html"><img src="../assets/images/products/leafy_green/agathi keerai.png" alt="agathi-keerai"></a>
-                            <div class="product-name-main">
-                                <p>Agathi Keerai</p>
-                                <p>அகத்தி கீரை</p>
-                                <p><b>Qty:</b> 1Nos</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="cart-price">₹15</td>
-                    <td><input type="number" min="1" max="5" placeholder="1"/></td>
-                    <td class="cart-price">₹15</td>
-                    <td><i class="fa-solid fa-trash-can"></i></td>
-                </tr>
+            <a href="order/place_order.html" class="checkout-btn">→ Checkout</a>
+        </div>
 
-                
 
-                
-            </tbody>
-
-        </table>
-
-        <a href="order/place_order.html"  class="cont-shop"><i class="fa-solid fa-bag-shopping"> </i>Continue Shopping</a>
-
-    </div>
-
-    <!-- end of cart left side -->
-
-    <!-- start of cart right side -->
-
-    <div class="cart-right-side">
-
-        <table class="subtotal">
             
-            <caption>Total amount</caption>
 
-            <thead>
-                <th>Subtotals</th>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td class="check-title">Subtotal</td>
-                    <td class="cart-price">₹571</td>
-                </tr>
-
-                <tr>
-                    <td class="check-title">Delivery charge</td>
-                    <td class="cart-price">₹0</td>
-                </tr>
-
-                <tr>
-                    <td class="check-title">Total</td>
-                    <td class="cart-price">₹571</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <a href="authentication/register.html" class="checkout-btn"><i class="fa-solid fa-arrow-right"></i> Proceed to Checkout</a>
     </div>
 
-    <!-- end of cart right side -->
+
+    <!-- end of cart cont -->
+
+    <!-- footer start -->
 
 
-</div>
+    <!-- footer ends -->
 
-<!-- end of cart cont -->
+    <!-- logged check js -->
 
-<!-- footer start -->
+    <script src="../assets/js/is_logged.js"></script>
 
+    <!-- wishlist count -->
 
-<!-- footer ends -->
+    <script src="../assets/js/wishlist/wishlist_count.js"></script>
 
- <!-- logged check js -->
+    <script src="../assets/js/cart.js"></script>
 
- <script src="../assets/js/is_logged.js"></script>
+     <!-- cart count -->
 
- <!-- wishlist count -->
-
- <script src="../assets/js/wishlist/wishlist_count.js"></script>
+     <script src="../assets/js/cart_count.js"></script>
 
 </body>
+
 </html>

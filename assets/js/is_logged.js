@@ -152,8 +152,12 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
         </div>
 
         <div class="mobile-menu">
-            <a href="${root}/pages/wishlist.html"><i class="fa-regular fa-heart"></i></a>
-            <a href="${root}/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="${root}/pages/wishlist.html"><i class="fa-regular fa-heart"></i>
+            <span class="mobile-wishlist-notify" id="mobile-wishlist-count"></span>
+            </a>
+            <a href="${root}/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i>
+            <span class="mobile-cart-notify" id="mobile-cart-count"></span>
+            </a>
         </div>
 
     </nav>
@@ -178,7 +182,7 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
 
               <div class="input-wrapper">
                 <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
-                <input type="password" id="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                <input type="password" id="password" autocomplete="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one number and one uppercase and lowercase letter and special character, and at least 8 or more characters">
                 <label for="password" class="control-label">Password</label>
               </div>
 
@@ -231,14 +235,14 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
 
           <div class="input-wrapper">
             <i class="fa fa-eye showpwd" onClick="showPwd('reg-password', this)"></i>
-            <input type="password" id="reg-password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Please Enter Valid Password">
+            <input type="password" id="reg-password" autocomplete="reg-password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one number and one uppercase and lowercase letter and special character, and at least 8 or more characters">
             <label for="password" class="control-label">Password</label>
           </div>
           
 
           <div class="input-wrapper">
             <i class="fa fa-eye showpwd" onClick="showPwd('conf-password', this)"></i>
-            <input type="password" id="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Please Enter Valid Password">
+            <input type="password" id="conf-password" autocomplete="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one number and one uppercase and lowercase letter and special character, and at least 8 or more characters">
             <label for="conf-password" class="control-label">Confirm Password</label>
           </div>
 
@@ -384,7 +388,6 @@ let date = today.getDate();
 
 let current_date = `${month}/${date}/${year}`;
 
-console.log(current_date);
 
 
 // to append the above elements 
@@ -617,13 +620,14 @@ function validateInputs() {
         if (password === conf_password) {
 
             let user = {
-                "user_id": user_data_two.length * 2 * 2 + 1,
+                "user_id": user_data_two.length+ Math.random().toString(16).slice(2),
                 "firstname": first_name,
                 "lastname": last_name,
                 "emailid": email_id,
                 "mobilenumber": mobilenumber,
                 "password": conf_password,
-                "user_account_created_time": current_date
+                "user_account_created_time": current_date,
+                "address": []
             }
 
             user_data_two.push(user);

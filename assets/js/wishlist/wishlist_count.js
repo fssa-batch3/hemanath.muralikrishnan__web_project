@@ -1,4 +1,5 @@
 let wishlist_element = document.getElementById("wishlist-count");
+let mobile_wishlist_elemetn = document.getElementById("mobile-wishlist-count");
 
 let wishlist_list_count = JSON.parse(localStorage.getItem("wishlist"));
 
@@ -56,8 +57,6 @@ if(user_pro_check_se){
             return ++wish_pro_count_se;
         }
 
-
-
     });
 
 }
@@ -68,10 +67,14 @@ if(user_pro_check_se){
 if(wish_pro_count_se <=10){
 
     wishlist_element.innerText = wish_pro_count_se;
+
+    mobile_wishlist_elemetn.innerText = wish_pro_count_se;
 }
 
 else {
     wishlist_element.innerText = "10+";
+
+    mobile_wishlist_elemetn.innerText = "10+"
 }
 
 

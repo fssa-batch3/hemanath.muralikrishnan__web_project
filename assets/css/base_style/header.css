@@ -136,10 +136,10 @@ nav {
     padding: 0 .2em;
     border-radius: 10px;
     background-color: antiquewhite;
+    font-size: .9rem;
 }
 
 .option-two .cart-notify{
-
      position: absolute;
     bottom: 1.1em;
     left: .5em;
@@ -147,6 +147,7 @@ nav {
     padding: 0 .2em;
     border-radius: 10px;
     background-color: antiquewhite;
+    font-size: .9rem;
 }
 /* nav-two end */
 
@@ -390,15 +391,38 @@ nav {
     .mobile-nav .mobile-menu {
         margin: .5em 0 0 0;
     }
-    
+    .mobile-nav .mobile-menu a{
+        position: relative;
+    }
+
     .mobile-nav .mobile-menu a i {
         font-size: 1rem;
         color: #429b44;
+
     }
 
     .mobile-nav .mobile-menu > a i{
         padding: 0 .3em 0 0;
-    }   
+    }  
+    .mobile-nav .mobile-menu .mobile-wishlist-notify{
+        position: absolute;
+        bottom: 1.1em;
+        left: .5em;
+        color: black;
+        padding: 0 .2em;
+        border-radius: 10px;
+        background-color: antiquewhite;
+    } 
+
+    .mobile-nav .mobile-menu .mobile-cart-notify{
+        position: absolute;
+        bottom: 1.1em;
+        left: .5em;
+        color: black;
+        padding: 0 .2em;
+        border-radius: 10px;
+        background-color: antiquewhite;
+    } 
     
 }
 

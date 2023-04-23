@@ -3,7 +3,8 @@
 .orders-cont {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .checkout-title {
@@ -32,101 +33,85 @@
     margin: 2em 1em 1em 1em;
 }
 
-.deliver-time-cont {
-    margin: 4em 1em 1em 1em;
+
+
+.delivery-date-cont .dates-cont .today_date_div {
+    margin: 1em;
 }
 
-.deliver-time-cont .delivery-cont {
+.delivery-date-cont .dates-cont .today_date_div label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delivery-date-cont .dates-cont .today_date_div input {
+    margin: 1em;
+}
+
+.deliver-time-cont .delivery-cont{
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 2em 1em 1em 1em;
 }
 
+.deliver-time-cont .delivery-cont .time-cont input{
+    margin: 1.5em 0;
+}
 
+.deliver-time-cont .delivery-cont .time-cont label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
 
 .address-section-order {
     margin: 1em;
 }
 
-
-
-.delivery-date-cont > p {
+.delivery-date-cont >p{
     font-size: 1.8rem;
     font-weight: 500;
 }
 
-.delivery-date-cont .dates-cont p {
-    
+.deliver-time-cont >p{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.place_order_address_add{
+    margin: 2em;
     font-size: 1.2rem;
-    padding: 1em;
-    border: 2px solid black;
-    border-radius: 10px;
-    color: #253D4E;
-    font-weight: 400;
-    background-color: white;
 }
 
-.delivery-date-cont .dates-cont p:hover {
-    background-color: #429b44;
-    color: white;
-    transition: 5ms;
-    translate: 10px ;
-    cursor: pointer;
-}
-
-.deliver-time-cont > p {
-    font-size: 1.8rem;
-    font-weight: 500;
-}
-
-.deliver-time-cont .delivery-cont p {
-    margin-bottom: 2em;
-    font-size: 1.3rem;
-    padding: 1em;
-    border: 2px solid black;
-    border-radius: 10px;
-    color: #253D4E;
-    font-weight: 400;
-    background-color: white;
-    width: 250px;
-}
-
-.deliver-time-cont .delivery-cont p:hover {
-    background-color: #429b44;
-    color: white;
-    transition: 5ms;
-    translate: 10px ;
-    cursor: pointer;
-}
 
 .address-section-order .address-title {
     font-size: 1.8rem;
     font-weight: 500;
 }
 
-.address-section-order .address {
-    font-size: 1.1rem;
-    border: 2px solid black;
+.append_available_address .address_div{
+    margin: 1.5em 0;
+    width: 300px;
+    background-color: white;
     padding: 1em;
     border-radius: 10px;
-    background-color: white;
-    margin: 1em;
-}
-
-.address-section-order .address:hover {
-    background-color: #429b44;
-    color: white;
-    transition: 5ms;
-    translate: 10px;
     cursor: pointer;
 }
 
-.address-section-order .address span {
-    border: 2px solid  gray;
-    padding: 0 .5em;
-    border-radius: 10px;
-    background-color: green;
-    color: white;
+.append_available_address .address_div input {
+    margin: 1em;
+    cursor: pointer;
 }
 
+.append_available_address .address_div label {
+   text-align: justify;
+   font-size: 1.1rem;
+   font-weight: 500;
+   cursor: pointer;
+}
 
 
 /* end of orders left side cont */
@@ -134,70 +119,108 @@
 
 /* start of orders right side cont */
 
-.all-products .details-products .details-img img {
-    width: 80px;
-}
-
-.all-products .details-products {
+/* .orders-right-side {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
+    flex-direction: column;
+    align-items: flex-end;
+} */
+
+
+table thead th{
+    text-align: center;
 }
 
-.all-products .details-products .details-img {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.final-cart-values .final-charges {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.orders-right-side {
-    margin: 1em;
-}
-
-.orders-right-side .details-of-order {
-    margin: 2em 6em 1em 1em;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: aliceblue;
-}
-
-.details-of-order .all-products {
-    border: 2px solid black;
-    margin: 2em;
-    border-radius: 10px;
+.table__body {
+    width: 80%;
+    max-height: calc(89% - 1.6rem);
     background-color: white;
+    margin: 2em auto;
+    border-radius: .6rem;
+    overflow: auto;
+    overflow: overlay;
 }
 
-.details-of-order .all-products .details-products {
-    margin: 1em;
+.table__body::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
 }
 
-.details-of-order .all-products .details-products .details-img {
-    margin-right: 1em;
+.table__body::-webkit-scrollbar-thumb {
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table__body:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+
+table {
+    width: 100%;
+}
+
+table tbody td {
+    font-weight: 600;
+    text-align: center;
+}
+
+td .cart_item_main .cart_item_detail p{
+
+    font-weight: 600;
 }
 
 
-details-of-order .all-products .details-products .order-qty, .order-price {
-    margin-left: 2em;
-    font-family: sans-serif;
+td img {
+    width: 40px;
+    height: 36px;
+    margin-right: .5rem;
+    border-radius: 50%;
+    vertical-align: middle;
 }
 
-.final-cart-values {
-    margin: 2em;
+table,
+th,
+td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
 }
 
-.final-cart-values .final-charges p {
-    padding: 1em;
-    font-family: sans-serif;
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+
+
+tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+tbody tr td,
+tbody tr td p,
+tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+.main-place-order-details{
+    width: 80%;
+    margin: 2em auto;
+}
+
+
+.main-place-order-details .main-total{
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .payment-options {
