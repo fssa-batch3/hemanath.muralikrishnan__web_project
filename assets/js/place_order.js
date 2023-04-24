@@ -214,10 +214,52 @@ get_place_order_form.addEventListener("submit", function(e){
       order_array.push(obj);
 
     }
+
+   });
+
+   let get_delivery_date = document.querySelector('input[name="select-date"]:checked').value;
+   let get_day_of_delivery = document.querySelector('input[name="select-date"]:checked').getAttribute("id");
+
+
+   let get_delivery_time = document.querySelector('input[name="select_time"]:checked').value;
+   let get_delivery_situ = document.querySelector('input[name="select_time"]:checked').getAttribute("id");
+
+
+   let get_delivery_address = document.querySelector('input[name="select_address"]:checked').getAttribute("id");
+   let delivery_address;
+
+   user_records.find(function(obj){
+
+    if(user_id == obj.user_id){
+
+        let find_add = obj.address;
+
+        find_add.find(function(obj){
+
+            if(get_delivery_address == obj.address_id){
+
+                alert("find");
+
+                delivery_address = obj;
+                
+                return delivery_address;
+            }
+        })
+    }
    })
+   
+   let get_payment_type = document.querySelector('input[name="payment-type"]:checked').value;
+
+   console.log(get_delivery_date);
+   console.log(get_day_of_delivery);
+
+   console.log(get_delivery_time);
+   console.log(get_delivery_situ);
+
+   console.log(delivery_address);
+   console.log(get_payment_type);
 
 
+  
 
-
-
-})
+});

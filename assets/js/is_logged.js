@@ -382,7 +382,7 @@ const footer = `<footer>
 
 let today = new Date();
 
-let month = today.getMonth()+1;
+let month = today.getMonth() + 1;
 let year = today.getFullYear();
 let date = today.getDate();
 
@@ -425,7 +425,7 @@ document.getElementById("login-btn").addEventListener("click", function (e) {
 
     document.querySelector(".one-form").style.display = "block";
 
-   
+
 });
 
 // redirect to the register page
@@ -463,7 +463,7 @@ document.querySelector(".login-close").addEventListener("click", function (e) {
 
     document.querySelector(".one-form").style.display = "none";
 
-   
+
 
 
 });
@@ -481,27 +481,27 @@ document.querySelector(".register-close").addEventListener("click", function (e)
 
 // mobile nav
 
-document.querySelector(".side-menu-mobile").style.display="none";
+document.querySelector(".side-menu-mobile").style.display = "none";
 
 
-document.querySelector(".mobile-open").addEventListener("click", function(e){
+document.querySelector(".mobile-open").addEventListener("click", function (e) {
 
-   if((document.querySelector(".side-menu-mobile").style.display)==="none"){
+    if ((document.querySelector(".side-menu-mobile").style.display) === "none") {
 
-    document.querySelector(".side-menu-mobile").style.display="block";
-   }
+        document.querySelector(".side-menu-mobile").style.display = "block";
+    }
 
-   else {
-    document.querySelector(".side-menu-mobile").style.display="none";
-   }
+    else {
+        document.querySelector(".side-menu-mobile").style.display = "none";
+    }
 })
 
 
-document.getElementById("mobile-login-btn").addEventListener("click", function(e){
+document.getElementById("mobile-login-btn").addEventListener("click", function (e) {
 
     document.querySelector(".one-form").style.display = "block";
 
-    document.querySelector(".side-menu-mobile").style.display="none";
+    document.querySelector(".side-menu-mobile").style.display = "none";
 })
 
 
@@ -528,6 +528,8 @@ function showPwd(id, el) {
     }
 }
 
+
+
 // function to validate inputs
 
 function login_validateInputs() {
@@ -535,39 +537,57 @@ function login_validateInputs() {
     const email_id = document.getElementById('email-id').value.trim();
     const password = document.getElementById('password').value.trim();
 
+    let user_db = JSON.parse(localStorage.getItem("users"));
 
-    //  check the user is registered or not
+    if (user_db != null) {
+        //  check the user is registered or not
 
-    find_user(email_id, password);
+        find_user(email_id, password);
 
 
-    if (check_account) {
+        if (check_account) {
 
-        const profile_email = email_id;
+            const profile_email = email_id;
 
-        localStorage.setItem("logged_in", profile_email);
+            localStorage.setItem("logged_in", profile_email);
 
-        Notify.success("Login Successfull!");
+            Notify.success("Login Successfull!");
 
-        form.reset();
+            form.reset();
 
-        window.location.href = `${root}/index.html`;
+            window.location.href = `${root}/index.html`;
+        }
+
+        else {
+
+            Notify.error("Invalid User Credentials");
+        }
+
     }
 
     else {
 
-        Notify.error("Invalid User Credentials");
-    }
+            Notify.error("Please create account before loign");
 
+            form.reset();
+
+            document.querySelector(".one-form").style.display = "none";
+
+            document.querySelector(".two-form").style.display = "block";
+
+
+        
 }
 
 
+}
 
 // function to find the user in already registered data
 
 function find_user(email_id, password) {
 
     const user_data = JSON.parse(localStorage.getItem("users"));
+
     user_data.find(loginobj => {
 
         if ((email_id === loginobj["emailid"]) && (password === loginobj["password"])) {
@@ -577,6 +597,10 @@ function find_user(email_id, password) {
         }
 
     });
+
+
+
+
 
 }
 
@@ -620,7 +644,7 @@ function validateInputs() {
         if (password === conf_password) {
 
             let user = {
-                "user_id": user_data_two.length+ Math.random().toString(16).slice(2),
+                "user_id": user_data_two.length + Math.random().toString(16).slice(2),
                 "firstname": first_name,
                 "lastname": last_name,
                 "emailid": email_id,

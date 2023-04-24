@@ -28,8 +28,8 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 - Scenario 1: Successfully create an account
     - Steps:
         1. Navigate to the registration page.
-        2. Enter the required information such as name, email, mobile number and password.
-        3. Click the "Create Account" button.
+        2. Enter the required information such as first name,last name, email, mobile number and password.
+        3. Click the "Sign Up" button.
     - Expected Result:
         - The user is redirected to the login page.
 
@@ -38,16 +38,16 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
     - Steps:
         1. Navigate to the login page.
         2. Enter the required information such as email, and password.
-        3. Click the "login" button.
+        3. Click the "Continue" button.
     - Expected Result:
-        - The user is redirected to the user profile page.
+        - The user is redirected to the home page of the website.
 
 ### Profile Account[Completed]
 - Scenario 1: Successfully created a new profile account
     - Steps:
         1. Log in as a buyer.
         2. Navigate to the user index page.
-        3. Click "Profile" Icon.
+        3. Click on the "My Account" option in the nav.
     - Expected Result:
         - The user is redirected to the Personal Information page.
 
@@ -58,16 +58,17 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         2. If the user wants to edit their profile.
         3. Click "Edit" Button.
     - Expected Result:
-        - The user is redirected to the Edit Personal Details Page.
+        - When the user click on the edit button expect email id input all other input disabled to enter the details.
+        - The user is able to edit the details on the page.
 
 ### Update Profile Account[Completed]
 - Scenario 1: Successfully read data in profile account
     - Steps:
-        1. Navigate to the user Edit Personal Details Page.
-        2. Enter the required information such as full name, gender, date of birth, Street Name, City Name, District Name.
+        1. The user can enter the updated details on the disabled input.
+        2. Enter the required information such as first name, last name and mobile number.
         3. Click "save" Button.
     - Expected Result:
-        - The user is redirected to the Personal Information Page.
+        - The user is able to see the updated details on the input field in the profile page.
 
 ### View products/items[Completed]
 - Scenario 1: Successfully view products/items
@@ -115,6 +116,38 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         3. Remove the selected item from the wishlist.
     - Expected Result:
         - The item is removed from the user's wishlist.
+
+
+### Add product to cart[Completed]
+- Scenario 1: Successfully add product to the cart
+    - Steps:
+        1. Log in as a buyer.
+        2. Navigate to the product listing page or product indiviudal page.
+        3. Select the "product quantity" and "number of quantity" you want.
+        4. Click on the "cart" icon to add the product to the cart.
+    - Expected Result:
+        - The product is added to cart.
+
+
+### Update product on cart[Completed]
+- Scenario 1: Successfully update product on the cart.
+    - Steps:
+        1. Log in as a buyer.
+        2. Navigate to the cart page.
+        3. The user can see the products that are already added to cart.
+        4. In the cart for the each product you can the quantity updates button.
+        5. Using plus icon the user can increase the quantity of the product.
+        6. Using minus icon the user can decrease the quantity of the product.
+        7. And also for the each product subtotal was increased regarding the quanatity given.
+        8. And also total was shown regarding the subtotal for the each product.
+    - Expected Result:
+        - The product quantity was updated in the cart successfully.
+
+        
+
+
+
+
 
 
 
