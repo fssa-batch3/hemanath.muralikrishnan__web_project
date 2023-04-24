@@ -212,74 +212,49 @@ tbody tr td img {
     transition: .2s ease-in-out;
 }
 
-.main-place-order-details{
-    width: 80%;
-    margin: 2em auto;
-}
 
-
-.main-place-order-details .main-total{
+.payment-options .main-total{
     font-size: 1.4rem;
     font-weight: bold;
 }
 
-.payment-options {
-    margin: 4em 1em 1em 1em;
+.payment-options{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 175px;
-}
-
-.payment-options .gpay {
-    width: 20px;
-    height: 40px;
-}
-
-.payment-options .cod {
-    width: 20px;
-    height: 40px;
-}
-
-
-.google-pay{
-    width: 250px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-}
-
-.cash-on{
-    width: 350px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.google-pay label, .cash-on label {
-    font-size: 1.2rem;
-    margin-left: 1em;
-}
-
-.order-main {
-    margin-top: 2em;
-}
-
-.order-main .order-btn {
-    font-size: 1.3rem;
-    background-color: green;
-    width: 250px;
-    margin-top: 1.5em;
-    padding: 1em;
+    justify-content: space-around;
+    height: 250px;
+    background-color: white;
     border-radius: 10px;
-    color: white;
+    border: 2px solid black;
 }
 
-.order-main .order-btn:hover {
-    background-color: greenyellow;
-    color: black;
+.payment-options .payment-title{
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #253D4E;
+}
+
+.payment-options .payment-div label{
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.payment-options button{
+    background-color: green;
+    padding: 1em;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+
+}
+
+.payment-options button:hover {
+    background-color: lime;
 }
 /* end of order right side cont */
 

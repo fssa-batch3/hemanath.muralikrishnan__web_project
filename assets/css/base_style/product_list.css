@@ -1,9 +1,5 @@
 /* start of list top */
-.create-product-page {
-    font-size: 1.3rem;
-    margin: 2em 1em;
-    font-weight: 600;
-}
+
 
 
 .list-top {
@@ -80,8 +76,12 @@
     cursor: pointer;
 }
 
-.categories-main ul li a {
+.categories-main ul li  {
     color: black;
+}
+
+.categories-main ul li label {
+    cursor: pointer;
 }
 
 

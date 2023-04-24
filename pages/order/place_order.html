@@ -49,6 +49,7 @@
     <!-- orders starts -->
 
    <form id="place-order-form">
+    
     <div class="orders-cont">
 
         <!-- start of left side  orders cont -->
@@ -119,32 +120,30 @@
                 </table>
             </section>
 
-            <div class="main-place-order-details">
 
-                <p class="main-total"></p>
-
-            </div>
+              
 
 
             <div class="payment-options">
 
-                <div class="google-pay">
-                    <input type="checkbox" id="gpay" name="payment" class="gpay">
-                    <label for="gpay">Google Pay</label>
-                    <img src="../../assets/images/icons/google-pay.svg" alt="gpay">
+                <p class="main-total"></p>
+
+                <p class="payment-title">Payment options</p>
+
+                <div class="payment-div">
+
+                    <input type="radio" id="cash-on-delivery" value="cashondelivery" name="payment-type" required>
+                    <label for="cash-on-delivery">Cash on delivery</label>
                 </div>
 
-                <div class="cash-on">
-                    <input type="checkbox" id="COD" name="payment" class="cod" required>
-                    <label for="COD">Cash on Delivery </label>
-                    <img src="../../assets/images/icons/cod.svg" alt="cod">
+              
+                <div class="payment-div">
+                    <input type="radio" id="razorpay" value="razorpay" name="payment-type" required>
+                    <label for="razorpay">Online Payment</label>
+     
                 </div>
 
-                <div class="order-main">
-                    <a href="../order/order_status.html" class="order-btn">Place Your Order <i
-                            class="fa-solid fa-cart-arrow-down"></i></a>
-                </div>
-
+                <button type="submit">Place Order</button>
             </div>
 
         </div>

@@ -176,13 +176,13 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
             <p class="act">Log in</p>
 
             <div class="input-wrapper">
-                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id">
+                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces">
                 <label for="email-id" class="control-label">Email id</label>
               </div>
 
               <div class="input-wrapper">
                 <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
-                <input type="password" id="password" autocomplete="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one number and one uppercase and lowercase letter and special character, and at least 8 or more characters">
+                <input type="password" id="password" autocomplete="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Password must contains at least one lowercase, one uppercase, one lowercase and one special, password length minimum 8 characters">
                 <label for="password" class="control-label">Password</label>
               </div>
 
@@ -214,35 +214,35 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
         <h1>Sign Up</h1>
 
         <div class="input-wrapper">
-            <input type="text" id="first-name" class="form-control" placeholder="Enter Your First Name" required="true" pattern="[A-Za-z]{1,16}" title="Please Enter Valid First Name" maxlength="16">
+            <input type="text" id="first-name" class="form-control" placeholder="Enter your first name" required="true" pattern="[A-Za-z]{1,16}" title="Please enter valid first name without number, special character and white spaces" maxlength="16">
             <label for="first-name" class="control-label">Firstname</label>
           </div>
 
           <div class="input-wrapper">
-            <input type="text" id="last-name" class="form-control" placeholder="Enter Your Last Name" required="true" pattern="[A-Za-z]{1,16}" title="Please Enter Valid Last Name" maxlength="16">
+            <input type="text" id="last-name" class="form-control" placeholder="Enter your last name" required="true" pattern="[A-Za-z]{1,16}" title="Please enter valid last name without number, special character and white spaces" maxlength="16">
             <label for="last-name" class="control-label">Lastname</label>
           </div>
 
           <div class="input-wrapper">
-            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id">
+            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please enter valid email id without white spaces">
             <label for="email-id" class="control-label">Email id</label>
           </div>
 
           <div class="input-wrapper">
-            <input type="tel" id="mobile-number" class="form-control" placeholder="Enter Your Mobile Number" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10" title="Please Enter Valid Mobile Number">
+            <input type="tel" id="mobile-number" class="form-control" placeholder="Enter Your Mobile Number" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10" title="Please enter valid mobile number without alphabets, special characters and white spaces">
             <label for="mobile-number" class="control-label">Mobile Number</label>
           </div>
 
           <div class="input-wrapper">
             <i class="fa fa-eye showpwd" onClick="showPwd('reg-password', this)"></i>
-            <input type="password" id="reg-password" autocomplete="reg-password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one number and one uppercase and lowercase letter and special character, and at least 8 or more characters">
+            <input type="password" id="reg-password" autocomplete="reg-password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Password must contains at least one lowercase, one uppercase, one lowercase and one special, password length minimum 8 characters">
             <label for="password" class="control-label">Password</label>
           </div>
           
 
           <div class="input-wrapper">
             <i class="fa fa-eye showpwd" onClick="showPwd('conf-password', this)"></i>
-            <input type="password" id="conf-password" autocomplete="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Must contain at least one number and one uppercase and lowercase letter and special character, and at least 8 or more characters">
+            <input type="password" id="conf-password" autocomplete="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Password must contains at least one lowercase, one uppercase, one lowercase and one special, password length minimum 8 characters">
             <label for="conf-password" class="control-label">Confirm Password</label>
           </div>
 

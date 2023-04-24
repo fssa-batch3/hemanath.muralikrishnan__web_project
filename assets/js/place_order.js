@@ -1,11 +1,14 @@
 let place_order_items = JSON.parse(localStorage.getItem("cart_items"));
 
-
 // user records json
 let user_records = JSON.parse(localStorage.getItem("users"));
 
 // user logged_in value
 let user_details = localStorage.getItem("logged_in");
+
+let placed_cart_items = JSON.parse(localStorage.getItem("cart_items"));
+
+let order_histroy = JSON.parse(localStorage.getItem("order_histroy")) ?? [];
 
 let user_id;
 
@@ -23,6 +26,8 @@ if (user_records !== null) {
         }
     });
 }
+
+let get_place_order_form = document.getElementById("place-order-form");
 
 
 // creating elements for today and tomorrow date
@@ -193,3 +198,26 @@ if(total_rs_arr !=null){
 }
 
 document.querySelector(".main-total").innerHTML = `Total: ₹ ${total}`;
+
+
+let order_array = []
+
+get_place_order_form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+   place_order_items.filter(function(obj){
+
+    if(user_id == obj.user_id){
+
+      order_array.push(obj);
+
+    }
+   })
+
+
+
+
+
+})

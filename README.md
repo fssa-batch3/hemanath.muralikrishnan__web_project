@@ -64,8 +64,7 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 - Scenario 1: Successfully read data in profile account
     - Steps:
         1. Navigate to the user Edit Personal Details Page.
-        2. Enter the required information such as full name, gender, date of birth, Street Name, City Name, District Name and
-        State Name
+        2. Enter the required information such as full name, gender, date of birth, Street Name, City Name, District Name.
         3. Click "save" Button.
     - Expected Result:
         - The user is redirected to the Personal Information Page.
