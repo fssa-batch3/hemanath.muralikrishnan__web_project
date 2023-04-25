@@ -238,8 +238,6 @@ get_place_order_form.addEventListener("submit", function(e){
 
             if(get_delivery_address == obj.address_id){
 
-                alert("find");
-
                 delivery_address = obj;
                 
                 return delivery_address;

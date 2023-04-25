@@ -3,41 +3,24 @@ const root = window.location.origin;
 const logged_email = localStorage.getItem("logged_in");
 
 
-const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
-
-<div class="left">
-
-    <a href="${root}/pages/company/about_us.html">About Us</a>
-    <a href="${root}/pages/company/contact_us.html">Contact Us</a>
-    <a href="${root}/pages/profile.html" id="my-profile">My Profile</a>
-
-</div>
-
-<div class="right">
-
-    <p>Need help? Call Us <span><a href="tel:+91 1234567890">+91 1234567890</a></span></p>
-
-</div>
-
-
-</nav>
+const header = `
 
 <nav class="nav-two nav-flex" aria-label="nav-two">
 
 <div class="logo">
 
     <a href="${root}/index.html">Agrokart</a>
-
+    <a href="${root}/pages/company/about_us.html" class="company_pages">About Us</a>
+    <a href="${root}/pages/company/contact_us.html" class="company_pages">Contact Us</a>
 </div>
 
-<div class="search">
 
-    <input type="text" placeholder="Search" />
-    <i class="fa-solid fa-magnifying-glass"></i>
-
-</div>
 
 <div class="right-main nav-flex">
+
+<div class="option-one">
+    <a href="${root}/pages/profile.html" id="my-profile"><i class="fa-solid fa-user"></i>My Account</a>
+    </div>
 
     <div class="option-one">
 
@@ -57,6 +40,8 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
         <p id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>
             Login</p>
     </div>
+
+    
 
 </div>
 
@@ -90,6 +75,17 @@ const header = `<nav class="nav-one nav-flex" aria-label="nav-one">
         <li class="home"><a href="${root}/index.html">Home</a></li>
         <li class="products"><a href="${root}/pages/product_list/list_product.html?cat=00">Products</a></li>
     </ul>
+
+</div>
+
+<div class="search">
+
+    <input type="search" placeholder="search product by name" id="header_search">
+
+    <div class="search_results_append">
+
+    
+    </div>
 
 </div>
 
@@ -719,4 +715,53 @@ reg_form.addEventListener('submit', e => {
     validateInputs();
 
 });
+
+
+// search bar logic
+
+document.querySelector(".search_results_append").style.display = "none";
+
+let products_db = JSON.parse(localStorage.getItem("product_list"));
+
+let search_bar = document.getElementById("header_search");
+
+search_bar.addEventListener("input", function(e){
+
+    document.querySelector(".search_results_append").innerHTML = "";
+
+    if(search_bar.value == ""){
+
+        document.querySelector(".search_results_append").style.display = "none";
+    }
+
+    else {
+        document.querySelector(".search_results_append").style.display = "block";
+    }
+
+    let search_value = search_bar.value.toLowerCase();
+
+    products_db.filter(function(obj){
+
+        let pro_name = obj["name"]["eng"];
+
+        let lc_pro_name = pro_name.toLowerCase();
+
+        if(lc_pro_name.includes(search_value)){
+
+            let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
+            
+            let a_href = document.createElement("a");
+            a_href.setAttribute("href", href);
+            a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
+
+            document.querySelector(".search_results_append").appendChild(a_href);
+        }
+
+
+    })
+
+
+
+   
+})
 

@@ -27,5 +27,8 @@
     "eslint": "^8.36.0",
     "husky": "^8.0.3",
     "run-script-os": "^1.1.6"
+  },
+  "dependencies": {
+    "razorpay": "^2.8.6"
   }
 }

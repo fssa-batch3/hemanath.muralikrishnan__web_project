@@ -136,7 +136,7 @@
                 <!-- start of categories main -->
                 <div class="categories-main">
 
-                    <p class="categories-main-title">Categories <i class="fa-solid fa-border-all"></i></p>
+                    <p class="categories-main-title">Filter by categories <i class="fa-solid fa-border-all"></i></p>
 
                     <ul>
 
@@ -192,20 +192,24 @@
                             <ul>
 
                                 <li>
-                                    <input type="radio" id="name">
-                                    <label for="name">Name</label>
+                                    <input type="radio" id="name_a_to_z" name="sort_by_in_cat" onclick="sortbyatoz()">
+                                    <label for="name_a_to_z">Name A to Z</label>
                                 </li>
 
                                 <li>
-                                    <input type="radio" id="categories">
-                                    <label for="categories">Categories</label>
+                                    <input type="radio" id="name_z_to_a" name="sort_by_in_cat" onclick="sortbyztoa()">
+                                    <label for="name_z_to_a">Name Z to A</label>
                                 </li>
 
                                 <li>
-                                    <input type="radio" id="ratings">
-                                    <label for="ratings">Ratings</label>
+                                    <input type="radio" id="cost_high_to_low" name="sort_by_in_cat" onclick="sortbycosthightolow()">
+                                    <label for="cost_high_to_low">Cost High to Low</label>
                                 </li>
 
+                                <li>
+                                    <input type="radio" id="cost_low_to_high" name="sort_by_in_cat" onclick="sortbycostlowtohigh()">
+                                    <label for="cost_low_to_high">Cost Low to High</label>
+                                </li>
 
                             </ul>
                         </div>
@@ -214,7 +218,7 @@
 
                     <!-- start of filter by -->
 
-                    <div class="aside-filterby-list">
+                    <!-- <div class="aside-filterby-list">
 
                         <div class="filterby-main">
                             <p class="filterby-main-title">Filter By <i class="fa-solid fa-filter"></i></p>
@@ -244,7 +248,7 @@
 
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- end of filter by -->
 
