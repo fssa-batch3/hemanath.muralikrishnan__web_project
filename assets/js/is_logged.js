@@ -108,8 +108,11 @@ const header = `
 
                 <div class="mobile-search">
 
-                    <input type="text" placeholder="Search Products">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="search by product name" id="mobile_search">
+                   
+                    <div class="mobile_search_result_append">
+
+                    </div>
                     
                 </div>
 
@@ -760,8 +763,52 @@ search_bar.addEventListener("input", function(e){
 
     })
 
+   
+})
 
+// mobile search bar
+
+document.querySelector(".mobile_search_result_append").style.display="none";
+
+let mobile_search = document.getElementById("mobile_search");
+
+mobile_search.addEventListener("input", function(e){
+
+    document.querySelector(".mobile_search_result_append").innerHTML = "";
+
+    if(mobile_search.value == ""){
+
+        document.querySelector(".mobile_search_result_append").style.display = "none";
+    }
+
+    else {
+        document.querySelector(".mobile_search_result_append").style.display = "block";
+    }
+
+    let search_value = mobile_search.value.toLowerCase();
+
+    products_db.filter(function(obj){
+
+        let pro_name = obj["name"]["eng"];
+
+        let lc_pro_name = pro_name.toLowerCase();
+
+        if(lc_pro_name.includes(search_value)){
+
+            let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
+            
+            let a_href = document.createElement("a");
+            a_href.setAttribute("href", href);
+            a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
+
+            document.querySelector(".mobile_search_result_append").appendChild(a_href);
+        }
+
+
+    })
 
    
 })
+
+
 
