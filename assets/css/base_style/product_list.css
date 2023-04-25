@@ -227,7 +227,6 @@
         padding: .5em;
         border-radius: 5px;
         cursor: pointer;
-        display: none;
     }
 
     .mobile-categories-main .dropdown-check-list .items li {
@@ -243,7 +242,6 @@
         border-radius: 5px;
         cursor: pointer;
         /* width: 150px; */
-        display: none;
     }
 
     .mobile-categories-main .dropdown-check-list .sort-items li {

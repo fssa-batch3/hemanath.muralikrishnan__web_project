@@ -1,3 +1,34 @@
+let mobile_filter = document.getElementById("mobile_filter");
+let show_mobile_filter = document.querySelector(".items");
+
+let mobile_sort_by = document.getElementById("mobile_sort_by");
+let show_sort_by = document.querySelector(".sort-items");
+
+show_mobile_filter.style.display="none";
+
+show_sort_by.style.display="none";
+
+mobile_filter.addEventListener("click", function(e){
+
+    if((show_mobile_filter.style.display)=="none"){
+        show_mobile_filter.style.display="block";
+    }
+    else {
+        show_mobile_filter.style.display="none";
+    }
+})
+
+
+mobile_sort_by.addEventListener("click", function(e){
+
+    if((show_sort_by.style.display)=="none"){
+        show_sort_by.style.display="block";
+    }
+    else {
+        show_sort_by.style.display="none";
+    }
+})
+
 let product_details = JSON.parse(localStorage.getItem("product_list"));
 
 let cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
@@ -24,37 +55,7 @@ if (user_records !== null) {
     });
 }
 
-let mobile_filter = document.getElementById("mobile_filter");
-let show_mobile_filter = document.querySelector(".items");
 
-let mobile_sort_by = document.getElementById("mobile_sort_by");
-let show_sort_by = document.querySelector(".sort-items");
-
-// show_mobile_filter.style.display="none";
-
-// show_sort_by.style.display="none";
-
-
-mobile_filter.addEventListener("click", function(e){
-
-    if((show_mobile_filter.style.display)=="none"){
-        show_mobile_filter.style.display="block";
-    }
-    else {
-        show_mobile_filter.style.display="none";
-    }
-})
-
-
-mobile_sort_by.addEventListener("click", function(e){
-
-    if((show_sort_by.style.display)=="none"){
-        show_sort_by.style.display="block";
-    }
-    else {
-        show_sort_by.style.display="none";
-    }
-})
 
 
 
