@@ -200,72 +200,60 @@
         position: sticky;
         top: 60px;
         background-color: #429b44;
-        padding: .3em;
+        padding: 1em;
         z-index: 1;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        width: auto;
     }
 
-   .mobile-categories input[type=checkbox]{
-    display: none;
-   }
+    .mobile-categories-main .dropdown-check-list {
+        position: relative;
+    }
 
-   .mobile-categories .mobile-menu {
-    background-color: white;
-    border-radius: 10px;
-    padding: .3em;
-    text-align: center;
-    margin: 1em auto;
-   }
+    .mobile-categories-main .dropdown-check-list .anchor {
+        background-color: #d8d5d5;
+        padding: .2em;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-   .mobile-categories .mobile-menu:hover {
-    background-color: green;
-    color: white;
-   }
+    .mobile-categories-main .dropdown-check-list .items {
+        position: absolute;
+        top: 40px;
+        background-color: lightgreen;
+        padding: .5em;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-   .mobile-categories .mobile-menu label {
-    cursor: pointer;
-   }
+    .mobile-categories-main .dropdown-check-list .items li {
+        margin: .3em 0;
+        cursor: pointer;
+    }
 
-   .mobile-categories .mobile-drop-menu {
-    display: none;
-    position: absolute;
-    background-color: whitesmoke;
-    padding: 1em;
-    border-radius: 10px;
-    width: 200px;
-    margin-top: .5em;
-   }
+    .mobile-categories-main .dropdown-check-list .sort-items {
+        position: absolute;
+        top: 40px;
+        background-color: lightgreen;
+        padding: .5em;
+        border-radius: 5px;
+        cursor: pointer;
+        /* width: 150px; */
+    }
 
-   .mobile-categories .mobile-drop-menu a {
-    color: black;
-    font-weight: 600;
-    text-align: center;
-   }
-
-   .mobile-categories .mobile-drop-menu a:hover {
-    color: #429b44;
-   }
-
-   .mobile-categories input[type=checkbox]:checked ~ .mobile-drop-menu{
-    display: block;
-    transition: .5s ease;
-   }
+    .mobile-categories-main .dropdown-check-list .sort-items li {
+        cursor: pointer;
+    }
+    
 
     /* end of products categories */
 
     /* start of filters */
 
-    .mobile-filters {
-        display: flex;
-        flex-direction: row;
-    }
 
-    .mobile-filters select {
-       margin: 0 1em;
-    }
 
 /* end of filters */
 

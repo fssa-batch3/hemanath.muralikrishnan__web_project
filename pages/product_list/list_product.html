@@ -80,43 +80,33 @@
 
 <div class="mobile-categories-main">
 
-    <div class="mobile-categories">
+    <div id="list1" class="dropdown-check-list" tabindex="100">
+
+        <span class="anchor" id="mobile_filter">Filter by category ▾</span>
+
+        <ul class="items">
+          <li><input type="checkbox" id="mobile_exotic_fruit" name="filter_cat" value="01"/><label for="mobile_exotic_fruit">Exotic Fruits</label></li>
+          <li><input type="checkbox" id="mobile_exotic_veggies" name="filter_cat" value="02"/><label for="mobile_exotic_veggies">Exotic Veggies</label></li>
+          <li><input type="checkbox" id="mobile_fresh_veggies" name="filter_cat" value="03"/><label for="mobile_fresh_veggies">Fresh Veggies</label></li>
+          <li><input type="checkbox" id="mobile_fresh_fruits" name="filter_cat" value="04"/><label for="mobile_fresh_fruits">Fresh Fruits</label></li>
+          <li><input type="checkbox" id="mobile_leafy_green" name="filter_cat" value="05"/><label for="mobile_leafy_green">Leafy Green</label></li>
+          <li><input type="checkbox" id="mobile_tubers" name="filter_cat" value="06"/><label for="mobile_tubers">Tubers</label></li>
+        </ul>
+      </div>
+
+      <div id="list1" class="dropdown-check-list" tabindex="100">
+
+        <span class="anchor" id="mobile_sort_by">Sort by options ▾</span>
+
+        <ul class="sort-items">
+          <li><input type="radio" id="mobile_name_a_to_z" name="sort_by_in_cat" onclick="sortbyatoz()"/><label for="mobile_name_a_to_z">Name A to Z</label></li>
+          <li><input type="radio" id="mobile_name_z_to_a" name="sort_by_in_cat" onclick="sortbyztoa()"/><label for="mobile_name_z_to_a">Name Z to A</label></li>
+          <li><input type="radio" id="mobile_cost_high_to_low" name="sort_by_in_cat" onclick="sortbycosthightolow()"/><label for="mobile_cost_high_to_low">Cost High to Low</label></li>
+          <li><input type="radio" id="mobile_low_to_high" name="sort_by_in_cat" onclick="sortbycostlowtohigh()"/><label for="mobile_low_to_high">Cost Low to High</label></li>
+        </ul>
+      </div>
     
-        <input type="checkbox" id="mobile-list-categories">
-        <p class="mobile-menu"><label for="mobile-list-categories">Categories <i
-            class="fa-solid fa-caret-down"></i></label></p>
     
-            <div class="mobile-drop-menu">
-    
-                <a href="exotic_fruits_list.html"><p>Exotic Fruits</p></a>
-                <a href="exotic_veggies_list.html"><p>Exotic Veggies</p></a>
-                <a href="fresh_fruits_list.html"><p>Fresh Fruits</p></a>
-                <a href="fresh_veggies_list.html"><p>Fresh Veggies</p></a>
-                <a href="leafy_green_list.html"><p>Leafy Green</p></a>
-                <a href="tubers_list.html"><p>Tubers</p></a>
-    
-            </div>
-        
-    </div>
-    
-    <div class="mobile-filters">
-    
-        <select>
-            <option>Sort By</option>
-            <option>Name</option>
-            <option>Categories</option>
-            <option>Ratings</option>
-        </select>
-    
-        <select>
-            <option>Filter By</option>
-            <option>Popularity Low to High</option>
-            <option>Popularity High to Low</option>
-            <option>Cost Low to High</option>
-            <option>Cost High to Low</option>
-        </select>
-    
-    </div>
     
     </div>
     
