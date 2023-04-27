@@ -175,7 +175,7 @@ const header = `
             <p class="act">Log in</p>
 
             <div class="input-wrapper">
-                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces">
+                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces" pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$>
                 <label for="email-id" class="control-label">Email id</label>
               </div>
 
@@ -223,7 +223,7 @@ const header = `
           </div>
 
           <div class="input-wrapper">
-            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please enter valid email id without white spaces">
+            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ required="true" title="Please enter valid email id without white spaces">
             <label for="email-id" class="control-label">Email id</label>
           </div>
 
@@ -488,6 +488,8 @@ document.querySelector(".mobile-open").addEventListener("click", function (e) {
     if ((document.querySelector(".side-menu-mobile").style.display) === "none") {
 
         document.querySelector(".side-menu-mobile").style.display = "block";
+
+        document.querySelector(".mobile_search_result_append").style.display="none";
     }
 
     else {

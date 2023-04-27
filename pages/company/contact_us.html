@@ -111,17 +111,17 @@
                     
                     <p>Let's Get in Touch</p>
     
-                    <form action="" method="">
+                    <form action="https://getform.io/f/ba316959-8da7-4439-bc60-c9db87f2dcb8" method="POST">
     
-                        <input class="no-outline" type="text" placeholder="Name">
+                        <input class="no-outline" type="text" placeholder="Name" name="name" required pattern="[A-Za-z ]{1,16}" minlength="1" maxlength="16">
     
-                        <input  class="no-outline" type="email" placeholder="Email">
+                        <input  class="no-outline" type="email" placeholder="Email" name="email_id" required>
     
-                        <input  class="no-outline" type="text" placeholder="Subject">
+                        <input  class="no-outline" type="text" placeholder="Subject" name="subject" required>
     
                         <label for="message">Message</label>
     
-                        <textarea rows="4" cols="50" id="message">Enter Your Message Here!</textarea>
+                        <textarea rows="4" cols="50" id="message" name="message" required>Enter Your Message Here!</textarea>
     
                         <button type="submit">Send Message</button>
     

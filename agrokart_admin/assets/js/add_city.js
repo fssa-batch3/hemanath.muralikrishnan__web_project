@@ -28,7 +28,7 @@ table_tr.appendChild(td_edit);
 
 
 let td_delete = document.createElement("td");
-td_delete.appendChild(td_delete);
+table_tr.appendChild(td_delete);
 
 
 add_city_form.addEventListener("submit", function(e){
@@ -39,7 +39,7 @@ add_city_form.addEventListener("submit", function(e){
     let area_name_input = area_name.value.trim();
     let pincode_input = area_pincode.value.trim();
 
-    if(select_city_value != 00){
+    if(select_city_value != "no"){
 
         let city_obj = {
             "area_id" : pincode_input,
@@ -47,17 +47,22 @@ add_city_form.addEventListener("submit", function(e){
             "area_pincode" : pincode_input
         }
 
-        console.log(city_obj);
-
 
         add_city_arr[select_city_value].push(city_obj);
 
-        alert("hi")
+       Notify.success("Area added");
 
         localStorage.setItem("add_city_arr", JSON.stringify(add_city_arr));
+
+        add_city_form.reset();
 
        
     }
 
+    else {
+
+        Notify.error("Please select district");
+
+    }
 
 })
