@@ -152,7 +152,7 @@
     font-size: .9rem;
 }
 
-.mobile-categories-main .mobile-categories, .mobile-filters{
+.mobile-categories-main{
     display: none;
 }
 

@@ -493,6 +493,18 @@
     color: white;
 }
 
+.form-control{
+    outline: none;
+}
+
+.form-control:valid{
+    border-color: #09c372;
+  }
+
+  .form-control:invalid{
+    border-color: #ff3860;
+  }
+
 
 /* start of media queires */
 

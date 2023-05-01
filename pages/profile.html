@@ -116,9 +116,9 @@
                     
                     <div class="name-input flex_so">
                         <label for="first_name">Name</label>
-                        <input type="text" id="first_name" pattern="[A-Za-z]{1,16}" title="please enter valid firstname"
+                        <input type="text" id="first_name" class="form-control" pattern="^[A-Za-z]+${1,16}" title="please enter valid firstname"
                             placeholder="first name" disabled="true" required />
-                        <input type="text" id="last_name" pattern="[A-Za-z ]{1,16}" title="please enter valid last_name"
+                        <input type="text" id="last_name" class="form-control" pattern="^[A-Za-z]+${1,16}" title="please enter valid last_name"
                             placeholder="last name" disabled="true" required />
                     </div>
 
@@ -136,13 +136,13 @@
 
                     <div class="email-input flex_so">
                         <label for="email-addrees">Email</label>
-                        <input type="text" placeholder="exmaple@gmail.com" id="email-address" disabled="true">
+                        <input type="text" class="form-control" placeholder="exmaple@gmail.com" id="email-address" disabled="true" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                     </div>
 
 
                     <div class="mobile-input flex_so">
                         <label for="mobile-number">Mobile Number</label>
-                        <input type="tel" placeholder="+1234567890" id="mobile-number" pattern="[0-9]{10}"
+                        <input type="tel" class="form-control" placeholder="+1234567890" id="mobile-number" pattern="^[6-9][0-9]{9}$"
                             title="Please enter valid mobile number" disabled="true" maxlength="10" required>
                     </div>
 
@@ -175,26 +175,26 @@
 
                             <div class="address_input">
                                 <label for="address-input">Address</label>
-                                <input type="text" id="address-input" placeholder="Enter your address" required
-                                    title="please enter your street">
+                                <input type="text" id="address-input" class="form-control" placeholder="Enter your address" required
+                                    title="please enter your street" pattern="[a-zA-Z0-9\s\-\,\#]+">
                             </div>
 
                             <div class="address_input">
                                 <label for="district-input">District</label>
-                                <input type="text" id="district-input" placeholder="Enter your district" required
-                                    title="please enter your district" pattern="[A-za-z ]{1,16}">
+                                <input type="text" id="district-input" class="form-control" placeholder="Enter your district" required
+                                    title="please enter your district" pattern="^[A-Za-z]+$" value="Chennai" disabled="true">
                             </div>
 
                             <div class="address_input">
                                 <label for="state-input">State</label>
-                                <input type="text" id="state-input" placeholder="Enter your state" disabled="true"
-                                    value="Tamil Nadu">
+                                <input type="text" id="state-input" class="form-control" placeholder="Enter your state" disabled="true"
+                                    value="Tamil Nadu" pattern="^[A-Za-z ]+$">
                             </div>
 
                             <div class="address_input">
                                 <label for="pincode-input">pincode</label>
-                                <input type="text" id="pincode-input" placeholder="Enter your pincode"
-                                    pattern="[0-9]{6}" title="Please enter valid pin code" maxlength="6">
+                                <input type="text" id="pincode-input" class="form-control" placeholder="Enter your pincode"
+                                   title="Please enter valid pin code" pattern="^6\d{5}$" minlength="6" maxlength="6">
                             </div>
 
 
@@ -220,26 +220,26 @@
 
                             <div class="address_input">
                                 <label for="upt_address-input">Address</label>
-                                <input type="text" id="upt_address-input" placeholder="Enter your address" required
-                                    title="please enter your street">
+                                <input type="text" id="upt_address-input" class="form-control" placeholder="Enter your address" required
+                                    title="please enter your street" pattern="[a-zA-Z0-9\s\-\,\#]+">
                             </div>
 
                             <div class="address_input">
                                 <label for="upt_district-input">District</label>
-                                <input type="text" id="upt_district-input" placeholder="Enter your district" required
-                                    title="please enter your district" pattern="[A-za-z ]{1,16}">
+                                <input type="text" id="upt_district-input" class="form-control" placeholder="Enter your district" required
+                                    title="please enter your district" pattern="^[A-Za-z]+$" value="Chennai" disabled="true">
                             </div>
 
                             <div class="address_input">
                                 <label for="upt_state-input">State</label>
-                                <input type="text" id="upt_state-input" placeholder="Enter your state" disabled="true"
-                                    value="Tamil Nadu">
+                                <input type="text" id="upt_state-input" class="form-control" placeholder="Enter your state" disabled="true"
+                                    value="Tamil Nadu" pattern="^[A-Za-z ]+$">
                             </div>
 
                             <div class="address_input">
                                 <label for="upt_pincode-input">pincode</label>
-                                <input type="text" id="upt_pincode-input" placeholder="Enter your pincode"
-                                    pattern="[0-9]{6}" title="Please enter valid pin code" maxlength="6">
+                                <input type="text" id="upt_pincode-input" class="form-control" placeholder="Enter your pincode"
+                                pattern="^6\d{5}$" title="Please enter valid pin code" >
                             </div>
 
 

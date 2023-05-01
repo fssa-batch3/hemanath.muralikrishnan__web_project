@@ -70,6 +70,33 @@ add_quantity_price.addEventListener("click", function (e) {
 
     const quantity_price_input_value = quantity_price_input.value.trim();
 
+    let new_obj;
+
+
+    if(selectedValue == "kg"){
+
+        let into_gram = quantity_input_value*1000;
+
+        new_obj = {
+            "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
+            "unit": selectedValue,
+            "qty": quantity_input_value,
+            "rs": quantity_price_input_value,
+            "into_gram" : into_gram
+        }
+        
+    }
+
+    else {
+
+        new_obj = {
+            "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
+            "unit": selectedValue,
+            "qty": quantity_input_value,
+            "rs": quantity_price_input_value
+        }
+    }
+
     let price_list_check = true;
 
     price_list.find(function (obj) {
@@ -84,12 +111,7 @@ add_quantity_price.addEventListener("click", function (e) {
 
         if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
 
-            price_list.push({
-                "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
-                "unit": selectedValue,
-                "qty": quantity_input_value,
-                "rs": quantity_price_input_value
-            });
+            price_list.push(new_obj);
 
             localStorage.setItem("price_list", JSON.stringify(price_list));
 
@@ -155,10 +177,54 @@ function deletepricelist(index) {
 }
 
 
+// for english name input field
+
+product_english_name.addEventListener("change", function(e){
+
+    if(product_english_name != ""){
+
+        let value = product_english_name.value.trim();
+
+
+        fetchData(value);
+
+      get_health(value);
+
+    }
+})
+
+
+
+const chat_gpt_api_key = "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";
+
+
+
+// for product description
+async function fetchData(product_name){
+
+    const response = await fetch("https://api.openai.com/v1/completions", {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${chat_gpt_api_key}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            model: "text-davinci-003",
+            prompt: `Long health description about ${product_name}`,
+            max_tokens: 200
+        })
+    });
+
+    const data = await response.json();
+
+    let text = data.choices[0].text;
+
+    console.log(text);
+
+}
+
+
 // store the create product details
-
-
-
 create_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
@@ -238,6 +304,30 @@ create_form.addEventListener('submit', function (e) {
 
     const farmer_image_url_value = famer_image_url.value.trim();
 
+    let new_obj;
+
+    if(available_stock_unit_value == "kg"){
+
+        let into_gram = available_stock_input_value*1000;
+        
+        new_obj = {
+
+            "avail_num" : available_stock_input_value,
+            "avail_unit" : available_stock_unit_value,
+            "into_gram" : into_gram
+        }
+
+    }
+
+    else {
+
+        new_obj = {
+
+            "avail_num" : available_stock_input_value,
+            "avail_unit" : available_stock_unit_value
+        }
+    }
+
 
     let check = false;
 
@@ -262,17 +352,19 @@ create_form.addEventListener('submit', function (e) {
     }
 
 
-    else if(check) {
+    else if (check) {
 
-        Notify.error("Product"+" "+ english_name +" "+"already available");
+        Notify.error("Product" + " " + english_name + " " + "already available");
 
     }
 
     else {
 
+       
+
         product_list.push({
 
-            "id": product_list.length*2*2+1,
+            "id": product_list.length * 2 * 2 + 1,
 
             "name": {
                 "eng": english_name,
@@ -304,10 +396,7 @@ create_form.addEventListener('submit', function (e) {
                 "kcal": kcal_input_value
             },
 
-            "avail_stock": {
-                "num": available_stock_input_value,
-                "unit": available_stock_unit_value
-            },
+            "avail_stock": new_obj,
 
             "quantity": price_list,
 
@@ -336,35 +425,5 @@ create_form.addEventListener('submit', function (e) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 

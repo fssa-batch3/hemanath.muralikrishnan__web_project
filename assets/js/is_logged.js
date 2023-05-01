@@ -92,7 +92,7 @@ const header = `
 <div class="assistant">
 
     <i class="fa-solid fa-headset headphone"></i>
-    <a href="tel:+91 1234567890">+91 1234567890</a>
+    <a href="tel:+91 7867979731">+91 7867979731</a>
 </div>
 
 </nav>
@@ -175,7 +175,7 @@ const header = `
             <p class="act">Log in</p>
 
             <div class="input-wrapper">
-                <input type="email" id="email-id" class="form-control" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces" pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$>
+                <input type="email" id="email-id" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces">
                 <label for="email-id" class="control-label">Email id</label>
               </div>
 
@@ -213,22 +213,22 @@ const header = `
         <h1>Sign Up</h1>
 
         <div class="input-wrapper">
-            <input type="text" id="first-name" class="form-control" placeholder="Enter your first name" required="true" pattern="[A-Za-z]{1,16}" title="Please enter valid first name without number, special character and white spaces" maxlength="16">
+            <input type="text" id="first-name" class="form-control" placeholder="Enter your first name" required="true" pattern="^[A-Za-z]+$" title="Please enter valid first name without number, special character and white spaces" minlenght="3" maxlength="20">
             <label for="first-name" class="control-label">Firstname</label>
           </div>
 
           <div class="input-wrapper">
-            <input type="text" id="last-name" class="form-control" placeholder="Enter your last name" required="true" pattern="[A-Za-z]{1,16}" title="Please enter valid last name without number, special character and white spaces" maxlength="16">
+            <input type="text" id="last-name" class="form-control" placeholder="Enter your last name" required="true" pattern="^[A-Za-z]+$" title="Please enter valid last name without number, special character and white spaces" minlenght="3" maxlength="20">
             <label for="last-name" class="control-label">Lastname</label>
           </div>
 
           <div class="input-wrapper">
-            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ required="true" title="Please enter valid email id without white spaces">
+            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required="true" title="Please enter valid email id without white spaces">
             <label for="email-id" class="control-label">Email id</label>
           </div>
 
           <div class="input-wrapper">
-            <input type="tel" id="mobile-number" class="form-control" placeholder="Enter Your Mobile Number" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10" title="Please enter valid mobile number without alphabets, special characters and white spaces">
+            <input type="tel" id="mobile-number" class="form-control" placeholder="Enter Your Mobile Number" required="true" pattern="^[6-9][0-9]{9}$" minlength="10" maxlength="10" title="Please enter valid mobile number without alphabets, special characters and white spaces">
             <label for="mobile-number" class="control-label">Mobile Number</label>
           </div>
 
@@ -378,14 +378,6 @@ const footer = `<footer>
 <!-- footer three ends -->
 
 </footer>`;
-
-let today = new Date();
-
-let month = today.getMonth() + 1;
-let year = today.getFullYear();
-let date = today.getDate();
-
-let current_date = `${month}/${date}/${year}`;
 
 
 
@@ -651,7 +643,8 @@ function validateInputs() {
                 "emailid": email_id,
                 "mobilenumber": mobilenumber,
                 "password": conf_password,
-                "user_account_created_time": current_date,
+                "user_account_created_date":new Date().toLocaleDateString(),
+                "user_account_created_time": new Date().toLocaleTimeString(),
                 "address": []
             }
 
@@ -751,7 +744,7 @@ search_bar.addEventListener("input", function(e){
 
         let lc_pro_name = pro_name.toLowerCase();
 
-        if(lc_pro_name.includes(search_value)){
+        if((lc_pro_name.includes(search_value))&&(obj.status)){
 
             let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
             
@@ -795,7 +788,7 @@ mobile_search.addEventListener("input", function(e){
 
         let lc_pro_name = pro_name.toLowerCase();
 
-        if(lc_pro_name.includes(search_value)){
+        if((lc_pro_name.includes(search_value))&&(obj.status)){
 
             let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
             

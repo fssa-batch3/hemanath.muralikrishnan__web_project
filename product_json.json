@@ -27,7 +27,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -40,7 +41,8 @@
         "text": "1.2kg - ₹200",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "200"
+        "rs": "200",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -81,7 +83,8 @@
     },
     "avail_stock": {
       "num": "25",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "25000"
     },
     "quantity": [
       {
@@ -94,7 +97,8 @@
         "text": "1.2kg - ₹220",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "220"
+        "rs": "220",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -135,7 +139,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -148,7 +153,8 @@
         "text": "1.5kg - ₹200",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "200"
+        "rs": "200",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -189,7 +195,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -202,7 +209,8 @@
         "text": "1.5kg - ₹170",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "170"
+        "rs": "170",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -243,14 +251,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.2kg - ₹150",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "150"
+        "rs": "150",
+        "into_gram": "1200"
       },
       {
         "text": "500gm - ₹100",
@@ -297,7 +307,8 @@
     },
     "avail_stock": {
       "num": "25",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "25000"
     },
     "quantity": [
       {
@@ -310,7 +321,8 @@
         "text": "1.5kg - ₹220",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "220"
+        "rs": "220",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -351,7 +363,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -364,7 +377,8 @@
         "text": "1.5kg - ₹250",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "250"
+        "rs": "250",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -405,7 +419,8 @@
     },
     "avail_stock": {
       "num": "25",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "25000"
     },
     "quantity": [
       {
@@ -418,7 +433,8 @@
         "text": "1.5kg - ₹200",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "200"
+        "rs": "200",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -459,14 +475,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.2kg - ₹100",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "100"
+        "rs": "100",
+        "into_gram": "1200"
       },
       {
         "text": "500gm - ₹70",
@@ -513,7 +531,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -526,7 +545,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -567,7 +587,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -580,7 +601,8 @@
         "text": "1.2kg - ₹200",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "200"
+        "rs": "200",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -621,7 +643,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -634,7 +657,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -675,7 +699,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -688,7 +713,8 @@
         "text": "1.2kg - ₹140",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "140"
+        "rs": "140",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -729,7 +755,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -742,7 +769,8 @@
         "text": "1.2kg - ₹170",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "170"
+        "rs": "170",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -783,7 +811,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -796,7 +825,8 @@
         "text": "1.2kg - ₹160",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "160"
+        "rs": "160",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -837,7 +867,8 @@
     },
     "avail_stock": {
       "num": "25",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "25000"
     },
     "quantity": [
       {
@@ -850,7 +881,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -891,7 +923,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -904,7 +937,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -945,7 +979,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -958,7 +993,8 @@
         "text": "1.0kg - ₹250",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "250"
+        "rs": "250",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -999,7 +1035,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -1012,7 +1049,8 @@
         "text": "1.5kg - ₹150",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "150"
+        "rs": "150",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -1053,7 +1091,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -1107,7 +1146,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1120,7 +1160,8 @@
         "text": "1.5kg - ₹150",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "150"
+        "rs": "150",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -1161,7 +1202,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -1215,7 +1257,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -1228,7 +1271,8 @@
         "text": "1.0kg - ₹220",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "220"
+        "rs": "220",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -1269,7 +1313,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1282,7 +1327,8 @@
         "text": "1.2kg - ₹250",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "250"
+        "rs": "250",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1323,7 +1369,8 @@
     },
     "avail_stock": {
       "num": "25",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "25000"
     },
     "quantity": [
       {
@@ -1336,7 +1383,8 @@
         "text": "1.5kg - ₹250",
         "unit": "kg",
         "qty": "1.5",
-        "rs": "250"
+        "rs": "250",
+        "into_gram": "1500"
       }
     ],
     "status": true,
@@ -1377,7 +1425,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1431,7 +1480,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1485,7 +1535,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1539,7 +1590,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1552,7 +1604,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1593,7 +1646,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1606,7 +1660,8 @@
         "text": "1.2kg - ₹140",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "140"
+        "rs": "140",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1647,7 +1702,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1660,7 +1716,8 @@
         "text": "1.2kg - ₹150",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "150"
+        "rs": "150",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1701,7 +1758,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1714,7 +1772,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1755,7 +1814,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1768,7 +1828,8 @@
         "text": "1.2kg - ₹150",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "150"
+        "rs": "150",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1809,7 +1870,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1822,7 +1884,8 @@
         "text": "1.2kg - ₹200",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "200"
+        "rs": "200",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1863,7 +1926,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -1876,7 +1940,8 @@
         "text": "1.2kg - ₹130",
         "unit": "kg",
         "qty": "1.2",
-        "rs": "130"
+        "rs": "130",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -1917,14 +1982,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.0kg - ₹30",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "30"
+        "rs": "30",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -1965,14 +2032,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.0kg - ₹60",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "60"
+        "rs": "60",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -2013,7 +2082,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -2067,7 +2137,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -2121,14 +2192,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.0kg - ₹30",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "30"
+        "rs": "30",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -2169,7 +2242,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -2223,7 +2297,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -2277,7 +2352,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -2331,7 +2407,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -2385,7 +2462,8 @@
     },
     "avail_stock": {
       "num": "10",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "10000"
     },
     "quantity": [
       {
@@ -2439,7 +2517,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -2493,14 +2572,16 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
         "text": "1.0kg - ₹70",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "70"
+        "rs": "70",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -2541,14 +2622,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.0kg - ₹80",
         "unit": "kg",
         "qty": "1.0",
-        "rs": "80"
+        "rs": "80",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -2589,7 +2672,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -2643,7 +2727,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -2697,7 +2782,8 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
@@ -2751,14 +2837,16 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
         "text": "1.2gm - ₹60",
         "unit": "gm",
         "qty": "1.2",
-        "rs": "60"
+        "rs": "60",
+        "into_gram": "1200"
       }
     ],
     "status": true,
@@ -3663,14 +3751,16 @@
     },
     "avail_stock": {
       "num": "15",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "15000"
     },
     "quantity": [
       {
         "text": "1kg - ₹37",
         "unit": "kg",
         "qty": "1",
-        "rs": "37"
+        "rs": "37",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -3711,7 +3801,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -3724,7 +3815,8 @@
         "text": "1kg - ₹70",
         "unit": "kg",
         "qty": "1",
-        "rs": "70"
+        "rs": "70",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -3765,7 +3857,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -3778,7 +3871,8 @@
         "text": "1kg - ₹53",
         "unit": "kg",
         "qty": "1",
-        "rs": "53"
+        "rs": "53",
+        "into_gram": "1000"
       }
     ],
     "status": true,
@@ -3819,7 +3913,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -3846,7 +3941,7 @@
     }
   },
   {
-    "id": 74,
+    "id": 76,
     "name": {
       "eng": "Apple Indian",
       "tam": "ஆப்பிள் இந்தியன்"
@@ -3873,7 +3968,8 @@
     },
     "avail_stock": {
       "num": "20",
-      "unit": "kg"
+      "unit": "kg",
+      "into_gram": "20000"
     },
     "quantity": [
       {
@@ -3886,7 +3982,8 @@
         "text": "1kg - ₹156",
         "unit": "kg",
         "qty": "1",
-        "rs": "156"
+        "rs": "156",
+        "into_gram": "1000"
       }
     ],
     "status": true,

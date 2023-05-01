@@ -4,28 +4,28 @@ let show_mobile_filter = document.querySelector(".items");
 let mobile_sort_by = document.getElementById("mobile_sort_by");
 let show_sort_by = document.querySelector(".sort-items");
 
-show_mobile_filter.style.display="none";
+show_mobile_filter.style.display = "none";
 
-show_sort_by.style.display="none";
+show_sort_by.style.display = "none";
 
-mobile_filter.addEventListener("click", function(e){
+mobile_filter.addEventListener("click", function (e) {
 
-    if((show_mobile_filter.style.display)=="none"){
-        show_mobile_filter.style.display="block";
+    if ((show_mobile_filter.style.display) == "none") {
+        show_mobile_filter.style.display = "block";
     }
     else {
-        show_mobile_filter.style.display="none";
+        show_mobile_filter.style.display = "none";
     }
 })
 
 
-mobile_sort_by.addEventListener("click", function(e){
+mobile_sort_by.addEventListener("click", function (e) {
 
-    if((show_sort_by.style.display)=="none"){
-        show_sort_by.style.display="block";
+    if ((show_sort_by.style.display) == "none") {
+        show_sort_by.style.display = "block";
     }
     else {
-        show_sort_by.style.display="none";
+        show_sort_by.style.display = "none";
     }
 })
 
@@ -109,7 +109,8 @@ function list_products(array = []) {
 
     document.querySelector(".products-list-container").innerHTML = "";
 
-    array.forEach((item) => {
+    array.forEach((item, index) => {
+
 
         // product_container_div
         product_container_div = document.createElement("div");
@@ -201,6 +202,7 @@ function list_products(array = []) {
 
             });
 
+
             dropdown_options.appendChild(dropdown_option);
 
         }
@@ -213,7 +215,10 @@ function list_products(array = []) {
 
         // toggle dropdown options on header click
         dropdown_header.addEventListener("click", function () {
+
             dropdown_options.classList.toggle("show");
+
+
         });
 
 
@@ -234,7 +239,7 @@ function list_products(array = []) {
         quantity_cart_div.append(qty_div);
 
         let qty_minus = document.createElement("div");
-        qty_minus.innerText = "-";
+        qty_minus.innerHTML = `<img src="../../assets/images/minus-sign.png" alt="minus-sing">`;
         qty_minus.className = "qty-minus";
         qty_div.append(qty_minus);
 
@@ -246,33 +251,126 @@ function list_products(array = []) {
 
 
         let qty_plus = document.createElement("div");
-        qty_plus.innerText = "+";
+        qty_plus.innerHTML = `<img src="../../assets/images/add.png" alt="add-sign">`;
         qty_plus.className = "qty-plus";
         qty_div.append(qty_plus);
-
-        qty_plus.addEventListener("click", function (e) {
-            qty_value++;
-            qty_plus_value = qty_value;
-            qty_number.innerText = qty_plus_value;
-
-        });
-
-        qty_minus.addEventListener("click", function (e) {
-            if (qty_value > 1) {
-                qty_value--;
-                qty_minus_value = qty_value
-                qty_number.innerText = qty_minus_value;
-            }
-        });
-
-
-
 
         // add button div
 
         add_to_cart = document.createElement("div");
         add_to_cart.setAttribute("class", "fa-solid fa-cart-plus");
         quantity_cart_div.append(add_to_cart);
+
+
+        qty_plus.addEventListener("click", function (e) {
+
+            qty_value++;
+            qty_plus_value = qty_value;
+            qty_number.innerText = qty_plus_value;
+
+            updatequantity();
+
+
+        });
+
+        qty_minus.addEventListener("click", () => {
+            if (qty_value > 1) {
+                qty_value--;
+                qty_minus_value = qty_value;
+                qty_number.innerText = qty_minus_value;
+
+                updatequantity();
+            }
+        });
+
+
+        // check the available quantity
+
+        function updatequantity() {
+
+            let elem = document.querySelectorAll(".fa-cart-plus");
+
+            let rs = amount.innerText.split(" ");
+            let after_rs = rs.splice(1, 1);
+
+            let selected_qunt = qty_number.innerText;
+
+            product_details.find(function (obj) {
+
+                if (obj.id == item.id) {
+
+                    let find_qty = obj.quantity;
+
+                    find_qty.find(function (qty_obj) {
+
+                        if (after_rs[0] == qty_obj.rs) {
+
+                            if (qty_obj.unit == "kg") {
+
+                                let check = selected_qunt * qty_obj.into_gram;
+
+                                if (Number(check) > Number(obj.avail_stock.into_gram)) {
+
+                                    elem[index].classList.add("disabled");
+
+                                    Notify.error("Required quantity not available");
+
+                                }
+
+                                else {
+
+                                    elem[index].classList.remove("disabled");
+
+                                }
+                            }
+                            else if (qty_obj.unit == "gm") {
+
+                                let check = selected_qunt * qty_obj.qty;
+
+                                if (Number(check) > Number(obj.avail_stock.into_gram)) {
+
+                                    elem[index].classList.add("disabled");
+
+                                    Notify.error("Required quantity not available");
+
+                                }
+
+                                else {
+
+                                    elem[index].classList.remove("disabled");
+                                }
+                            }
+
+                            else if((qty_obj.unit == "nos")||(qty_obj.unit == "pkt")){
+
+                                let check = selected_qunt * qty_obj.qty;
+
+                                if (Number(check) > Number(obj.avail_stock.num)) {
+
+                                    elem[index].classList.add("disabled");
+
+                                    Notify.error("Required quantity not available");
+
+                                }
+
+                                else {
+
+                                    elem[index].classList.remove("disabled");
+                                }
+
+                            }
+
+                        }
+                    });
+
+                }
+            });
+
+        }
+
+
+
+
 
         add_to_cart.addEventListener("click", function (e) {
 
@@ -320,7 +418,6 @@ function list_products(array = []) {
 
                             find_qty.find(function (qty_obj) {
 
-
                                 if (after_rs[0] == qty_obj.rs) {
 
                                     let cart_obj = {
@@ -329,7 +426,9 @@ function list_products(array = []) {
                                         "user_id": user_id,
                                         "product_details": { "image": obj.image, "name": obj.name, "farmer": obj.farmer, "selected_qty": qty_obj },
                                         "quantity": qty_number.innerText,
-                                        "cart_pro_category": obj.category
+                                        "cart_pro_category": obj.category,
+                                        "product_added_date": new Date().toLocaleDateString(),
+                                        "product_added_time": new Date().toLocaleTimeString()
                                     }
 
                                     cart_items.push(cart_obj);
@@ -479,7 +578,7 @@ function sortbyztoa() {
 }
 
 
-function sortbycostlowtohigh(){
+function sortbycostlowtohigh() {
 
     let switching;
 
@@ -521,7 +620,7 @@ function sortbycostlowtohigh(){
 
 }
 
-function sortbycosthightolow(){
+function sortbycosthightolow() {
 
     let switching;
 

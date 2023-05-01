@@ -784,6 +784,34 @@ function add_quantity_list() {
 
     let price_list_check = true;
 
+
+    let new_obj;
+
+
+    if(selectedValue == "kg"){
+
+        let into_gram = quantity_input_value*1000;
+
+        new_obj = {
+            "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
+            "unit": selectedValue,
+            "qty": quantity_input_value,
+            "rs": quantity_price_input_value,
+            "into_gram" : into_gram
+        }
+        
+    }
+
+    else {
+
+        new_obj = {
+            "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
+            "unit": selectedValue,
+            "qty": quantity_input_value,
+            "rs": quantity_price_input_value
+        }
+    }
+
     copy.quantity.find(function (obj) {
 
         if (quantity_input_value == obj.qty) {
@@ -796,12 +824,7 @@ function add_quantity_list() {
 
         if ((quantity_input_value !== "") && (quantity_price_input_value !== "")) {
 
-            copy.quantity.push({
-                "text": quantity_input_value + selectedValue + " - " + "₹" + quantity_price_input_value,
-                "unit": selectedValue,
-                "qty": quantity_input_value,
-                "rs": quantity_price_input_value
-            });
+            copy.quantity.push(new_obj);
 
             localStorage.setItem("copy", JSON.stringify(copy));
 
@@ -927,6 +950,29 @@ edit_form.addEventListener("submit", function (e) {
 
     const available_stock_input_unit = document.querySelector('input[name="aval_unit"]:checked').value;
 
+    if(available_stock_input_unit == "kg"){
+
+        let into_gram = available_stock_input_value*1000;
+        
+        new_obj = {
+
+            "avail_num" : available_stock_input_value,
+            "avail_unit" : available_stock_input_unit,
+            "into_gram" : into_gram
+        }
+
+    }
+
+    else {
+
+        new_obj = {
+
+            "avail_num" : available_stock_input_value,
+            "avail_unit" : available_stock_input_unit
+        }
+    }
+
+
     let one_product = {
 
         "id": copy.id,
@@ -961,10 +1007,7 @@ edit_form.addEventListener("submit", function (e) {
             "kcal": kcal_input_value
         },
 
-        "avail_stock": {
-            "num": available_stock_input_value,
-            "unit": available_stock_input_unit
-        },
+        "avail_stock": new_obj,
 
         "quantity": copy.quantity,
 
