@@ -29,6 +29,8 @@ let cart_append_div = document.querySelector(".body_table");
 
 let cart_items = JSON.parse(localStorage.getItem("cart_items"));
 
+let elem = document.querySelector(".checkout-btn");
+
 
 function check_cart(){
 
@@ -141,6 +143,7 @@ function cart_list(item,index){
         qty_number.innerText = qty_plus_value;
 
         updatequantity();
+
     });
 
     qty_minus.addEventListener("click", function (e) {
@@ -150,6 +153,7 @@ function cart_list(item,index){
             qty_number.innerText = qty_minus_value;
 
             updatequantity();
+
         }
     });
 
@@ -183,11 +187,10 @@ function cart_list(item,index){
       
     });
 
+   
     // check the available quantity
 
     function updatequantity() {
-
-        let elem = document.querySelector(".checkout-btn");
 
         let after_rs = item.product_details.selected_qty.rs;
 
@@ -209,7 +212,7 @@ function cart_list(item,index){
 
                             if (Number(check) > Number(obj.avail_stock.into_gram)) {
 
-                                elem.classList.add("disabled");
+                                item.ready_for_checkout  = false;
 
                                 Notify.error("Required quantity not available");
 
@@ -217,7 +220,8 @@ function cart_list(item,index){
 
                             else {
 
-                                elem.classList.remove("disabled");
+                                item.ready_for_checkout = true;
+
 
                             }
                         }
@@ -227,7 +231,7 @@ function cart_list(item,index){
 
                             if (Number(check) > Number(obj.avail_stock.into_gram)) {
 
-                                elem.classList.add("disabled");
+                                item.ready_for_checkout  = false;
 
                                 Notify.error("Required quantity not available");
 
@@ -235,7 +239,7 @@ function cart_list(item,index){
 
                             else {
 
-                                elem.classList.remove("disabled");
+                                item.ready_for_checkout = true;
                             }
                         }
 
@@ -245,7 +249,7 @@ function cart_list(item,index){
 
                             if (Number(check) > Number(obj.avail_stock.num)) {
 
-                                elem.classList.add("disabled");
+                                item.ready_for_checkout  = false;
 
                                 Notify.error("Required quantity not available");
 
@@ -253,7 +257,7 @@ function cart_list(item,index){
 
                             else {
 
-                                elem.classList.remove("disabled");
+                                item.ready_for_checkout = true;
                             }
 
                         }
@@ -262,11 +266,13 @@ function cart_list(item,index){
                 });
 
             }
+
+            localStorage.setItem("cart_items", JSON.stringify(cart_items));
         });
 
     }
 
-
+    check_ready();
 }
 
 
@@ -329,3 +335,57 @@ document.querySelector(".cart-total").innerHTML = `Total: ₹ ${total}`;
 check_cart();
 
 show_total();
+
+
+function check_ready(){
+
+    let count = 0;
+
+    let check_chekout = 0;
+
+    cart_items.filter(function(obj){
+
+        if(user_id == obj.user_id){
+
+            count++;
+            
+        }
+    });
+
+    cart_items.filter(function(obj){
+
+        if(user_id == obj.user_id){
+
+           if(obj.ready_for_checkout==true){
+
+            check_chekout++;
+           }
+            
+        }
+    });
+    
+
+    if(count == check_chekout){
+
+        elem.classList.remove("disabled");
+
+    }
+
+    else {
+
+        elem.classList.add("disabled");
+    }
+    
+}
+
+
+check_ready();
+
+
+
+
+
+
+
+
+

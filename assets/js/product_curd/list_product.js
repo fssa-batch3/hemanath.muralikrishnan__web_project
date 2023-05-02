@@ -429,7 +429,8 @@ function list_products(array = []) {
                                         "cart_pro_category": obj.category,
                                         "product_added_date": new Date().toLocaleDateString(),
                                         "product_added_time": new Date().toLocaleTimeString(),
-                                        "avail_stock": obj.avail_stock
+                                        "avail_stock": obj.avail_stock,
+                                        "ready_for_checkout" : true
                                     }
 
                                     cart_items.push(cart_obj);

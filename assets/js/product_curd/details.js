@@ -435,6 +435,7 @@ if (success) {
     favorite_i.addEventListener('click', function () {
 
         if (user_id != null) {
+            
             let fav_check = false;
             favourite_list.find(function (obj) {
 
@@ -468,7 +469,8 @@ if (success) {
                     "product_image": product_details[k].image,
                     "quantity": product_details[k]["quantity"],
                     "product_added_date": new Date().toLocaleDateString(),
-                    "product_added_time": new Date().toLocaleTimeString()
+                    "product_added_time": new Date().toLocaleTimeString(),
+
                 });
 
                 localStorage.setItem("wishlist", JSON.stringify(favourite_list));
@@ -630,7 +632,8 @@ if (success) {
                                     "cart_pro_category": obj.category,
                                     "product_added_date": new Date().toLocaleDateString(),
                                     "product_added_time": new Date().toLocaleTimeString(),
-                                    "avail_stock": obj.avail_stock
+                                    "avail_stock": obj.avail_stock,
+                                    "ready_for_checkout" : true
                                 }
 
                                 cart_items.push(cart_obj);
@@ -1001,7 +1004,8 @@ function real_products(product,index) {
                                     "cart_pro_category": obj.category,
                                     "product_added_date": new Date().toLocaleDateString(),
                                     "product_added_time": new Date().toLocaleTimeString(),
-                                    "avail_stock": obj.avail_stock
+                                    "avail_stock": obj.avail_stock,
+                                    "ready_for_checkout" : true
                                 }
 
                                 cart_items.push(cart_obj);
