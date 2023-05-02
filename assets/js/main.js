@@ -4031,9 +4031,12 @@ let created_products = [
 
 let get_products = JSON.parse(localStorage.getItem("product_list"));
 
-if(get_products === null){
 
-localStorage.setItem("product_list", JSON.stringify(created_products));
+if(get_products){
+
 
 }
+else {
 
+  localStorage.setItem("product_list", JSON.stringify(created_products));
+}

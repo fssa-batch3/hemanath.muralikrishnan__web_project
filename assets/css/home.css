@@ -2,7 +2,7 @@
 
 /* start of home page adv */
 
-.home-page-adv{
+.slider{
     position: relative;
     box-sizing: content-box;
     max-width: 1200px;
@@ -14,11 +14,11 @@
     
 }
 
-.home-page-adv .slider {
+.slider figure {
     overflow: hidden;
 }
 
-.home-page-adv .slider figure {
+.slider figure {
     position: relative;
     width: 500%;
     margin: 0;
@@ -26,7 +26,7 @@
     animation: webzone 10s infinite linear; 
 }
 
-.home-page-adv .slider figure img {
+ .slider figure img {
     width: 20%;
     float: left;
     height: 400px;
@@ -246,11 +246,11 @@
 
     /* start of adv */
 
-    .home-page-adv{
+   .slider{
         width: 90%;
     }
 
-    .home-page-adv .slider figure img {
+   .slider figure img {
         height: 200px;
     }
 
@@ -445,11 +445,11 @@
 
 /* start of adv */
 
-    .home-page-adv{
+.slider{
         width: 90%;
     }
 
-    .home-page-adv .slider figure img {
+    .slider figure img {
         height: 275px;
     }
 
@@ -644,7 +644,7 @@
 
 @media screen and (min-width: 901px) and (max-width: 1200px) {
     
-    .home-page-adv {
+    .slider {
         width: 90%;
     }
 
