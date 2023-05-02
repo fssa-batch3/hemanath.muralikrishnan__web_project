@@ -258,6 +258,6 @@ get_place_order_form.addEventListener("submit", function(e){
    console.log(get_payment_type);
 
 
-  
+   window.location.href="order_status.html";
 
 });
