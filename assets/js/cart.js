@@ -4,6 +4,9 @@ let user_records = JSON.parse(localStorage.getItem("users"));
 // user logged_in value
 let user_details = localStorage.getItem("logged_in");
 
+
+let product_details = JSON.parse(localStorage.getItem("product_list"));
+
 let user_id;
 
 if(user_records !== null){
@@ -75,7 +78,6 @@ function check_cart(){
 
 function cart_list(item,index){
 
-
     let cart_tr = document.createElement("tr");
     cart_append_div.appendChild(cart_tr);
 
@@ -137,6 +139,8 @@ function cart_list(item,index){
         qty_value++;
         qty_plus_value = qty_value;
         qty_number.innerText = qty_plus_value;
+
+        updatequantity();
     });
 
     qty_minus.addEventListener("click", function (e) {
@@ -144,6 +148,8 @@ function cart_list(item,index){
             qty_value--;
             qty_minus_value = qty_value
             qty_number.innerText = qty_minus_value;
+
+            updatequantity();
         }
     });
 
@@ -175,7 +181,91 @@ function cart_list(item,index){
         }
        })
       
-    })
+    });
+
+    // check the available quantity
+
+    function updatequantity() {
+
+        let elem = document.querySelector(".checkout-btn");
+
+        let after_rs = item.product_details.selected_qty.rs;
+
+        let selected_qunt = qty_number.innerText;
+
+        product_details.find(function (obj) {
+
+            if (obj.id == item.cart_product_id) {
+
+                let find_qty = obj.quantity;
+
+                find_qty.find(function (qty_obj) {
+
+                    if (after_rs == qty_obj.rs) {
+
+                        if (qty_obj.unit == "kg") {
+
+                            let check = selected_qunt * qty_obj.into_gram;
+
+                            if (Number(check) > Number(obj.avail_stock.into_gram)) {
+
+                                elem.classList.add("disabled");
+
+                                Notify.error("Required quantity not available");
+
+                            }
+
+                            else {
+
+                                elem.classList.remove("disabled");
+
+                            }
+                        }
+                        else if (qty_obj.unit == "gm") {
+
+                            let check = selected_qunt * qty_obj.qty;
+
+                            if (Number(check) > Number(obj.avail_stock.into_gram)) {
+
+                                elem.classList.add("disabled");
+
+                                Notify.error("Required quantity not available");
+
+                            }
+
+                            else {
+
+                                elem.classList.remove("disabled");
+                            }
+                        }
+
+                        else if((qty_obj.unit == "nos")||(qty_obj.unit == "pkt")){
+
+                            let check = selected_qunt * qty_obj.qty;
+
+                            if (Number(check) > Number(obj.avail_stock.num)) {
+
+                                elem.classList.add("disabled");
+
+                                Notify.error("Required quantity not available");
+
+                            }
+
+                            else {
+
+                                elem.classList.remove("disabled");
+                            }
+
+                        }
+
+                    }
+                });
+
+            }
+        });
+
+    }
+
 
 }
 

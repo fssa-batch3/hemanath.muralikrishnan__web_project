@@ -194,36 +194,6 @@ product_english_name.addEventListener("change", function(e){
 })
 
 
-
-const chat_gpt_api_key = "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";
-
-
-
-// for product description
-async function fetchData(product_name){
-
-    const response = await fetch("https://api.openai.com/v1/completions", {
-        method: "POST",
-        headers: {
-            Authorization: `Bearer ${chat_gpt_api_key}`,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            model: "text-davinci-003",
-            prompt: `Long health description about ${product_name}`,
-            max_tokens: 200
-        })
-    });
-
-    const data = await response.json();
-
-    let text = data.choices[0].text;
-
-    console.log(text);
-
-}
-
-
 // store the create product details
 create_form.addEventListener('submit', function (e) {
 

@@ -214,6 +214,11 @@ tbody tr td img {
     background-color: green;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 
 
 @media (max-width: 1000px) {
