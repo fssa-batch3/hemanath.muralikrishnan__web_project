@@ -21,56 +21,6 @@
 
 }
 
-.order-left-side .delivery-date-cont {
-    margin: 1em;
-}
-
-.delivery-date-cont .dates-cont {
-    width: 350px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 2em 1em 1em 1em;
-}
-
-
-
-.delivery-date-cont .dates-cont .today_date_div {
-    margin: 1em;
-}
-
-.delivery-date-cont .dates-cont .today_date_div label {
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.delivery-date-cont .dates-cont .today_date_div input {
-    margin: 1em;
-}
-
-.deliver-time-cont .delivery-cont{
-    width: 350px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 2em 1em 1em 1em;
-}
-
-.deliver-time-cont .delivery-cont .time-cont input{
-    margin: 1.5em 0;
-}
-
-.deliver-time-cont .delivery-cont .time-cont label{
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.address-section-order {
-    margin: 1em;
-}
-
 .delivery-date-cont >p{
     font-size: 1.8rem;
     font-weight: 500;
@@ -80,6 +30,92 @@
     font-size: 1.8rem;
     font-weight: 500;
 }
+
+.today-cont{
+    display: flex;
+    align-items: center;
+    width: 430px;
+    justify-content: space-between;
+    margin: 2em 0;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.tomorrow-cont{
+    display: flex;
+    align-items: center;
+    width: 430px;
+    justify-content: space-between;
+    margin: 2em 0;
+    background-color: white;
+    border-radius: 5px;
+    padding: .5em;
+}
+
+.today-cont p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1em 0;
+
+}
+
+.tomorrow-cont p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1em 0;
+
+}
+
+.today-cont .today-input label{
+
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    
+}
+
+
+.tomorrow-cont .tomorrow-input label{
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.today-cont .append_today_slots .today_div_for_slot{
+    margin: 1em 0;
+}
+
+.today-cont .append_today_slots .today_div_for_slot label{
+   cursor: pointer;
+   font-size: 1rem;
+   font-weight: 400;
+   margin-left: .5em;
+}
+
+.tomorrow-cont .append_tomorrow_slots .tomorrow_div_for_slot{
+    margin: 1em 0;
+}
+
+.tomorrow-cont .append_tomorrow_slots .tomorrow_div_for_slot label{
+   cursor: pointer;
+   font-size: 1rem;
+   font-weight: 400;
+   margin-left: .5em;
+}
+
+
+
+.address-section-order {
+    margin: 1em;
+}
+
+.toggle_div {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+
 
 .place_order_address_add{
     margin: 2em;

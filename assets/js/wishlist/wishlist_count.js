@@ -15,6 +15,8 @@ let user_details_se = localStorage.getItem("logged_in");
 
 let user_id_se;
 
+
+
 if(user_records_se !== null){
 user_records_se.find(function (obj) {
 
@@ -24,10 +26,10 @@ user_records_se.find(function (obj) {
 
         return user_id_se;
 
-
     }
 });
 }
+
 
 
 let user_pro_check_se = false;
@@ -74,8 +76,12 @@ if(wish_pro_count_se <=10){
 else {
     wishlist_element.innerText = "10+";
 
-    mobile_wishlist_elemetn.innerText = "10+"
+    mobile_wishlist_elemetn.innerText = "10+";
+
 }
+
+
+
 
 
 

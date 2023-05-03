@@ -13,6 +13,7 @@ let get_logged_in = localStorage.getItem("logged_in");;
 
 let current_user_id;
 
+
 if(get_user_records != null){
 
     get_user_records.find(function (obj){

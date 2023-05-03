@@ -20,6 +20,11 @@ let user_records = JSON.parse(localStorage.getItem("users"));
 // user logged_in value
 let user_details = localStorage.getItem("logged_in");
 
+// elements to show
+
+let wishlist_element = document.getElementById("wishlist-count");
+let mobile_wishlist_elemetn = document.getElementById("mobile-wishlist-count");
+
 let user_id;
 
 if(user_records !== null){
@@ -82,6 +87,20 @@ else {
 // my title count increasing
 
 wish_title.innerText = "My Wishlist(" + wish_pro_count + ")";
+
+if(wish_pro_count <=10){
+
+    wishlist_element.innerText = wish_pro_count;
+
+    mobile_wishlist_elemetn.innerText = wish_pro_count;
+}
+
+else {
+    wishlist_element.innerText = "10+";
+
+    mobile_wishlist_elemetn.innerText = "10+";
+
+}
 
 }   
 
@@ -146,3 +165,6 @@ function deletewishlist(index){
 }
 
 check_wishlist();
+
+
+
