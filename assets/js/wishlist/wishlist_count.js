@@ -1,11 +1,6 @@
 let wishlist_element = document.getElementById("wishlist-count");
 let mobile_wishlist_elemetn = document.getElementById("mobile-wishlist-count");
 
-let wishlist_list_count = JSON.parse(localStorage.getItem("wishlist"));
-
-// element to display the number of wishlist products available
-
-let wish_pro_count_se = 0;
 
 // user records json
 let user_records_se = JSON.parse(localStorage.getItem("users"));
@@ -13,75 +8,88 @@ let user_records_se = JSON.parse(localStorage.getItem("users"));
 // user logged_in value
 let user_details_se = localStorage.getItem("logged_in");
 
-let user_id_se;
 
 
 
-if(user_records_se !== null){
-user_records_se.find(function (obj) {
 
-    if (user_details_se === obj.emailid) {
+function wishlist_count_fun() {
 
-        user_id_se = obj.user_id;
+    let wishlist_list_count = JSON.parse(localStorage.getItem("wishlist"));
 
-        return user_id_se;
+    let wish_pro_count_se = 0;
+
+    let user_id_se;
+
+    if (user_records_se !== null) {
+        user_records_se.find(function (obj) {
+
+            if (user_details_se === obj.emailid) {
+
+                user_id_se = obj.user_id;
+
+                return user_id_se;
+
+            }
+        });
+    }
+
+    wishlist_element.innerText="";
+
+    mobile_wishlist_elemetn.innerText="";
+
+
+
+    let user_pro_check_se = false;
+
+    if (wishlist_list_count !== null) {
+
+        wishlist_list_count.find(function (obj) {
+
+            if (user_id_se === obj.user_id) {
+
+                user_pro_check_se = true;
+            }
+
+            return user_pro_check_se;
+        })
+
 
     }
-});
-}
 
 
+    if (user_pro_check_se) {
 
-let user_pro_check_se = false;
+        wishlist_list_count.filter(function (obj) {
 
-if(wishlist_list_count !== null){
+            if (user_id_se === obj.user_id) {
 
-    wishlist_list_count.find(function(obj){
+                return ++wish_pro_count_se;
+            }
 
-        if(user_id_se === obj.user_id){
-    
-            user_pro_check_se = true;
-        }
-    
-        return user_pro_check_se;
-    })
-    
+        });
 
-}
+    }
+
+    // my title count increasing
 
 
-if(user_pro_check_se){
+    if (wish_pro_count_se <= 10) {
 
-    wishlist_list_count.filter(function (obj) {
-    
-        if (user_id_se === obj.user_id) {
+        wishlist_element.innerText = wish_pro_count_se;
 
-            return ++wish_pro_count_se;
-        }
+        mobile_wishlist_elemetn.innerText = wish_pro_count_se;
+    }
 
-    });
+    else {
+        wishlist_element.innerText = "10+";
 
-}
+        mobile_wishlist_elemetn.innerText = "10+";
 
-// my title count increasing
+    }
 
-
-if(wish_pro_count_se <=10){
-
-    wishlist_element.innerText = wish_pro_count_se;
-
-    mobile_wishlist_elemetn.innerText = wish_pro_count_se;
-}
-
-else {
-    wishlist_element.innerText = "10+";
-
-    mobile_wishlist_elemetn.innerText = "10+";
 
 }
 
 
 
-
-
-
+wishlist_count_fun();

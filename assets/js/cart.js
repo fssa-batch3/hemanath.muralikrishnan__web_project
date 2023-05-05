@@ -290,6 +290,8 @@ function deletecartitem(index){
     check_cart();
 
     show_total();
+
+    cart_count_fun();
 }
 
 

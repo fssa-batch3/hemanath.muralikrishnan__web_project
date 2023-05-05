@@ -392,11 +392,15 @@ function list_products(item,index) {
                                 Notify.success("Item added to cart " + obj.name.eng + " " + qty_obj.qty + qty_obj.unit);
 
                                 localStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+                                
                             }
                         });
 
                     }
                 });
+
+                cart_count_fun();
             }
         }
         else {
@@ -735,6 +739,8 @@ function list_products_two(item,index) {
 
                     }
                 });
+
+                cart_count_fun();
             }
         }
         else {

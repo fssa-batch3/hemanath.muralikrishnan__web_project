@@ -15,35 +15,13 @@ const header = `
 </div>
 
 
+<div class="assistant">
 
-<div class="right-main nav-flex">
-
-<div class="option-one">
-    <a href="${root}/pages/profile.html" id="my-profile"><i class="fa-solid fa-user"></i>My Account</a>
-    </div>
-
-    <div class="option-one">
-
-        <a href="${root}/pages/wishlist.html"><i class="fa-regular fa-heart"></i>
-            Wishlist <span class="wishlist-notify" id="wishlist-count"></span></a>
-
-    </div>
-
-    <div class="option-two">
-
-        <a href="${root}/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i>
-            Cart <span class="cart-notify" id="cart-count"></span></a>
-
-    </div>
-
-    <div class="login">
-        <p id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>
-            Login</p>
-    </div>
-
-    
-
+    <i class="fa-solid fa-headset headphone"></i>
+    <a href="tel:+91 7867979731">+91 7867979731</a>
 </div>
+
+
 
 </nav>
 
@@ -89,11 +67,31 @@ const header = `
 
 </div>
 
-<div class="assistant">
 
-    <i class="fa-solid fa-headset headphone"></i>
-    <a href="tel:+91 7867979731">+91 7867979731</a>
-</div>
+<div class="option-one">
+    <a href="${root}/pages/profile.html" id="my-profile"><i class="fa-solid fa-user"></i>My Account</a>
+    </div>
+
+    <div class="option-one">
+
+        <a href="${root}/pages/wishlist.html"><i class="fa-regular fa-heart"></i>
+            Wishlist <span class="wishlist-notify" id="wishlist-count"></span></a>
+
+    </div>
+
+    <div class="option-two">
+
+        <a href="${root}/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i>
+            Cart <span class="cart-notify" id="cart-count"></span></a>
+
+    </div>
+
+    <div class="login">
+        <p id="login-btn"><i class="fa-solid fa-right-to-bracket"></i>
+            Login</p>
+    </div>
+
+
 
 </nav>
 
@@ -218,7 +216,7 @@ const header = `
           </div>
 
           <div class="input-wrapper">
-            <input type="text" id="last-name" class="form-control" placeholder="Enter your last name" required="true" pattern="^[A-Za-z]+$" title="Please enter valid last name without number, special character and white spaces" minlenght="3" maxlength="20">
+            <input type="text" id="last-name" class="form-control" placeholder="Enter your last name" required="true" pattern="^[A-Za-z]+$" title="Please enter valid last name without number, special character and white spaces" minlenght="1" maxlength="20">
             <label for="last-name" class="control-label">Lastname</label>
           </div>
 
@@ -738,14 +736,25 @@ search_bar.addEventListener("input", function(e){
 
     let search_value = search_bar.value.toLowerCase();
 
-    products_db.filter(function(obj){
+   let results_arr = products_db.filter(function(item){
 
-        let pro_name = obj["name"]["eng"];
+        let pro_name = item["name"]["eng"];
 
         let lc_pro_name = pro_name.toLowerCase();
 
-        if((lc_pro_name.includes(search_value))&&(obj.status)){
+        if((lc_pro_name.includes(search_value))&&(item.status)){
 
+          
+            return item;
+            
+        }
+    })
+
+
+    if(results_arr.length != 0){
+
+        results_arr.forEach(obj => {
+            
             let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
             
             let a_href = document.createElement("a");
@@ -753,10 +762,15 @@ search_bar.addEventListener("input", function(e){
             a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
 
             document.querySelector(".search_results_append").appendChild(a_href);
-        }
 
+        });
+    }
 
-    })
+    else {
+
+        document.querySelector(".search_results_append").innerHTML = `<p class="no-products-found">No products found</h1>`
+
+    }
 
    
 })
@@ -782,14 +796,26 @@ mobile_search.addEventListener("input", function(e){
 
     let search_value = mobile_search.value.toLowerCase();
 
-    products_db.filter(function(obj){
+   let result_arr =  products_db.filter(function(item){
 
-        let pro_name = obj["name"]["eng"];
+        let pro_name = item["name"]["eng"];
 
         let lc_pro_name = pro_name.toLowerCase();
 
-        if((lc_pro_name.includes(search_value))&&(obj.status)){
+        if((lc_pro_name.includes(search_value))&&(item.status)){
 
+          
+            return item;
+            
+        }
+
+
+    })
+
+    if(result_arr.length != 0){
+
+        result_arr.forEach(obj => {
+            
             let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
             
             let a_href = document.createElement("a");
@@ -797,10 +823,17 @@ mobile_search.addEventListener("input", function(e){
             a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
 
             document.querySelector(".mobile_search_result_append").appendChild(a_href);
-        }
 
+        });
+    }
 
-    })
+    else {
+
+        document.querySelector(".mobile_search_result_append").innerHTML = `<p class="no-products-found">No products found</h1>`
+
+    }
+
+    
 
    
 })

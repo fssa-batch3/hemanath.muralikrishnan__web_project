@@ -98,7 +98,7 @@
                 <div class="profile-links">
                     <a href="#profile-set">Profile Setting</a>
                     <a href="#manage-add">Manage Addresses</a>
-                    <a href="order/order_histroy.html">Order Histroy</a>
+                    <a href="order/order_histroy.html">Order History</a>
                 </div>
 
             </div>
@@ -116,10 +116,10 @@
                     
                     <div class="name-input flex_so">
                         <label for="first_name">Name</label>
-                        <input type="text" id="first_name" class="form-control" pattern="^[A-Za-z]+${1,16}" title="please enter valid firstname"
-                            placeholder="first name" disabled="true" required />
-                        <input type="text" id="last_name" class="form-control" pattern="^[A-Za-z]+${1,16}" title="please enter valid last_name"
-                            placeholder="last name" disabled="true" required />
+                        <input type="text" id="first_name" class="form-control" pattern="^[A-Za-z]+$" title="please enter valid firstname"
+                            placeholder="first name" disabled="true" required  minlength="3" maxlength="20"/>
+                        <input type="text" id="last_name" class="form-control" pattern="^[A-Za-z]+$" title="please enter valid last_name"
+                            placeholder="last name" disabled="true" required minlength="1" maxlength="20"/>
                     </div>
 
 

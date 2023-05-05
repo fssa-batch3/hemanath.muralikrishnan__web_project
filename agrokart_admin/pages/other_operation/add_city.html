@@ -30,62 +30,23 @@
 <body>
 
 
+    <div class="add_city_div">
 
-    <div class="add-city-form-cont">
+        <div class="add_city">
 
-        <form id="add-city-form" class="new-city-form">
+            <select id="add-city-dropdown">
 
-            <div class="inputs">
+                <option value="Select City">Select City</option>
+                <option value="chennai">Chennai</option>
 
-                <select id="select-city">
-                    <option value="no">Select District</option>
-                    <option value="chennai">Chennai</option>
-                </select>
+            </select>
 
-                <div class="input-wrapper">
 
-                    <label for="area-name">Area Name</label>
-                    <input type="text" id="area-name" placeholder="Please Enter area name" minlength="1" maxlength="30"
-                        pattern="[A-Za-z ]{1,30}" required>
+            <div class="add_city_btn">Add</div>
 
-                </div>
-
-                <div class="input-wrapper">
-                    <label for="pincode-input">Pincode</label>
-                    <input type="text" id="pincode-input" placeholder="Please Enter pincode" minlength="6" maxlength="6"
-                        pattern="[0-9]{6,6}" required>
-                </div>
-
-            </div>
-
-            <div class="add-city-btn">
-                <button type="submit">Add</button>
-            </div>
-
-        </form>
+        </div>
 
     </div>
-
-
-
-    <!-- table starts -->
-
-    <section class="table__body">
-        <table>
-            <thead>
-                <tr>
-                   <th>Product Image</th>
-                   <th>Product Detail</th>
-                   <th>Quantity</th>
-                   <th>Subtotal</th>
-                   <th>Remove</th>
-                </tr>
-            </thead>
-            <tbody class="body_table">
-
-            </tbody>
-        </table>
-    </section>
 
 
 

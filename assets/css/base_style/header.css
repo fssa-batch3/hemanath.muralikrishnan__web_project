@@ -258,19 +258,17 @@ nav {
     text-decoration-color: #429b44;
 }
 
-.nav-three .search .search_results_append .no_result_found {
+.nav-three .search .search_results_append .no-products-found {
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-.nav-three .assistant {
-    width: 190px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1em;
+
+.assistant{
+    margin-right: 1em;
 }
+
 
 .assistant>i {
     font-size: 2rem;
@@ -282,7 +280,7 @@ nav {
     color: green;
     font-weight: 600;
     cursor: pointer;
-}
+} 
 
 .mobile-nav {
     display: none;
@@ -389,6 +387,13 @@ nav {
     .side-menu-mobile .mobile-search .mobile_search_result_append a p:hover {
         text-decoration: underline;
         text-decoration-color: #429b44;
+    }
+
+    .side-menu-mobile .mobile-search .mobile_search_result_append .no-products-found {
+
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2rem;
     }
 
 

@@ -441,6 +441,7 @@ function list_products(array = []) {
                                 }
                             });
 
+                            cart_count_fun();
                         }
                     });
                 }

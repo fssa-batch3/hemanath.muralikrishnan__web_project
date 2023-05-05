@@ -478,6 +478,7 @@ if (success) {
                 Notify.success("Added to Wishlist");
 
 
+                wishlist_count_fun();
 
             }
 
@@ -644,6 +645,7 @@ if (success) {
                             }
                         });
 
+                        cart_count_fun();
                     }
                 });
             }
@@ -1016,6 +1018,7 @@ function real_products(product,index) {
                             }
                         });
 
+                        cart_count_fun();
                     }
                 });
             }

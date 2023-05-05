@@ -38,162 +38,19 @@ let tomorrow = new Date(now);
 tomorrow.setDate(now.getDate() + 1);
 
 
-let slots = [
-  { start: "08:00", end: "11:00", situ: "morning" },
-  { start: "12:00", end: "18:00", situ: "afternoon" }
-];
+let today_input = document.getElementById("today");
+let tomorrow_input = document.getElementById("tomorrow");
 
-// Convert delivery slot times to 24-hour format
-for (let i = 0; i < slots.length; i++) {
-  slots[i].start = convertTo24HourFormat(slots[i].start);
-  slots[i].end = convertTo24HourFormat(slots[i].end);
-}
-
-// Function to convert time to 24-hour format
-function convertTo24HourFormat(time) {
-  let hours = parseInt(time.split(":")[0]);
-  let minutes = parseInt(time.split(":")[1]);
-  let ampm = hours >= 12 ? "PM" : "AM";
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-  let formattedTime = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + " " + ampm;
-  return formattedTime;
-}
-
-// Check if it's still possible to order for today's delivery slots
-let todaySlotsAvailable = false;
-
-let lastSlotEndTime = new Date();
-
-let lastSlot = slots[slots.length - 1];
+let today_label = document.getElementById("today_label");
+let tomorrow_label = document.getElementById("tomorrow_label");
 
 
-lastSlotEndTime.setHours(lastSlot.end.split(":")[0], lastSlot.end.split(":")[1], 0);
-if (now < lastSlotEndTime) {
-  todaySlotsAvailable = true;
-}
-
-
-let get_today_label = document.getElementById("today_date");
-let get_today_input = document.getElementById("today_input");
-
-let get_tomorrow_label = document.getElementById("tomorrow_date");
-let get_tomorrow_input = document.getElementById("tomorrow_input");
-
-//   for today dates
-get_today_label.innerHTML = `${now.toLocaleDateString()}`;
-get_today_input.value = `${now.toLocaleDateString()}`;
+today_label.innerHTML = `${now.toLocaleDateString()}`;
+today_input.value = `${now.toLocaleDateString()}`;
 
 // tomorrow date
-get_tomorrow_label.innerHTML = `${tomorrow.toLocaleDateString()}`;
-get_tomorrow_input.value = `${tomorrow.toLocaleDateString()}`;
-
-// for today slots
-if (todaySlotsAvailable) {
-
-  alert("hi");
-
-  for (let i = 0; i < slots.length; i++) {
-
-    let div_for_slot = document.createElement("div");
-    div_for_slot.setAttribute("class", "today_div_for_slot");
-    document.querySelector(".append_today_slots").append(div_for_slot);
-
-    let today_slot_input = document.createElement("input");
-    today_slot_input.setAttribute("type", "radio");
-    today_slot_input.setAttribute("id", `today ${slots[i].situ}`);
-    today_slot_input.setAttribute("name", "select_today_slot");
-    today_slot_input.setAttribute("value", `${slots[i].start + " - " + slots[i].end}`);
-    div_for_slot.appendChild(today_slot_input);
-
-    let today_input_label = document.createElement("label");
-    today_input_label.setAttribute("for", `today ${slots[i].situ}`);
-    today_input_label.innerHTML = `${slots[i].start + " - " + slots[i].end}`
-    div_for_slot.appendChild(today_input_label);
-  }
-}
-
-else {
-  document.querySelector(".today-cont").style.display = "none";
-}
-
-
-//   for tomorrow slots
-
-for (let i = 0; i < slots.length; i++) {
-
-  let div_for_slot = document.createElement("div");
-  div_for_slot.setAttribute("class", "tomorrow_div_for_slot")
-  document.querySelector(".append_tomorrow_slots").append(div_for_slot);
-
-  let tomorrow_slot_input = document.createElement("input");
-  tomorrow_slot_input.setAttribute("type", "radio");
-  tomorrow_slot_input.setAttribute("id", `tomorrow  ${slots[i].situ}`);
-  tomorrow_slot_input.setAttribute("name", "select_tomorrow_slot");
-  tomorrow_slot_input.setAttribute("value", `${slots[i].start + " - " + slots[i].end}`);
-  div_for_slot.appendChild(tomorrow_slot_input);
-
-  let tomorrow_input_label = document.createElement("label");
-  tomorrow_input_label.setAttribute("for", `tomorrow  ${slots[i].situ}`);
-  tomorrow_input_label.innerHTML = `${slots[i].start + " - " + slots[i].end}`
-  div_for_slot.appendChild(tomorrow_input_label);
-}
-
-
-
-
-//   logic for the selected input 
-get_today_input.addEventListener("click", function (e) {
-
-  document.querySelector(".append_today_slots").classList.remove("toggle_div");
-
-  document.querySelector(".append_tomorrow_slots").classList.add("toggle_div");
-
-  let remove_get_inputs = document.querySelectorAll('input[type="radio"][name="select_tomorrow_slot"]');
-
-  remove_get_inputs.forEach(item => {
-
-    item.removeAttribute("required");
-
-    console.log(item);
-
-
-  })
-
-  let get_inputs = document.querySelectorAll('input[type="radio"][name="select_today_slot"]');
-
-  get_inputs.forEach(item => {
-
-    item.setAttribute("required", true);
-
-
-  });
-
-});
-
-get_tomorrow_input.addEventListener("click", function (e) {
-
-  document.querySelector(".append_tomorrow_slots").classList.remove("toggle_div");
-
-  document.querySelector(".append_today_slots").classList.add("toggle_div");
-
-  let remove_get_inputs = document.querySelectorAll('input[type="radio"][name="select_today_slot"]');
-
-  remove_get_inputs.forEach(item => {
-
-    item.removeAttribute("required");
-
-  });
-
-  let get_inputs = document.querySelectorAll('input[type="radio"][name="select_tomorrow_slot"]');
-
-  get_inputs.forEach(item => {
-
-    item.setAttribute("required", true);
-
-  });
-});
-
+tomorrow_label.innerHTML = `${tomorrow.toLocaleDateString()}`;
+tomorrow_input.value = `${tomorrow.toLocaleDateString()}`;
 
 
 //creating the input the lable regarding available address
@@ -404,6 +261,3 @@ get_place_order_form.addEventListener("submit", function (e) {
 
 });
 
-document.querySelector(".append_today_slots").classList.add("toggle_div");
-
-document.querySelector(".append_tomorrow_slots").classList.add("toggle_div");

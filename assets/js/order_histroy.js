@@ -104,8 +104,6 @@ order_histroy.filter(function (obj) {
             }
         });
 
-
-
     }
 })
 
