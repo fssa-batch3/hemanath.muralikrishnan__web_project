@@ -7,62 +7,21 @@ let wishlist_output = "";
 
 // from localstorage get the favourite list
 
-let wishlist_list = JSON.parse(localStorage.getItem("wishlist"));
+let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 
 
 // element to display the number of wishlist products available
 
 const wish_title = document.getElementById("wish-title");
 
-// user records json
-let user_records = JSON.parse(localStorage.getItem("users"));
-
-// user logged_in value
-let user_details = localStorage.getItem("logged_in");
-
-// elements to show
-
-let user_id;
-
-if(user_records !== null){
-
-user_records.find(function (obj) {
-
-    if (user_details === obj.emailid) {
-
-        user_id = obj.user_id;
-
-        return user_id;
-
-
-    }
-});
-}
-
 function check_wishlist(){
-
 
 let wish_pro_count = 0;
 
-let user_pro_check = false;
 
-if(wishlist_list !== null){
+if(wishlist!=null){
 
-wishlist_list.find(function(obj){
-
-    if(user_id === obj.user_id){
-
-        user_pro_check = true;
-    }
-
-    return user_pro_check;
-})
-
-}
-
-if(user_pro_check){
-
-    wishlist_list.filter(function (obj,index) {
+    wishlist.filter(function (obj,index) {
     
         if (user_id === obj.user_id) {
 
@@ -136,9 +95,9 @@ function wish_list(item,index) {
 
 function deletewishlist(index){
 
-    wishlist_list.splice(index, 1);
+    wishlist.splice(index, 1);
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlist_list));
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
     Notify.success("Product Removed");
 

@@ -1,12 +1,6 @@
-let get_user_records = JSON.parse(localStorage.getItem("users"));
-
-let get_logged_in = localStorage.getItem("logged_in");
-
 let cart_number = document.getElementById("cart-count");
 
 let mobile_cart_number = document.getElementById("mobile-cart-count")
-
-
 
 function cart_count_fun() {
 
@@ -16,47 +10,16 @@ function cart_count_fun() {
 
     let current_user_id;
 
-    if (get_user_records != null) {
-
-        get_user_records.find(function (obj) {
-
-            if (get_logged_in === obj.emailid) {
-
-                current_user_id = obj.user_id;
-
-                return current_user_id;
-            }
-
-        })
-    }
     cart_number.innerText = "";
 
     mobile_cart_number.innerText = "";
     
 
-    let check_for_current_user_cart_item = false;
-
     if (cart_items_user != null) {
-
-        cart_items_user.find(function (obj) {
-
-            if (current_user_id == obj.user_id) {
-
-                check_for_current_user_cart_item = true;
-
-
-            }
-
-            return check_for_current_user_cart_item;
-        })
-    }
-
-
-    if (check_for_current_user_cart_item) {
 
         cart_items_user.filter(function (obj) {
 
-            if (current_user_id == obj.user_id) {
+            if (user_id == obj.user_id) {
 
                 return ++cart_count;
             }

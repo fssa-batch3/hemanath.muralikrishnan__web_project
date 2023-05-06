@@ -2,6 +2,24 @@ const root = window.location.origin;
 
 const logged_email = localStorage.getItem("logged_in");
 
+let user_records = JSON.parse(localStorage.getItem("users")) ?? [];
+
+let user_id;
+
+if(user_records !== null){
+
+user_records.find(function (obj) {
+
+    if (logged_email === obj.emailid) {
+
+        user_id = obj.user_id;
+
+        return user_id;
+
+
+    }
+});
+}
 
 const header = `
 
@@ -70,7 +88,7 @@ const header = `
 
 <div class="option-one">
     <a href="${root}/pages/profile.html" id="my-profile"><i class="fa-solid fa-user"></i>My Account</a>
-    </div>
+</div>
 
     <div class="option-one">
 
@@ -377,8 +395,6 @@ const footer = `<footer>
 
 </footer>`;
 
-
-
 // to append the above elements 
 
 if (logged_email !== null) {
@@ -452,9 +468,6 @@ document.querySelector(".login-close").addEventListener("click", function (e) {
 
     document.querySelector(".one-form").style.display = "none";
 
-
-
-
 });
 
 // to close the register form
@@ -471,7 +484,6 @@ document.querySelector(".register-close").addEventListener("click", function (e)
 // mobile nav
 
 document.querySelector(".side-menu-mobile").style.display = "none";
-
 
 document.querySelector(".mobile-open").addEventListener("click", function (e) {
 
@@ -498,8 +510,6 @@ document.getElementById("mobile-login-btn").addEventListener("click", function (
 
 // functions for login
 
-
-
 const form = document.getElementById('loginform');
 
 // variable to check the account is available or not
@@ -518,8 +528,6 @@ function showPwd(id, el) {
         el.className = 'fa fa-eye showpwd';
     }
 }
-
-
 
 // function to validate inputs
 
@@ -566,7 +574,6 @@ function login_validateInputs() {
 
             document.querySelector(".two-form").style.display = "block";
 
-
         
 }
 
@@ -589,10 +596,6 @@ function find_user(email_id, password) {
 
     });
 
-
-
-
-
 }
 
 
@@ -607,7 +610,7 @@ form.addEventListener('submit', e => {
 
 // functions for register form
 
-let user_data_two = JSON.parse(localStorage.getItem("users")) ?? [];
+
 
 const reg_form = document.getElementById('form');
 
@@ -635,7 +638,7 @@ function validateInputs() {
         if (password === conf_password) {
 
             let user = {
-                "user_id": user_data_two.length + Math.random().toString(16).slice(2),
+                "user_id":  Math.random().toString(16).slice(2),
                 "firstname": first_name,
                 "lastname": last_name,
                 "emailid": email_id,
@@ -646,9 +649,9 @@ function validateInputs() {
                 "address": []
             }
 
-            user_data_two.push(user);
+            user_records.push(user);
 
-            localStorage.setItem("users", JSON.stringify(user_data_two));
+            localStorage.setItem("users", JSON.stringify(user_records));
 
             Notify.success("Account Created Successfully!");
 
@@ -686,9 +689,9 @@ function validateInputs() {
 
 function check_already_user(email_id, mobilenumber) {
 
-    if (user_data_two !== null) {
+    if (user_records !== null) {
 
-        user_data_two.find(userobj => {
+        user_records.find(userobj => {
 
             if ((email_id === userobj["emailid"]) && (mobilenumber === userobj["mobilenumber"])) {
 
@@ -713,7 +716,7 @@ reg_form.addEventListener('submit', e => {
 });
 
 
-// search bar logic
+//desktop search bar event listner
 
 document.querySelector(".search_results_append").style.display = "none";
 
@@ -736,46 +739,61 @@ search_bar.addEventListener("input", function(e){
 
     let search_value = search_bar.value.toLowerCase();
 
-   let results_arr = products_db.filter(function(item){
 
-        let pro_name = item["name"]["eng"];
-
-        let lc_pro_name = pro_name.toLowerCase();
-
-        if((lc_pro_name.includes(search_value))&&(item.status)){
-
-          
-            return item;
-            
-        }
-    })
-
-
-    if(results_arr.length != 0){
-
-        results_arr.forEach(obj => {
-            
-            let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
-            
-            let a_href = document.createElement("a");
-            a_href.setAttribute("href", href);
-            a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
-
-            document.querySelector(".search_results_append").appendChild(a_href);
-
-        });
-    }
-
-    else {
-
-        document.querySelector(".search_results_append").innerHTML = `<p class="no-products-found">No products found</h1>`
-
-    }
-
-   
+    desktop_searh(search_value);
+      
 })
 
-// mobile search bar
+// desktop search find products
+function desktop_searh(search_value){
+
+// desktop search bar function 
+let results_arr = products_db.filter(function(item){
+
+    let pro_name = item["name"]["eng"];
+
+    let lc_pro_name = pro_name.toLowerCase();
+
+    if((lc_pro_name.includes(search_value))&&(item.status)){
+
+      
+        return item;
+        
+    }
+})
+
+desktop_append_search(results_arr);
+
+}
+
+// desktop append the find products
+function desktop_append_search(results_arr = []){
+
+if(results_arr.length != 0){
+
+    results_arr.forEach(obj => {
+        
+        let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
+        
+        let a_href = document.createElement("a");
+        a_href.setAttribute("href", href);
+        a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
+
+        document.querySelector(".search_results_append").appendChild(a_href);
+
+    });
+}
+
+else {
+
+    document.querySelector(".search_results_append").innerHTML = `<p class="no-products-found">No products found</h1>`
+
+}
+
+
+}
+
+// mobile search bar event listner
 
 document.querySelector(".mobile_search_result_append").style.display="none";
 
@@ -796,47 +814,51 @@ mobile_search.addEventListener("input", function(e){
 
     let search_value = mobile_search.value.toLowerCase();
 
-   let result_arr =  products_db.filter(function(item){
+    mobile_search_fun(search_value);
 
-        let pro_name = item["name"]["eng"];
-
-        let lc_pro_name = pro_name.toLowerCase();
-
-        if((lc_pro_name.includes(search_value))&&(item.status)){
-
-          
-            return item;
-            
-        }
-
-
-    })
-
-    if(result_arr.length != 0){
-
-        result_arr.forEach(obj => {
-            
-            let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
-            
-            let a_href = document.createElement("a");
-            a_href.setAttribute("href", href);
-            a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
-
-            document.querySelector(".mobile_search_result_append").appendChild(a_href);
-
-        });
-    }
-
-    else {
-
-        document.querySelector(".mobile_search_result_append").innerHTML = `<p class="no-products-found">No products found</h1>`
-
-    }
-
-    
-
-   
 })
 
 
+// mobile search bar
 
+function mobile_search_fun(search_value){
+let result_arr =  products_db.filter(function(item){
+
+    let pro_name = item["name"]["eng"];
+
+    let lc_pro_name = pro_name.toLowerCase();
+
+    if((lc_pro_name.includes(search_value))&&(item.status)){
+
+        return item;  
+    }
+})
+
+mobile_search_append(result_arr);
+
+}
+
+
+function mobile_search_append(result_arr = []){
+
+if(result_arr.length != 0){
+
+    result_arr.forEach(obj => {
+        
+        let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
+        
+        let a_href = document.createElement("a");
+        a_href.setAttribute("href", href);
+        a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
+
+        document.querySelector(".mobile_search_result_append").appendChild(a_href);
+
+    });
+}
+
+else {
+
+    document.querySelector(".mobile_search_result_append").innerHTML = `<p class="no-products-found">No products found</h1>`
+
+}
+}

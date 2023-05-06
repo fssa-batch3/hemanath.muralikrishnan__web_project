@@ -104,23 +104,6 @@
 
 /* start of best  sells*/
 
-.best-sells {
-    margin-top: 2em;
-}
-
-.daily-best {
-    margin-left: 1em;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.best-sells-container {
-    display: flex;
-    overflow-x: scroll;
-    margin-top: 2em;
-    /* flex-wrap: wrap;
-    justify-content: flex-end; */
-}
 
 /* end of best sells */
 
@@ -367,9 +350,6 @@
 
     /* start of daily best products */
 
-    .daily-best {
-        font-size: 1.1rem;
-    }
 
     /* end of daily best products */
 
@@ -566,9 +546,6 @@
 
      /* start of daily best products */
 
-    .daily-best {
-        font-size: 1.3rem;
-    }
 
     /* end of daily best products */
 

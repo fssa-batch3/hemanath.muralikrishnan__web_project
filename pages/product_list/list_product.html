@@ -32,15 +32,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- fontawesome stylesheet -->
 
-      <!-- login and register css -->
+    <!-- login and register css -->
 
-      <link rel="stylesheet" href="../../assets/css/authentication/login.css">
+    <link rel="stylesheet" href="../../assets/css/authentication/login.css">
 
-      <link rel="stylesheet" href="../../assets/css/authentication/register.css">
-  
-      <!-- notify css -->
-  
-      <link rel="stylesheet" href="../../assets/css/notify.css">
+    <link rel="stylesheet" href="../../assets/css/authentication/register.css">
+
+    <!-- notify css -->
+
+    <link rel="stylesheet" href="../../assets/css/notify.css">
 
     <link rel="icon" type="image/png" sizes="60x32" href="../../assets/images/tabicon/icon.png">
     <title>AgroKart - Ecommerce</title>
@@ -49,7 +49,7 @@
 <body>
 
 
-     <!-- mobile device nav bar start -->
+    <!-- mobile device nav bar start -->
 
     <!-- mobile device nav bar end  -->
 
@@ -78,137 +78,148 @@
 
     <!-- start of mobile categories -->
 
-<div class="mobile-categories-main">
+    <div class="mobile-categories-main">
 
-    <div id="list1" class="dropdown-check-list" tabindex="100">
+        <div id="list1" class="dropdown-check-list" tabindex="100">
 
-        <span class="anchor" id="mobile_filter">Filter by category ▾</span>
+            <span class="anchor" id="mobile_filter">Filter by category ▾</span>
 
-        <ul class="items">
-          <li><input type="checkbox" id="mobile_exotic_fruit" name="filter_cat" value="01"/><label for="mobile_exotic_fruit">Exotic Fruits</label></li>
-          <li><input type="checkbox" id="mobile_exotic_veggies" name="filter_cat" value="02"/><label for="mobile_exotic_veggies">Exotic Veggies</label></li>
-          <li><input type="checkbox" id="mobile_fresh_veggies" name="filter_cat" value="03"/><label for="mobile_fresh_veggies">Fresh Veggies</label></li>
-          <li><input type="checkbox" id="mobile_fresh_fruits" name="filter_cat" value="04"/><label for="mobile_fresh_fruits">Fresh Fruits</label></li>
-          <li><input type="checkbox" id="mobile_leafy_green" name="filter_cat" value="05"/><label for="mobile_leafy_green">Leafy Green</label></li>
-          <li><input type="checkbox" id="mobile_tubers" name="filter_cat" value="06"/><label for="mobile_tubers">Tubers</label></li>
-        </ul>
-      </div>
+            <ul class="items">
+                <li><input type="checkbox" id="mobile_exotic_fruit" name="filter_cat" value="01" /><label
+                        for="mobile_exotic_fruit">Exotic Fruits</label></li>
+                <li><input type="checkbox" id="mobile_exotic_veggies" name="filter_cat" value="02" /><label
+                        for="mobile_exotic_veggies">Exotic Veggies</label></li>
+                <li><input type="checkbox" id="mobile_fresh_veggies" name="filter_cat" value="03" /><label
+                        for="mobile_fresh_veggies">Fresh Veggies</label></li>
+                <li><input type="checkbox" id="mobile_fresh_fruits" name="filter_cat" value="04" /><label
+                        for="mobile_fresh_fruits">Fresh Fruits</label></li>
+                <li><input type="checkbox" id="mobile_leafy_green" name="filter_cat" value="05" /><label
+                        for="mobile_leafy_green">Leafy Green</label></li>
+                <li><input type="checkbox" id="mobile_tubers" name="filter_cat" value="06" /><label
+                        for="mobile_tubers">Tubers</label></li>
+            </ul>
+        </div>
 
-      <div id="list1" class="dropdown-check-list" tabindex="100">
+        <div id="list1" class="dropdown-check-list" tabindex="100">
 
-        <span class="anchor" id="mobile_sort_by">Sort by options ▾</span>
+            <span class="anchor" id="mobile_sort_by">Sort by options ▾</span>
 
-        <ul class="sort-items">
-          <li><input type="radio" id="mobile_name_a_to_z" name="sort_by_in_cat" onclick="sortbyatoz()"/><label for="mobile_name_a_to_z">Name A to Z</label></li>
-          <li><input type="radio" id="mobile_name_z_to_a" name="sort_by_in_cat" onclick="sortbyztoa()"/><label for="mobile_name_z_to_a">Name Z to A</label></li>
-          <li><input type="radio" id="mobile_cost_high_to_low" name="sort_by_in_cat" onclick="sortbycosthightolow()"/><label for="mobile_cost_high_to_low">Cost High to Low</label></li>
-          <li><input type="radio" id="mobile_low_to_high" name="sort_by_in_cat" onclick="sortbycostlowtohigh()"/><label for="mobile_low_to_high">Cost Low to High</label></li>
-        </ul>
-      </div>
-    
-    
-    
+            <ul class="sort-items">
+                <li><input type="radio" id="mobile_name_a_to_z" name="sort_by_in_cat" onclick="sortbyatoz()" /><label
+                        for="mobile_name_a_to_z">Name A to Z</label></li>
+                <li><input type="radio" id="mobile_name_z_to_a" name="sort_by_in_cat" onclick="sortbyztoa()" /><label
+                        for="mobile_name_z_to_a">Name Z to A</label></li>
+                <li><input type="radio" id="mobile_cost_high_to_low" name="sort_by_in_cat"
+                        onclick="sortbycosthightolow()" /><label for="mobile_cost_high_to_low">Cost High to Low</label>
+                </li>
+                <li><input type="radio" id="mobile_low_to_high" name="sort_by_in_cat"
+                        onclick="sortbycostlowtohigh()" /><label for="mobile_low_to_high">Cost Low to High</label></li>
+            </ul>
+        </div>
+
+
+
     </div>
-    
+
     <!-- end of mobile categories -->
 
     <div class="main-container-aside-product">
 
-    <div class="left-side-aside">
+        <div class="left-side-aside">
 
-        <!-- start of aside -->
+            <!-- start of aside -->
 
-        <aside class="aside-list">
+            <aside class="aside-list">
 
-            <!-- start of categories list -->
-            <div class="aside-categories-list">
+                <!-- start of categories list -->
+                <div class="aside-categories-list">
 
-                <!-- start of categories main -->
-                <div class="categories-main">
+                    <!-- start of categories main -->
+                    <div class="categories-main">
 
-                    <p class="categories-main-title">Filter by categories <i class="fa-solid fa-border-all"></i></p>
+                        <p class="categories-main-title">Filter by categories <i class="fa-solid fa-border-all"></i></p>
 
-                    <ul>
+                        <ul>
 
-                        <li>
-                            <input type="checkbox" id="exocit-fruits" name="filter_cat" value="01">
-                            <img src="../../assets/images/categories/exotic_fruits.png" alt="exotic_fruits">
-                            <label for="exocit-fruits">Exotic Fruits</label>
-                        </li></a>
+                            <li>
+                                <input type="checkbox" id="exocit-fruits" name="filter_cat" value="01">
+                                <img src="../../assets/images/categories/exotic_fruits.png" alt="exotic_fruits">
+                                <label for="exocit-fruits">Exotic Fruits</label>
+                            </li></a>
 
-                        <li>
-                            <input type="checkbox" id="exocit-veggies" name="filter_cat" value="02">
-                            <img src="../../assets/images/categories/exotic_veggies.png" alt="exotic_veggies">
-                            <label for="exocit-veggies">Exotic Veggies</label>
-                        </li>
+                            <li>
+                                <input type="checkbox" id="exocit-veggies" name="filter_cat" value="02">
+                                <img src="../../assets/images/categories/exotic_veggies.png" alt="exotic_veggies">
+                                <label for="exocit-veggies">Exotic Veggies</label>
+                            </li>
 
-                        <li>
-                            <input type="checkbox" id="fresh-veggies" name="filter_cat" value="03">
-                            <img src="../../assets/images/categories/fresh_veggies.png" alt="fresh_veggies">
-                            <label for="fresh-veggies">Fresh Veggies</label>
-                        </li>
+                            <li>
+                                <input type="checkbox" id="fresh-veggies" name="filter_cat" value="03">
+                                <img src="../../assets/images/categories/fresh_veggies.png" alt="fresh_veggies">
+                                <label for="fresh-veggies">Fresh Veggies</label>
+                            </li>
 
-                        <li>
-                            <input type="checkbox" id="fresh-fruits" name="filter_cat" value="04">
-                            <img src="../../assets/images/categories/fresh_fruits.png" alt="fresh_fruits">
-                            <label for="fresh-fruits">Fresh Fruits</label>
-                        </li>
-
-                       
-
-                        <li>
-                            <input type="checkbox" id="leafy-green" name="filter_cat" value="05">
-                            <img src="../../assets/images/categories/leafy_green.png" alt="leafy_green">
-                            <label for="leafy-green">Leafy Green</label>
-                        </li>
-
-
-                        <li>
-                            <input type="checkbox" id="tubers" name="filter_cat" value="06">
-                            <img src="../../assets/images/categories/tubers.png" alt="tubers">
-                            <label for="tubers">Tubers</label>
-                        </li>
+                            <li>
+                                <input type="checkbox" id="fresh-fruits" name="filter_cat" value="04">
+                                <img src="../../assets/images/categories/fresh_fruits.png" alt="fresh_fruits">
+                                <label for="fresh-fruits">Fresh Fruits</label>
+                            </li>
 
 
 
-                    </ul>
+                            <li>
+                                <input type="checkbox" id="leafy-green" name="filter_cat" value="05">
+                                <img src="../../assets/images/categories/leafy_green.png" alt="leafy_green">
+                                <label for="leafy-green">Leafy Green</label>
+                            </li>
 
-                    <!-- start of sortby -->
-                    <div class="aside-sortby-list">
 
-                        <div class="sortby-main">
-                            <p class="sortby-main-title">Sort By <i class="fa-solid fa-sort"></i></p>
+                            <li>
+                                <input type="checkbox" id="tubers" name="filter_cat" value="06">
+                                <img src="../../assets/images/categories/tubers.png" alt="tubers">
+                                <label for="tubers">Tubers</label>
+                            </li>
 
-                            <ul>
 
-                                <li>
-                                    <input type="radio" id="name_a_to_z" name="sort_by_in_cat" onclick="sortbyatoz()">
-                                    <label for="name_a_to_z">Name A to Z</label>
-                                </li>
 
-                                <li>
-                                    <input type="radio" id="name_z_to_a" name="sort_by_in_cat" onclick="sortbyztoa()">
-                                    <label for="name_z_to_a">Name Z to A</label>
-                                </li>
+                        </ul>
 
-                                <li>
-                                    <input type="radio" id="cost_high_to_low" name="sort_by_in_cat" onclick="sortbycosthightolow()">
-                                    <label for="cost_high_to_low">Cost High to Low</label>
-                                </li>
+                        <!-- start of sortby -->
+                        <div class="aside-sortby-list">
 
-                                <li>
-                                    <input type="radio" id="cost_low_to_high" name="sort_by_in_cat" onclick="sortbycostlowtohigh()">
-                                    <label for="cost_low_to_high">Cost Low to High</label>
-                                </li>
+                            <div class="sortby-main">
+                                <p class="sortby-main-title">Sort By <i class="fa-solid fa-sort"></i></p>
 
-                            </ul>
+                                <ul>
+
+                                    <li>
+                                        <input type="radio" id="name_a_to_z" name="sort_by_in_cat">
+                                        <label for="name_a_to_z">Name A to Z</label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="name_z_to_a" name="sort_by_in_cat">
+                                        <label for="name_z_to_a">Name Z to A</label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="cost_high_to_low" name="sort_by_in_cat">
+                                        <label for="cost_high_to_low">Cost High to Low</label>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="cost_low_to_high" name="sort_by_in_cat">
+                                        <label for="cost_low_to_high">Cost Low to High</label>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <!-- end of sortby -->
+                        <!-- end of sortby -->
 
-                    <!-- start of filter by -->
+                        <!-- start of filter by -->
 
-                    <!-- <div class="aside-filterby-list">
+                        <!-- <div class="aside-filterby-list">
 
                         <div class="filterby-main">
                             <p class="filterby-main-title">Filter By <i class="fa-solid fa-filter"></i></p>
@@ -240,26 +251,26 @@
                         </div>
                     </div> -->
 
-                    <!-- end of filter by -->
+                        <!-- end of filter by -->
 
+                    </div>
+                    <!-- end of categories main -->
                 </div>
-                <!-- end of categories main -->
-            </div>
-            <!-- end of categories list -->
+                <!-- end of categories list -->
 
-        </aside>
+            </aside>
 
-    </div>
+        </div>
 
         <!-- end of aside -->
 
         <!-- start of products container -->
 
-        <div class="products-list-container">
+        <div class="products-list-container append_the_products">
 
-           
 
-          
+
+
 
 
 
@@ -270,32 +281,36 @@
         <!-- end of products container -->
 
     </div>
-    
+
 
     <!-- footer start -->
 
 
     <!-- footer ends -->
 
+    <!-- logged check js -->
+
+    <script src="../../assets/js/is_logged.js"></script>
+
     <!-- script -->
 
-    <script src="../../assets/js/product_curd/list_product.js"></script>
+    <script type="module" src="../../assets/js/product_curd/list_product.js" ></script>
 
-     <!-- logged check js -->
+    <!-- cards appending -->
 
-     <script src="../../assets/js/is_logged.js"></script>
 
-     <!-- wishlist count -->
+    <!-- wishlist count -->
 
     <script src="../../assets/js/wishlist/wishlist_count.js"></script>
 
+
+    <!-- cart count -->
+
+    <script src="../../assets/js/cart_count.js"></script>
+
     <!-- notify js -->
 
- <script src="../../assets/js/notify.js"></script>
-
-  <!-- cart count -->
-
-  <script src="../../assets/js/cart_count.js"></script>
+    <script src="../../assets/js/notify.js"></script>
 
 </body>
 

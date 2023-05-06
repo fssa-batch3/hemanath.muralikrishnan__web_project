@@ -64,6 +64,7 @@ nav {
     color: black;
     font-weight: 500;
     cursor: pointer;
+    margin-right: 1em;
 }
 
 .option-one a:hover,
