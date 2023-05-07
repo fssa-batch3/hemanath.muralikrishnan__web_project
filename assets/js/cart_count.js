@@ -8,12 +8,10 @@ function cart_count_fun() {
 
     let cart_count = 0;
 
-    let current_user_id;
-
     cart_number.innerText = "";
 
     mobile_cart_number.innerText = "";
-    
+
 
     if (cart_items_user != null) {
 
@@ -27,18 +25,10 @@ function cart_count_fun() {
     }
 
 
-    if (cart_count <= 10) {
+    cart_number.innerText = cart_count;
 
-        cart_number.innerText = cart_count;
+    mobile_cart_number.innerText = cart_count;
 
-        mobile_cart_number.innerText = cart_count;
-    }
-
-    else {
-        cart_number.innerText = "10+";
-
-        mobile_cart_number.innerText = "10+";
-    }
 
 }
 

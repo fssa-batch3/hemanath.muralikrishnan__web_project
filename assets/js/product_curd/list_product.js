@@ -1,5 +1,3 @@
-import {list_products} from './appen_card.js'
-
 let mobile_filter = document.getElementById("mobile_filter");
 let show_mobile_filter = document.querySelector(".items");
 

@@ -9,44 +9,65 @@ let wishlist_output = "";
 
 let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 
-
 // element to display the number of wishlist products available
 
 const wish_title = document.getElementById("wish-title");
 
-function check_wishlist(){
+function check_wishlist() {
 
-let wish_pro_count = 0;
+    let user_pro_check = false;
 
+    if (wishlist !== null) {
 
-if(wishlist!=null){
+        wishlist.find(function (obj) {
 
-    wishlist.filter(function (obj,index) {
-    
-        if (user_id === obj.user_id) {
+            if (user_id === obj.user_id) {
 
-            wish_list(obj,index);
+                user_pro_check = true;
+            }
 
-            wish_pro_count++;
+            return user_pro_check;
+        })
 
-            return wish_pro_count;
-        }
+        show_the_wishlist_pro(user_pro_check);
+    }
 
-    })
 }
 
-else {
+function show_the_wishlist_pro(user_pro_check) {
 
-    appen_div.innerHTML = `<p class="no-wishlist-pro">No favourite products</p>`;
+    let wish_pro_count = 0;
+
+    if (user_pro_check) {
+
+        wishlist.filter(function (obj, index) {
+
+            if (user_id === obj.user_id) {
+
+                wish_list(obj, index);
+
+                wish_pro_count++;
+
+                return wish_pro_count;
+            }
+
+        })
+    }
+
+    else {
+
+        appen_div.innerHTML = `<p class="no-wishlist-pro">No favourite products</p>`;
+    }
+
+
+    // my title count increasing
+
+    wish_title.innerText = "My Wishlist(" + wish_pro_count + ")";
+
+
 }
 
-// my title count increasing
-
-wish_title.innerText = "My Wishlist(" + wish_pro_count + ")";
-
-}   
-
-function wish_list(item,index) {
+function wish_list(item, index) {
 
     let product_id = item["product_id"];
     let product_cat = item["category"]["id"]
@@ -88,12 +109,12 @@ function wish_list(item,index) {
 
             </div>`
 
-            appen_div.innerHTML = wishlist_output;
+    appen_div.innerHTML = wishlist_output;
 
 }
 
 
-function deletewishlist(index){
+function deletewishlist(index) {
 
     wishlist.splice(index, 1);
 
@@ -109,6 +130,3 @@ function deletewishlist(index){
 }
 
 check_wishlist();
-
-
-

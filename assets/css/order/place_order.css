@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
 }
 
 .checkout-title {
@@ -21,6 +20,31 @@
 
 }
 
+.order-left-side .delivery-date-cont{
+
+    margin: 1em;
+}
+
+.order-left-side .delivery-date-cont p {
+
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.order-left-side .delivery-date-cont .dates-cont {
+
+    margin: 1em 0;
+}
+
+.order-left-side .delivery-date-cont .dates-cont .dates {
+    margin: 1em 0;
+}
+
+.order-left-side .delivery-date-cont .dates-cont .dates label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
 
 .place_order_address_add{
     margin: 2em;
@@ -196,6 +220,11 @@ tbody tr td img {
 
 .payment-options button:hover {
     background-color: lime;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
 }
 /* end of order right side cont */
 

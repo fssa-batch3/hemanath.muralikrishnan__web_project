@@ -57,17 +57,17 @@
 
             <div class="delivery-date-cont">
 
-                <p>Select your date and delivery slot</p>
+                <p>Select your date</p>
 
                 <div class="dates-cont">
 
                     <div class="dates">
-                        <input type="radio" name="select_date" id="today">
+                        <input type="radio" name="select_date" id="today" required title="Please select delivery date">
                         <label for="today" id="today_label"></label>
                     </div>
 
                     <div class="dates">
-                        <input type="radio" name="select_date" id="tomorrow">
+                        <input type="radio" name="select_date" id="tomorrow" required  title="Please select delivery date">
                         <label for="tomorrow" id="tomorrow_label"></label>
                     </div>
                    
@@ -122,18 +122,18 @@
 
                 <div class="payment-div">
 
-                    <input type="radio" id="cash-on-delivery" value="cash_on_delivery" name="payment-type" required>
+                    <input type="radio" id="cash-on-delivery" value="cash_on_delivery" name="payment-type" required title="please select payment method">
                     <label for="cash-on-delivery">Cash on delivery</label>
                 </div>
 
               
                 <div class="payment-div">
-                    <input type="radio" id="razorpay" value="razorpay" name="payment-type" required>
+                    <input type="radio" id="razorpay" value="razorpay" name="payment-type" required  title="please select payment method">
                     <label for="razorpay">Online Payment</label>
      
                 </div>
 
-                <button type="submit">Place Order</button>
+                <button type="submit" class="checkout_btn">Place Order</button>
             </div>
 
         </div>

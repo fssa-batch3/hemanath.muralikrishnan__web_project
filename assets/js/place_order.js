@@ -1,33 +1,6 @@
-
-
 let place_order_items = JSON.parse(localStorage.getItem("cart_items"));
 
-// user records json
-let user_records = JSON.parse(localStorage.getItem("users"));
-
-// user logged_in value
-let user_details = localStorage.getItem("logged_in");
-
-let placed_cart_items = JSON.parse(localStorage.getItem("cart_items"));
-
 let order_histroy = JSON.parse(localStorage.getItem("order_histroy")) ?? [];
-
-let user_id;
-
-if (user_records !== null) {
-
-  user_records.find(function (obj) {
-
-    if (user_details === obj.emailid) {
-
-      user_id = obj.user_id;
-
-      return user_id;
-
-
-    }
-  });
-}
 
 
 let get_place_order_form = document.getElementById("place-order-form");
@@ -62,10 +35,15 @@ user_records.find(function (obj) {
 
     if (find_user_address.length === 0) {
 
-      document.querySelector(".append_available_address").innerHTML = `<a href="../profile.html" class="place_order_address_add">Please add address in profile page</a>`
+      document.querySelector(".append_available_address").innerHTML = `<a href="../profile.html" class="place_order_address_add">Please add address in profile page to checkout</a>`;
+
+      document.querySelector(".checkout_btn").classList.add("disabled");
     }
 
     else {
+
+      document.querySelector(".checkout_btn").classList.remove("disabled");
+
       find_user_address.forEach((item, index) => {
 
         let address_div = document.createElement("div");
@@ -78,6 +56,7 @@ user_records.find(function (obj) {
         address_input.setAttribute("value", index);
         address_input.setAttribute("id", item.address_id);
         address_input.setAttribute("required", "true");
+        address_input.setAttribute("title", "please select address");
         address_div.append(address_input);
 
         let address_label = document.createElement("label");
@@ -143,6 +122,8 @@ function append_order_items(item, index) {
   table_tr.appendChild(td_subtotal);
 }
 
+// show the total in the summary table
+
 let get_subtotal = document.querySelectorAll(".place-item-money");
 
 let total = 0;
@@ -177,42 +158,19 @@ if (total_rs_arr != null) {
 document.querySelector(".main-total").innerHTML = `Total: ₹ ${total}`;
 
 
+// place order full logic
+
 let order_array = []
 
 get_place_order_form.addEventListener("submit", function (e) {
 
   e.preventDefault();
 
-  place_order_items.filter(function (obj) {
-
-    if (user_id == obj.user_id) {
-
-      order_array.push(obj);
-
-    }
-
-  });
-
-  let get_date;
-
-  let get_situ;
-
-  if(get_today_input.checked){
-
-    get_date =  document.querySelector('input[type="radio"][name="select_today_slot"]:checked').value;
-
-    get_situ =  document.querySelector('input[type="radio"][name="select_today_slot"]:checked').getAttribute("id");
-
-  }
-
-  else if(get_tomorrow_input.checked){
-
-   get_date =  document.querySelector('input[type="radio"][name="select_tomorrow_slot"]:checked').value;
-
-    get_situ = document.querySelector('input[type="radio"][name="select_tomorrow_slot"]:checked').getAttribute("id");
+  push_cart_to_order();
 
 
-  }
+  let get_date = document.querySelector('input[name="select_date"]:checked').value;
+  let get_day = document.querySelector('input[name="select_date"]:checked').getAttribute("id");
 
 
   let get_delivery_address = document.querySelector('input[name="select_address"]:checked').getAttribute("id");
@@ -240,18 +198,18 @@ get_place_order_form.addEventListener("submit", function (e) {
 
   let order_json = {
 
-    "user_id" : user_id,
-    "delivery_address" : delivery_address,
-    "which_day" : get_situ,
-    "which_date" : get_date,
+    "user_id": user_id,
+    "delivery_address": delivery_address,
+    "which_day": get_day,
+    "which_date": get_date,
     "payment_type": get_payment_type,
-    "payment_status" : true,
-    "order_histroy" : order_array,
-    "created_date" : new Date().toLocaleDateString(),
-    "created_time" : new Date().toLocaleTimeString(),
-    "total_amount" : total
+    "payment_status": true,
+    "order_histroy": order_array,
+    "created_date": new Date().toLocaleDateString(),
+    "created_time": new Date().toLocaleTimeString(),
+    "total_amount": total
   }
-  
+
 
   order_histroy.push(order_json);
 
@@ -260,4 +218,18 @@ get_place_order_form.addEventListener("submit", function (e) {
   window.location.href = "order_status.html";
 
 });
+
+function push_cart_to_order() {
+
+  place_order_items.filter(function (obj) {
+
+    if (user_id == obj.user_id) {
+
+      order_array.push(obj);
+
+    }
+
+  });
+
+}
 

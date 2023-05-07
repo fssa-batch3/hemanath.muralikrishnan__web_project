@@ -1,5 +1,3 @@
-import {list_products} from './appen_card.js'
-
 // product details JSON
 let product_details = JSON.parse(localStorage.getItem("product_list"));
 
@@ -13,87 +11,89 @@ const urlParams = new URLSearchParams(url);        // converting string into key
 const product_id = Number(urlParams.get("id"));             // return value of the "name" key
 const product_cat = urlParams.get("cat");
 
-let k;
-let success = false;
-for (k = 0; k < product_details.length; k++) {
-    if ((product_id === product_details[k].id) && (product_details[k].status)) {
+// start of left side
+let indv_product_left_side_div;
 
-        success = true;
-        break;
+let indv_img_div;
+let indv_product_image;
+
+let indv_product_name_div;
+let product_name_english_p;
+let product_name_tamil_p;
+
+let indv_rating_part_div;
+let indv_rating_div;
+
+
+let healthy_div;
+
+let heal_div_one;
+let pro_circle_div;
+let pro_circle_p;
+let sci_p_one;
+
+let heal_div_two;
+let carbo_circle_div;
+let carbo_circle_p;
+let sci_p_two;
+
+let heal_div_three;
+let kcal_circle_div;
+let kcal_circle_p;
+let sci_p_three;
+
+// start of right side
+
+let indv_products_right_side;
+let indv_products_right_side_two;
+
+let right_side_three_div;
+
+let indv_category_title_p;
+
+let indv_farmer_part_div;
+let indv_farmer_img;
+let indv_farmer_p;
+
+let indv_product_name_english_p;
+let indv_product_name_tamil_p;
+
+let indv_dropdown_values_div;
+let select_tag;
+
+
+let indv_product_price_div;
+let indv_amount_one_p;
+
+let indv_qty_cat_div;
+let qty_div;
+
+let indv_add_button_div;
+let indv_add_to_cart;
+
+
+let favorite_div;
+let favorite_i;
+
+let desc_div;
+let desc_cont_div;
+let desc_title_p;
+let desc_content_p;
+
+
+product_details.find(function (obj, index) {
+
+    if ((product_id === obj.id) && (obj.status)) {
+
+        show_indv(JSON.stringify(obj), index);
     }
-}
-
-if (success) {
-
-    // start of left side
-    let indv_product_left_side_div;
-
-    let indv_img_div;
-    let indv_product_image;
-
-    let indv_product_name_div;
-    let product_name_english_p;
-    let product_name_tamil_p;
-
-    let indv_rating_part_div;
-    let indv_rating_div;
+})
 
 
-    let healthy_div;
 
-    let heal_div_one;
-    let pro_circle_div;
-    let pro_circle_p;
-    let sci_p_one;
+function show_indv(obj, index) {
 
-    let heal_div_two;
-    let carbo_circle_div;
-    let carbo_circle_p;
-    let sci_p_two;
-
-    let heal_div_three;
-    let kcal_circle_div;
-    let kcal_circle_p;
-    let sci_p_three;
-
-    // start of right side
-
-    let indv_products_right_side;
-    let indv_products_right_side_two;
-
-    let right_side_three_div;
-
-    let indv_category_title_p;
-
-    let indv_farmer_part_div;
-    let indv_farmer_img;
-    let indv_farmer_p;
-
-    let indv_product_name_english_p;
-    let indv_product_name_tamil_p;
-
-    let indv_dropdown_values_div;
-    let select_tag;
-
-
-    let indv_product_price_div;
-    let indv_amount_one_p;
-
-    let indv_qty_cat_div;
-    let qty_div;
-
-    let indv_add_button_div;
-    let indv_add_to_cart;
-
-
-    let favorite_div;
-    let favorite_i;
-
-    let desc_div;
-    let desc_cont_div;
-    let desc_title_p;
-    let desc_content_p;
-
+    let item = JSON.parse(obj);
 
     // start of left side
 
@@ -109,8 +109,8 @@ if (success) {
 
     // product image tag
     indv_product_image = document.createElement("img");
-    indv_product_image.setAttribute("src", product_details[k]["image"]["source"]);
-    indv_product_image.setAttribute("alt", "image of " + product_details[k]["image"]["alt"]);
+    indv_product_image.setAttribute("src", item["image"]["source"]);
+    indv_product_image.setAttribute("alt", "image of " + item["image"]["alt"]);
     indv_img_div.append(indv_product_image);
 
 
@@ -122,13 +122,13 @@ if (success) {
     //english name p
     product_name_english_p = document.createElement("p");
     product_name_english_p.setAttribute("class", "indv-product-title");
-    product_name_english_p.innerText = product_details[k]["name"]["eng"];
+    product_name_english_p.innerText = item["name"]["eng"];
     indv_product_name_div.append(product_name_english_p);
 
     //tamil name p
     product_name_tamil_p = document.createElement("p");
     product_name_tamil_p.setAttribute("class", "indv-product-title");
-    product_name_tamil_p.innerText = product_details[k]["name"]["tam"];
+    product_name_tamil_p.innerText = item["name"]["tam"];
     indv_product_name_div.append(product_name_tamil_p);
 
     // indv rating part div
@@ -161,7 +161,7 @@ if (success) {
 
     // pro circle p
     pro_circle_p = document.createElement("p");
-    pro_circle_p.innerText = product_details[k]["nutritions"]["protein"]["num"] + "g";
+    pro_circle_p.innerText = item["nutritions"]["protein"]["num"] + "g";
     pro_circle_div.append(pro_circle_p);
 
     // heal one protein
@@ -184,7 +184,7 @@ if (success) {
 
     // pro circle p
     carbo_circle_p = document.createElement("p");
-    carbo_circle_p.innerText = product_details[k]["nutritions"]["carbo"]["num"] + "g";
+    carbo_circle_p.innerText = item["nutritions"]["carbo"]["num"] + "g";
     carbo_circle_div.append(carbo_circle_p);
 
     // heal one protein
@@ -207,7 +207,7 @@ if (success) {
 
     // pro circle p
     kcal_circle_p = document.createElement("p");
-    kcal_circle_p.innerText = product_details[k]["nutritions"]["kcal"];
+    kcal_circle_p.innerText = item["nutritions"]["kcal"];
     kcal_circle_div.append(kcal_circle_p);
 
     // heal one protein
@@ -238,7 +238,7 @@ if (success) {
     // indv category title
     indv_category_title_p = document.createElement("p");
     indv_category_title_p.setAttribute("class", "indv-category-title")
-    indv_category_title_p.innerText = product_details[k]["category"]["name"];
+    indv_category_title_p.innerText = item["category"]["name"];
     right_side_three_div.append(indv_category_title_p);
 
     // indv farmer part
@@ -248,14 +248,14 @@ if (success) {
 
     // indv farmer image
     indv_farmer_img = document.createElement("img");
-    indv_farmer_img.setAttribute("src", product_details[k]["farmer"]["image"]["source"]);
-    indv_farmer_img.setAttribute("alt", "image of farmer " + product_details[k]["farmer"]["image"]["alt"]);
+    indv_farmer_img.setAttribute("src", item["farmer"]["image"]["source"]);
+    indv_farmer_img.setAttribute("alt", "image of farmer " + item["farmer"]["image"]["alt"]);
     indv_farmer_part_div.append(indv_farmer_img);
 
     // indv farmer name
     indv_farmer_p = document.createElement("p");
     indv_farmer_p.setAttribute("class", "indv-farmer-name");
-    indv_farmer_p.innerText = "Farmer - " + product_details[k]["farmer"]["name"];
+    indv_farmer_p.innerText = "Farmer - " + item["farmer"]["name"];
     indv_farmer_part_div.append(indv_farmer_p);
 
     // indv product name div
@@ -265,12 +265,12 @@ if (success) {
 
     // indv product english name
     indv_product_name_english_p = document.createElement("p");
-    indv_product_name_english_p.innerText = product_details[k]["name"]["eng"];
+    indv_product_name_english_p.innerText = item["name"]["eng"];
     indv_product_name_div.append(indv_product_name_english_p);
 
     // indv product tamil name
     indv_product_name_tamil_p = document.createElement("p");
-    indv_product_name_tamil_p.innerText = product_details[k]["name"]["tam"];
+    indv_product_name_tamil_p.innerText = item["name"]["tam"];
     indv_product_name_div.append(indv_product_name_tamil_p);
 
 
@@ -287,7 +287,7 @@ if (success) {
 
     // options creating
 
-    let dropdown_values = product_details[k]["quantity"];
+    let dropdown_values = item["quantity"];
 
     dropdown_values.forEach((item) => {
         const option = document.createElement("option");
@@ -313,7 +313,7 @@ if (success) {
     // indv product price p
     indv_amount_one_p = document.createElement("p");
     indv_amount_one_p.setAttribute("class", "indv-amount-one");
-    indv_amount_one_p.innerText = "₹ " + product_details[k]["quantity"][0]["rs"];
+    indv_amount_one_p.innerText = "₹ " + item["quantity"][0]["rs"];
     indv_product_price_div.append(indv_amount_one_p);
 
     let qty_value = 1;
@@ -346,23 +346,6 @@ if (success) {
     qty_plus.className = "qty-plus";
     qty_div.append(qty_plus);
 
-    qty_plus.addEventListener("click", () => {
-        qty_value++;
-        qty_plus_value = qty_value;
-        qty_number.innerText = qty_plus_value;
-
-        updatequantity();
-    });
-
-    qty_minus.addEventListener("click", () => {
-        if (qty_value > 1) {
-            qty_value--;
-            qty_minus_value = qty_value;
-            qty_number.innerText = qty_minus_value;
-
-            updatequantity();
-        }
-    });
 
     // indv add button div
     indv_add_button_div = document.createElement("div");
@@ -371,7 +354,7 @@ if (success) {
 
 
     indv_add_to_cart = document.createElement("div");
-    indv_add_to_cart.setAttribute("class", "fa-solid fa-cart-plus indv-add-to-cart-btn");
+    indv_add_to_cart.setAttribute("class", "fa-solid fa-cart-plus indv_add_cart_btn");
     indv_add_button_div.append(indv_add_to_cart);
 
     // favorite div
@@ -405,252 +388,54 @@ if (success) {
     // desc content p
     desc_content_p = document.createElement("p");
     desc_content_p.setAttribute("class", "desc-content");
-    desc_content_p.innerText = product_details[k]["description"];
+    desc_content_p.innerText = item["description"];
     desc_cont_div.append(desc_content_p);
 
 
-    // even listner for add to wishlist
+    qty_plus.addEventListener("click", () => {
 
-    favorite_i.addEventListener('click', function () {
+        let elem = document.querySelectorAll(".indv_add_cart_btn");
 
-        if (user_id != null) {
-            
-            let fav_check = false;
-            favourite_list.find(function (obj) {
+        qty_value++;
+        qty_plus_value = qty_value;
+        qty_number.innerText = qty_plus_value;
 
-                if (user_id === obj.user_id) {
-
-                    if (product_details[k].id === obj.product_id) {
-
-                        fav_check = true;
-                    }
-
-                }
-
-                return fav_check;
-
-            });
-
-            if (fav_check) {
-
-                Notify.error("Product was already added to wishlist");
-
-            }
-
-            else {
-
-                favourite_list.push({
-                    "user_id": user_id,
-                    "wishlist_item_id": favourite_list.length + Math.random().toString(16).slice(2),
-                    "product_id": product_details[k].id,
-                    "category": product_details[k].category,
-                    "product_eng_name": product_details[k].name.eng,
-                    "product_image": product_details[k].image,
-                    "quantity": product_details[k]["quantity"],
-                    "product_added_date": new Date().toLocaleDateString(),
-                    "product_added_time": new Date().toLocaleTimeString(),
-
-                });
-
-                localStorage.setItem("wishlist", JSON.stringify(favourite_list));
-
-                Notify.success("Added to Wishlist");
-
-
-                wishlist_count_fun();
-
-            }
-
-        }
-
-        else {
-            Notify.error("Please login to add product to wishlist");
-        }
-
-    })
-
-
-    
-        // check the available quantity
-
-        function updatequantity() {
-
-            let elem = document.querySelector(".indv-add-to-cart-btn");
-
-            let get_amount = select_tag.value;
-
-            let selected_qunt = qty_number.innerText;
-
-            product_details.find(function (obj) {
-
-                if (obj.id == product_details[k].id) {
-
-                    let find_qty = obj.quantity;
-
-                    find_qty.find(function (qty_obj) {
-
-                        if (get_amount == qty_obj.rs) {
-
-                            if (qty_obj.unit == "kg") {
-
-                                let check = selected_qunt * qty_obj.into_gram;
-
-                                if (Number(check) > Number(obj.avail_stock.into_gram)) {
-
-                                    elem.classList.add("disabled");
-
-                                    Notify.error("Required quantity not available");
-
-                                }
-
-                                else {
-
-                                    elem.classList.remove("disabled");
-
-                                }
-                            }
-                            else if (qty_obj.unit == "gm") {
-
-                                let check = selected_qunt * qty_obj.qty;
-
-                                if (Number(check) > Number(obj.avail_stock.into_gram)) {
-
-                                    elem.classList.add("disabled");
-
-                                    Notify.error("Required quantity not available");
-
-                                }
-
-                                else {
-
-                                    elem.classList.remove("disabled");
-                                }
-                            }
-
-                            else if((qty_obj.unit == "nos")||(qty_obj.unit == "pkt")){
-
-                                let check = selected_qunt * qty_obj.qty;
-
-                                if (Number(check) > Number(obj.avail_stock.num)) {
-
-                                    elem.classList.add("disabled");
-
-                                    Notify.error("Required quantity not available");
-
-                                }
-
-                                else {
-
-                                    elem.classList.remove("disabled");
-                                }
-
-                            }
-
-                        }
-                    });
-
-                }
-            });
-
-        }
-
-
-
-
-
-    indv_add_to_cart.addEventListener("click", function (e) {
-
-        if (user_id != null) {
-
-            let get_amount = select_tag.value;
-
-            let cart_check = true;
-
-            let cart_item_arr = JSON.parse(localStorage.getItem("cart_items"));
-
-            if (cart_item_arr != null) {
-                cart_item_arr.find(function (obj) {
-
-                    if (user_id == obj.user_id) {
-
-                        if (product_id == obj.cart_product_id) {
-
-                            if (get_amount == obj["product_details"]["selected_qty"]["rs"]) {
-
-                                cart_check = false;
-
-                                Notify.error("Item already added to cart " + obj["product_details"]["name"]["eng"] + " " + obj["product_details"]["selected_qty"]["qty"] + obj["product_details"]["selected_qty"]["unit"]);
-
-                                return cart_check;
-
-                            }
-                        }
-                    }
-
-
-
-                });
-            }
-
-            if (cart_check) {
-                product_details.find(function (obj) {
-
-                    if (product_id == obj.id) {
-
-                        let find_qty = obj.quantity;
-
-                        find_qty.find(function (qty_obj) {
-
-                            if (get_amount == qty_obj.rs) {
-
-                                let cart_obj = {
-                                    "cart_product_id": product_id,
-                                    "cart_item_id": cart_items.length + Math.random().toString(16).slice(2),
-                                    "user_id": user_id,
-                                    "product_details": { "image": obj.image, "name": obj.name, "farmer": obj.farmer, "selected_qty": qty_obj },
-                                    "quantity": qty_number.innerText,
-                                    "cart_pro_category": obj.category,
-                                    "product_added_date": new Date().toLocaleDateString(),
-                                    "product_added_time": new Date().toLocaleTimeString(),
-                                    "avail_stock": obj.avail_stock,
-                                    "ready_for_checkout" : true
-                                }
-
-                                cart_items.push(cart_obj);
-
-                                Notify.success("Item added to cart " + obj.name.eng + " " + qty_obj.qty + qty_obj.unit);
-
-                                localStorage.setItem("cart_items", JSON.stringify(cart_items));
-                            }
-                        });
-
-                        cart_count_fun();
-                    }
-                });
-            }
-
-        }
-
-        else {
-            Notify.error("Please login to add products to cart")
-        }
+        updatequantity(select_tag.value, JSON.stringify(item), qty_number.innerText, elem, index);
 
     });
 
+    qty_minus.addEventListener("click", () => {
+
+        if (qty_value > 1) {
+
+            let elem = document.querySelectorAll(".indv_add_cart_btn");
+
+            qty_value--;
+            qty_minus_value = qty_value;
+            qty_number.innerText = qty_minus_value;
+
+            updatequantity(select_tag.value, JSON.stringify(item), qty_number.innerText, elem, index);
+        }
+    });
+
+    // favourite list
+
+    favorite_i.addEventListener("click", function (e) {
+
+        add_fav(JSON.stringify(item));
+    })
+
+    // add to cart event listner
+
+    indv_add_to_cart.addEventListener("click", function (e) {
+
+        get_cart_ele(select_tag.value, JSON.stringify(item), qty_number.innerText);
+    })
 
 }
 
 
-
-else {
-    alert("product not found")
-}
-
-
-
-
-
-let rel_products =  product_details.filter(function (rel) {
+let rel_products = product_details.filter(function (rel) {
 
     if ((rel["category"]["id"] === product_cat) && (rel["status"])) {
 
@@ -663,15 +448,75 @@ let rel_products =  product_details.filter(function (rel) {
 list_products(rel_products);
 
 
+let wishlist_check = true;
+
+function add_fav(item) {
+
+    let par = JSON.parse(item);
+
+    if (user_id !== undefined) {
+
+        wishlist_check = true;
+
+        check_in_wishlist(item);
+    }
+
+    else {
+
+        wishlist_check = false;
+
+        Notify.error("Please login to add product to wishlist");
+
+        return wishlist_check;
+    }
+
+    if (wishlist_check) {
+
+        favourite_list.push({
+            "user_id": user_id,
+            "wishlist_item_id": Math.random().toString(16).slice(2),
+            "product_id": par.id,
+            "category": par.category,
+            "product_eng_name": par.name.eng,
+            "product_image": par.image,
+            "quantity": par["quantity"],
+            "product_added_date": new Date().toLocaleDateString(),
+            "product_added_time": new Date().toLocaleTimeString(),
+
+        });
+
+        localStorage.setItem("wishlist", JSON.stringify(favourite_list));
+
+        Notify.success("Added to Wishlist");
 
 
+        wishlist_count_fun();
 
+    }
 
+}
 
+function check_in_wishlist(item) {
 
+    let par = JSON.parse(item);
 
+    let fav_list = JSON.parse(localStorage.getItem("wishlist"));
 
+    if (fav_list !== null) {
+        fav_list.find(function (obj) {
 
+            if (user_id === obj.user_id) {
 
+                if (par.id === obj.product_id) {
 
+                    wishlist_check = false;
 
+                    Notify.error("Product was already added to wishlist");
+
+                    return wishlist_check;
+                }
+            }
+        });
+    }
+
+}

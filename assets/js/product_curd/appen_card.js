@@ -4,12 +4,36 @@ let cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
 
 let product_json = JSON.parse(localStorage.getItem("product_list"));
 
-export function list_products(array = []) {
+// get the user id
+
+const logged_email_one = localStorage.getItem("logged_in");
+
+let user_records_one = JSON.parse(localStorage.getItem("users"));
+
+let user_id_one;
+
+if (user_records_one !== null) {
+
+    user_records_one.find(function (obj) {
+
+        if (logged_email_one === obj.emailid) {
+
+            user_id_one = obj.user_id;
+
+            return user_id_one;
+
+
+        }
+    });
+
+}
+
+
+function list_products(array = []) {
 
     document.querySelector(".append_the_products").innerHTML = "";
 
     array.forEach((item, index) => {
-
 
         // product_container_div
         let product_container_div = document.createElement("div");
@@ -76,7 +100,7 @@ export function list_products(array = []) {
 
         let list_qty = item.quantity;
 
-        list_qty.forEach(data =>{
+        list_qty.forEach(data => {
 
             let option_tag = document.createElement("option");
             option_tag.setAttribute("value", data.rs);
@@ -84,7 +108,7 @@ export function list_products(array = []) {
             select_tag.appendChild(option_tag);
         })
 
-       
+
         // amount
         let amount = document.createElement("div");
         amount.className = "amount";
@@ -92,12 +116,11 @@ export function list_products(array = []) {
         product_main_div.append(amount);
 
 
-        select_tag.addEventListener("change", function(e){
+        select_tag.addEventListener("change", function (e) {
 
             let selectvalue = select_tag.value;
-
             amount.innerText = "Rs. " + selectvalue;
-            
+
         })
 
 
@@ -144,109 +167,36 @@ export function list_products(array = []) {
 
         qty_plus.addEventListener("click", function (e) {
 
+            let elem = document.querySelectorAll(".list_cart");
             qty_value++;
             qty_plus_value = qty_value;
             qty_number.innerText = qty_plus_value;
 
-            updatequantity();
+            updatequantity(select_tag.value, JSON.stringify(item), qty_number.innerText, elem, index);
 
 
         });
 
         qty_minus.addEventListener("click", () => {
+
             if (qty_value > 1) {
+                let elem = document.querySelectorAll(".list_cart");
                 qty_value--;
                 qty_minus_value = qty_value;
                 qty_number.innerText = qty_minus_value;
 
-                updatequantity();
+                updatequantity(select_tag.value, JSON.stringify(item), qty_number.innerText, elem, index);
             }
         });
 
 
-        // check the available quantity
+        add_to_cart.addEventListener('click', function (e) {
 
-        function updatequantity() {
+            // pass the parameters to the add to cart functionality
 
-            let elem = document.querySelectorAll(".list_cart");
+            get_cart_ele(select_tag.value, JSON.stringify(item), qty_number.innerText);
 
-            let rs = amount.innerText.split(" ");
-            let after_rs = rs.splice(1, 1);
-
-            let selected_qunt = qty_number.innerText;
-
-            product_json.find(function (obj) {
-
-                if (obj.id == item.id) {
-
-                    let find_qty = obj.quantity;
-
-                    find_qty.find(function (qty_obj) {
-
-                        if (after_rs[0] == qty_obj.rs) {
-
-                            if (qty_obj.unit == "kg") {
-
-                                let check = selected_qunt * qty_obj.into_gram;
-
-                                if (Number(check) > Number(obj.avail_stock.into_gram)) {
-
-                                    elem[index].classList.add("disabled");
-
-                                    Notify.error("Required quantity not available");
-
-                                }
-
-                                else {
-
-                                    elem[index].classList.remove("disabled");
-
-                                }
-                            }
-                            else if (qty_obj.unit == "gm") {
-
-                                let check = selected_qunt * qty_obj.qty;
-
-                                if (Number(check) > Number(obj.avail_stock.into_gram)) {
-
-                                    elem[index].classList.add("disabled");
-
-                                    Notify.error("Required quantity not available");
-
-                                }
-
-                                else {
-
-                                    elem[index].classList.remove("disabled");
-                                }
-                            }
-
-                            else if ((qty_obj.unit == "nos") || (qty_obj.unit == "pkt")) {
-
-                                let check = selected_qunt * qty_obj.qty;
-
-                                if (Number(check) > Number(obj.avail_stock.num)) {
-
-                                    elem[index].classList.add("disabled");
-
-                                    Notify.error("Required quantity not available");
-
-                                }
-
-                                else {
-
-                                    elem[index].classList.remove("disabled");
-                                }
-
-                            }
-
-                        }
-                    });
-
-                }
-            });
-
-        }
+        })
 
         document.querySelector(".append_the_products").append(product_container_div);
 
@@ -255,3 +205,297 @@ export function list_products(array = []) {
 }
 
 
+function updatequantity(rs, item, qty, elem, index) {
+
+    let par = JSON.parse(item);
+
+    par["quantity"].find(function (obj) {
+
+        if (rs === obj.rs) {
+
+            if (obj.unit === "kg") {
+
+                checkwithkg(rs, item, qty, elem, index);
+            }
+
+            else if (obj.unit === "gm") {
+
+                checkwithgm(rs, item, qty, elem, index);
+            }
+
+            else{
+                checkwithbase(rs, item, qty, elem, index);
+            }
+
+        }
+
+
+    })
+
+}
+
+// check with kig
+function checkwithkg(rs, item, qty, elem, index) {
+
+    let par = JSON.parse(item);
+
+    par["quantity"].find(function (obj) {
+
+        if (rs === obj.rs) {
+
+                let check = qty * obj.into_gram;
+
+                if (Number(check) > Number(par.avail_stock.into_gram)) {
+
+                    elem[index].classList.add("disabled");
+
+                    Notify.error("Required quantity not available");
+
+                }
+
+                else {
+
+                    elem[index].classList.remove("disabled");
+
+                }
+
+        }
+
+    });
+}
+
+// check with gm
+function checkwithgm(rs, item, qty, elem, index) {
+
+    let par = JSON.parse(item);
+
+    par["quantity"].find(function (obj) {
+
+        if (rs === obj.rs) {
+
+                let check = qty * obj.qty;
+
+                if (Number(check) > Number(par.avail_stock.into_gram)) {
+
+                    elem[index].classList.add("disabled");
+
+                    Notify.error("Required quantity not available");
+
+                }
+
+                else {
+
+                    elem[index].classList.remove("disabled");
+
+                }
+
+        }
+
+    });
+}
+
+
+// check with base 
+
+function checkwithbase(rs, item, qty, elem, index) {
+
+    let par = JSON.parse(item);
+
+    par["quantity"].find(function (obj) {
+
+        if (rs === obj.rs) {
+
+                let check = qty * obj.qty;
+
+                if (Number(check) > Number(par.avail_stock.num)) {
+
+                    elem[index].classList.add("disabled");
+
+                    Notify.error("Required quantity not available");
+
+                }
+
+                else {
+
+                    elem[index].classList.remove("disabled");
+
+                }
+
+        }
+
+    });
+
+}
+
+
+// check the available quantity
+
+// function updatequantitytwo() {
+
+
+
+//     let rs = amount.innerText.split(" ");
+//     let after_rs = rs.splice(1, 1);
+
+//     let selected_qunt = qty_number.innerText;
+
+//     product_json.find(function (obj) {
+
+//         if (obj.id == item.id) {
+
+//             let find_qty = obj.quantity;
+
+//             find_qty.find(function (qty_obj) {
+
+//                 if (after_rs[0] == qty_obj.rs) {
+
+//                     if (qty_obj.unit == "kg") {
+
+//                         let check = selected_qunt * qty_obj.into_gram;
+
+//                         if (Number(check) > Number(obj.avail_stock.into_gram)) {
+
+//                             elem[index].classList.add("disabled");
+
+//                             Notify.error("Required quantity not available");
+
+//                         }
+
+//                         else {
+
+//                             elem[index].classList.remove("disabled");
+
+//                         }
+//                     }
+//                     else if (qty_obj.unit == "gm") {
+
+//                         let check = selected_qunt * qty_obj.qty;
+
+//                         if (Number(check) > Number(obj.avail_stock.into_gram)) {
+
+//                             elem[index].classList.add("disabled");
+
+//                             Notify.error("Required quantity not available");
+
+//                         }
+
+//                         else {
+
+//                             elem[index].classList.remove("disabled");
+//                         }
+//                     }
+
+//                     else if ((qty_obj.unit == "nos") || (qty_obj.unit == "pkt")) {
+
+//                         let check = selected_qunt * qty_obj.qty;
+
+//                         if (Number(check) > Number(obj.avail_stock.num)) {
+
+//                             elem[index].classList.add("disabled");
+
+//                             Notify.error("Required quantity not available");
+
+//                         }
+
+//                         else {
+
+//                             elem[index].classList.remove("disabled");
+//                         }
+
+//                     }
+
+//                 }
+//             });
+
+//         }
+//     });
+
+// }
+
+
+let cart_check = true;
+
+function get_cart_ele(pro_rs, item, no_qty) {
+
+    let to_json = JSON.parse(item);
+
+    if (user_id_one !== undefined) {
+
+        cart_check = true;
+
+        check_qty(pro_rs, item);
+
+    }
+    else {
+
+        cart_check = false;
+
+        Notify.error("Please login to add products to cart");
+
+        return cart_check;
+
+    }
+
+    if (cart_check) {
+
+        to_json["quantity"].find(function (qty_obj) {
+
+            if (pro_rs == qty_obj.rs) {
+
+                let cart_obj = {
+                    "cart_product_id": to_json.id,
+                    "cart_item_id": Math.random().toString(16).slice(2),
+                    "user_id": user_id,
+                    "product_details": { "image": to_json.image, "name": to_json.name, "farmer": to_json.farmer, "selected_qty": qty_obj },
+                    "quantity": no_qty,
+                    "cart_pro_category": to_json.category,
+                    "product_added_date": new Date().toLocaleDateString(),
+                    "product_added_time": new Date().toLocaleTimeString(),
+                    "ready_for_checkout": true
+                }
+
+                cart_items.push(cart_obj);
+
+                Notify.success("Item added to cart " + to_json.name.eng + " " + qty_obj.qty + qty_obj.unit);
+
+                localStorage.setItem("cart_items", JSON.stringify(cart_items));
+            }
+        });
+
+        cart_count_fun();
+    }
+}
+
+// check in the cart the selected the cart qty already added
+
+function check_qty(pro_rs, item) {
+
+    let par = JSON.parse(item);
+
+    let cart_item_arr = JSON.parse(localStorage.getItem("cart_items"));
+
+    if (cart_item_arr != null) {
+        cart_item_arr.find(function (obj) {
+
+            if (user_id_one === obj.user_id) {
+
+                if (par["id"] === obj.cart_product_id) {
+
+                    if (pro_rs === obj["product_details"]["selected_qty"]["rs"]) {
+
+                        Notify.error("Item already added to cart " + obj["product_details"]["name"]["eng"] + " " + obj["product_details"]["selected_qty"]["qty"] + obj["product_details"]["selected_qty"]["unit"]);
+
+                        cart_check = false;
+
+                        return cart_check;
+
+                    }
+
+                }
+            }
+
+        });
+    }
+
+
+}

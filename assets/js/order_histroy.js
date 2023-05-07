@@ -1,32 +1,8 @@
-let user_records = JSON.parse(localStorage.getItem("users"));
-
-// user logged_in value
-let user_details = localStorage.getItem("logged_in");
-
 let order_histroy = JSON.parse(localStorage.getItem("order_histroy"));
-
-let user_id;
-
-if (user_records !== null) {
-
-    user_records.find(function (obj) {
-
-        if (user_details === obj.emailid) {
-
-            user_id = obj.user_id;
-
-            return user_id;
-
-
-        }
-    });
-}
-
 
 order_histroy.filter(function (obj) {
 
     if (user_id == obj.user_id) {
-
 
         let main_contianer = document.createElement("div");
         main_contianer.setAttribute("class", "main-container");
@@ -34,15 +10,10 @@ order_histroy.filter(function (obj) {
 
         let head_div = document.createElement("div");
         head_div.setAttribute("class", "head");
+        head_div.innerHTML = `<p>${obj.order_histroy.length} products</p>
+        <p>₹${obj.total_amount}</p>
+        <p>Processing</p>`
         main_contianer.appendChild(head_div);
-
-
-        let head_contents_div = document.createElement("div");
-        head_contents_div.setAttribute("class", "head-contents");
-        head_contents_div.innerHTML = `<p>${obj.order_histroy.length} products</p>
-<p>₹${obj.total_amount}</p>
-<p>Processing</p>`
-        head_div.appendChild(head_contents_div);
 
 
         let when_coming = document.createElement("p");
@@ -52,6 +23,11 @@ order_histroy.filter(function (obj) {
         let angle_down = document.createElement("div");
         angle_down.setAttribute("class", "fas fa-angle-down arrow");
         head_div.appendChild(angle_down);
+
+        let demo_p = document.createElement("p");
+        demo_p.setAttribute("class", "order_deliver");
+        demo_p.innerHTML = `<b>Delivery Addresss:</b> ${obj.delivery_address.street} ${obj.delivery_address.district} ${obj.delivery_address.state} ${obj.delivery_address.pincode}`;
+        main_contianer.append(demo_p);
 
 
         let other_contents = document.createElement("div");
