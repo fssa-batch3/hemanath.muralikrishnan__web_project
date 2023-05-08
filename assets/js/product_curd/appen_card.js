@@ -2,7 +2,7 @@ const root_loc = window.location.origin;
 
 let cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
 
-let product_json = JSON.parse(localStorage.getItem("product_list"));
+
 
 // get the user id
 
@@ -165,7 +165,7 @@ function list_products(array = []) {
         quantity_cart_div.append(add_to_cart);
 
 
-        qty_plus.addEventListener("click", function (e) {
+        qty_plus.addEventListener("click", function () {
 
             let elem = document.querySelectorAll(".list_cart");
             qty_value++;
@@ -190,7 +190,7 @@ function list_products(array = []) {
         });
 
 
-        add_to_cart.addEventListener('click', function (e) {
+        add_to_cart.addEventListener('click', function () {
 
             // pass the parameters to the add to cart functionality
 

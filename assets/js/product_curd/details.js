@@ -4,7 +4,6 @@ let product_details = JSON.parse(localStorage.getItem("product_list"));
 // wishlist json
 let favourite_list = JSON.parse(localStorage.getItem("wishlist")) ?? [];
 
-let cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
 
 const url = window.location.search;                // ?name=Arun
 const urlParams = new URLSearchParams(url);        // converting string into key value pair
@@ -420,14 +419,14 @@ function show_indv(obj, index) {
 
     // favourite list
 
-    favorite_i.addEventListener("click", function (e) {
+    favorite_i.addEventListener("click", function () {
 
         add_fav(JSON.stringify(item));
     })
 
     // add to cart event listner
 
-    indv_add_to_cart.addEventListener("click", function (e) {
+    indv_add_to_cart.addEventListener("click", function () {
 
         get_cart_ele(select_tag.value, JSON.stringify(item), qty_number.innerText);
     })

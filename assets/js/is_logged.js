@@ -426,7 +426,7 @@ else {
 
 // to show the login form
 
-document.getElementById("login-btn").addEventListener("click", function (e) {
+document.getElementById("login-btn").addEventListener("click", function () {
 
     document.querySelector(".one-form").style.display = "block";
 
@@ -435,7 +435,7 @@ document.getElementById("login-btn").addEventListener("click", function (e) {
 
 // redirect to the register page
 
-document.querySelector(".register-here").addEventListener("click", function (e) {
+document.querySelector(".register-here").addEventListener("click", function () {
 
     document.querySelector(".one-form").style.display = "none";
 
@@ -446,7 +446,7 @@ document.querySelector(".register-here").addEventListener("click", function (e) 
 
 // in register btn to direct to login page
 
-document.querySelector(".register-login").addEventListener("click", function (e) {
+document.querySelector(".register-login").addEventListener("click", function () {
 
     document.querySelector(".one-form").style.display = "block";
 
@@ -456,7 +456,7 @@ document.querySelector(".register-login").addEventListener("click", function (e)
 
 // footer register bth
 
-document.getElementById("login-btn-foot").addEventListener("click", function (e) {
+document.getElementById("login-btn-foot").addEventListener("click", function () {
 
     document.querySelector(".one-form").style.display = "block";
 });
@@ -464,7 +464,7 @@ document.getElementById("login-btn-foot").addEventListener("click", function (e)
 
 // to close the login form
 
-document.querySelector(".login-close").addEventListener("click", function (e) {
+document.querySelector(".login-close").addEventListener("click", function () {
 
     document.querySelector(".one-form").style.display = "none";
 
@@ -472,7 +472,7 @@ document.querySelector(".login-close").addEventListener("click", function (e) {
 
 // to close the register form
 
-document.querySelector(".register-close").addEventListener("click", function (e) {
+document.querySelector(".register-close").addEventListener("click", function () {
 
     document.querySelector(".two-form").style.display = "none";
 
@@ -485,7 +485,7 @@ document.querySelector(".register-close").addEventListener("click", function (e)
 
 document.querySelector(".side-menu-mobile").style.display = "none";
 
-document.querySelector(".mobile-open").addEventListener("click", function (e) {
+document.querySelector(".mobile-open").addEventListener("click", function () {
 
     if ((document.querySelector(".side-menu-mobile").style.display) === "none") {
 
@@ -500,7 +500,7 @@ document.querySelector(".mobile-open").addEventListener("click", function (e) {
 })
 
 
-document.getElementById("mobile-login-btn").addEventListener("click", function (e) {
+document.getElementById("mobile-login-btn").addEventListener("click", function () {
 
     document.querySelector(".one-form").style.display = "block";
 
@@ -724,7 +724,7 @@ let products_db = JSON.parse(localStorage.getItem("product_list"));
 
 let search_bar = document.getElementById("header_search");
 
-search_bar.addEventListener("input", function(e){
+search_bar.addEventListener("input", function(){
 
     document.querySelector(".search_results_append").innerHTML = "";
 
@@ -799,7 +799,7 @@ document.querySelector(".mobile_search_result_append").style.display="none";
 
 let mobile_search = document.getElementById("mobile_search");
 
-mobile_search.addEventListener("input", function(e){
+mobile_search.addEventListener("input", function(){
 
     document.querySelector(".mobile_search_result_append").innerHTML = "";
 

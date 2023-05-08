@@ -121,7 +121,7 @@ function cart_list(item, index) {
     qty_plus.className = "qty-plus";
     td_qty_div.append(qty_plus);
 
-    qty_plus.addEventListener("click", function (e) {
+    qty_plus.addEventListener("click", function () {
         qty_value++;
         qty_plus_value = qty_value;
         qty_number.innerText = qty_plus_value;
@@ -130,7 +130,7 @@ function cart_list(item, index) {
 
     });
 
-    qty_minus.addEventListener("click", function (e) {
+    qty_minus.addEventListener("click", function () {
         if (qty_value > 1) {
             qty_value--;
             qty_minus_value = qty_value
@@ -152,7 +152,7 @@ function cart_list(item, index) {
     td_remove.innerHTML = `<i class="fa-solid fa-trash" onclick="deletecartitem(${index})"></i>`;
     cart_tr.appendChild(td_remove);
 
-    td_input.addEventListener("click", function (e) {
+    td_input.addEventListener("click", function () {
 
         cart_items.find(function (obj) {
 
@@ -423,7 +423,7 @@ function check_ready() {
 
         if (user_id == obj.user_id) {
 
-            if (obj.ready_for_checkout == true) {
+            if (obj.ready_for_checkout) {
 
                 check_chekout++;
             }

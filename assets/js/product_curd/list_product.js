@@ -8,7 +8,7 @@ show_mobile_filter.style.display = "none";
 
 show_sort_by.style.display = "none";
 
-mobile_filter.addEventListener("click", function (e) {
+mobile_filter.addEventListener("click", function () {
 
     if ((show_mobile_filter.style.display) == "none") {
         show_mobile_filter.style.display = "block";
@@ -19,7 +19,7 @@ mobile_filter.addEventListener("click", function (e) {
 })
 
 
-mobile_sort_by.addEventListener("click", function (e) {
+mobile_sort_by.addEventListener("click", function () {
 
     if ((show_sort_by.style.display) == "none") {
         show_sort_by.style.display = "block";
@@ -35,7 +35,6 @@ const url = window.location.search;                // ?name=Arun
 const urlParams = new URLSearchParams(url);        // converting string into key value pair
 const product_cat = urlParams.get("cat");
 
-let url_params_products;
 
 let filter_array = [];
 
@@ -97,7 +96,7 @@ checkboxes.forEach(function (checkbox) {
     });
 });
 
-document.getElementById("name_a_to_z").addEventListener("click", function(e){
+document.getElementById("name_a_to_z").addEventListener("click", function(){
 
     let i;
 
@@ -138,7 +137,7 @@ document.getElementById("name_a_to_z").addEventListener("click", function(e){
 })
 
 
-document.getElementById("name_z_to_a").addEventListener("click", function(e){
+document.getElementById("name_z_to_a").addEventListener("click", function(){
 
     let i;
 
@@ -177,7 +176,7 @@ document.getElementById("name_z_to_a").addEventListener("click", function(e){
 })
 
 
-document.getElementById("cost_high_to_low").addEventListener("click", function(e){
+document.getElementById("cost_high_to_low").addEventListener("click", function(){
 
     let i;
 
@@ -220,7 +219,7 @@ document.getElementById("cost_high_to_low").addEventListener("click", function(e
 })
 
 
-document.getElementById("cost_low_to_high").addEventListener("click", function(e){
+document.getElementById("cost_low_to_high").addEventListener("click", function(){
 
     let i;
 

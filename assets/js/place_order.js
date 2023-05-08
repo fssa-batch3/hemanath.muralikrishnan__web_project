@@ -2,7 +2,6 @@ let place_order_items = JSON.parse(localStorage.getItem("cart_items"));
 
 let order_histroy = JSON.parse(localStorage.getItem("order_histroy")) ?? [];
 
-
 let get_place_order_form = document.getElementById("place-order-form");
 
 let now = new Date();
@@ -44,7 +43,7 @@ user_records.find(function (obj) {
 
       document.querySelector(".checkout_btn").classList.remove("disabled");
 
-      find_user_address.forEach((item, index) => {
+      find_user_address.forEach((item) => {
 
         let address_div = document.createElement("div");
         address_div.setAttribute("class", "address_div");

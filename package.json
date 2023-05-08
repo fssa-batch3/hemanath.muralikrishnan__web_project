@@ -27,9 +27,12 @@
     "browser-sync": "^2.27.11",
     "eslint": "^8.36.0",
     "husky": "^8.0.3",
-    "run-script-os": "^1.1.6"
+    "run-script-os": "^1.1.6",
+    "eslint-config-prettier-standard": "^4.0.1"
   },
   "dependencies": {
+    "eslint-config-prettier-standard": "^4.0.1",
+    "eslint-plugin-html": "^7.1.0",
     "razorpay": "^2.8.6"
   }
 }

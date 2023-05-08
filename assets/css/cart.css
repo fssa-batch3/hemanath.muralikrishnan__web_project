@@ -101,7 +101,7 @@ table tbody tr .td_qty{
     align-items: center;
     height: 50px;
    /* width: 97px; */
-    border-radius: 10px;;
+    border-radius: 10px;
 
 }
  
@@ -259,7 +259,3 @@ tbody tr td img {
     
 }
 
-@media screen and (min-width: 901px) and (max-width: 1200px) {
-
-
-}

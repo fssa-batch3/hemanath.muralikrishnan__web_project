@@ -52,7 +52,6 @@ const pincode_input = document.getElementById("pincode-input");
 
 const upt_address_input = document.getElementById("upt_address-input");
 const upt_district_input = document.getElementById("upt_district-input");
-const upt_state_input = document.getElementById("upt_state-input");
 const upt_pincode_input = document.getElementById("upt_pincode-input");
 
 // append the addresses
@@ -184,7 +183,7 @@ new_address.addEventListener('click', function () {
 
 
 // close for new address
-address_form_close.addEventListener('click', function (e) {
+address_form_close.addEventListener('click', function () {
 
     address_div.style.display = "none";
 
@@ -194,7 +193,7 @@ address_form_close.addEventListener('click', function (e) {
 
 // close for update address form
 
-upt_address_form_close.addEventListener("click", function (e) {
+upt_address_form_close.addEventListener("click", function () {
 
     upt_address_div.style.display = "none"
 
