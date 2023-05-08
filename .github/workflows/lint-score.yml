@@ -1,10 +1,11 @@
-name: ESLint Score
+name: Linting
 
 on:
+  pull_request:
+    types: [opened, synchronize]
   push:
-    branches:
+    branches-ignore:
       - main
-      - dev
 
 jobs:
   eslint-score:
@@ -16,7 +17,7 @@ jobs:
           node-version: '16.x'
       
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Install ESLint
         run: npm install eslint
@@ -29,6 +30,12 @@ jobs:
 
       - name: run ESlint
         run: npx eslint -c ./.eslintrc.custom.json --ext .js --output-file eslint-results.json --format json ./ || true
+
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "eslint-results.json"
 
       - name: Run ESLint Score
         uses: suryaumapathy2812/ESlint-score@v1
