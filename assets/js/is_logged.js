@@ -2,23 +2,18 @@ const root = window.location.origin;
 
 const logged_email = localStorage.getItem("logged_in");
 
-let user_records = JSON.parse(localStorage.getItem("users")) ?? [];
+const user_records = JSON.parse(localStorage.getItem("users")) ?? [];
 
 let user_id;
 
-if(user_records !== null){
-
-user_records.find(function (obj) {
-
+if (user_records !== null) {
+  user_records.find((obj) => {
     if (logged_email === obj.emailid) {
+      user_id = obj.user_id;
 
-        user_id = obj.user_id;
-
-        return user_id;
-
-
+      return user_id;
     }
-});
+  });
 }
 
 const header = `
@@ -275,7 +270,7 @@ const header = `
 
 </div>
 
-`
+`;
 
 const footer = `<footer>
 
@@ -395,122 +390,92 @@ const footer = `<footer>
 
 </footer>`;
 
-// to append the above elements 
+// to append the above elements
 
 if (logged_email !== null) {
+  document.body.insertAdjacentHTML("afterbegin", header);
 
-    document.body.insertAdjacentHTML("afterbegin", header);
+  document.body.insertAdjacentHTML("afterend", footer);
 
-    document.body.insertAdjacentHTML("afterend", footer);
+  document.getElementById("login-btn").style.display = "none";
 
-    document.getElementById("login-btn").style.display = "none";
+  document.getElementById("mobile-login").style.display = "none";
 
-    document.getElementById("mobile-login").style.display = "none";
+  document.getElementById("login-btn-foot").style.display = "none";
+} else {
+  document.body.insertAdjacentHTML("afterbegin", header);
 
-    document.getElementById("login-btn-foot").style.display = "none";
+  document.getElementById("my-profile").style.display = "none";
 
+  document.getElementById("mobile-profile").style.display = "none";
 
-}
-
-else {
-
-    document.body.insertAdjacentHTML("afterbegin", header);
-
-    document.getElementById("my-profile").style.display = "none";
-
-    document.getElementById("mobile-profile").style.display = "none";
-
-    document.body.insertAdjacentHTML("afterend", footer);
-
+  document.body.insertAdjacentHTML("afterend", footer);
 }
 
 // to show the login form
 
-document.getElementById("login-btn").addEventListener("click", function () {
-
-    document.querySelector(".one-form").style.display = "block";
-
-
+document.getElementById("login-btn").addEventListener("click", () => {
+  document.querySelector(".one-form").style.display = "block";
 });
 
 // redirect to the register page
 
-document.querySelector(".register-here").addEventListener("click", function () {
+document.querySelector(".register-here").addEventListener("click", () => {
+  document.querySelector(".one-form").style.display = "none";
 
-    document.querySelector(".one-form").style.display = "none";
-
-    document.querySelector(".two-form").style.display = "block";
-
-
+  document.querySelector(".two-form").style.display = "block";
 });
 
 // in register btn to direct to login page
 
-document.querySelector(".register-login").addEventListener("click", function () {
+document.querySelector(".register-login").addEventListener("click", () => {
+  document.querySelector(".one-form").style.display = "block";
 
-    document.querySelector(".one-form").style.display = "block";
-
-    document.querySelector(".two-form").style.display = "none";
-
+  document.querySelector(".two-form").style.display = "none";
 });
 
 // footer register bth
 
-document.getElementById("login-btn-foot").addEventListener("click", function () {
-
-    document.querySelector(".one-form").style.display = "block";
+document.getElementById("login-btn-foot").addEventListener("click", () => {
+  document.querySelector(".one-form").style.display = "block";
 });
-
 
 // to close the login form
 
-document.querySelector(".login-close").addEventListener("click", function () {
-
-    document.querySelector(".one-form").style.display = "none";
-
+document.querySelector(".login-close").addEventListener("click", () => {
+  document.querySelector(".one-form").style.display = "none";
 });
 
 // to close the register form
 
-document.querySelector(".register-close").addEventListener("click", function () {
-
-    document.querySelector(".two-form").style.display = "none";
-
-
+document.querySelector(".register-close").addEventListener("click", () => {
+  document.querySelector(".two-form").style.display = "none";
 });
-
-
 
 // mobile nav
 
 document.querySelector(".side-menu-mobile").style.display = "none";
 
-document.querySelector(".mobile-open").addEventListener("click", function () {
+document.querySelector(".mobile-open").addEventListener("click", () => {
+  if (document.querySelector(".side-menu-mobile").style.display === "none") {
+    document.querySelector(".side-menu-mobile").style.display = "block";
 
-    if ((document.querySelector(".side-menu-mobile").style.display) === "none") {
-
-        document.querySelector(".side-menu-mobile").style.display = "block";
-
-        document.querySelector(".mobile_search_result_append").style.display="none";
-    }
-
-    else {
-        document.querySelector(".side-menu-mobile").style.display = "none";
-    }
-})
-
-
-document.getElementById("mobile-login-btn").addEventListener("click", function () {
-
-    document.querySelector(".one-form").style.display = "block";
-
+    document.querySelector(".mobile_search_result_append").style.display =
+      "none";
+  } else {
     document.querySelector(".side-menu-mobile").style.display = "none";
-})
+  }
+});
 
+document.getElementById("mobile-login-btn").addEventListener("click", () => {
+  document.querySelector(".one-form").style.display = "block";
+
+  document.querySelector(".side-menu-mobile").style.display = "none";
+});
 
 // functions for login
 
-const form = document.getElementById('loginform');
+const form = document.getElementById("loginform");
 
 // variable to check the account is available or not
 
@@ -519,346 +484,272 @@ let check_account = false;
 // password eye
 
 function showPwd(id, el) {
-    let x = document.getElementById(id);
-    if (x.type === "password") {
-        x.type = "text";
-        el.className = 'fa fa-eye-slash showpwd';
-    } else {
-        x.type = "password";
-        el.className = 'fa fa-eye showpwd';
-    }
+  const x = document.getElementById(id);
+  if (x.type === "password") {
+    x.type = "text";
+    el.className = "fa fa-eye-slash showpwd";
+  } else {
+    x.type = "password";
+    el.className = "fa fa-eye showpwd";
+  }
 }
 
 // function to validate inputs
 
 function login_validateInputs() {
+  const email_id = document.getElementById("email-id").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-    const email_id = document.getElementById('email-id').value.trim();
-    const password = document.getElementById('password').value.trim();
+  const user_db = JSON.parse(localStorage.getItem("users"));
 
-    let user_db = JSON.parse(localStorage.getItem("users"));
+  if (user_db != null) {
+    //  check the user is registered or not
 
-    if (user_db != null) {
-        //  check the user is registered or not
+    find_user(email_id, password);
 
-        find_user(email_id, password);
+    if (check_account) {
+      const profile_email = email_id;
 
+      localStorage.setItem("logged_in", profile_email);
 
-        if (check_account) {
+      Notify.success("Login Successfull!");
 
-            const profile_email = email_id;
+      form.reset();
 
-            localStorage.setItem("logged_in", profile_email);
-
-            Notify.success("Login Successfull!");
-
-            form.reset();
-
-            window.location.href = `${root}/index.html`;
-        }
-
-        else {
-
-            Notify.error("Invalid User Credentials");
-        }
-
+      window.location.href = `${root}/index.html`;
+    } else {
+      Notify.error("Invalid User Credentials");
     }
+  } else {
+    Notify.error("Please create account before loign");
 
-    else {
+    form.reset();
 
-            Notify.error("Please create account before loign");
+    document.querySelector(".one-form").style.display = "none";
 
-            form.reset();
-
-            document.querySelector(".one-form").style.display = "none";
-
-            document.querySelector(".two-form").style.display = "block";
-
-        
-}
-
-
+    document.querySelector(".two-form").style.display = "block";
+  }
 }
 
 // function to find the user in already registered data
 
 function find_user(email_id, password) {
+  const user_data = JSON.parse(localStorage.getItem("users"));
 
-    const user_data = JSON.parse(localStorage.getItem("users"));
-
-    user_data.find(loginobj => {
-
-        if ((email_id === loginobj["emailid"]) && (password === loginobj["password"])) {
-
-            check_account = true;
-
-        }
-
-    });
-
+  user_data.find((loginobj) => {
+    if (email_id === loginobj.emailid && password === loginobj.password) {
+      check_account = true;
+    }
+  });
 }
 
-
 // event lister for login submit btn
-form.addEventListener('submit', e => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
-
-    login_validateInputs();
-
+  login_validateInputs();
 });
 
 // functions for register form
 
-
-
-const reg_form = document.getElementById('form');
+const reg_form = document.getElementById("form");
 
 // variable already have a account
 
 let check_user = true;
 
-
 // functions to validate the user inputs
 function validateInputs() {
+  const first_name = document.getElementById("first-name").value.trim();
+  const last_name = document.getElementById("last-name").value.trim();
+  const email_id = document.getElementById("reg-email-id").value.trim();
+  const mobilenumber = document.getElementById("mobile-number").value.trim();
+  const password = document.getElementById("reg-password").value.trim();
+  const conf_password = document.getElementById("conf-password").value.trim();
 
-    const first_name = document.getElementById('first-name').value.trim();
-    const last_name = document.getElementById('last-name').value.trim();
-    const email_id = document.getElementById('reg-email-id').value.trim();
-    const mobilenumber = document.getElementById('mobile-number').value.trim();
-    const password = document.getElementById('reg-password').value.trim();
-    const conf_password = document.getElementById('conf-password').value.trim();
+  // this function returns the check user true or false
 
-    // this function returns the check user true or false
+  check_already_user(email_id, mobilenumber);
 
-    check_already_user(email_id, mobilenumber);
+  if (check_user) {
+    if (password === conf_password) {
+      const user = {
+        user_id: Math.random().toString(16).slice(2),
+        firstname: first_name,
+        lastname: last_name,
+        emailid: email_id,
+        mobilenumber,
+        password: conf_password,
+        user_account_created_date: new Date().toLocaleDateString(),
+        user_account_created_time: new Date().toLocaleTimeString(),
+        address: [],
+      };
 
-    if (check_user) {
+      user_records.push(user);
 
-        if (password === conf_password) {
+      localStorage.setItem("users", JSON.stringify(user_records));
 
-            let user = {
-                "user_id":  Math.random().toString(16).slice(2),
-                "firstname": first_name,
-                "lastname": last_name,
-                "emailid": email_id,
-                "mobilenumber": mobilenumber,
-                "password": conf_password,
-                "user_account_created_date":new Date().toLocaleDateString(),
-                "user_account_created_time": new Date().toLocaleTimeString(),
-                "address": []
-            }
+      Notify.success("Account Created Successfully!");
 
-            user_records.push(user);
+      document.querySelector(".two-form").style.display = "none";
 
-            localStorage.setItem("users", JSON.stringify(user_records));
+      document.querySelector(".one-form").style.display = "block";
 
-            Notify.success("Account Created Successfully!");
-
-            document.querySelector(".two-form").style.display = "none";
-
-            document.querySelector(".one-form").style.display = "block";
-
-            reg_form.reset();
-        }
-
-        else {
-
-            Notify.error("Confirm password doesn't match password!");
-
-        }
-
+      reg_form.reset();
+    } else {
+      Notify.error("Confirm password doesn't match password!");
     }
+  } else {
+    Notify.error("Already Have a Account Please Login");
 
-    else {
+    document.querySelector(".two-form").style.display = "none";
 
-        Notify.error("Already Have a Account Please Login");
+    document.querySelector(".one-form").style.display = "block";
 
-        document.querySelector(".two-form").style.display = "none";
-
-        document.querySelector(".one-form").style.display = "block";
-
-        reg_form.reset();
-
-    }
-
-
+    reg_form.reset();
+  }
 }
 
 // check the user already registered or not
 
 function check_already_user(email_id, mobilenumber) {
-
-    if (user_records !== null) {
-
-        user_records.find(userobj => {
-
-            if ((email_id === userobj["emailid"]) && (mobilenumber === userobj["mobilenumber"])) {
-
-                check_user = false;
-
-            }
-        });
-
-    }
-
+  if (user_records !== null) {
+    user_records.find((userobj) => {
+      if (
+        email_id === userobj.emailid &&
+        mobilenumber === userobj.mobilenumber
+      ) {
+        check_user = false;
+      }
+    });
+  }
 }
-
 
 // event listner for register submit
 
-reg_form.addEventListener('submit', e => {
+reg_form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
-
-    validateInputs();
-
+  validateInputs();
 });
 
-
-//desktop search bar event listner
+// desktop search bar event listner
 
 document.querySelector(".search_results_append").style.display = "none";
 
-let products_db = JSON.parse(localStorage.getItem("product_list"));
+const products_db = JSON.parse(localStorage.getItem("product_list"));
 
-let search_bar = document.getElementById("header_search");
+const search_bar = document.getElementById("header_search");
 
-search_bar.addEventListener("input", function(){
+search_bar.addEventListener("input", () => {
+  document.querySelector(".search_results_append").innerHTML = "";
 
-    document.querySelector(".search_results_append").innerHTML = "";
+  if (search_bar.value == "") {
+    document.querySelector(".search_results_append").style.display = "none";
+  } else {
+    document.querySelector(".search_results_append").style.display = "block";
+  }
 
-    if(search_bar.value == ""){
+  const search_value = search_bar.value.toLowerCase();
 
-        document.querySelector(".search_results_append").style.display = "none";
-    }
-
-    else {
-        document.querySelector(".search_results_append").style.display = "block";
-    }
-
-    let search_value = search_bar.value.toLowerCase();
-
-
-    desktop_searh(search_value);
-      
-})
+  desktop_searh(search_value);
+});
 
 // desktop search find products
-function desktop_searh(search_value){
+function desktop_searh(search_value) {
+  // desktop search bar function
+  const results_arr = products_db.filter((item) => {
+    const pro_name = item.name.eng;
 
-// desktop search bar function 
-let results_arr = products_db.filter(function(item){
+    const lc_pro_name = pro_name.toLowerCase();
 
-    let pro_name = item["name"]["eng"];
-
-    let lc_pro_name = pro_name.toLowerCase();
-
-    if((lc_pro_name.includes(search_value))&&(item.status)){
-
-      
-        return item;
-        
+    if (lc_pro_name.includes(search_value) && item.status) {
+      return item;
     }
-})
+  });
 
-desktop_append_search(results_arr);
-
+  desktop_append_search(results_arr);
 }
 
 // desktop append the find products
-function desktop_append_search(results_arr = []){
+function desktop_append_search(results_arr = []) {
+  if (results_arr.length != 0) {
+    results_arr.forEach((obj) => {
+      const href =
+        `${root}/pages/product_details/details.html?` +
+        `id=${obj.id}&` +
+        `cat=${obj.category.id}`;
 
-if(results_arr.length != 0){
+      const a_href = document.createElement("a");
+      a_href.setAttribute("href", href);
+      a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`;
 
-    results_arr.forEach(obj => {
-        
-        let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
-        
-        let a_href = document.createElement("a");
-        a_href.setAttribute("href", href);
-        a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
-
-        document.querySelector(".search_results_append").appendChild(a_href);
-
+      document.querySelector(".search_results_append").appendChild(a_href);
     });
-}
-
-else {
-
-    document.querySelector(".search_results_append").innerHTML = `<p class="no-products-found">No products found</h1>`
-
-}
-
-
+  } else {
+    document.querySelector(
+      ".search_results_append"
+    ).innerHTML = `<p class="no-products-found">No products found</h1>`;
+  }
 }
 
 // mobile search bar event listner
 
-document.querySelector(".mobile_search_result_append").style.display="none";
+document.querySelector(".mobile_search_result_append").style.display = "none";
 
-let mobile_search = document.getElementById("mobile_search");
+const mobile_search = document.getElementById("mobile_search");
 
-mobile_search.addEventListener("input", function(){
+mobile_search.addEventListener("input", () => {
+  document.querySelector(".mobile_search_result_append").innerHTML = "";
 
-    document.querySelector(".mobile_search_result_append").innerHTML = "";
+  if (mobile_search.value == "") {
+    document.querySelector(".mobile_search_result_append").style.display =
+      "none";
+  } else {
+    document.querySelector(".mobile_search_result_append").style.display =
+      "block";
+  }
 
-    if(mobile_search.value == ""){
+  const search_value = mobile_search.value.toLowerCase();
 
-        document.querySelector(".mobile_search_result_append").style.display = "none";
-    }
-
-    else {
-        document.querySelector(".mobile_search_result_append").style.display = "block";
-    }
-
-    let search_value = mobile_search.value.toLowerCase();
-
-    mobile_search_fun(search_value);
-
-})
-
+  mobile_search_fun(search_value);
+});
 
 // mobile search bar
 
-function mobile_search_fun(search_value){
-let result_arr =  products_db.filter(function(item){
+function mobile_search_fun(search_value) {
+  const result_arr = products_db.filter((item) => {
+    const pro_name = item.name.eng;
 
-    let pro_name = item["name"]["eng"];
+    const lc_pro_name = pro_name.toLowerCase();
 
-    let lc_pro_name = pro_name.toLowerCase();
-
-    if((lc_pro_name.includes(search_value))&&(item.status)){
-
-        return item;  
+    if (lc_pro_name.includes(search_value) && item.status) {
+      return item;
     }
-})
+  });
 
-mobile_search_append(result_arr);
-
+  mobile_search_append(result_arr);
 }
 
+function mobile_search_append(result_arr = []) {
+  if (result_arr.length != 0) {
+    result_arr.forEach((obj) => {
+      const href =
+        `${root}/pages/product_details/details.html?` +
+        `id=${obj.id}&` +
+        `cat=${obj.category.id}`;
 
-function mobile_search_append(result_arr = []){
+      const a_href = document.createElement("a");
+      a_href.setAttribute("href", href);
+      a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`;
 
-if(result_arr.length != 0){
-
-    result_arr.forEach(obj => {
-        
-        let href = `${root}/pages/product_details/details.html?` + "id=" + obj["id"] + "&" + "cat=" + obj["category"]["id"];
-        
-        let a_href = document.createElement("a");
-        a_href.setAttribute("href", href);
-        a_href.innerHTML = `<img src="${obj.image.source}" alt="image of ${obj.image.alt}"><p>${obj.name.eng}</p>`
-
-        document.querySelector(".mobile_search_result_append").appendChild(a_href);
-
+      document
+        .querySelector(".mobile_search_result_append")
+        .appendChild(a_href);
     });
-}
-
-else {
-
-    document.querySelector(".mobile_search_result_append").innerHTML = `<p class="no-products-found">No products found</h1>`
-
-}
+  } else {
+    document.querySelector(
+      ".mobile_search_result_append"
+    ).innerHTML = `<p class="no-products-found">No products found</h1>`;
+  }
 }

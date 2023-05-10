@@ -13,8 +13,7 @@
       "code-complexity",
       "eslint:recommended",
       "airbnb",
-      "prettier",
-      "prettier-standard"
+      "prettier"
     ],
     "settings": {
       "html/html-extensions": [

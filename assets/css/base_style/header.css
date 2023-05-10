@@ -209,7 +209,8 @@ nav {
 
 .nav-three input {
     position: relative;
-    width: 325px;
+    width: 100%;
+    max-width: 325px;
     height: 30px;
     border-radius: 10px;
     padding: 1.2em 1em;
@@ -291,7 +292,7 @@ nav {
 
 /* end of navigation */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
 
     .nav-one,
     .nav-two,

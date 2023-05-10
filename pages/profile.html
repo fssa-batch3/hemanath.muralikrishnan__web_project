@@ -25,7 +25,7 @@
     <!-- fontawesome stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- fontawesome stylesheet -->
 
     <link rel="icon" type="image/png" sizes="60x32" href="../assets/images/tabicon/icon.png">
@@ -34,7 +34,6 @@
 
     <link rel="stylesheet" href="../assets/css/notify.css">
 
-
     <title>AgroKart - Ecommerce</title>
 </head>
 
@@ -42,32 +41,33 @@
 
     <!-- mobile device nav bar start -->
 
-
     <!-- mobile device nav bar end  -->
 
     <!-- end of header -->
 
     <!-- end of navigation -->
 
-
     <!-- start of list top -->
     <div class="list-top">
 
         <ul>
-            <li><i class="fa-solid fa-house"></i></li>
-            <li><a href="../index.html">Home</a></li>
-            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>
+<i class="fa-solid fa-house"></i>
+</li>
+            <li>
+<a href="../index.html">Home</a>
+</li>
+            <li>
+<i class="fa-solid fa-angle-right"></i>
+</li>
             <li>My Account</li>
         </ul>
 
     </div>
     <!-- end of list top -->
 
-
     <!-- main profile container starts -->
     <div class="profile-main">
-
-
 
         <!-- profile section left side start -->
         <div class="profile-left-side">
@@ -83,7 +83,9 @@
                 <div class="profile-details">
                     <p>Hello,</p>
                     <p id="user-profile-name"></p>
-                    <p class="logout-btn" id="logout-user"><i class="fa-solid fa-right-from-bracket"></i> Logout</p>
+                    <p class="logout-btn" id="logout-user">
+<i class="fa-solid fa-right-from-bracket"></i> Logout
+</p>
                 </div>
 
             </div>
@@ -117,28 +119,26 @@
                     <div class="name-input flex_so">
                         <label for="first_name">Name</label>
                         <input type="text" id="first_name" class="form-control" pattern="^[A-Za-z]+$" title="please enter valid firstname"
-                            placeholder="first name" disabled="true" required  minlength="3" maxlength="20"/>
+                            placeholder="first name" disabled="true" required minlength="3" maxlength="20">
                         <input type="text" id="last_name" class="form-control" pattern="^[A-Za-z]+$" title="please enter valid last_name"
-                            placeholder="last name" disabled="true" required minlength="1" maxlength="20"/>
+                            placeholder="last name" disabled="true" required minlength="1" maxlength="20">
                     </div>
-
 
                     <div class="gender-sec flex_so">
                         <p class="gender">Gender</p>
-                        <label for="male"><input type="radio" id="male" name="gender" disabled="true" value="male"
+                        <label for="male">
+<input type="radio" id="male" name="gender" disabled="true" value="male"
                                 required> Male</label>
-                        <label for="female"><input type="radio" id="female" name="gender" disabled="true"
+                        <label for="female">
+<input type="radio" id="female" name="gender" disabled="true"
                                 value="female">
                             Female</label>
                     </div>
-
-
 
                     <div class="email-input flex_so">
                         <label for="email-addrees">Email</label>
                         <input type="text" class="form-control" placeholder="exmaple@gmail.com" id="email-address" disabled="true" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                     </div>
-
 
                     <div class="mobile-input flex_so">
                         <label for="profile-mobile-number">Mobile Number</label>
@@ -161,15 +161,15 @@
 
                 <p class="add-new-address" id="add_new_address">+ Add a new address</p>
 
-
                 <!-- new address form -->
-
 
                 <form id="address_form">
 
                     <div class="address-form">
 
-                        <span class="close" id="address_close_form"><i class="fa-solid fa-square-xmark"></i></span>
+                        <span class="close" id="address_close_form">
+<i class="fa-solid fa-square-xmark"></i>
+</span>
 
                         <div class="address-form-layers">
 
@@ -197,12 +197,9 @@
                                    title="Please enter valid pin code" pattern="^6\d{5}$" minlength="6" maxlength="6">
                             </div>
 
-
                             <button type="submit" class="address-save-btn">Save address</button>
 
                         </div>
-
-
 
                     </div>
 
@@ -214,7 +211,9 @@
 
                     <div class="upt_address-form">
 
-                        <span class="upt_close" id="upt_address_close_form"><i class="fa-solid fa-square-xmark"></i></span>
+                        <span class="upt_close" id="upt_address_close_form">
+<i class="fa-solid fa-square-xmark"></i>
+</span>
 
                         <div class="upt_address-form-layers">
 
@@ -239,9 +238,8 @@
                             <div class="address_input">
                                 <label for="upt_pincode-input">pincode</label>
                                 <input type="text" id="upt_pincode-input" class="form-control" placeholder="Enter your pincode"
-                                pattern="^6\d{5}$" title="Please enter valid pin code" >
+                                pattern="^6\d{5}$" title="Please enter valid pin code">
                             </div>
-
 
                             <button type="submit" class="address-save-btn">Update address</button>
 
@@ -251,16 +249,11 @@
 
                 </form>
 
-
-
                 <!-- show address from the localstorage -->
 
                 <div class="show-address">                    
 
                 </div>
-
-
-
 
             </div>
 
@@ -275,7 +268,6 @@
 
     <!-- footer start -->
 
-
     <!-- footer ends -->
 
      <!-- checking login -->
@@ -286,7 +278,6 @@
 
      <script src="../assets/js/profile/profile.js"></script>
 
-
      <!-- wishlist count -->
  
      <script src="../assets/js/wishlist/wishlist_count.js"></script>
@@ -295,10 +286,9 @@
  
       <script src="../assets/js/cart_count.js"></script>
 
-
     <!-- notify script -->
 
-    <script src="../assets/js/notify.js"></script>
+    <script src="../assets/js/vendor/notify.js"></script>
 
 </body>
 

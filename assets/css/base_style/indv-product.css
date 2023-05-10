@@ -553,6 +553,10 @@ box-shadow:  11px 11px 22px #c1c0c0,
      .product-container .product-main .product-name p {
          font-size: .9rem;
      }
+
+     .product-container .product-main .amount_dropdown{
+        font-size: .9rem;
+     }
  
      .product-container .farmer-part {
          width: 140px;

@@ -42,7 +42,7 @@
 
 .container_card .main-container{
 
-    margin: 1em 0;
+    margin: 1em 1.5em;
 }
 
 
@@ -107,4 +107,25 @@
     text-align: center;
 }
 
+@media screen and (max-width: 700px) {
+
+    .container_card{
+        margin: 1em 1em;
+    }
+    
+    .container_card .main-container .head p{
+        font-size: .9rem;
+    }
+
+    .container_card .main-container .order_deliver{
+       font-size: .8rem;
+    }
+
+    .container_card .main-container .other-contents .many_contents .many_images img{
+        width: 40px;
+    }
+    .container_card .main-container .other-contents p{
+        font-size: .9rem;
+    }
+}
 

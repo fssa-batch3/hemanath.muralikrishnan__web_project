@@ -1,5 +1,5 @@
 // getting the element to append the div
-let appen_div = document.querySelector(".wishlist-cont");
+const appen_div = document.querySelector(".wishlist-cont");
 
 // empty string to have the wishlist items
 
@@ -7,74 +7,64 @@ let wishlist_output = "";
 
 // from localstorage get the favourite list
 
-let wishlist = JSON.parse(localStorage.getItem("wishlist"));
+const wishlist = JSON.parse(localStorage.getItem("wishlist"));
 
 // element to display the number of wishlist products available
 
 const wish_title = document.getElementById("wish-title");
 
 function check_wishlist() {
+  let user_pro_check = false;
 
-    let user_pro_check = false;
+  if (wishlist !== null) {
+    wishlist.find((obj) => {
+      if (user_id === obj.user_id) {
+        user_pro_check = true;
+      }
 
-    if (wishlist !== null) {
+      return user_pro_check;
+    });
 
-        wishlist.find(function (obj) {
+    show_the_wishlist_pro(user_pro_check);
+  }
 
-            if (user_id === obj.user_id) {
-
-                user_pro_check = true;
-            }
-
-            return user_pro_check;
-        })
-
-        show_the_wishlist_pro(user_pro_check);
-    }
-
+  else{
+    show_the_wishlist_pro(user_pro_check);
+  }
 }
 
 function show_the_wishlist_pro(user_pro_check) {
+  let wish_pro_count = 0;
 
-    let wish_pro_count = 0;
+  if (user_pro_check) {
+    wishlist.filter((obj, index) => {
+      if (user_id === obj.user_id) {
+        wish_list(obj, index);
 
-    if (user_pro_check) {
+        wish_pro_count++;
 
-        wishlist.filter(function (obj, index) {
+        return wish_pro_count;
+      }
+    });
+  } else {
+    appen_div.innerHTML = `<p class="no-wishlist-pro">No favourite products</p>`;
+  }
 
-            if (user_id === obj.user_id) {
+  // my title count increasing
 
-                wish_list(obj, index);
-
-                wish_pro_count++;
-
-                return wish_pro_count;
-            }
-
-        })
-    }
-
-    else {
-
-        appen_div.innerHTML = `<p class="no-wishlist-pro">No favourite products</p>`;
-    }
-
-
-    // my title count increasing
-
-    wish_title.innerText = "My Wishlist(" + wish_pro_count + ")";
-
-
+  wish_title.innerText = `My Wishlist(${wish_pro_count})`;
 }
 
 function wish_list(item, index) {
+  const { product_id } = item;
+  const product_cat = item.category.id;
 
-    let product_id = item["product_id"];
-    let product_cat = item["category"]["id"]
+  const href_link =
+    `product_details/details.html?` +
+    `id=${product_id}&` +
+    `cat=${product_cat}`;
 
-    let href_link = "product_details/details.html?" + "id=" + product_id + "&" + "cat=" + product_cat;
-
-    wishlist_output += `<div class="wishlist-sec">
+  wishlist_output += `<div class="wishlist-sec">
 
                 <div class="wishlist-content">
 
@@ -107,26 +97,23 @@ function wish_list(item, index) {
                 </div>
 
 
-            </div>`
+            </div>`;
 
-    appen_div.innerHTML = wishlist_output;
-
+  appen_div.innerHTML = wishlist_output;
 }
 
-
 function deletewishlist(index) {
+  wishlist.splice(index, 1);
 
-    wishlist.splice(index, 1);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  Notify.success("Product Removed");
 
-    Notify.success("Product Removed");
+  wishlist_output = "";
 
-    wishlist_output = "";
+  check_wishlist();
 
-    check_wishlist();
-
-    wishlist_count_fun();
+  wishlist_count_fun();
 }
 
 check_wishlist();
