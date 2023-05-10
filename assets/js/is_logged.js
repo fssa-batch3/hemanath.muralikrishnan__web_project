@@ -136,11 +136,6 @@ const header = `
                         <a href="${root}/pages/product_list/list_product.html?cat=00">Products</a>
                     </div>
 
-                    <div class="side-auth side-item" id="mobile-login">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        <p id="mobile-login-btn">Log in/Sign Up</p>
-                    </div>
-
                     <div class="side-auth side-item" id="mobile-profile">
                         <i class="fa-solid fa-user"></i>
                         <a href="${root}/pages/profile.html">My Account</a>
@@ -168,6 +163,9 @@ const header = `
             <a href="${root}/pages/cart.html"><i class="fa-solid fa-cart-shopping"></i>
             <span class="mobile-cart-notify" id="mobile-cart-count"></span>
             </a>
+
+            <i id="mobile-login-btn" class="fa-solid fa-arrow-right-to-bracket"></i>
+
         </div>
 
     </nav>
@@ -399,7 +397,7 @@ if (logged_email !== null) {
 
   document.getElementById("login-btn").style.display = "none";
 
-  document.getElementById("mobile-login").style.display = "none";
+  document.getElementById("mobile-login-btn").style.display = "none";
 
   document.getElementById("login-btn-foot").style.display = "none";
 } else {

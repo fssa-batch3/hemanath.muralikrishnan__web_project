@@ -470,6 +470,13 @@ nav {
         padding: 0 .3em 0 0;
     }
 
+    .mobile-menu .fa-arrow-right-to-bracket{
+        font-size: 1.2rem;
+        color: #429b44;
+        margin-left: .5em;
+        font-weight: bold;
+    }
+
     .mobile-nav .mobile-menu .mobile-wishlist-notify {
         position: absolute;
         bottom: 1.1em;

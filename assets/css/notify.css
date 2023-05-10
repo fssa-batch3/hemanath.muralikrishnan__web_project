@@ -48,3 +48,12 @@ body {
         transform: translate3d(100%, 0, 0);
     }
 }
+
+
+@media screen and (max-width:700px) {
+    #notify,
+.notify{
+    font-size: .8rem;
+}
+    
+}

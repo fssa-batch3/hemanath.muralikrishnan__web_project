@@ -4,6 +4,7 @@ const order_histroy = JSON.parse(localStorage.getItem("order_histroy")) ?? [];
 
 const get_place_order_form = document.getElementById("place-order-form");
 
+
 const now = new Date();
 
 const tomorrow = new Date(now);
@@ -32,9 +33,14 @@ user_records.find((obj) => {
         ".append_available_address"
       ).innerHTML = `<a href="../profile.html" class="place_order_address_add">Please add address in profile page to checkout</a>`;
 
+     alert("please add address to proceed checkout");
+
+     document.querySelector(".dates-cont").classList.add("disabled");
+
+     document.querySelector(".payment-options").classList.add("disabled")
+
       document.querySelector(".checkout_btn").classList.add("disabled");
     } else {
-      document.querySelector(".checkout_btn").classList.remove("disabled");
 
       find_user_address.forEach((item) => {
         const address_div = document.createElement("div");
