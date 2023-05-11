@@ -278,30 +278,30 @@ const footer = `<footer>
 
     <div class="footer-logo">
 
-        <a href="${root}/index.html">AgroKart</a>
+        <p><a href="${root}/index.html">AgroKart</a></p>
 
     </div>
 
     <div class="company footer-flex-two">
 
         <p class="footer-title">Company</p>
-        <a href="${root}/pages/company/about_us.html" class="footer-item">About Us</a>
-        <a href="${root}/pages/company/contact_us.html" class="footer-item">Contact US</a>
+        <p class="footer-one-items"><a href="${root}/pages/company/about_us.html" class="footer-item">About Us</a></p>
+        <p class="footer-one-items"><a href="${root}/pages/company/contact_us.html" class="footer-item">Contact US</a></p>
     </div>
 
     <div class="account footer-flex-two">
 
         <p class="footer-title">Account</p>
         <p class="footer-item" id="login-btn-foot">Sign in</p>
-        <a href="${root}/pages/cart.html" class="footer-item">View Cart</a>
-        <a href="${root}/pages/wishlist.html" class="footer-item">My Wishlist</a>
+        <p class="footer-one-items"><a href="${root}/pages/cart.html" class="footer-item">View Cart</a></p>
+        <p class="footer-one-items"><a href="${root}/pages/wishlist.html" class="footer-item">My Wishlist</a></p>
 
     </div>
 
     <div class="deliver footer-flex-two">
 
         <p class="footer-title">Cities we Deliver to</p>
-        <p class="footer-item">Chennai</p>
+        <p class="footer-item footer-one-items">Chennai</p>
 
     </div>
 
@@ -325,7 +325,7 @@ const footer = `<footer>
         <div class="footer-contact">
 
             <i class="fa-solid fa-phone"></i>
-            <p> <b>Call Us:</b> <a href="tel:+91 1234567890">+91 1234567890</a></p>
+            <p> <b>Call Us:</b> <a href="tel:+91 7867979731">+91 7867979731</a></p>
 
         </div>
 
@@ -360,7 +360,7 @@ const footer = `<footer>
 
     <div class="copyright">
 
-        <p><b>©</b> 2022, <span><a href="${root}/index.html">AgroKart</span></a></p>
+        <p><b>©</b> 2023, <span><a href="${root}/index.html">AgroKart</span></a></p>
         <p>All Rights Reserved</p>
 
     </div>

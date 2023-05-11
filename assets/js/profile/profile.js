@@ -314,7 +314,6 @@ function show_address(address_array = []) {
 
 // update address function
 function update_address(item) {
-  
   document.querySelector(".address-menus").style.display = "none";
 
   upt_address_div.style.display = "block";
@@ -335,7 +334,6 @@ function update_address(item) {
 // update address form logic
 
 upt_address_form.addEventListener("submit", (e) => {
-
   e.preventDefault();
 
   const copy = JSON.parse(localStorage.getItem("copy_address"));

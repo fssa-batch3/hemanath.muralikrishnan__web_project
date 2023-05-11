@@ -1,42 +1,29 @@
 const order_histroy = JSON.parse(localStorage.getItem("order_histroy"));
 console.log(order_histroy);
 function check_user_histroy() {
-
   let check_histroy = false;
 
   if (order_histroy !== null) {
-
-    order_histroy.find(function (obj) {
-
+    order_histroy.find((obj) => {
       if (user_id === obj.user_id) {
-
         check_histroy = true;
-
-        
       }
 
       return check_histroy;
     });
 
     show_histroy(check_histroy);
-  }
-
-  else{
-
+  } else {
     show_histroy(check_histroy);
   }
 }
 
-function show_histroy(check_histroy){
-
+function show_histroy(check_histroy) {
   let histroy_count = 0;
 
-  if(check_histroy){
-
-    order_histroy.filter(function(obj){
-
-      if(user_id === obj.user_id){
-
+  if (check_histroy) {
+    order_histroy.filter((obj) => {
+      if (user_id === obj.user_id) {
         histroy_count++;
 
         append_histroy(obj);
@@ -44,19 +31,14 @@ function show_histroy(check_histroy){
         return histroy_count;
       }
     });
+  } else {
+    document.querySelector(
+      ".container_card"
+    ).innerHTML = `<h1>No order histroy</h1>`;
   }
-
-  else {
-
-    document.querySelector(".container_card").innerHTML = `<h1>No order histroy</h1>`
-
-  }
-
 }
 
-
-function append_histroy(obj){
-
+function append_histroy(obj) {
   const main_contianer = document.createElement("div");
   main_contianer.setAttribute("class", "main-container");
   document.querySelector(".container_card").appendChild(main_contianer);
@@ -135,8 +117,6 @@ function append_histroy(obj){
       angle_down.classList.add("fa-angle-down");
     }
   });
-
 }
 
 check_user_histroy();
-

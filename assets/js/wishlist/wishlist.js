@@ -26,9 +26,7 @@ function check_wishlist() {
     });
 
     show_the_wishlist_pro(user_pro_check);
-  }
-
-  else{
+  } else {
     show_the_wishlist_pro(user_pro_check);
   }
 }

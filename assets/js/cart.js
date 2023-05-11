@@ -43,8 +43,7 @@ function check_cart() {
     });
 
     show_the_cart_pro(user_pro_check);
-  }
-  else{
+  } else {
     show_the_cart_pro(user_pro_check);
   }
 }
@@ -317,27 +316,26 @@ function check_ready() {
 
   let check_chekout = 0;
 
-  if(cart_items !== null){
-
-  cart_items.filter((obj) => {
-    if (user_id == obj.user_id) {
-      count++;
-    }
-  });
-
-  cart_items.filter((obj) => {
-    if (user_id == obj.user_id) {
-      if (obj.ready_for_checkout) {
-        check_chekout++;
+  if (cart_items !== null) {
+    cart_items.filter((obj) => {
+      if (user_id == obj.user_id) {
+        count++;
       }
-    }
-  });
+    });
 
-  if (count == check_chekout) {
-    elem.classList.remove("disabled");
-  } else {
-    elem.classList.add("disabled");
-  }
+    cart_items.filter((obj) => {
+      if (user_id == obj.user_id) {
+        if (obj.ready_for_checkout) {
+          check_chekout++;
+        }
+      }
+    });
+
+    if (count == check_chekout) {
+      elem.classList.remove("disabled");
+    } else {
+      elem.classList.add("disabled");
+    }
   }
 }
 

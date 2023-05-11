@@ -154,15 +154,6 @@ function deletepricelist(index) {
 
 // for english name input field
 
-product_english_name.addEventListener("change", (e) => {
-  if (product_english_name != "") {
-    const value = product_english_name.value.trim();
-
-    fetchData(value);
-
-    get_health(value);
-  }
-});
 
 // store the create product details
 create_form.addEventListener("submit", (e) => {

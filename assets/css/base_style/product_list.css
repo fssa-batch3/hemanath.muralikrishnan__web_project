@@ -105,9 +105,7 @@ label {
     margin: .5em;
 }
 
-.categories-main ul li:hover {
-    margin: .5em;
-}
+
 
 /* end of categories list */
 
@@ -159,9 +157,9 @@ label {
 }
 
 
-/* mutiple-pages end */
+/* multiple-pages end */
 
-/* start of media queires */
+/* start of media queries */
 
 @media screen and (max-width:900px) {
 

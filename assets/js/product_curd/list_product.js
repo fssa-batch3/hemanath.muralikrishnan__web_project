@@ -78,40 +78,25 @@ checkboxes.forEach((checkbox) => {
   });
 });
 
-
 // sortby for desktop and mobile
 
-let sort_opt = document.querySelectorAll('input[name="sort_by_in_cat"]');
+const sort_opt = document.querySelectorAll('input[name="sort_by_in_cat"]');
 
-sort_opt.forEach(function(item){
-
-  item.addEventListener("click", function(e){
-
-    if(item.value === "name_a_to_z"){
-
+sort_opt.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    if (item.value === "name_a_to_z") {
       name_a_to_z();
-
-    }
-  
-    else if(item.value === "name_z_to_a"){
-
+    } else if (item.value === "name_z_to_a") {
       name_z_to_a();
-    }
-
-    else if(item.value === "cost_high_to_low"){
-
+    } else if (item.value === "cost_high_to_low") {
       cost_high_to_low();
-    }
-
-    else{
-
+    } else {
       cost_low_to_hi();
     }
-  })
-})
+  });
+});
 
-
-function name_a_to_z(){
+function name_a_to_z() {
   let i;
 
   let switching;
@@ -154,8 +139,7 @@ function name_a_to_z(){
   }
 }
 
-
-function name_z_to_a(){
+function name_z_to_a() {
   let i;
 
   let switching;
@@ -198,8 +182,7 @@ function name_z_to_a(){
   }
 }
 
-function cost_high_to_low(){
-
+function cost_high_to_low() {
   let i;
 
   let switching;
@@ -242,7 +225,7 @@ function cost_high_to_low(){
   }
 }
 
-function cost_low_to_hi(){
+function cost_low_to_hi() {
   let i;
 
   let switching;
@@ -284,5 +267,3 @@ function cost_low_to_hi(){
     }
   }
 }
-
-
