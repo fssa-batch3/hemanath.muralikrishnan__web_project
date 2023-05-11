@@ -45,8 +45,8 @@
 }
 
 .product-main {
-    width: 240px;
-    height: 525px;
+    width: 230px;
+    height: 480px;
     padding: 1.2em;
     display: flex;
     flex-direction: column;

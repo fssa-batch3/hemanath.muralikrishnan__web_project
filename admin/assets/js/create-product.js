@@ -154,7 +154,6 @@ function deletepricelist(index) {
 
 // for english name input field
 
-
 // store the create product details
 create_form.addEventListener("submit", (e) => {
   e.preventDefault();
