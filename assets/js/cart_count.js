@@ -1,3 +1,5 @@
+import { user_id } from "./is_logged.js";
+
 const cart_number = document.getElementById("cart-count");
 
 const mobile_cart_number = document.getElementById("mobile-cart-count");
@@ -12,9 +14,9 @@ function cart_count_fun() {
   mobile_cart_number.innerText = "";
 
   if (cart_items_user != null) {
-    cart_items_user.filter((obj) => {
-      if (user_id == obj.user_id) {
-        return ++cart_count;
+    cart_items_user.forEach((obj) => {
+      if (user_id === obj.user_id) {
+        ++cart_count;
       }
     });
   }
@@ -25,3 +27,5 @@ function cart_count_fun() {
 }
 
 cart_count_fun();
+
+export { cart_count_fun };

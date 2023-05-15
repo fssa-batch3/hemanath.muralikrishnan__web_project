@@ -1,3 +1,5 @@
+import { user_id, user_records } from "./is_logged.js";
+
 const place_order_items = JSON.parse(localStorage.getItem("cart_items"));
 
 const order_histroy = JSON.parse(localStorage.getItem("order_histroy")) ?? [];
@@ -24,7 +26,7 @@ tomorrow_input.value = `${tomorrow.toLocaleDateString()}`;
 
 // creating the input the lable regarding available address
 user_records.find((obj) => {
-  if (user_id == obj.user_id) {
+  if (user_id === obj.user_id) {
     const find_user_address = obj.address;
 
     if (find_user_address.length === 0) {
@@ -61,14 +63,17 @@ user_records.find((obj) => {
       });
     }
   }
+  return null;
 });
 
 // show the cart items on the place order table
 
 place_order_items.filter((obj, index) => {
-  if (user_id == obj.user_id) {
+  if (user_id === obj.user_id) {
     append_order_items(obj, index);
+    return true; // Include this element in the filtered array
   }
+  return false; // Exclude this element from the filtered array
 });
 
 function append_order_items(item, index) {
@@ -161,17 +166,19 @@ get_place_order_form.addEventListener("submit", (e) => {
   let delivery_address;
 
   user_records.find((obj) => {
-    if (user_id == obj.user_id) {
+    if (user_id === obj.user_id) {
       const find_add = obj.address;
 
-      find_add.find((obj) => {
-        if (get_delivery_address == obj.address_id) {
-          delivery_address = obj;
-
-          return delivery_address;
+      return find_add.find((address_obj) => {
+        if (get_delivery_address === address_obj.address_id) {
+          delivery_address = address_obj;
+          return true;
         }
+
+        return null;
       });
     }
+    return null;
   });
 
   const get_payment_type = document.querySelector(
@@ -199,9 +206,7 @@ get_place_order_form.addEventListener("submit", (e) => {
 });
 
 function push_cart_to_order() {
-  place_order_items.filter((obj) => {
-    if (user_id == obj.user_id) {
-      order_array.push(obj);
-    }
-  });
+  place_order_items
+    .filter((obj) => user_id === obj.user_id)
+    .forEach((obj) => order_array.push(obj));
 }

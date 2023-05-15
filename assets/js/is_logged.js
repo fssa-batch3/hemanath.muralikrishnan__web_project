@@ -1,3 +1,5 @@
+import { Notify } from "./vendor/notify.js";
+
 const root = window.location.origin;
 
 const logged_email = localStorage.getItem("logged_in");
@@ -7,13 +9,11 @@ const user_records = JSON.parse(localStorage.getItem("users")) ?? [];
 let user_id;
 
 if (user_records !== null) {
-  user_records.find((obj) => {
-    if (logged_email === obj.emailid) {
-      user_id = obj.user_id;
+  const foundRecord = user_records.find((obj) => logged_email === obj.emailid) ?? null;
 
-      return user_id;
-    }
-  });
+  if (foundRecord) {
+    user_id = foundRecord.user_id;
+  }
 }
 
 const header = `
@@ -184,12 +184,12 @@ const header = `
             <p class="act">Log in</p>
 
             <div class="input-wrapper">
-                <input type="email" id="email-id" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces">
+                <input type="email" id="email-id" class="form-control" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$" placeholder="Enter Your Email" required="true" title="Please Enter Valid Email Id without spaces">
                 <label for="email-id" class="control-label">Email id</label>
               </div>
 
               <div class="input-wrapper">
-                <i class="fa fa-eye showpwd" onClick="showPwd('password', this)"></i>
+                <i class="fa fa-eye showpwd" id="login-password"></i>
                 <input type="password" id="password" autocomplete="password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Password must contains at least one lowercase, one uppercase, one lowercase and one special, password length minimum 8 characters">
                 <label for="password" class="control-label">Password</label>
               </div>
@@ -232,7 +232,7 @@ const header = `
           </div>
 
           <div class="input-wrapper">
-            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required="true" title="Please enter valid email id without white spaces">
+            <input type="email" id="reg-email-id" class="form-control" placeholder="Enter Your Email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$" required="true" title="Please enter valid email id without white spaces">
             <label for="email-id" class="control-label">Email id</label>
           </div>
 
@@ -242,14 +242,14 @@ const header = `
           </div>
 
           <div class="input-wrapper">
-            <i class="fa fa-eye showpwd" onClick="showPwd('reg-password', this)"></i>
+            <i class="fa fa-eye showpwd" id="reg-password-eye"></i>
             <input type="password" id="reg-password" autocomplete="reg-password" class="form-control" placeholder="Enter Your Password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Password must contains at least one lowercase, one uppercase, one lowercase and one special, password length minimum 8 characters">
             <label for="password" class="control-label">Password</label>
           </div>
           
 
           <div class="input-wrapper">
-            <i class="fa fa-eye showpwd" onClick="showPwd('conf-password', this)"></i>
+            <i class="fa fa-eye showpwd" id="reg-confirm-password"></i>
             <input type="password" id="conf-password" autocomplete="conf-password" class="form-control" placeholder="Enter Your Confirm password" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$" minlength="8" maxlength="16" title="Password must contains at least one lowercase, one uppercase, one lowercase and one special, password length minimum 8 characters">
             <label for="conf-password" class="control-label">Confirm Password</label>
           </div>
@@ -481,6 +481,23 @@ let check_account = false;
 
 // password eye
 
+const demo_login = document.getElementById("password");
+const demo_register = document.getElementById("reg-password");
+const demo_confirm = document.getElementById("conf-password");
+
+const demo_eye_login = document.getElementById("login-password");
+const demo_reg_password_eye = document.getElementById("reg-password-eye");
+const demo_confirm_eye = document.getElementById("reg-confirm-password");
+
+// document.getElementById("login-password").onclick = () => showPwd('password', this);
+
+document.getElementById("login-password").onclick = () =>
+  showPwd(demo_login.id, demo_eye_login);
+document.getElementById("reg-password-eye").onclick = () =>
+  showPwd(demo_register.id, demo_reg_password_eye);
+document.getElementById("reg-confirm-password").onclick = () =>
+  showPwd(demo_confirm.id, demo_confirm_eye);
+
 function showPwd(id, el) {
   const x = document.getElementById(id);
   if (x.type === "password") {
@@ -538,6 +555,7 @@ function find_user(email_id, password) {
     if (email_id === loginobj.emailid && password === loginobj.password) {
       check_account = true;
     }
+    return null;
   });
 }
 
@@ -619,6 +637,7 @@ function check_already_user(email_id, mobilenumber) {
       ) {
         check_user = false;
       }
+      return null;
     });
   }
 }
@@ -642,7 +661,7 @@ const search_bar = document.getElementById("header_search");
 search_bar.addEventListener("input", () => {
   document.querySelector(".search_results_append").innerHTML = "";
 
-  if (search_bar.value == "") {
+  if (search_bar.value === "") {
     document.querySelector(".search_results_append").style.display = "none";
   } else {
     document.querySelector(".search_results_append").style.display = "block";
@@ -664,6 +683,7 @@ function desktop_searh(search_value) {
     if (lc_pro_name.includes(search_value) && item.status) {
       return item;
     }
+    return null;
   });
 
   desktop_append_search(results_arr);
@@ -671,7 +691,7 @@ function desktop_searh(search_value) {
 
 // desktop append the find products
 function desktop_append_search(results_arr = []) {
-  if (results_arr.length != 0) {
+  if (results_arr.length !== 0) {
     results_arr.forEach((obj) => {
       const href =
         `${root}/pages/product_details/details.html?` +
@@ -700,7 +720,7 @@ const mobile_search = document.getElementById("mobile_search");
 mobile_search.addEventListener("input", () => {
   document.querySelector(".mobile_search_result_append").innerHTML = "";
 
-  if (mobile_search.value == "") {
+  if (mobile_search.value === "") {
     document.querySelector(".mobile_search_result_append").style.display =
       "none";
   } else {
@@ -724,13 +744,15 @@ function mobile_search_fun(search_value) {
     if (lc_pro_name.includes(search_value) && item.status) {
       return item;
     }
+
+    return null;
   });
 
   mobile_search_append(result_arr);
 }
 
 function mobile_search_append(result_arr = []) {
-  if (result_arr.length != 0) {
+  if (result_arr.length !== 0) {
     result_arr.forEach((obj) => {
       const href =
         `${root}/pages/product_details/details.html?` +
@@ -751,3 +773,5 @@ function mobile_search_append(result_arr = []) {
     ).innerHTML = `<p class="no-products-found">No products found</h1>`;
   }
 }
+
+export { user_id, user_records };

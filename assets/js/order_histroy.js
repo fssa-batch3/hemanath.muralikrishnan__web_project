@@ -1,3 +1,5 @@
+import { user_id } from "./is_logged.js";
+
 const order_histroy = JSON.parse(localStorage.getItem("order_histroy"));
 console.log(order_histroy);
 function check_user_histroy() {
@@ -19,16 +21,13 @@ function check_user_histroy() {
 }
 
 function show_histroy(check_histroy) {
-  let histroy_count = 0;
+  // let histroy_count = 0;
 
   if (check_histroy) {
-    order_histroy.filter((obj) => {
+    order_histroy.forEach((obj) => {
       if (user_id === obj.user_id) {
-        histroy_count++;
-
+        // histroy_count++;
         append_histroy(obj);
-
-        return histroy_count;
       }
     });
   } else {

@@ -1,0 +1,244 @@
+:root{
+
+    --grey: #f1f0f6;
+    --dark-grey: #8d8d8d;
+    --light: #fff;
+    --dark: #000;
+    --green: #81d43a;
+    --light-green: #e3ffcb;
+    --blue: #1775f1;
+    --light-blue: #d0e4ff;
+    --dark-blue: #0c5fcd;
+    --red: #fc3b56;
+}
+
+
+/* sidebar */
+#sidebar{
+    position: fixed;
+    width: 260px;
+    background-color: var(--light);
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+}
+
+#sidebar::-webkit-scrollbar{
+    display: none;
+}
+
+#sidebar .brand {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+#sidebar .icon{
+    min-width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar .icon-right{
+    margin-left: auto;
+    transition: all .3s ease;
+}
+
+
+#sidebar .side-menu{
+    margin: 2.3em 0;
+    padding: 0 1.2em;
+}
+
+#sidebar .side-menu a{
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    color: var(--dark);
+    padding: .8em 1em .8em 0;
+    transition: all .3s ease;
+    border-radius: 10px;
+    margin: .4em 0;
+    grid-gap: .6em;
+}
+
+#sidebar .side-menu >li > a:hover{
+    background-color: var(--grey);
+}
+
+#sidebar .side-menu > li > a.active .icon-right{
+    transform: rotateZ(90deg);
+}
+
+#sidebar .side-menu > li > a.active,
+#sidebar .side-menu > li > a.active:hover{
+    background-color: var(--blue);
+    color: var(--light);
+}
+#sidebar .divider {
+    margin-top: 1.2em;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--dark-grey);
+}
+
+#sidebar .side-dropdown{
+    padding-left: 3em;  
+    max-height: 0;
+    overflow-y: hidden;
+    transition: all .15s ease;
+}
+
+#sidebar .side-dropdown.show{
+    max-height: 1000px;
+}
+
+#sidebar .side-dropdown a:hover{
+    color: var(--blue);
+}
+
+
+/* sidebar */
+
+
+/* content */
+
+#content {
+    position: relative;
+    width: calc(100% - 260px);
+    left: 260px;
+}
+
+nav {
+    background-color: var(--light);
+    height: 64px;
+    padding: 0 1.3em;
+    display: flex;
+    align-items: center;
+    grid-gap: 1.8em;
+}
+
+nav .toggle-sidebar{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+nav form {
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+}
+
+nav .form-group{
+    position: relative;
+}
+
+nav .form-group input {
+    width: 100%;
+    background-color: var(--grey);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: .7em 2em .7em 1em;
+    transition: all .3s ease;
+}
+nav .form-group input:focus{
+    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
+}
+
+nav .form-group .icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 16px;
+
+}
+
+nav .nav-link{
+    position: relative;
+}
+
+nav .nav-link .icon{
+    font-size: 1.2rem;
+    color: var(--dark);
+}
+
+nav .nav-link .badge{
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--light);
+    background-color: var(--red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light);
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+
+nav .divider{
+    width: 1px;
+    background-color: var(--dark-grey);
+    height: 12px;
+    display: block;
+}
+
+nav .profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+nav .profile{
+    position: relative;
+}
+
+nav .profile .profile-link{
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--light);
+    padding: .7em 0;
+    box-shadow: 4px 4px 16px rgba((0,0,0,.1), green, blue, alpha);
+    border-radius: 10px;
+    width: 160px;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+nav .profile .profile-link.show{
+    display: block;
+    pointer-events: visible;
+    top: 100%;
+}
+
+nav .profile .profile-link a{
+    padding: .7em 1em;
+    display: flex;
+    grid-gap: 6px;
+    font-size: .9rem;
+    color: var(--dark);
+    align-items: center;
+    transition: all .3s ease;
+}
+
+nav .profile .profile-link a:hover {
+    background: var(--grey);
+}
+/* content */

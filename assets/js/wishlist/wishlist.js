@@ -1,9 +1,9 @@
+import { user_id } from "../is_logged.js";
+import { Notify } from "../vendor/notify.js";
+import { wishlist_count_fun } from "./wishlist_count.js";
+
 // getting the element to append the div
 const appen_div = document.querySelector(".wishlist-cont");
-
-// empty string to have the wishlist items
-
-let wishlist_output = "";
 
 // from localstorage get the favourite list
 
@@ -38,11 +38,10 @@ function show_the_wishlist_pro(user_pro_check) {
     wishlist.filter((obj, index) => {
       if (user_id === obj.user_id) {
         wish_list(obj, index);
-
         wish_pro_count++;
-
-        return wish_pro_count;
+        return true;
       }
+      return false;
     });
   } else {
     appen_div.innerHTML = `<p class="no-wishlist-pro">No favourite products</p>`;
@@ -54,7 +53,7 @@ function show_the_wishlist_pro(user_pro_check) {
 }
 
 function wish_list(item, index) {
-  const { product_id } = item;
+  const product_id = item.id;
   const product_cat = item.category.id;
 
   const href_link =
@@ -62,42 +61,69 @@ function wish_list(item, index) {
     `id=${product_id}&` +
     `cat=${product_cat}`;
 
-  wishlist_output += `<div class="wishlist-sec">
+  const wishlistSec = document.createElement("div");
+  wishlistSec.classList.add("wishlist-sec");
 
-                <div class="wishlist-content">
+  const wishlistContent = document.createElement("div");
+  wishlistContent.classList.add("wishlist-content");
 
-                    <div class="wishlist-pro-image">
+  const wishlistProImage = document.createElement("div");
+  wishlistProImage.classList.add("wishlist-pro-image");
 
-                        <a href="${href_link}">
-                            <img src="${item.product_image.source}" alt="image of" + ${item.product_image.alt}>
-                        </a>
-                    </div>
+  const aLink = document.createElement("a");
+  aLink.href = href_link;
 
+  const wishlistImg = document.createElement("img");
+  wishlistImg.src = item.product_image.source;
+  wishlistImg.alt = `image of ${item.product_image.alt}`;
 
+  aLink.appendChild(wishlistImg);
+  wishlistProImage.appendChild(aLink);
 
-                    <div class="wishlist-text">
+  const wishlistText = document.createElement("div");
+  wishlistText.classList.add("wishlist-text");
 
-                      
-                        <p class="wish-pro-title">${item.product_eng_name}</p>
-                        <p class="wish-cat">${item.category.name}</p>
+  const wishProTitle = document.createElement("p");
+  wishProTitle.classList.add("wish-pro-title");
+  wishProTitle.innerText = item.product_eng_name;
 
-                        <div class="wishlist-quantity">
-                            <p><b>Qty:</b> ${item.quantity[0].qty}</p>
-                            <p class="wish-price">₹ ${item.quantity[0].rs}</p>
-                        </div>
+  const wishCat = document.createElement("p");
+  wishCat.classList.add("wish-cat");
+  wishCat.innerText = item.category.name;
 
-                    </div>
+  const wishlistQuantity = document.createElement("div");
+  wishlistQuantity.classList.add("wishlist-quantity");
 
-                </div>
+  const quantity = document.createElement("p");
+  quantity.innerHTML = `<b>Qty:</b> ${item.quantity[0].qty}`;
 
-                <div class="icon-del">
-                        <i class="fa-solid fa-trash" onclick=deletewishlist(${index})></i>
-                </div>
+  const wishPrice = document.createElement("p");
+  wishPrice.classList.add("wish-price");
+  wishPrice.innerText = `₹ ${item.quantity[0].rs}`;
 
+  wishlistQuantity.appendChild(quantity);
+  wishlistQuantity.appendChild(wishPrice);
 
-            </div>`;
+  wishlistText.appendChild(wishProTitle);
+  wishlistText.appendChild(wishCat);
+  wishlistText.appendChild(wishlistQuantity);
 
-  appen_div.innerHTML = wishlist_output;
+  const iconDel = document.createElement("div");
+  iconDel.classList.add("icon-del");
+
+  const delIcon = document.createElement("i");
+  delIcon.classList.add("fa-solid", "fa-trash");
+  delIcon.onclick = () => deletewishlist(index);
+
+  iconDel.appendChild(delIcon);
+
+  wishlistContent.appendChild(wishlistProImage);
+  wishlistContent.appendChild(wishlistText);
+
+  wishlistSec.appendChild(wishlistContent);
+  wishlistSec.appendChild(iconDel);
+
+  appen_div.appendChild(wishlistSec);
 }
 
 function deletewishlist(index) {
@@ -107,7 +133,7 @@ function deletewishlist(index) {
 
   Notify.success("Product Removed");
 
-  wishlist_output = "";
+  appen_div.innerHTML = "";
 
   check_wishlist();
 

@@ -1,3 +1,7 @@
+import { Notify } from "../vendor/notify.js";
+import { cart_count_fun } from "../cart_count.js";
+import { user_id } from "../is_logged.js";
+
 const root_loc = window.location.origin;
 
 const cart_items = JSON.parse(localStorage.getItem("cart_items")) ?? [];
@@ -17,6 +21,7 @@ if (user_records_one !== null) {
 
       return user_id_one;
     }
+    return undefined;
   });
 }
 
@@ -200,7 +205,9 @@ function updatequantity(rs, item, qty, elem, index) {
       } else {
         checkwithbase(rs, item, qty, elem, index);
       }
+      return true; // return a value when the condition is met
     }
+    return false; // return a value when the condition is not met
   });
 }
 
@@ -219,7 +226,9 @@ function checkwithkg(rs, item, qty, elem, index) {
       } else {
         elem[index].classList.remove("disabled");
       }
+      return true;
     }
+    return false;
   });
 }
 
@@ -238,7 +247,9 @@ function checkwithgm(rs, item, qty, elem, index) {
       } else {
         elem[index].classList.remove("disabled");
       }
+      return true;
     }
+    return false;
   });
 }
 
@@ -258,91 +269,12 @@ function checkwithbase(rs, item, qty, elem, index) {
       } else {
         elem[index].classList.remove("disabled");
       }
+      return true;
     }
+
+    return false;
   });
 }
-
-// check the available quantity
-
-// function updatequantitytwo() {
-
-//     let rs = amount.innerText.split(" ");
-//     let after_rs = rs.splice(1, 1);
-
-//     let selected_qunt = qty_number.innerText;
-
-//     product_json.find(function (obj) {
-
-//         if (obj.id == item.id) {
-
-//             let find_qty = obj.quantity;
-
-//             find_qty.find(function (qty_obj) {
-
-//                 if (after_rs[0] == qty_obj.rs) {
-
-//                     if (qty_obj.unit == "kg") {
-
-//                         let check = selected_qunt * qty_obj.into_gram;
-
-//                         if (Number(check) > Number(obj.avail_stock.into_gram)) {
-
-//                             elem[index].classList.add("disabled");
-
-//                             Notify.error("Required quantity not available");
-
-//                         }
-
-//                         else {
-
-//                             elem[index].classList.remove("disabled");
-
-//                         }
-//                     }
-//                     else if (qty_obj.unit == "gm") {
-
-//                         let check = selected_qunt * qty_obj.qty;
-
-//                         if (Number(check) > Number(obj.avail_stock.into_gram)) {
-
-//                             elem[index].classList.add("disabled");
-
-//                             Notify.error("Required quantity not available");
-
-//                         }
-
-//                         else {
-
-//                             elem[index].classList.remove("disabled");
-//                         }
-//                     }
-
-//                     else if ((qty_obj.unit == "nos") || (qty_obj.unit == "pkt")) {
-
-//                         let check = selected_qunt * qty_obj.qty;
-
-//                         if (Number(check) > Number(obj.avail_stock.num)) {
-
-//                             elem[index].classList.add("disabled");
-
-//                             Notify.error("Required quantity not available");
-
-//                         }
-
-//                         else {
-
-//                             elem[index].classList.remove("disabled");
-//                         }
-
-//                     }
-
-//                 }
-//             });
-
-//         }
-//     });
-
-// }
 
 let cart_check = true;
 
@@ -363,7 +295,7 @@ function get_cart_ele(pro_rs, item, no_qty) {
 
   if (cart_check) {
     to_json.quantity.find((qty_obj) => {
-      if (pro_rs == qty_obj.rs) {
+      if (pro_rs === qty_obj.rs) {
         const cart_obj = {
           cart_product_id: to_json.id,
           cart_item_id: Math.random().toString(16).slice(2),
@@ -388,11 +320,16 @@ function get_cart_ele(pro_rs, item, no_qty) {
         );
 
         localStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+        return cart_obj; // add this line
       }
+      return null; // add this line
     });
 
     cart_count_fun();
   }
+
+  return undefined;
 }
 
 // check in the cart the selected the cart qty already added
@@ -403,20 +340,26 @@ function check_qty(pro_rs, item) {
   const cart_item_arr = JSON.parse(localStorage.getItem("cart_items"));
 
   if (cart_item_arr != null) {
-    cart_item_arr.find((obj) => {
+    const foundItem = cart_item_arr.find((obj) => {
       if (user_id_one === obj.user_id) {
         if (par.id === obj.cart_product_id) {
           if (pro_rs === obj.product_details.selected_qty.rs) {
             Notify.error(
               `Item already added to cart ${obj.product_details.name.eng} ${obj.product_details.selected_qty.qty}${obj.product_details.selected_qty.unit}`
             );
-
-            cart_check = false;
-
-            return cart_check;
+            return true;
           }
         }
       }
+      return false;
     });
+    if (foundItem) {
+      cart_check = false;
+      return cart_check;
+    }
   }
+
+  return undefined;
 }
+
+export { list_products, get_cart_ele, updatequantity };

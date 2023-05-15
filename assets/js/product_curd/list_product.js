@@ -1,3 +1,5 @@
+import { list_products } from "./appen_card.js";
+
 const mobile_filter = document.getElementById("mobile_filter");
 const show_mobile_filter = document.querySelector(".items");
 
@@ -9,7 +11,7 @@ show_mobile_filter.style.display = "none";
 show_sort_by.style.display = "none";
 
 mobile_filter.addEventListener("click", () => {
-  if (show_mobile_filter.style.display == "none") {
+  if (show_mobile_filter.style.display === "none") {
     show_mobile_filter.style.display = "block";
   } else {
     show_mobile_filter.style.display = "none";
@@ -17,7 +19,7 @@ mobile_filter.addEventListener("click", () => {
 });
 
 mobile_sort_by.addEventListener("click", () => {
-  if (show_sort_by.style.display == "none") {
+  if (show_sort_by.style.display === "none") {
     show_sort_by.style.display = "block";
   } else {
     show_sort_by.style.display = "none";
@@ -30,20 +32,17 @@ const url = window.location.search; // ?name=Arun
 const urlParams = new URLSearchParams(url); // converting string into key value pair
 const product_cat = urlParams.get("cat");
 
-let filter_array = [];
-
-const url_products = [];
-
 if (product_cat === "00") {
   list_products(product_details);
 } else {
-  product_details.filter((item) => {
+  const url_products = product_details.filter((item) => {
     if (item.category.id === product_cat && item.status) {
-      url_products.push(item);
+      return true;
     }
-
-    list_products(url_products);
+    return false;
   });
+
+  list_products(url_products);
 }
 
 const checkboxes = document.querySelectorAll(
@@ -53,8 +52,6 @@ const checkboxes = document.querySelectorAll(
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("click", () => {
     if (checkbox.checked) {
-      filter_array = [];
-
       const convert_array = Array.from(checkboxes);
 
       const checked_input = convert_array.filter((i) => i.checked);
@@ -62,15 +59,13 @@ checkboxes.forEach((checkbox) => {
       const map_input = checked_input.map((i) => i.value);
 
       map_input.forEach((item) => {
-        product_details.filter((obj) => {
+        const filter_array = product_details.filter((obj) => {
           const cat_id = obj.category.id;
 
-          if (item === cat_id) {
-            filter_array.push(obj);
-
-            list_products(filter_array);
-          }
+          return item === cat_id;
         });
+
+        list_products(filter_array);
       });
     } else {
       list_products(product_details);

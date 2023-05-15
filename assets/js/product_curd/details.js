@@ -1,3 +1,8 @@
+import { wishlist_count_fun } from "../wishlist/wishlist_count.js";
+import { list_products, get_cart_ele, updatequantity } from "./appen_card.js";
+import { user_id } from "../is_logged.js";
+import { Notify } from "../vendor/notify.js";
+
 // product details JSON
 const product_details = JSON.parse(localStorage.getItem("product_list"));
 
@@ -78,7 +83,9 @@ let desc_content_p;
 product_details.find((obj, index) => {
   if (product_id === obj.id && obj.status) {
     show_indv(JSON.stringify(obj), index);
+    return true;
   }
+  return false;
 });
 
 function show_indv(obj, index) {
@@ -280,10 +287,10 @@ function show_indv(obj, index) {
 
   const dropdown_values = item.quantity;
 
-  dropdown_values.forEach((item) => {
+  dropdown_values.forEach((item_qty) => {
     const option = document.createElement("option");
-    option.value = item.rs;
-    option.text = item.text;
+    option.value = item_qty.rs;
+    option.text = item_qty.text;
     select_tag.appendChild(option);
   });
 
@@ -426,9 +433,10 @@ function show_indv(obj, index) {
 }
 
 const rel_products = product_details.filter((rel) => {
-  if (rel.category.id === product_cat && rel.status) {
+  if (rel.category.id === product_cat && rel.status && product_id !== rel.id) {
     return rel;
   }
+  return false;
 });
 
 list_products(rel_products);
@@ -469,6 +477,8 @@ function add_fav(item) {
 
     wishlist_count_fun();
   }
+
+  return wishlist_check;
 }
 
 function check_in_wishlist(item) {
@@ -487,6 +497,7 @@ function check_in_wishlist(item) {
           return wishlist_check;
         }
       }
+      return false;
     });
   }
 }

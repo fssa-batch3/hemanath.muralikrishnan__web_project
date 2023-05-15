@@ -23,45 +23,92 @@
 
 <body>
 
-    <!-- nav bar starts -->
+    <!-- side bar start -->
 
-    <nav class="sidebar">
+    <section id="sidebar">
 
-        <div class="logo">
+        <a href="#" class="brand"><i class="fa-solid fa-cart-shopping"></i> Agrokart Admin</a>
 
-            <a href="#">
+        <ul class="side-menu">
 
-                <i class="fa-solid fa-cart-shopping"></i>
-                <div class="logo_name">Agrokart Admin</div>
-
-            </a>
-
-        </div>
-
-        <!-- side bar list starts -->
-
-        <ul>
-
-            <!-- non dropdown items -->
+            <li><a href="#" class="active"><i class="fa-solid fa-house icon"></i>Dashboard</a></li>
+             
+            <li class="divider">Main</li>
 
             <li>
+                <a href="#"><i class="fa-solid fa-users icon"></i> Users <i class="fa-solid fa-angle-right icon-right"></i> </a>
 
-                <div class="title">
+                <ul class="side-dropdown">
 
-                    <i class="fa-solid fa-house"></i>
-                    <span class="title_li">Dashboard</span>
+                    <li><a href="#">User list</a></li>
 
-                </div>
-
-                <!-- submen -->
-
+                </ul>
             </li>
+
+
+            <li>
+                <a href="#"><i class="fa-solid fa-store icon"></i> Sellers <i class="fa-solid fa-angle-right icon-right"></i> </a>
+
+                <ul class="side-dropdown">
+
+                    <li><a href="#">Seller list</a></li>
+
+                </ul>
+            </li>
+
 
         </ul>
 
-    </nav>
+    </section>
 
-    <!-- navbar ends -->
+    <!-- side bar end -->
+
+    <!-- side content start -->
+
+    <section id="content">
+
+        <nav>
+            <i class="fa-solid fa-bars toggle-sidebar"></i>
+
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="Search...">
+                    <i class="fa-solid fa-magnifying-glass icon"></i>
+                </div>
+            </form>
+
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-bell icon"></i>
+                <span class="badge">5</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-envelope icon"></i>
+                <span class="badge">8</span>
+            </a>
+
+            <span class="divider"></span>
+
+            <div class="profile">
+                <img src="https://freeimghost.net/images/2023/05/09/man.png" alt="admin_profile_img">
+                <ul class="profile-link">
+                    <li><a href="#"><i class="fa-solid fa-user icon"></i> Profile</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+    </section>
+
+
+    <!-- side content end -->
+
+    <!-- script for this page -->
+
+    <script src="../assets/js/dashboard.js"></script>
+   
 
 </body>
 

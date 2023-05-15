@@ -1,6 +1,6 @@
 class Notify {
 
-    /**
+    /*
      * Create a div element with the class `notify` and append it to the body of the document
      * @returns The `createParent` function returns the `parent` element.
      */
@@ -65,3 +65,5 @@ class Notify {
         this.#timeOut(elem);
     }
 }
+
+export {Notify};

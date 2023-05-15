@@ -1,3 +1,5 @@
+import { list_products } from "./product_curd/appen_card.js";
+
 const product_details = JSON.parse(localStorage.getItem("product_list"));
 
 const some_products = [];

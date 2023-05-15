@@ -4081,7 +4081,12 @@ const created_products = [
 
 const get_products = JSON.parse(localStorage.getItem("product_list"));
 
-if (get_products) {
-} else {
+function append_products() {
+  if (get_products) {
+    return false;
+  }
   localStorage.setItem("product_list", JSON.stringify(created_products));
+  return true;
 }
+
+append_products();

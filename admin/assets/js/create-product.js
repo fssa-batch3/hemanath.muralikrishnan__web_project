@@ -66,7 +66,7 @@ add_quantity_price.addEventListener("click", (e) => {
 
   let new_obj;
 
-  if (selectedValue == "kg") {
+  if (selectedValue === "kg") {
     const into_gram = quantity_input_value * 1000;
 
     new_obj = {

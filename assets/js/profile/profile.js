@@ -1,3 +1,6 @@
+import { user_id, user_records } from "../is_logged.js";
+import { Notify } from "../vendor/notify.js";
+
 // profile form
 const profile_form = document.getElementById("profile_form");
 
@@ -57,11 +60,7 @@ const upt_pincode_input = document.getElementById("upt_pincode-input");
 const address_append_div = document.querySelector(".show-address");
 
 // fetch the user details
-const user_profile = user_records.find((obj) => {
-  if (user_id === obj.user_id) {
-    return obj;
-  }
-});
+const user_profile = user_records.find((obj) => user_id === obj.user_id);
 
 remove_address();
 
@@ -125,20 +124,22 @@ profile_form.addEventListener("submit", (e) => {
 
   e.preventDefault();
 
-  user_records.find((obj) => {
-    if (user_id === obj.user_id) {
-      obj.firstname = profile_first_name;
-      obj.lastname = profile_last_name;
-      obj.gender = gender;
-      obj.mobilenumber = profile_mobile_number;
+  const index = user_records.findIndex((obj) => user_id === obj.user_id);
 
-      localStorage.setItem("users", JSON.stringify(user_records));
+  if (index !== -1) {
+    const updatedObj = {
+      ...user_records[index],
+      firstname: profile_first_name,
+      lastname: profile_last_name,
+      gender,
+      mobilenumber: profile_mobile_number,
+    };
 
-      Notify.success("Profile Details Updated");
+    user_records[index] = updatedObj;
+    localStorage.setItem("users", JSON.stringify(user_records));
 
-      find_user();
-    }
-  });
+    Notify.success("Profile Details Updated");
+  }
 
   // assign disable values to input
   first_name.disabled = true;
@@ -155,7 +156,7 @@ profile_form.addEventListener("submit", (e) => {
 
 // new address event listner
 new_address.addEventListener("click", () => {
-  if (profile_save_button.style.display == "") {
+  if (profile_save_button.style.display === "") {
     Notify.error("Please complete the profile update to add new address");
   } else {
     address_div.style.display = "block";
@@ -207,12 +208,15 @@ function to_save_address(
   state_value,
   pincode_value
 ) {
-  user_records.find((obj) => {
+  user_records.find((obj, index) => {
     if (user_id === obj.user_id) {
       const address_array = obj.address ?? [];
 
       if (address_array.length < 5) {
-        obj.address = address_array;
+        const updatedObj = {
+          ...obj,
+          address: address_array,
+        };
 
         const address_data = {
           street: address_value,
@@ -221,17 +225,16 @@ function to_save_address(
           pincode: pincode_value,
           address_id: Math.random().toString(16).slice(2),
         };
-        address_array.push(address_data);
+        updatedObj.address.push(address_data);
 
         Notify.success("Address Added");
 
+        user_records[index] = updatedObj;
         localStorage.setItem("users", JSON.stringify(user_records));
 
         address_div.style.display = "none";
 
         document.querySelector(".show-address").innerHTML = " ";
-
-        find_user();
 
         load_address();
 
@@ -240,6 +243,7 @@ function to_save_address(
         Notify.error("You can't add more than 5 address");
       }
     }
+    return obj;
   });
 }
 
@@ -289,15 +293,12 @@ function show_address(address_array = []) {
 
     const address_p_edit = document.createElement("p");
     address_p_edit.innerHTML = `<i class="fa-solid fa-pen"></i> Edit`;
-    address_p_edit.setAttribute(
-      "onclick",
-      `update_address(${JSON.stringify(item)})`
-    );
+    address_p_edit.onclick = () => update_address(JSON.stringify(item));
     address_menus.appendChild(address_p_edit);
 
     const address_p_delete = document.createElement("p");
     address_p_delete.innerHTML = `<i class="fa-solid fa-trash"></i> Delete`;
-    address_p_delete.setAttribute("onclick", `deleteaddress(${index})`);
+    address_p_delete.onclick = () => deleteaddress(index);
     address_menus.appendChild(address_p_delete);
 
     address_menus.style.display = "none";
@@ -314,11 +315,13 @@ function show_address(address_array = []) {
 
 // update address function
 function update_address(item) {
+  const par = JSON.parse(item);
+
   document.querySelector(".address-menus").style.display = "none";
 
   upt_address_div.style.display = "block";
 
-  localStorage.setItem("copy_address", JSON.stringify(item));
+  localStorage.setItem("copy_address", JSON.stringify(par));
 
   const get_copy = JSON.parse(localStorage.getItem("copy_address"));
 
@@ -342,62 +345,69 @@ upt_address_form.addEventListener("submit", (e) => {
   const two_upt_district_input = upt_district_input.value.trim();
   const two_upt_pincode_input = upt_pincode_input.value.trim();
 
-  const update_address = {
+  const update_address_obj = {
     street: two_upt_address_input,
     district: two_upt_district_input,
     state: copy.state,
     pincode: two_upt_pincode_input,
     address_id: copy.address_id,
   };
+
+  save_upt_address(JSON.stringify(update_address_obj));
 });
 
 // to save the updated address
-function save_upt_address() {
+function save_upt_address(item) {
+  const par = JSON.parse(item);
   user_records.find((obj) => {
-    if (user_id === user_id) {
+    if (obj.user_id === user_id) {
       const user_address = obj.address;
-
-      save_address_in_index(user_address);
+      save_address_in_index(JSON.stringify(par), user_address);
+      return true; // add this line to return a boolean value
     }
+    return false; // add this line to handle cases where obj.user_id !== user_id
   });
 }
 
 // to save the finded address in the index
+function save_address_in_index(item, user_address = []) {
+  const par = JSON.parse(item);
 
-function save_address_in_index(user_address = []) {
-  for (let i = 0; i < user_address.length; i++) {
-    if (user_address[i].address_id == copy.address_id) {
-      user_address[i] = update_address;
+  const updatedAddress = [...user_address]; // Create a copy of user_address
 
-      localStorage.setItem("users", JSON.stringify(user_records));
-
-      Notify.success("Address Updated");
-
-      upt_address_div.style.display = "none";
-
-      upt_address_form.reset();
-
-      document.querySelector(".show-address").innerHTML = " ";
-
-      load_address();
-
+  for (let i = 0; i < updatedAddress.length; i++) {
+    if (updatedAddress[i].address_id === par.address_id) {
+      updatedAddress[i] = par;
       break;
     }
   }
+
+  // Find the user in the user_records array and update its address array
+  for (let i = 0; i < user_records.length; i++) {
+    if (user_records[i].user_id === par.user_id) {
+      user_records[i].address = updatedAddress;
+      break;
+    }
+  }
+
+  // Save the updated user_records array to local storage
+  localStorage.setItem("users", JSON.stringify(user_records));
+
+  Notify.success("Address Updated");
+
+  upt_address_div.style.display = "none";
+
+  upt_address_form.reset();
+
+  document.querySelector(".show-address").innerHTML = " ";
+
+  load_address();
 }
 
 // delete logic
-
-let delete_check;
-
 function deleteaddress(index) {
-  if (confirm("Are you sure?")) {
-    delete_check = true;
-  } else {
-    delete_check = false;
-  }
-
-  if (delete_check) {
+  const confirmation = confirm("Are you sure?");
+  if (confirmation) {
     user_records.find((obj) => {
       if (user_id === obj.user_id) {
         const address_len = obj.address;
@@ -411,7 +421,10 @@ function deleteaddress(index) {
         document.querySelector(".show-address").innerHTML = " ";
 
         load_address();
+
+        return true; // add this line to return a boolean value
       }
+      return false; // add this line to handle cases where user_id !== obj.user_id
     });
   }
 }
@@ -421,11 +434,11 @@ function deleteaddress(index) {
 const logout_btn = document.getElementById("logout-user");
 
 logout_btn.addEventListener("click", () => {
-  if (confirm("Are you sure?")) {
-    // removing the profile email while we get from login page
+  const confirmation = confirm("Are you sure?");
+  if (confirmation) {
     localStorage.removeItem("logged_in");
 
-    Notify.success("logout successfull");
+    Notify.success("Logout successful");
 
     window.location.href = "../index.html";
   } else {

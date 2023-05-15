@@ -1,3 +1,7 @@
+import { user_id } from "./is_logged.js";
+import { Notify } from "./vendor/notify.js";
+import { cart_count_fun } from "./cart_count.js";
+
 const product_details = JSON.parse(localStorage.getItem("product_list"));
 
 const cart_append_div = document.querySelector(".body_table");
@@ -140,6 +144,11 @@ function cart_list(item, index) {
   const td_remove = document.createElement("td");
   td_remove.innerHTML = `<i class="fa-solid fa-trash" onclick="deletecartitem(${index})"></i>`;
   cart_tr.appendChild(td_remove);
+
+  const td_delete = document.createElement("i");
+  td_delete.setAttribute("class", "fa-solid fa-trash");
+  td_delete.onclick = () => deletecartitem(index);
+  td_remove.appendChild(td_remove);
 
   td_input.addEventListener("click", () => {
     cart_items.find((obj) => {
@@ -290,7 +299,7 @@ function show_total() {
 
   const total_rs_arr = [];
 
-  if (get_subtotal != null) {
+  if (get_subtotal !== null) {
     for (let i = 0; i < get_subtotal.length; i++) {
       const split_subtotal = get_subtotal[i].innerHTML.split("₹");
 
@@ -318,20 +327,20 @@ function check_ready() {
 
   if (cart_items !== null) {
     cart_items.filter((obj) => {
-      if (user_id == obj.user_id) {
+      if (user_id === obj.user_id) {
         count++;
       }
     });
 
     cart_items.filter((obj) => {
-      if (user_id == obj.user_id) {
+      if (user_id === obj.user_id) {
         if (obj.ready_for_checkout) {
           check_chekout++;
         }
       }
     });
 
-    if (count == check_chekout) {
+    if (count === check_chekout) {
       elem.classList.remove("disabled");
     } else {
       elem.classList.add("disabled");
