@@ -53,6 +53,7 @@ function check_cart() {
 }
 
 function cart_list(item, index) {
+  
   const cart_tr = document.createElement("tr");
   cart_append_div.appendChild(cart_tr);
 
@@ -80,6 +81,11 @@ function cart_list(item, index) {
   td_unit_price.innerHTML = `₹${item.product_details.selected_qty.rs}`;
   cart_tr.appendChild(td_unit_price);
 
+  const total_qty = document.createElement("td");
+  cart_tr.appendChild(total_qty);
+
+  
+
   const td_input = document.createElement("td");
   cart_tr.appendChild(td_input);
 
@@ -96,17 +102,17 @@ function cart_list(item, index) {
   const qty_minus = document.createElement("div");
   qty_minus.innerText = "-";
   qty_minus.className = "qty-minus";
-  td_qty_div.append(qty_minus);
+  td_qty_div.appendChild(qty_minus);
 
   const qty_number = document.createElement("div");
   qty_number.innerText = `${item.quantity}`;
   qty_number.className = "qty-number";
-  td_qty_div.append(qty_number);
+  td_qty_div.appendChild(qty_number);
 
   const qty_plus = document.createElement("div");
   qty_plus.innerText = "+";
   qty_plus.className = "qty-plus";
-  td_qty_div.append(qty_plus);
+  td_qty_div.appendChild(qty_plus);
 
   qty_plus.addEventListener("click", () => {
     qty_value++;
@@ -134,6 +140,35 @@ function cart_list(item, index) {
     }
   });
 
+
+  if(item.product_details.selected_qty.unit === "kg"){
+
+    total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity).toFixed(1)+" kg";
+
+  }
+
+  if(item.product_details.selected_qty.unit === "gm"){
+
+    if(item.product_details.selected_qty.qty*item.quantity < 1000){
+
+      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)+" gm"
+    }
+
+    else if(item.product_details.selected_qty.qty*item.quantity >=1000){
+
+      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)/1000+" kg";
+    }
+  }
+
+  if(item.product_details.selected_qty.unit === "nos"){
+    total_qty.innerHTML = item.quantity+" nos"
+  }
+
+
+  if(item.product_details.selected_qty.unit === "pkt"){
+    total_qty.innerHTML = item.quantity + " pkt"
+  }
+
   const td_subtotal = document.createElement("td");
   td_subtotal.setAttribute("class", "get_subtotal");
   td_subtotal.innerHTML = `₹${
@@ -142,13 +177,12 @@ function cart_list(item, index) {
   cart_tr.appendChild(td_subtotal);
 
   const td_remove = document.createElement("td");
-  td_remove.innerHTML = `<i class="fa-solid fa-trash" onclick="deletecartitem(${index})"></i>`;
   cart_tr.appendChild(td_remove);
 
   const td_delete = document.createElement("i");
   td_delete.setAttribute("class", "fa-solid fa-trash");
   td_delete.onclick = () => deletecartitem(index);
-  td_remove.appendChild(td_remove);
+  td_remove.appendChild(td_delete);
 
   td_input.addEventListener("click", () => {
     cart_items.find((obj) => {

@@ -1,4 +1,5 @@
 import { user_id, user_records } from "./is_logged.js";
+import { Notify } from "./vendor/notify.js";
 
 const place_order_items = JSON.parse(localStorage.getItem("cart_items"));
 
@@ -34,7 +35,7 @@ user_records.find((obj) => {
         ".append_available_address"
       ).innerHTML = `<a href="../profile.html" class="place_order_address_add">Please add address in profile page to checkout</a>`;
 
-      alert("please add address to proceed checkout");
+      Notify.error("please add address to proceed checkout");
 
       document.querySelector(".dates-cont").classList.add("disabled");
 
@@ -103,6 +104,38 @@ function append_order_items(item, index) {
   const unit_price_td = document.createElement("td");
   unit_price_td.innerHTML = `₹${item.product_details.selected_qty.rs}`;
   table_tr.appendChild(unit_price_td);
+
+  const total_qty = document.createElement("td");
+  table_tr.appendChild(total_qty);
+
+  if(item.product_details.selected_qty.unit === "kg"){
+
+    total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity).toFixed(1)+" kg";
+
+  }
+
+  if(item.product_details.selected_qty.unit === "gm"){
+
+    if(item.product_details.selected_qty.qty*item.quantity < 1000){
+
+      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)+" gm"
+    }
+
+    else if(item.product_details.selected_qty.qty*item.quantity >=1000){
+
+      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)/1000+" kg";
+    }
+  }
+
+  if(item.product_details.selected_qty.unit === "nos"){
+    total_qty.innerHTML = item.quantity+" nos"
+  }
+
+
+  if(item.product_details.selected_qty.unit === "pkt"){
+    total_qty.innerHTML = item.quantity + " pkt"
+  }
+
 
   const qty_td = document.createElement("td");
   qty_td.innerHTML = `${item.quantity}`;

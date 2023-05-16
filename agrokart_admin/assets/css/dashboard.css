@@ -1,244 +1,263 @@
-:root{
+/* Import Google font - Poppins */
 
-    --grey: #f1f0f6;
-    --dark-grey: #8d8d8d;
-    --light: #fff;
-    --dark: #000;
-    --green: #81d43a;
-    --light-green: #e3ffcb;
-    --blue: #1775f1;
-    --light-blue: #d0e4ff;
-    --dark-blue: #0c5fcd;
-    --red: #fc3b56;
-}
-
-
-/* sidebar */
-#sidebar{
+.sidebar {
     position: fixed;
-    width: 260px;
-    background-color: var(--light);
-    top: 0;
-    left: 0;
     height: 100%;
-    overflow-y: auto;
-    scrollbar-width: none;
-
+    width: 260px;
+    background: #11101d;
+    padding: 15px;
+    z-index: 99;
 }
 
-#sidebar::-webkit-scrollbar{
+.logo {
+    font-size: 25px;
+    padding: 0 15px;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: scroll;
+}
+
+.menu-content::-webkit-scrollbar {
     display: none;
 }
 
-#sidebar .brand {
-    font-size: 1.5rem;
+.menu-items {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    transition: all 0.4s ease;
+}
+
+.submenu-active .menu-items {
+    transform: translateX(-56%);
+}
+
+.menu-title {
+    color: #fff;
+    font-size: 14px;
+    padding: 15px 20px;
+}
+
+.item a,
+.submenu-item {
+    padding: 16px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.item i {
+    font-size: 12px;
+}
+
+.item a:hover,
+.submenu-item:hover,
+.submenu .menu-title:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-item {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 64px;
-    font-weight: 700;
-    color: var(--blue);
+    color: #fff;
+    cursor: pointer;
 }
 
-#sidebar .icon{
-    min-width: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.submenu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: calc(-100% - 26px);
+    height: calc(100% + 100vh);
+    background: #11101d;
+    display: none;
 }
 
-#sidebar .icon-right{
-    margin-left: auto;
-    transition: all .3s ease;
+.show-submenu~.submenu {
+    display: block;
 }
 
-
-#sidebar .side-menu{
-    margin: 2.3em 0;
-    padding: 0 1.2em;
+.submenu .menu-title {
+    border-radius: 12px;
+    cursor: pointer;
 }
 
-#sidebar .side-menu a{
-    display: flex;
-    align-items: center;
-    font-size: .9rem;
-    color: var(--dark);
-    padding: .8em 1em .8em 0;
-    transition: all .3s ease;
-    border-radius: 10px;
-    margin: .4em 0;
-    grid-gap: .6em;
+.submenu .menu-title i {
+    margin-right: 10px;
 }
 
-#sidebar .side-menu >li > a:hover{
-    background-color: var(--grey);
-}
-
-#sidebar .side-menu > li > a.active .icon-right{
-    transform: rotateZ(90deg);
-}
-
-#sidebar .side-menu > li > a.active,
-#sidebar .side-menu > li > a.active:hover{
-    background-color: var(--blue);
-    color: var(--light);
-}
-#sidebar .divider {
-    margin-top: 1.2em;
-    font-size: .8rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--dark-grey);
-}
-
-#sidebar .side-dropdown{
-    padding-left: 3em;  
-    max-height: 0;
-    overflow-y: hidden;
-    transition: all .15s ease;
-}
-
-#sidebar .side-dropdown.show{
-    max-height: 1000px;
-}
-
-#sidebar .side-dropdown a:hover{
-    color: var(--blue);
-}
-
-
-/* sidebar */
-
-
-/* content */
-
-#content {
-    position: relative;
-    width: calc(100% - 260px);
+.navbar,
+.main {
     left: 260px;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+    z-index: 1000;
 }
 
-nav {
-    background-color: var(--light);
-    height: 64px;
-    padding: 0 1.3em;
+.sidebar.close~.navbar,
+.sidebar.close~.main {
+    left: 0;
+    width: 100%;
+}
+
+.navbar {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    grid-gap: 1.8em;
+    position: fixed;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 25px;
+    background: #4070f4;
 }
 
-nav .toggle-sidebar{
-    font-size: 1.2rem;
+.navbar #sidebar-close {
     cursor: pointer;
 }
 
-nav form {
-    max-width: 400px;
-    width: 100%;
-    margin-right: auto;
+.navbar .navbar_leftside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-nav .form-group{
+.navbar .navbar_leftside .admin_search {
     position: relative;
+    height: 40px;
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-nav .form-group input {
+.navbar .navbar_leftside .admin_search input {
+    height: 100%;
     width: 100%;
-    background-color: var(--grey);
-    border-radius: 5px;
-    border: none;
     outline: none;
-    padding: .7em 2em .7em 1em;
-    transition: all .3s ease;
-}
-nav .form-group input:focus{
-    box-shadow: 0 0 0 1px var(--blue), 0 0 0 4px var(--light-blue);
-}
-
-nav .form-group .icon{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 16px;
-
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+   padding: 0 1em;
+    background-color: transparent;
 }
 
-nav .nav-link{
-    position: relative;
-}
-
-nav .nav-link .icon{
-    font-size: 1.2rem;
-    color: var(--dark);
-}
-
-nav .nav-link .badge{
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid var(--light);
-    background-color: var(--red);
+.navbar .navbar_rightside {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    color: var(--light);
-    font-size: .7rem;
-    font-weight: 700;
+    justify-content: space-between;
 }
 
-
-nav .divider{
-    width: 1px;
-    background-color: var(--dark-grey);
-    height: 12px;
-    display: block;
+.navbar .navbar_rightside .nav-links {
+    margin: 0 1.5em;
 }
 
-nav .profile img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
+.navbar .navbar_rightside .nav-links i {
+    position: relative;
     cursor: pointer;
+    color: black;
+    font-size: 1.3rem;
 }
 
-nav .profile{
-    position: relative;
-}
-
-nav .profile .profile-link{
+.navbar .navbar_rightside .nav-links span {
     position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
-    background: var(--light);
-    padding: .7em 0;
-    box-shadow: 4px 4px 16px rgba((0,0,0,.1), green, blue, alpha);
-    border-radius: 10px;
-    width: 160px;
-    pointer-events: none;
-    transition: all .3s ease;
+    top: 10px;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: black;
+    border-radius: 50%;
+    padding: 0 .2em;
+    font-weight: 500;
 }
 
-nav .profile .profile-link.show{
-    display: block;
-    pointer-events: visible;
-    top: 100%;
+.navbar .navbar_rightside .profile {
+    margin: 0 1.5em;
 }
 
-nav .profile .profile-link a{
-    padding: .7em 1em;
+.navbar .navbar_rightside .profile .profile-img{
+    position: relative;
+    cursor: pointer;
     display: flex;
-    grid-gap: 6px;
-    font-size: .9rem;
-    color: var(--dark);
+    flex-direction: row;
     align-items: center;
+}
+
+.navbar .navbar_rightside .profile .profile-img i {
+    font-size: 1rem;
+    margin-left: .2em;
     transition: all .3s ease;
 }
 
-nav .profile .profile-link a:hover {
-    background: var(--grey);
+.navbar .navbar_rightside .profile .profile-img i.rotate{
+    transform: rotate(180deg);
+    transition: all .3s ease;
 }
-/* content */
+
+
+.navbar .navbar_rightside .profile img {
+    width: 50px;
+    border-radius: 50%;
+    
+}
+
+.navbar .navbar_rightside .profile ul {
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    background-color: white;
+    padding: .3em;
+    border-radius: 5px;
+    transition:  all .3s ease;
+    opacity: 0;
+}
+
+.navbar .navbar_rightside .profile ul.show{
+    opacity: 1;
+}
+
+.navbar .navbar_rightside .profile ul li {
+    font-size: 1.1rem;
+    margin: .5em 0;
+   
+}
+
+.navbar .navbar_rightside .profile ul li:hover {
+    background-color: lightblue;
+    transform: all .3s ease;
+}
+
+.navbar .navbar_rightside .profile ul li a{
+    color: black;
+}
+
+.main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 100;
+    background: #e7f2fd;
+}
+
+.main h1 {
+    color: #11101d;
+    font-size: 40px;
+    text-align: center;
+}

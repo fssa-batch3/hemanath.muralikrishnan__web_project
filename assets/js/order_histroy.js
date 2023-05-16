@@ -96,13 +96,42 @@ function append_histroy(obj) {
     p_qty.innerHTML = `<b>Qty:</b> ${ord_histroy[j].product_details.selected_qty.qty} ${ord_histroy[j].product_details.selected_qty.unit}`;
     many_images.appendChild(p_qty);
 
+    const total_qty = document.createElement("p");
+    many_contents.appendChild(total_qty);
+
+    if(ord_histroy[j].product_details.selected_qty.unit === "kg"){
+
+      total_qty.innerHTML = (ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity).toFixed(1)+" kg";
+  
+    }
+  
+    if(ord_histroy[j].product_details.selected_qty.unit === "gm"){
+  
+      if(ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity < 1000){
+  
+        total_qty.innerHTML = (ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity)+" gm"
+      }
+  
+      else if(ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity >=1000){
+  
+        total_qty.innerHTML = (ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity)/1000+" kg";
+      }
+    }
+  
+    if(ord_histroy[j].product_details.selected_qty.unit === "nos"){
+      total_qty.innerHTML = ord_histroy[j].quantity+" nos"
+    }
+  
+  
+    if(ord_histroy[j].product_details.selected_qty.unit === "pkt"){
+      total_qty.innerHTML = ord_histroy[j].quantity + " pkt"
+    }
+
     const p_unit_price = document.createElement("p");
     p_unit_price.innerHTML = `₹ ${ord_histroy[j].product_details.selected_qty.rs}`;
     many_contents.appendChild(p_unit_price);
 
-    // let how_many_qty = document.createElement("p");
-    // how_many_qty.innerHTML = `20kg`
-    // many_contents.appendChild(how_many_qty);
+   
   }
 
   head_div.addEventListener("click", () => {

@@ -1,63 +1,49 @@
-// sidebar
-const allDropdown = document.querySelectorAll("#sidebar .side-dropdown");
+const sidebar = document.querySelector(".sidebar");
+const sidebarClose = document.querySelector("#sidebar-close");
+const menu = document.querySelector(".menu-content");
+const menuItems = document.querySelectorAll(".submenu-item");
+const subMenuTitles = document.querySelectorAll(".submenu .menu-title");
 
-allDropdown.forEach(item => {
+sidebarClose.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-    const a = item.parentElement.querySelector('a:first-child');
-    a.addEventListener('click', function (e) {
-
-        e.preventDefault();
-
-        if (!this.classList.contains('active')) {
-
-            allDropdown.forEach(i => {
-                
-                const aLink = i.parentElement.querySelector('a:first-child');
-
-                aLink.classList.remove('active');
-                i.classList.remove('show');
-            })
-        }
-
-        this.classList.toggle('active');
-        item.classList.toggle('show');
-    })
+menuItems.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    menu.classList.add("submenu-active");
+    item.classList.add("show-submenu");
+    menuItems.forEach((item2, index2) => {
+      if (index !== index2) {
+        item2.classList.remove("show-submenu");
+      }
+    });
+  });
 });
 
-// profile dropdown
-const profile = document.querySelector("nav .profile");
-const imgProfile = profile.querySelector("img");
-const dropdownProfile = profile.querySelector(".profile-link");
-
-dropdownProfile.style.display="none";
-
-imgProfile.addEventListener('click', function(){
-
-    dropdownProfile.classList.toggle("show");
-   
-   if(dropdownProfile.style.display=="none"){
-
-    dropdownProfile.style.display="block";
-   
-
-   }
-   else {
-    dropdownProfile.style.display="none";
-   }
+subMenuTitles.forEach((title) => {
+  title.addEventListener("click", () => {
+    menu.classList.remove("submenu-active");
+  });
 });
 
+const profile_img = document.querySelector(".profile .profile-img img");
+console.log(profile_img);
+const profile_icon = document.querySelector(".profile .profile-img i")
+const dropdown = document.querySelector(".profile ul");
 
-window.addEventListener('click', function(e){
+profile_img.addEventListener('click', function () {
 
-    if(e.target !== imgProfile){
+  profile_icon.classList.toggle("rotate");
+  dropdown.classList.toggle("show")
 
-        if(e.target !== dropdownProfile){
+});
 
-            if(dropdownProfile.classList.contains('show')){
-                dropdownProfile.classList.remove('show');
-            }
-        }
+window.addEventListener('click', function (e) {
+
+  if (e.target !== profile_img) {
+    if (e.target !== dropdown) {
+      if (dropdown.classList.contains("show")) {
+        profile_icon.classList.remove("rotate");
+        dropdown.classList.remove("show");
+      }
     }
+  }
 })
-
-

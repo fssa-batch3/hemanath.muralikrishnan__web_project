@@ -1,0 +1,88 @@
+::-ms-reveal{
+    display: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+}
+
+
+main .login_logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+main .login_logo i{
+    font-size: 2rem;
+    color: green;
+    font-weight: bold;
+    margin-right: .5em;
+}
+
+main .login_logo p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    
+}
+
+main form{
+    background-color: white;
+    border-radius: 5px;
+    padding: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main form .input_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 1em 1em;
+}
+
+main form .input_wrapper label{
+    margin: 1em 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+main form .input_wrapper input{
+    height: 50px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    padding-left: .5em;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+main form .input_wrapper .showpwd{
+    position: absolute;
+    top: 90px;
+    right: 0;
+    cursor: pointer;
+}
+
+main form .login_btn {
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    margin: 1em 0;
+    background-color: green;
+    color: white;
+}
+
+main form .login_btn:hover {
+    background-color: lightseagreen;
+}
