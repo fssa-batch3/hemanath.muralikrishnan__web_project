@@ -36,15 +36,13 @@ if (product_cat === "00") {
   list_products(product_details);
 } else {
   const url_products = product_details.filter((item) => {
-    if (item.category.id === product_cat && item.status) {
-      return true;
-    }
-    return false;
+   
+   return item.category.id === product_cat && item.status;
+      
   });
 
   list_products(url_products);
 }
-
 
 let filter_array = [];
 
@@ -54,45 +52,30 @@ const checkboxes = document.querySelectorAll(
   "input[type=checkbox][name=filter_cat]"
 );
 
-
 checkboxes.forEach((checkbox) => {
-  
   checkbox.addEventListener("click", () => {
+    filter_array = [];
 
-      filter_array = [];
+    enable_setting = Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+      .filter((i) => i.checked) // Use Array.filter to remove unchecked checkboxes.
+      .map((i) => i.value);
 
-      enable_setting =  Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
-      .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
-      .map(i => i.value)
+    enable_setting.forEach((item) => {
+      product_details.filter((obj) => {
+        const cat_id = obj.category.id;
 
-      enable_setting.forEach((item) => {
+        if (item === cat_id) {
+          filter_array.push(obj);
 
-       product_details.filter((obj) => {
-
-          let cat_id = obj.category.id;
-
-          if(item === cat_id){
-
-           filter_array.push(obj);
-
-           list_products(filter_array);
-
-          }
-       
-        });
-        
+          list_products(filter_array);
+        }
       });
+    });
 
-
-      if(filter_array.length === 0){
-
-        list_products(product_details);
-      }
-     
-  
-
+    if (filter_array.length === 0) {
+      list_products(product_details);
+    }
   });
-
 });
 
 // sortby for desktop and mobile

@@ -21,12 +21,10 @@ function check_user_histroy() {
 }
 
 function show_histroy(check_histroy) {
-  // let histroy_count = 0;
 
   if (check_histroy) {
     order_histroy.forEach((obj) => {
       if (user_id === obj.user_id) {
-        // histroy_count++;
         append_histroy(obj);
       }
     });
@@ -68,7 +66,7 @@ function append_histroy(obj) {
 
   const ord_histroy = obj.order_histroy;
 
-  for (let j = 0; j < ord_histroy.length; j++) {
+  for (const his_data of ord_histroy) {
     const many_contents = document.createElement("div");
     many_contents.setAttribute("class", "many_contents");
     other_contents.appendChild(many_contents);
@@ -80,58 +78,66 @@ function append_histroy(obj) {
     const many_img = document.createElement("img");
     many_img.setAttribute(
       "src",
-      `${ord_histroy[j].product_details.image.source}`
+      `${his_data.product_details.image.source}`
     );
     many_img.setAttribute(
       "alt",
-      `image of ${ord_histroy[j].product_details.image.alt}`
+      `image of ${his_data.product_details.image.alt}`
     );
     many_images.appendChild(many_img);
 
     const p_name = document.createElement("p");
-    p_name.innerHTML = `${ord_histroy[j].product_details.name.eng}`;
+    p_name.innerHTML = `${his_data.product_details.name.eng}`;
     many_images.appendChild(p_name);
 
     const p_qty = document.createElement("p");
-    p_qty.innerHTML = `<b>Qty:</b> ${ord_histroy[j].product_details.selected_qty.qty} ${ord_histroy[j].product_details.selected_qty.unit}`;
+    p_qty.innerHTML = `<b>Qty:</b> ${his_data.product_details.selected_qty.qty} ${his_data.product_details.selected_qty.unit}`;
     many_images.appendChild(p_qty);
 
     const total_qty = document.createElement("p");
     many_contents.appendChild(total_qty);
 
-    if(ord_histroy[j].product_details.selected_qty.unit === "kg"){
+    if (his_data.product_details.selected_qty.unit === "kg") {
+      total_qty.innerHTML = `${(
+        his_data.product_details.selected_qty.qty *
+        his_data.quantity
+      ).toFixed(1)} kg`;
+    }
 
-      total_qty.innerHTML = (ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity).toFixed(1)+" kg";
-  
-    }
-  
-    if(ord_histroy[j].product_details.selected_qty.unit === "gm"){
-  
-      if(ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity < 1000){
-  
-        total_qty.innerHTML = (ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity)+" gm"
+    if (his_data.product_details.selected_qty.unit === "gm") {
+      if (
+        his_data.product_details.selected_qty.qty *
+        his_data.quantity <
+        1000
+      ) {
+        total_qty.innerHTML = `${
+          his_data.product_details.selected_qty.qty *
+          his_data.quantity
+        } gm`;
+      } else if (
+        his_data.product_details.selected_qty.qty *
+        his_data.quantity >=
+        1000
+      ) {
+        total_qty.innerHTML = `${
+          (his_data.product_details.selected_qty.qty *
+            his_data.quantity) /
+          1000
+        } kg`;
       }
-  
-      else if(ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity >=1000){
-  
-        total_qty.innerHTML = (ord_histroy[j].product_details.selected_qty.qty*ord_histroy[j].quantity)/1000+" kg";
-      }
     }
-  
-    if(ord_histroy[j].product_details.selected_qty.unit === "nos"){
-      total_qty.innerHTML = ord_histroy[j].quantity+" nos"
+
+    if (his_data.product_details.selected_qty.unit === "nos") {
+      total_qty.innerHTML = `${his_data.quantity} nos`;
     }
-  
-  
-    if(ord_histroy[j].product_details.selected_qty.unit === "pkt"){
-      total_qty.innerHTML = ord_histroy[j].quantity + " pkt"
+
+    if (his_data.product_details.selected_qty.unit === "pkt") {
+      total_qty.innerHTML = `${his_data.quantity} pkt`;
     }
 
     const p_unit_price = document.createElement("p");
-    p_unit_price.innerHTML = `₹ ${ord_histroy[j].product_details.selected_qty.rs}`;
+    p_unit_price.innerHTML = `₹ ${his_data.product_details.selected_qty.rs}`;
     many_contents.appendChild(p_unit_price);
-
-   
   }
 
   head_div.addEventListener("click", () => {

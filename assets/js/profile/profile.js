@@ -382,14 +382,18 @@ function save_address_in_index(item, user_address = []) {
     }
   }
 
+  
   // Find the user in the user_records array and update its address array
-  for (let i = 0; i < user_records.length; i++) {
-    if (user_records[i].user_id === par.user_id) {
-      user_records[i].address = updatedAddress;
-      break;
-    }
-  }
 
+  user_records.forEach((add_data,index)=>{
+
+    if(add_data.user_id === par.user_id){
+
+      user_records[index] = updatedAddress;
+    }
+  })
+
+ 
   // Save the updated user_records array to local storage
   localStorage.setItem("users", JSON.stringify(user_records));
 

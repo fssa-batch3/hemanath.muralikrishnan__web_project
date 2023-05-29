@@ -9,7 +9,8 @@ const user_records = JSON.parse(localStorage.getItem("users")) ?? [];
 let user_id;
 
 if (user_records !== null) {
-  const foundRecord = user_records.find((obj) => logged_email === obj.emailid) ?? null;
+  const foundRecord =
+    user_records.find((obj) => logged_email === obj.emailid) ?? null;
 
   if (foundRecord) {
     user_id = foundRecord.user_id;
@@ -488,8 +489,6 @@ const demo_confirm = document.getElementById("conf-password");
 const demo_eye_login = document.getElementById("login-password");
 const demo_reg_password_eye = document.getElementById("reg-password-eye");
 const demo_confirm_eye = document.getElementById("reg-confirm-password");
-
-// document.getElementById("login-password").onclick = () => showPwd('password', this);
 
 document.getElementById("login-password").onclick = () =>
   showPwd(demo_login.id, demo_eye_login);

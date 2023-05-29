@@ -53,7 +53,6 @@ function check_cart() {
 }
 
 function cart_list(item, index) {
-  
   const cart_tr = document.createElement("tr");
   cart_append_div.appendChild(cart_tr);
 
@@ -83,8 +82,6 @@ function cart_list(item, index) {
 
   const total_qty = document.createElement("td");
   cart_tr.appendChild(total_qty);
-
-  
 
   const td_input = document.createElement("td");
   cart_tr.appendChild(td_input);
@@ -140,33 +137,30 @@ function cart_list(item, index) {
     }
   });
 
-
-  if(item.product_details.selected_qty.unit === "kg"){
-
-    total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity).toFixed(1)+" kg";
-
+  if (item.product_details.selected_qty.unit === "kg") {
+    total_qty.innerHTML = `${(
+      item.product_details.selected_qty.qty * item.quantity
+    ).toFixed(1)} kg`;
   }
 
-  if(item.product_details.selected_qty.unit === "gm"){
-
-    if(item.product_details.selected_qty.qty*item.quantity < 1000){
-
-      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)+" gm"
-    }
-
-    else if(item.product_details.selected_qty.qty*item.quantity >=1000){
-
-      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)/1000+" kg";
+  if (item.product_details.selected_qty.unit === "gm") {
+    if (item.product_details.selected_qty.qty * item.quantity < 1000) {
+      total_qty.innerHTML = `${
+        item.product_details.selected_qty.qty * item.quantity
+      } gm`;
+    } else if (item.product_details.selected_qty.qty * item.quantity >= 1000) {
+      total_qty.innerHTML = `${
+        (item.product_details.selected_qty.qty * item.quantity) / 1000
+      } kg`;
     }
   }
 
-  if(item.product_details.selected_qty.unit === "nos"){
-    total_qty.innerHTML = item.quantity+" nos"
+  if (item.product_details.selected_qty.unit === "nos") {
+    total_qty.innerHTML = `${item.quantity} nos`;
   }
 
-
-  if(item.product_details.selected_qty.unit === "pkt"){
-    total_qty.innerHTML = item.quantity + " pkt"
+  if (item.product_details.selected_qty.unit === "pkt") {
+    total_qty.innerHTML = `${item.quantity} pkt`;
   }
 
   const td_subtotal = document.createElement("td");
@@ -334,8 +328,8 @@ function show_total() {
   const total_rs_arr = [];
 
   if (get_subtotal !== null) {
-    for (let i = 0; i < get_subtotal.length; i++) {
-      const split_subtotal = get_subtotal[i].innerHTML.split("₹");
+    for (const subtotal of get_subtotal) {
+      const split_subtotal = subtotal.innerHTML.split("₹");
 
       const splice_space = split_subtotal.splice(1, 1);
 
@@ -346,8 +340,8 @@ function show_total() {
   }
 
   if (total_rs_arr != null) {
-    for (let i = 0; i < total_rs_arr.length; i++) {
-      total += Number(total_rs_arr[i]);
+    for (const total_rs of total_rs_arr) {
+      total += Number(total_rs);
     }
   }
 

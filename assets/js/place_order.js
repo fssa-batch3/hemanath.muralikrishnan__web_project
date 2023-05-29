@@ -51,7 +51,6 @@ user_records.find((obj) => {
         const address_input = document.createElement("input");
         address_input.setAttribute("type", "radio");
         address_input.setAttribute("name", "select_address");
-        // address_input.setAttribute("value", index);
         address_input.setAttribute("id", item.address_id);
         address_input.setAttribute("required", "true");
         address_input.setAttribute("title", "please select address");
@@ -108,34 +107,31 @@ function append_order_items(item, index) {
   const total_qty = document.createElement("td");
   table_tr.appendChild(total_qty);
 
-  if(item.product_details.selected_qty.unit === "kg"){
-
-    total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity).toFixed(1)+" kg";
-
+  if (item.product_details.selected_qty.unit === "kg") {
+    total_qty.innerHTML = `${(
+      item.product_details.selected_qty.qty * item.quantity
+    ).toFixed(1)} kg`;
   }
 
-  if(item.product_details.selected_qty.unit === "gm"){
-
-    if(item.product_details.selected_qty.qty*item.quantity < 1000){
-
-      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)+" gm"
+  if (item.product_details.selected_qty.unit === "gm") {
+    if (item.product_details.selected_qty.qty * item.quantity < 1000) {
+      total_qty.innerHTML = `${
+        item.product_details.selected_qty.qty * item.quantity
+      } gm`;
+    } else if (item.product_details.selected_qty.qty * item.quantity >= 1000) {
+      total_qty.innerHTML = `${
+        (item.product_details.selected_qty.qty * item.quantity) / 1000
+      } kg`;
     }
-
-    else if(item.product_details.selected_qty.qty*item.quantity >=1000){
-
-      total_qty.innerHTML = (item.product_details.selected_qty.qty*item.quantity)/1000+" kg";
-    }
   }
 
-  if(item.product_details.selected_qty.unit === "nos"){
-    total_qty.innerHTML = item.quantity+" nos"
+  if (item.product_details.selected_qty.unit === "nos") {
+    total_qty.innerHTML = `${item.quantity} nos`;
   }
 
-
-  if(item.product_details.selected_qty.unit === "pkt"){
-    total_qty.innerHTML = item.quantity + " pkt"
+  if (item.product_details.selected_qty.unit === "pkt") {
+    total_qty.innerHTML = `${item.quantity} pkt`;
   }
-
 
   const qty_td = document.createElement("td");
   qty_td.innerHTML = `${item.quantity}`;
@@ -158,8 +154,8 @@ let total = 0;
 const total_rs_arr = [];
 
 if (get_subtotal != null) {
-  for (let i = 0; i < get_subtotal.length; i++) {
-    const split_subtotal = get_subtotal[i].innerHTML.split("₹");
+  for (const subtotal of get_subtotal) {
+    const split_subtotal = subtotal.innerHTML.split("₹");
 
     const splice_space = split_subtotal.splice(1, 1);
 
@@ -170,8 +166,8 @@ if (get_subtotal != null) {
 }
 
 if (total_rs_arr != null) {
-  for (let i = 0; i < total_rs_arr.length; i++) {
-    total += Number(total_rs_arr[i]);
+  for (const get_rs of total_rs_arr) {
+    total += Number(get_rs);
   }
 }
 

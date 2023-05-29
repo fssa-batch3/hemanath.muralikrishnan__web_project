@@ -53,7 +53,7 @@ function show_the_wishlist_pro(user_pro_check) {
 }
 
 function wish_list(item, index) {
-  const product_id = item.product_id;
+  const { product_id } = item;
   const product_cat = item.category.id;
 
   const href_link =

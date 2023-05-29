@@ -80,7 +80,6 @@ let desc_cont_div;
 let desc_title_p;
 let desc_content_p;
 
-
 product_details.find((obj) => {
   if (product_id === obj.id && obj.status) {
     show_indv(JSON.stringify(obj));
@@ -388,8 +387,8 @@ function show_indv(obj) {
 
   qty_plus.addEventListener("click", () => {
     const elem_indv = document.querySelectorAll(".indv_add_cart_btn");
-   
-    let index_num = elem_indv.length - 1;
+
+    const index_num = elem_indv.length - 1;
 
     qty_value++;
     qty_plus_value = qty_value;
@@ -408,7 +407,7 @@ function show_indv(obj) {
     if (qty_value > 1) {
       const elem_indv = document.querySelectorAll(".indv_add_cart_btn");
 
-      let index_num = elem_indv.length - 1;
+      const index_num = elem_indv.length - 1;
 
       qty_value--;
       qty_minus_value = qty_value;
@@ -427,9 +426,7 @@ function show_indv(obj) {
   // favourite list
 
   favorite_i.addEventListener("click", () => {
-
     add_fav(JSON.stringify(item));
-
   });
 
   // add to cart event listner
@@ -451,11 +448,9 @@ list_products(rel_products);
 let wishlist_check = true;
 
 function add_fav(item) {
-  
   const par = JSON.parse(item);
 
   if (user_id !== undefined) {
-
     wishlist_check = true;
 
     check_in_wishlist(item);
@@ -491,7 +486,6 @@ function add_fav(item) {
 }
 
 function check_in_wishlist(item) {
-
   const par = JSON.parse(item);
 
   const fav_list = JSON.parse(localStorage.getItem("wishlist"));
