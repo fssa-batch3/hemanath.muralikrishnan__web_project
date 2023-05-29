@@ -11,17 +11,15 @@ const cart_items = JSON.parse(localStorage.getItem("cart_items"));
 const elem = document.querySelector(".checkout-btn");
 
 function show_the_cart_pro(user_pro_check) {
-  let cart_pro_count = 0;
-
   if (user_pro_check) {
     cart_items.filter((obj, index) => {
       if (user_id === obj.user_id) {
         cart_list(obj, index);
 
-        cart_pro_count++;
-
-        return cart_pro_count;
+        return true; // Return a value indicating that the condition is true
       }
+
+      return false; // Return a value indicating that the condition is false
     });
   } else {
     document.querySelector(".table__body").style.display = "none";
@@ -179,9 +177,13 @@ function cart_list(item, index) {
   td_remove.appendChild(td_delete);
 
   td_input.addEventListener("click", () => {
-    cart_items.find((obj) => {
+    cart_items.find((obj, index_num) => {
       if (item.cart_item_id === obj.cart_item_id) {
-        obj.quantity = qty_number.innerText;
+        const updatedObj = { ...obj }; // Create a copy of the object
+
+        updatedObj.quantity = qty_number.innerText;
+
+        cart_items[index_num] = updatedObj; // Replace the original object with the updated object
 
         localStorage.setItem("cart_items", JSON.stringify(cart_items));
 
@@ -190,7 +192,11 @@ function cart_list(item, index) {
         check_cart();
 
         show_total();
+
+        return true; // Return a value to satisfy the requirements of Array.prototype.find()
       }
+
+      return false; // Return a value to satisfy the requirements of Array.prototype.find()
     });
   });
 
@@ -204,6 +210,8 @@ function cart_update_quantity(id, pro_id, qty) {
     if (pro_id === obj.id) {
       return obj;
     }
+
+    return undefined; // Return a value (e.g., undefined) when the condition is not met
   });
 
   find_which_unit(id, JSON.stringify(find_pro), qty);
@@ -219,7 +227,9 @@ function find_which_unit(id, item, qty) {
       } else {
         cart_base(id, item, qty);
       }
+      return true; // Return a value indicating that the condition is true
     }
+    return false; // Return a value indicating that the condition is false
   });
 }
 
@@ -228,50 +238,67 @@ function find_which_unit(id, item, qty) {
 function cart_kg(id, item, qty) {
   const par = JSON.parse(item);
 
-  cart_items.find((obj) => {
+  cart_items.find((obj, index) => {
     if (id === obj.cart_item_id) {
       par.quantity.find((qty_obj) => {
         if (obj.product_details.selected_qty.rs === qty_obj.rs) {
           const check = qty * qty_obj.into_gram;
 
+          const updatedObj = { ...obj }; // Create a copy of the object
+
           if (Number(check) > Number(par.avail_stock.into_gram)) {
-            obj.ready_for_checkout = false;
+            updatedObj.ready_for_checkout = false;
 
             Notify.error("Required quantity not available");
           } else {
-            obj.ready_for_checkout = true;
+            updatedObj.ready_for_checkout = true;
           }
+
+          cart_items[index] = updatedObj;
         }
+        return false; // Return a value indicating that the condition is false
       });
+      return true; // Return a value indicating that the condition is true
     }
+    return false; // Return a value indicating that the condition is false
   });
 
   localStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+  check_ready();
 }
 
 // check with gm
 function cart_gm(id, item, qty) {
   const par = JSON.parse(item);
 
-  cart_items.find((obj) => {
+  cart_items.find((obj, index) => {
     if (id === obj.cart_item_id) {
       par.quantity.find((qty_obj) => {
         if (obj.product_details.selected_qty.rs === qty_obj.rs) {
           const check = qty * qty_obj.qty;
 
+          const updatedObj = { ...obj }; // Create a copy of the object
+
           if (Number(check) > Number(par.avail_stock.into_gram)) {
-            obj.ready_for_checkout = false;
+            updatedObj.ready_for_checkout = false;
 
             Notify.error("Required quantity not available");
           } else {
-            obj.ready_for_checkout = true;
+            updatedObj.ready_for_checkout = true;
           }
+          cart_items[index] = updatedObj;
         }
+        return false; // Return a value indicating that the condition is false
       });
+      return true; // Return a value indicating that the condition is true
     }
+    return false; // Return a value indicating that the condition is false
   });
 
   localStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+  check_ready();
 }
 
 // check with nos and pkt
@@ -279,25 +306,34 @@ function cart_gm(id, item, qty) {
 function cart_base(id, item, qty) {
   const par = JSON.parse(item);
 
-  cart_items.find((obj) => {
+  cart_items.find((obj, index) => {
     if (id === obj.cart_item_id) {
       par.quantity.find((qty_obj) => {
         if (obj.product_details.selected_qty.rs === qty_obj.rs) {
           const check = qty * qty_obj.qty;
 
+          const updatedObj = { ...obj }; // Create a copy of the object
+
           if (Number(check) > Number(par.avail_stock.num)) {
-            obj.ready_for_checkout = false;
+            updatedObj.ready_for_checkout = false;
 
             Notify.error("Required quantity not available");
           } else {
-            obj.ready_for_checkout = true;
+            updatedObj.ready_for_checkout = true;
           }
+
+          cart_items[index] = updatedObj;
         }
+        return false; // Return a value indicating that the condition is false
       });
+      return true; // Return a value indicating that the condition is true
     }
+    return false; // Return a value indicating that the condition is false
   });
 
   localStorage.setItem("cart_items", JSON.stringify(cart_items));
+
+  check_ready();
 }
 
 // delete cart item
@@ -328,21 +364,18 @@ function show_total() {
   const total_rs_arr = [];
 
   if (get_subtotal !== null) {
-    for (const subtotal of get_subtotal) {
+    get_subtotal.forEach((subtotal) => {
       const split_subtotal = subtotal.innerHTML.split("₹");
-
       const splice_space = split_subtotal.splice(1, 1);
-
       const join_total = splice_space.join("");
-
       total_rs_arr.push(join_total);
-    }
+    });
   }
 
   if (total_rs_arr != null) {
-    for (const total_rs of total_rs_arr) {
+    total_rs_arr.forEach((total_rs) => {
       total += Number(total_rs);
-    }
+    });
   }
 
   document.querySelector(".cart-total").innerHTML = `Total: ₹ ${total}`;
@@ -357,15 +390,20 @@ function check_ready() {
     cart_items.filter((obj) => {
       if (user_id === obj.user_id) {
         count++;
+        return true;
       }
+      return false;
     });
 
     cart_items.filter((obj) => {
       if (user_id === obj.user_id) {
         if (obj.ready_for_checkout) {
           check_chekout++;
+          return true;
         }
       }
+
+      return false;
     });
 
     if (count === check_chekout) {

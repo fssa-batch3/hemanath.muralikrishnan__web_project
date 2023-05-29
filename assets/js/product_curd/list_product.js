@@ -35,11 +35,9 @@ const product_cat = urlParams.get("cat");
 if (product_cat === "00") {
   list_products(product_details);
 } else {
-  const url_products = product_details.filter((item) => {
-   
-   return item.category.id === product_cat && item.status;
-      
-  });
+  const url_products = product_details.filter(
+    (item) => item.category.id === product_cat && item.status
+  );
 
   list_products(url_products);
 }
@@ -69,6 +67,8 @@ checkboxes.forEach((checkbox) => {
 
           list_products(filter_array);
         }
+
+        return true;
       });
     });
 

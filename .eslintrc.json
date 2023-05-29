@@ -44,15 +44,7 @@
         "endOfLine": "auto"
       }
     ],
-    "import/extensions": [
-      "error",
-      "never",
-      {
-        "js": "never",
-        "jsx": "never",
-        "mjs": "never"
-      }
-    ]
+   "import/extensions": ["off","always", { "js": "never" }]
   },
   "ignorePatterns": [
     "node_modules/",

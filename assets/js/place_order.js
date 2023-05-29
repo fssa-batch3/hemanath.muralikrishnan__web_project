@@ -154,7 +154,7 @@ let total = 0;
 const total_rs_arr = [];
 
 if (get_subtotal != null) {
-  for (const subtotal of get_subtotal) {
+  get_subtotal.forEach((subtotal) => {
     const split_subtotal = subtotal.innerHTML.split("₹");
 
     const splice_space = split_subtotal.splice(1, 1);
@@ -162,13 +162,13 @@ if (get_subtotal != null) {
     const join_total = splice_space.join("");
 
     total_rs_arr.push(join_total);
-  }
+  });
 }
 
 if (total_rs_arr != null) {
-  for (const get_rs of total_rs_arr) {
+  total_rs_arr.forEach((get_rs) => {
     total += Number(get_rs);
-  }
+  });
 }
 
 document.querySelector(".main-total").innerHTML = `Total: ₹ ${total}`;

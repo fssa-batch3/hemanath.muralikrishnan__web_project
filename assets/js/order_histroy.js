@@ -21,7 +21,6 @@ function check_user_histroy() {
 }
 
 function show_histroy(check_histroy) {
-
   if (check_histroy) {
     order_histroy.forEach((obj) => {
       if (user_id === obj.user_id) {
@@ -66,7 +65,7 @@ function append_histroy(obj) {
 
   const ord_histroy = obj.order_histroy;
 
-  for (const his_data of ord_histroy) {
+  ord_histroy.forEach((his_data) => {
     const many_contents = document.createElement("div");
     many_contents.setAttribute("class", "many_contents");
     other_contents.appendChild(many_contents);
@@ -76,10 +75,7 @@ function append_histroy(obj) {
     many_contents.appendChild(many_images);
 
     const many_img = document.createElement("img");
-    many_img.setAttribute(
-      "src",
-      `${his_data.product_details.image.source}`
-    );
+    many_img.setAttribute("src", `${his_data.product_details.image.source}`);
     many_img.setAttribute(
       "alt",
       `image of ${his_data.product_details.image.alt}`
@@ -99,30 +95,24 @@ function append_histroy(obj) {
 
     if (his_data.product_details.selected_qty.unit === "kg") {
       total_qty.innerHTML = `${(
-        his_data.product_details.selected_qty.qty *
-        his_data.quantity
+        his_data.product_details.selected_qty.qty * his_data.quantity
       ).toFixed(1)} kg`;
     }
 
     if (his_data.product_details.selected_qty.unit === "gm") {
       if (
-        his_data.product_details.selected_qty.qty *
-        his_data.quantity <
+        his_data.product_details.selected_qty.qty * his_data.quantity <
         1000
       ) {
         total_qty.innerHTML = `${
-          his_data.product_details.selected_qty.qty *
-          his_data.quantity
+          his_data.product_details.selected_qty.qty * his_data.quantity
         } gm`;
       } else if (
-        his_data.product_details.selected_qty.qty *
-        his_data.quantity >=
+        his_data.product_details.selected_qty.qty * his_data.quantity >=
         1000
       ) {
         total_qty.innerHTML = `${
-          (his_data.product_details.selected_qty.qty *
-            his_data.quantity) /
-          1000
+          (his_data.product_details.selected_qty.qty * his_data.quantity) / 1000
         } kg`;
       }
     }
@@ -138,7 +128,7 @@ function append_histroy(obj) {
     const p_unit_price = document.createElement("p");
     p_unit_price.innerHTML = `₹ ${his_data.product_details.selected_qty.rs}`;
     many_contents.appendChild(p_unit_price);
-  }
+  });
 
   head_div.addEventListener("click", () => {
     if (other_contents.style.display === "none") {

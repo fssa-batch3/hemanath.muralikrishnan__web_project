@@ -7,21 +7,17 @@ function append_products() {
     return false;
   }
 
-  else {
-
-    fetch("product_json.json")
-    .then(res => res.json())
-    .then(data => {
+  fetch("product_json.json")
+    .then((res) => res.json())
+    .then((data) => {
       // Store the products in a new variable
       const products = data;
-  
+
       // Use the 'products' variable as needed
       localStorage.setItem("product_list", JSON.stringify(products));
       // You can perform further operations with the 'products' variable here
     })
     .catch(console.error);
-
-  }
 
   return true;
 }
