@@ -12,13 +12,14 @@ function append_products() {
     fetch("product_json.json")
     .then(res => res.json())
     .then(data => {
-    // Store the products in a new variable
-    const products = data;
-
-    // Use the 'products' variable as needed
-    localStorage.setItem("product_list", JSON.stringify(products));
-    // You can perform further operations with the 'products' variable here
-  });
+      // Store the products in a new variable
+      const products = data;
+  
+      // Use the 'products' variable as needed
+      localStorage.setItem("product_list", JSON.stringify(products));
+      // You can perform further operations with the 'products' variable here
+    })
+    .catch(console.error);
 
   }
 
