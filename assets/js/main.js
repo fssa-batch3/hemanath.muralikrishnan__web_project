@@ -4085,6 +4085,7 @@ function append_products() {
   if (get_products) {
     return false;
   }
+  
   localStorage.setItem("product_list", JSON.stringify(created_products));
   return true;
 }

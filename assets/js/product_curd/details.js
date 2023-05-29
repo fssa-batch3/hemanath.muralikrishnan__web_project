@@ -80,15 +80,16 @@ let desc_cont_div;
 let desc_title_p;
 let desc_content_p;
 
-product_details.find((obj, index) => {
+
+product_details.find((obj) => {
   if (product_id === obj.id && obj.status) {
-    show_indv(JSON.stringify(obj), index);
+    show_indv(JSON.stringify(obj));
     return true;
   }
   return false;
 });
 
-function show_indv(obj, index) {
+function show_indv(obj) {
   const item = JSON.parse(obj);
 
   // start of left side
@@ -386,7 +387,9 @@ function show_indv(obj, index) {
   desc_cont_div.append(desc_content_p);
 
   qty_plus.addEventListener("click", () => {
-    const elem = document.querySelectorAll(".indv_add_cart_btn");
+    const elem_indv = document.querySelectorAll(".indv_add_cart_btn");
+   
+    let index_num = elem_indv.length - 1;
 
     qty_value++;
     qty_plus_value = qty_value;
@@ -396,14 +399,16 @@ function show_indv(obj, index) {
       select_tag.value,
       JSON.stringify(item),
       qty_number.innerText,
-      elem,
-      index
+      elem_indv,
+      index_num
     );
   });
 
   qty_minus.addEventListener("click", () => {
     if (qty_value > 1) {
-      const elem = document.querySelectorAll(".indv_add_cart_btn");
+      const elem_indv = document.querySelectorAll(".indv_add_cart_btn");
+
+      let index_num = elem_indv.length - 1;
 
       qty_value--;
       qty_minus_value = qty_value;
@@ -413,8 +418,8 @@ function show_indv(obj, index) {
         select_tag.value,
         JSON.stringify(item),
         qty_number.innerText,
-        elem,
-        index
+        elem_indv,
+        index_num
       );
     }
   });
@@ -422,7 +427,9 @@ function show_indv(obj, index) {
   // favourite list
 
   favorite_i.addEventListener("click", () => {
+
     add_fav(JSON.stringify(item));
+
   });
 
   // add to cart event listner
@@ -444,9 +451,11 @@ list_products(rel_products);
 let wishlist_check = true;
 
 function add_fav(item) {
+  
   const par = JSON.parse(item);
 
   if (user_id !== undefined) {
+
     wishlist_check = true;
 
     check_in_wishlist(item);
@@ -482,6 +491,7 @@ function add_fav(item) {
 }
 
 function check_in_wishlist(item) {
+
   const par = JSON.parse(item);
 
   const fav_list = JSON.parse(localStorage.getItem("wishlist"));

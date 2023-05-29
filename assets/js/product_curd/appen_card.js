@@ -195,7 +195,7 @@ function list_products(array = []) {
 
 function updatequantity(rs, item, qty, elem, index) {
   const par = JSON.parse(item);
-
+  
   par.quantity.find((obj) => {
     if (rs === obj.rs) {
       if (obj.unit === "kg") {
@@ -213,6 +213,7 @@ function updatequantity(rs, item, qty, elem, index) {
 
 // check with kig
 function checkwithkg(rs, item, qty, elem, index) {
+
   const par = JSON.parse(item);
 
   par.quantity.find((obj) => {

@@ -45,32 +45,54 @@ if (product_cat === "00") {
   list_products(url_products);
 }
 
+
+let filter_array = [];
+
+let enable_setting = [];
+
 const checkboxes = document.querySelectorAll(
   "input[type=checkbox][name=filter_cat]"
 );
 
+
 checkboxes.forEach((checkbox) => {
+  
   checkbox.addEventListener("click", () => {
-    if (checkbox.checked) {
-      const convert_array = Array.from(checkboxes);
 
-      const checked_input = convert_array.filter((i) => i.checked);
+      filter_array = [];
 
-      const map_input = checked_input.map((i) => i.value);
+      enable_setting =  Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+      .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
+      .map(i => i.value)
 
-      map_input.forEach((item) => {
-        const filter_array = product_details.filter((obj) => {
-          const cat_id = obj.category.id;
+      enable_setting.forEach((item) => {
 
-          return item === cat_id;
+       product_details.filter((obj) => {
+
+          let cat_id = obj.category.id;
+
+          if(item === cat_id){
+
+           filter_array.push(obj);
+
+           list_products(filter_array);
+
+          }
+       
         });
-
-        list_products(filter_array);
+        
       });
-    } else {
-      list_products(product_details);
-    }
+
+
+      if(filter_array.length === 0){
+
+        list_products(product_details);
+      }
+     
+  
+
   });
+
 });
 
 // sortby for desktop and mobile
