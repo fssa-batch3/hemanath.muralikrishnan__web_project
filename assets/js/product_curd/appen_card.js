@@ -1,6 +1,6 @@
 import { Notify } from "../vendor/notify.js";
 import { cart_count_fun } from "../cart_count.js";
-import { user_id } from "../is_logged.js";
+import { user_id, generateRandomUserID } from "../is_logged.js";
 
 const root_loc = window.location.origin;
 
@@ -298,7 +298,7 @@ function get_cart_ele(pro_rs, item, no_qty) {
       if (pro_rs === qty_obj.rs) {
         const cart_obj = {
           cart_product_id: to_json.id,
-          cart_item_id: Math.random().toString(16).slice(2),
+          cart_item_id: generateRandomUserID(),
           user_id,
           product_details: {
             image: to_json.image,

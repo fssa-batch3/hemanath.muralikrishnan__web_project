@@ -1,6 +1,6 @@
 import { wishlist_count_fun } from "../wishlist/wishlist_count.js";
 import { list_products, get_cart_ele, updatequantity } from "./appen_card.js";
-import { user_id } from "../is_logged.js";
+import { user_id, generateRandomUserID } from "../is_logged.js";
 import { Notify } from "../vendor/notify.js";
 
 // product details JSON
@@ -465,7 +465,7 @@ function add_fav(item) {
   if (wishlist_check) {
     favourite_list.push({
       user_id,
-      wishlist_item_id: Math.random().toString(16).slice(2),
+      wishlist_item_id: generateRandomUserID(),
       product_id: par.id,
       category: par.category,
       product_eng_name: par.name.eng,

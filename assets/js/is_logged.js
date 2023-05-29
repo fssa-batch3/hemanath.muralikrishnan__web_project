@@ -545,6 +545,19 @@ function login_validateInputs() {
   }
 }
 
+// generate id
+
+function generateRandomUserID() {
+  const crypto = window.crypto || window.Crypto;
+  if (crypto && crypto.getRandomValues) {
+    const array = new Uint32Array(1);
+    crypto.getRandomValues(array);
+    return array[0].toString(16);
+  }
+  // Fallback to Math.random() if secure random number generation is not available
+  return Math.random().toString(16).slice(2);
+}
+
 // function to find the user in already registered data
 
 function find_user(email_id, password) {
@@ -589,7 +602,7 @@ function validateInputs() {
   if (check_user) {
     if (password === conf_password) {
       const user = {
-        user_id: Math.random().toString(16).slice(2),
+        user_id: generateRandomUserID(),
         firstname: first_name,
         lastname: last_name,
         emailid: email_id,
@@ -773,4 +786,4 @@ function mobile_search_append(result_arr = []) {
   }
 }
 
-export { user_id, user_records };
+export { user_id, user_records, generateRandomUserID };
