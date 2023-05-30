@@ -78,11 +78,11 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         3. Click on the "My Account" option in the nav.
         4. In the profile the user can see the "add address" button.
         5. While click on the button the address form will popup.
-        6. In that popup form the user want to enter the street, district and pincode of the district.
+        6. In that popup form the user want to enter the street, district and pin code of the district.
         7. After the entering the above details the user can save the address.
         8. If will shown on the address section in the profile page.
     - Expected Result:
-        - Address was created successfully and shown in the profile addressn section.
+        - Address was created successfully and shown in the profile address section.
 
 ### Update address on the profile page[Completed]
 - Scenario 1: Successfully update the address on the profile page.
@@ -92,11 +92,11 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         3. Click on the "My Account" option in the nav.
         4. In the profile the user can see the "add address" button.
         5. While click on the button the address form will popup.
-        6. In that popup form the user want to enter the street, district and pincode of the district.
+        6. In that popup form the user want to enter the street, district and pin code of the district.
         7. After the entering the above details the user can save the address.
         8. If will shown on the address section in the profile page.
     - Expected Result:
-        - Address was created successfully and shown in the profile addressn section.
+        - Address was created successfully and shown in the profile address section.
 
 ### Delete address on the profile page[Completed]
 - Scenario 1: Successfully delete the address on the profile page.
@@ -108,7 +108,7 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         5. In the menu you have two option one is "Edit" and another one is "Delete".
         6. Using the delete options user can delete the address.
     - Expected Result:
-        - Particulary address was deleted successfully.
+        - Particularly address was deleted successfully.
 
 ### View products/items[Completed]
 - Scenario 1: Successfully view products/items.
@@ -161,7 +161,7 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
 - Scenario 1: Successfully add product to the cart.
     - Steps:
         1. Log in as a buyer.
-        2. Navigate to the product listing page or product indiviudal page.
+        2. Navigate to the product listing page or product individual page.
         3. Select the "product quantity" and "number of quantity" you want.
         4. Click on the "cart" icon to add the product to the cart.
     - Expected Result:
@@ -191,6 +191,17 @@ Agriculture is the backbone of India. We all know how the farmers are facing man
         5. Using the delete icon user can delete the particular cart product.
     - Expected Result:
         - Successfully deleted the cart product on the cart page.
+
+### Checkout the cart products [Completed]
+- Scenario 1: Successfully direct to the checkout page.
+    - Steps:
+        1. Log in as a buyer.
+        2. Add products to cart.
+        3. Navigate to the cart page.
+        4. In
+    - Expected Result:
+        - Successfully deleted the cart product on the cart page.
+
 
         
 
