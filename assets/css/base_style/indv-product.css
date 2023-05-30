@@ -174,16 +174,18 @@
     width: 400px;
 }
 
-.indv-add-button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 170px;
+.indv-add-button .fa-cart-plus {
     background-color: #429b44;
+    padding: 1em;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 5px;
+}
+
+.indv-add-button .fa-cart-plus:hover{
+    background-color: green;
     border-radius: 10px;
     cursor: pointer;
-    margin-left: 1em;
 }
 
 .indv-add-button:hover {
@@ -261,28 +263,17 @@
     font-weight: bold;
 }
 
-.indv-add-button a {
-    font-size: 1.3rem;
-    padding: .5em .5em;
-    color: white;
-    text-decoration: none;
-}
-
-.indv-add-button i {
-    padding-right: .5em;
-    font-size: 1.1rem;
-}
 
 .favorite {
     margin-left: 1em;
    
 }
 
-.favorite a i:hover {
+.favorite:hover {
     background-color: pink;
 }
 
-.favorite a i {
+.favorite i {
     font-size: 1.2rem;
     background-color: lightcoral;
     padding: 1em;
@@ -501,7 +492,7 @@ box-shadow:  11px 11px 22px #c1c0c0,
     }
 
     .right-side-three .indv-qty-cat {
-        width: 340px;
+       width: auto;
     }
 
     .right-side-three .indv-qty-cat .indv-add-button{
@@ -561,6 +552,10 @@ box-shadow:  11px 11px 22px #c1c0c0,
  
      .product-container .product-main .product-name p {
          font-size: .9rem;
+     }
+
+     .product-container .product-main .amount_dropdown{
+        font-size: .9rem;
      }
  
      .product-container .farmer-part {

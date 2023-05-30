@@ -1,4 +1,4 @@
-/*start of list top */ 
+/*start of list top */
 
 /* .list-top {
     font-family: 'Poppins', sans-serif;
@@ -14,7 +14,8 @@
     margin: 2em 0 1em 1em;
 }
 
-.list-top ul li, .list-top ul li a {
+.list-top ul li,
+.list-top ul li a {
     padding: .2em;
     color: black;
 }
@@ -26,289 +27,105 @@
 
 /* end of list top */
 
-/* start of orders histroy main */
-
-.orders-histroy-main {
-    display: flex;
-    flex-direction: row;
-}
-
-/* start of aside menu for filters */
-
-.ord-his-fil {
-    margin-left: 2.2em;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #253D4E;
-}
-
-.aside-list {
-    background: #fefbfb;
-    box-shadow:  20px 20px 60px #d8d5d5,
-                -20px -20px 60px #ffffff;
-    width: 300px;
-    margin: 1em;
-    height: 600px;
-    border-radius: 10px;
-}
-
-.aside-list .sortby-main-title, .filterby-main-title {
-    padding: 1em;
-    margin: 1em;
-    border-bottom: 2px solid black;
-    width: 180px;
-    font-size: 1.2rem;
+.container_card .history-title {
+    font-size: 1.4rem;
     font-weight: 600;
 }
 
-.aside-list ul li{
-    width: 220px;
+.container_card {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 9em;
+}
+
+.container_card .main-container{
+
+    margin: 1em 1.5em;
+}
+
+
+.container_card .main-container .head {
+    background-color: #FFFFFF;
+    color: #563e6e;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: 0.2s ease;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 1em;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.aside-list ul li input, label {
-    margin: .5em;
-}
-
-.aside-list ul li:hover {
-    margin: .5em;
-}
-/* end of aside menu for filters */
-
-
-/* start of orders right side */
-
-.order-his-right-side {
-    margin-left: 4em;
-    margin-top: 4em;
-}
-
-.order-his-search {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2em;
-    align-items: center;
-}
-
-.order-his-search input {
-    width: 600px;
-    height: 40px;
-    border-radius: 10px;
-    padding-left: 1em;
-    outline: none;
-    border: 2px solid #429b44;
-}
-
-.order-his-search p {
-    margin-left: 1em;
-    background-color: green;
-    padding: 1em;
-    color: white;
-    border-radius: 10px;
-}    
-
-.product-status {
-    width: 1000px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    background-color: white;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 8%);
-    margin-bottom: 1.5em;
-}
-
-.product-status-img img {
-    width: 80px;
-}
-
-.product-status-img {
-    display: flex;
-    flex-direction: row;
     align-items: center;
+    width: auto;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
-.product-status .status-price {
-    font-family: sans-serif;
-    font-size: 1.1rem;
-    color: #253D4E;
+.container_card .main-container .order_deliver{
+    background-color: lightgreen;
+    padding: 1em;
+    border-radius: 5px;
+    font-weight: 500;
 }
 
-.main-status .fa-circle {
-    color: greenyellow;
+
+.container_card .main-container .head p {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 .5em;
 }
 
-.no-more {
-    text-align: center;
-    margin-top: 4em;
-    background-color: green;
-    color: white;
-    font-size: 1rem;
-    border-radius: 10px;
-    padding: .5em;
-}
-
-.order-his-filter{
+.container_card .main-container .other-contents{
     display: none;
 }
 
-/* end of orders right side */
-
-/* end of orders histroy main */
-
-
-@media screen and (max-width: 600px) {
-
-    .list-top ul {
-        width: 240px;
-    }
-
-    .order-his-filter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin: 2em 0;
-    }
-
-    .list-top ul li, .list-top ul li a {
-        font-size: .8rem;
-    }
-
-    .orders-histroy-main .order-his-left-side {
-        display: none;
-    }
-
-    .orders-histroy-main .order-his-right-side {
-        margin: 0 auto;
-        width: 80%;
-    }
-
-    .orders-histroy-main .order-his-right-side .order-his-search {
-        width: auto;
-    }
-
-    .order-his-right-side .order-his-right-main .order-his-search p {
-        font-size: .8rem;
-        width: 100px;
-        text-align: center;
-    }
-
-    .orders-histroy-main .order-his-right-side  .product-status{
-        width: auto;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 200px;
-    }
-
-
-    .orders-histroy-main .order-his-right-side  .product-status .product-status-img  img {
-        width: 80px;
-    }
-
-    .orders-histroy-main .order-his-right-side  .product-status .main-status p{
-        text-align: center;
-    }
-    
+.container_card .main-container .other-contents .many_contents{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1em;
+   border-radius: 5px;
+   border: 2px solid green;
 }
 
-@media screen and (min-width: 601px) and (max-width: 900px) {
-
-    .list-top ul {
-        width: 320px;
-    }
-
-    .order-his-filter {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin: 2em 0;
-    }
-
-    .order-his-filter select {
-        width: 150px;
-        height: 40px;
-        text-align: center;
-    }
-
-   
-
-    .list-top ul li, .list-top ul li a {
-        font-size: 1.1rem;
-    }
-
-    .orders-histroy-main .order-his-left-side {
-        display: none;
-    }
-
-    .orders-histroy-main .order-his-right-side {
-        margin: 0 auto;
-        width: 80%;
-    }
-
-    .orders-histroy-main .order-his-right-side .order-his-search {
-        width: auto;
-    }
-
-    .order-his-right-side .order-his-right-main .order-his-search p {
-        font-size: 1rem;
-        width: 100px;
-        text-align: center;
-    }
-
-    .orders-histroy-main .order-his-right-side  .product-status{
-        width: auto;
-        
-    }
-
-
-    .orders-histroy-main .order-his-right-side  .product-status .product-status-img  img {
-        width: 80px;
-    }
-
-    .orders-histroy-main .order-his-right-side  .product-status .main-status p{
-        text-align: center;
-    }
-    
+.container_card .main-container .other-contents .many_contents .many_images{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (min-width: 901px) and (max-width: 1200px) {
-
-    .orders-histroy-main .order-his-right-side .order-his-search input{
-        width: 400px;
-    }
-
-    .order-his-right-side .order-his-right-main .order-his-search p {
-        font-size: .8rem;
-        width: 100px;
-        text-align: center;
-    }
-
-    .orders-histroy-main .order-his-right-side  .product-status{
-        width: 480px;
-        display:flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 200px;
-    }
-
-
-    .orders-histroy-main .order-his-right-side  .product-status .product-status-img  img {
-        width: 80px;
-    }
-
-    .orders-histroy-main .order-his-right-side  .product-status .main-status p{
-        text-align: center;
-    }
-    
-    
+.container_card .main-container .other-contents .many_contents .many_images img{
+    width: 60px;
+    border-radius: 50%;
 }
+
+.container_card .main-container .other-contents p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+
+    .container_card{
+        margin: 1em 1em;
+    }
+    
+    .container_card .main-container .head p{
+        font-size: .9rem;
+    }
+
+    .container_card .main-container .order_deliver{
+       font-size: .8rem;
+    }
+
+    .container_card .main-container .other-contents .many_contents .many_images img{
+        width: 40px;
+    }
+    .container_card .main-container .other-contents p{
+        font-size: .9rem;
+    }
+}
+

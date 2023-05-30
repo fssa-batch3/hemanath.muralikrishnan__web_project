@@ -38,17 +38,23 @@ footer {
     color: #253D4E;
 }
 
-.footer-item{
-    padding-bottom: 1em;
-    color: #253D4E;
-    font-size: .9rem;
-    font-weight: 500;
+.footer-flex-two .footer-one-items{
+    margin: .5em 0;
+  
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-.footer-item:hover {
-    color: #429b44;
-    font-size: 1.1rem;
+.footer-flex-two .footer-one-items a{
+  color: #253D4E;
 }
+
+.footer-flex-two .footer-one-items a:hover {
+    color: #429b44;
+}
+
+
+
 
 /* footer one ends */
 
@@ -136,6 +142,10 @@ footer {
     background-color:#429b44;
     border-radius: 50%;
     color: white;
+}
+
+.account p{
+    cursor: pointer;
 }
 
 /* footer three ends */

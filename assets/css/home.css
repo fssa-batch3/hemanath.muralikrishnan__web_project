@@ -2,7 +2,8 @@
 
 /* start of home page adv */
 
-.home-page-adv{
+
+.slider{
     position: relative;
     box-sizing: content-box;
     max-width: 1200px;
@@ -14,19 +15,16 @@
     
 }
 
-.home-page-adv .slider {
+.slider figure {
     overflow: hidden;
-}
-
-.home-page-adv .slider figure {
     position: relative;
     width: 500%;
     margin: 0;
     left: 0;
-    animation: webzone 10s infinite linear; 
+    animation: webzone 10s infinite linear;
 }
 
-.home-page-adv .slider figure img {
+ .slider figure img {
     width: 20%;
     float: left;
     height: 400px;
@@ -104,23 +102,6 @@
 
 /* start of best  sells*/
 
-.best-sells {
-    margin-top: 2em;
-}
-
-.daily-best {
-    margin-left: 1em;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.best-sells-container {
-    display: flex;
-    overflow-x: scroll;
-    margin-top: 2em;
-    /* flex-wrap: wrap;
-    justify-content: flex-end; */
-}
 
 /* end of best sells */
 
@@ -246,11 +227,11 @@
 
     /* start of adv */
 
-    .home-page-adv{
+   .slider{
         width: 90%;
     }
 
-    .home-page-adv .slider figure img {
+   .slider figure img {
         height: 200px;
     }
 
@@ -330,6 +311,10 @@
         font-size: .8rem;
     }
 
+    .amount_dropdown{
+       font-size: .9rem;
+    }
+
     .product-main .farmer-part .farmer-name {
         font-size: .8rem;
     }
@@ -367,9 +352,6 @@
 
     /* start of daily best products */
 
-    .daily-best {
-        font-size: 1.1rem;
-    }
 
     /* end of daily best products */
 
@@ -445,11 +427,11 @@
 
 /* start of adv */
 
-    .home-page-adv{
+.slider{
         width: 90%;
     }
 
-    .home-page-adv .slider figure img {
+    .slider figure img {
         height: 275px;
     }
 
@@ -566,9 +548,6 @@
 
      /* start of daily best products */
 
-    .daily-best {
-        font-size: 1.3rem;
-    }
 
     /* end of daily best products */
 
@@ -644,7 +623,7 @@
 
 @media screen and (min-width: 901px) and (max-width: 1200px) {
     
-    .home-page-adv {
+    .slider {
         width: 90%;
     }
 

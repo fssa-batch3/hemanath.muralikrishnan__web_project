@@ -1,0 +1,38 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background: white;
+    height: 70px;
+    z-index: 5;
+    border-bottom: 0.5px solid gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+nav .nav-logo a{
+    color: green;
+}
+
+nav .nav-logo a i{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+nav .nav-logo a span{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+nav .nav-links a{
+
+    padding: 0 1em;
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 500;
+}

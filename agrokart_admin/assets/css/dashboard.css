@@ -1,0 +1,262 @@
+/* Import Google font - Poppins */
+
+.sidebar {
+    position: fixed;
+    height: 100%;
+    width: 260px;
+    background: #11101d;
+    padding: 15px;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 25px;
+    padding: 0 15px;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+    overflow-y: scroll;
+}
+
+.menu-content::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-items {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    transition: all 0.4s ease;
+}
+
+.submenu-active .menu-items {
+    transform: translateX(-56%);
+}
+
+.menu-title {
+    color: #fff;
+    font-size: 14px;
+    padding: 15px 20px;
+}
+
+.item a,
+.submenu-item {
+    padding: 16px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.item i {
+    font-size: 12px;
+}
+
+.item a:hover,
+.submenu-item:hover,
+.submenu .menu-title:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.submenu {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: calc(-100% - 26px);
+    height: calc(100% + 100vh);
+    background: #11101d;
+    display: none;
+}
+
+.show-submenu~.submenu {
+    display: block;
+}
+
+.submenu .menu-title {
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.submenu .menu-title i {
+    margin-right: 10px;
+}
+
+.navbar,
+.main {
+    left: 260px;
+    width: calc(100% - 260px);
+    transition: all 0.5s ease;
+    z-index: 1000;
+}
+
+.sidebar.close~.navbar,
+.sidebar.close~.main {
+    left: 0;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 25px;
+    background: #4070f4;
+}
+
+.navbar #sidebar-close {
+    cursor: pointer;
+}
+
+.navbar .navbar_leftside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbar_leftside .admin_search {
+    position: relative;
+    height: 40px;
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar_leftside .admin_search input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+   padding: 0 1em;
+    background-color: transparent;
+}
+
+.navbar .navbar_rightside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbar_rightside .nav-links {
+    margin: 0 1.5em;
+}
+
+.navbar .navbar_rightside .nav-links i {
+    position: relative;
+    cursor: pointer;
+    color: black;
+    font-size: 1.3rem;
+}
+
+.navbar .navbar_rightside .nav-links span {
+    position: absolute;
+    top: 10px;
+    font-size: 1.1rem;
+    background-color: #fff;
+    color: black;
+    border-radius: 50%;
+    padding: 0 .2em;
+    font-weight: 500;
+}
+
+.navbar .navbar_rightside .profile {
+    margin: 0 1.5em;
+}
+
+.navbar .navbar_rightside .profile .profile-img{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .navbar_rightside .profile .profile-img i {
+    font-size: 1rem;
+    margin-left: .2em;
+    transition: all .3s ease;
+}
+
+.navbar .navbar_rightside .profile .profile-img i.rotate{
+    transform: rotate(180deg);
+    transition: all .3s ease;
+}
+
+
+.navbar .navbar_rightside .profile img {
+    width: 50px;
+    border-radius: 50%;
+    
+}
+
+.navbar .navbar_rightside .profile ul {
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    background-color: white;
+    padding: .3em;
+    border-radius: 5px;
+    transition:  all .3s ease;
+    opacity: 0;
+}
+
+.navbar .navbar_rightside .profile ul.show{
+    opacity: 1;
+}
+
+.navbar .navbar_rightside .profile ul li {
+    font-size: 1.1rem;
+    margin: .5em 0;
+   
+}
+
+.navbar .navbar_rightside .profile ul li:hover {
+    background-color: lightblue;
+    transform: all .3s ease;
+}
+
+.navbar .navbar_rightside .profile ul li a{
+    color: black;
+}
+
+.main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 100;
+    background: #e7f2fd;
+}
+
+.main h1 {
+    color: #11101d;
+    font-size: 40px;
+    text-align: center;
+}

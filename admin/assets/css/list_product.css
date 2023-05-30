@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     margin: 2em 0;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -16,6 +16,12 @@
     border-radius: 10px;
 }
 
+.filter-search-main .select_status select{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
 .filter-search-main .list-search #site-search {
     width: 250px;
     height: 40px;
@@ -23,20 +29,25 @@
     padding-left: 1em;
 }
 
-.filter-search-main .list-search button{
-    padding: 1em;
-    margin: 0 2em;
-    border-radius: 5px;
-    background-color: #09c372;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
+
+.sort-by-main select{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
 }
 
 
 table {
     margin: 2em auto;
     text-align: center;
+}
+
+table caption {
+    display: none;
+}
+
+table th {
+    cursor: pointer;
 }
 
 table,
@@ -47,6 +58,7 @@ td {
     border-collapse: collapse;
     padding: 1em;
 }
+
 
 table tbody .success {
     border: 4px solid #09c372;

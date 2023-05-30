@@ -275,56 +275,65 @@
     padding: .5em;
 }
 
-
-.manage-address form .address-form {
-    background-color: #f2f3f4;
-    padding: 1em;
-    height: 300px;
-    border: 2px solid #429b44;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    
+.manage-address .address-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgb(0,0,0); */
+    background-color: rgba(0,0,0,0.2);
 }
 
-.manage-address form .address-form .address_input_label{
-    width: 100px;
-    height: 280px;
+
+
+.manage-address .address-form-layers{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #f1fcfc;
+    box-shadow: 5px 5px 16px #bcc5c5,
+        -5px -5px 16px #ffffff;
+        width: 600px;
+        margin: 0 auto;
+}
+
+.close i {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-left: 67%;
+}
+.close i:hover, .close i:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
-.manage-address form .address-form .address_input_label label {
+.manage-address form .address-form .address-form-layers .address_input label {
     font-size: 1.2rem;
     font-weight: 600;
     display: block;
+    margin: 1em 0;
 }
 
-.manage-address .address-form .address_inputs {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 280px;
-    justify-content: space-around;
-}
 
-.manage-address .address-form .address_inputs input {
+.manage-address .address-form .address-form-layers .address_input input {
     height: 50px;
+    width: 250px;
     border-radius: 10px;
     padding-left: 1em;
 }
 
-.manage-address form .address-buttons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-.manage-address form .address-buttons button{
+.manage-address .address-form button{
     background-color: #429b44;
     color: white;
     border: none;
@@ -336,7 +345,7 @@
     font-weight: 500;
 }
 
-.manage-address form .address-buttons button:hover{
+.manage-address .address-form button:hover{
     background-color: orangered;
     color: white;
 }
@@ -348,38 +357,55 @@
   
 }
 
-.manage-address .show-address .address-show .user-address{
-    text-align: center;
-    font-weight: 500;
-    border: 2px solid black;
-    padding: .5em;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.show-address .address-show {
-    margin-bottom: 1em;
-}
-
-.show-address .address-show .address-edit {
+.manage-address .show-address .addresses-show-div{
+    background-color: white;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    margin-top: .5em;
-    margin-bottom: .5em;
-} 
-
-.show-address .address-show .address-edit button {
-    border: none;
+    justify-content: space-around;
     padding: 1em;
-    background-color: #429b44;
-    color: white;
+    border: 1px solid black;
     border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
+    margin: 1em 0;
 }
 
+.manage-address .show-address .addresses-show-div .address-show-main {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    
+}
+
+.manage-address .show-address .addresses-show-div .address-show-menu .fa-ellipsis-vertical{
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: blue;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.manage-address .show-address .addresses-show-div .address-show-menu .fa-ellipsis-vertical:hover {
+    background-color: lightgreen;
+}
+
+.manage-address .show-address .addresses-show-div .address-show-menu .address-menus {
+    position: absolute;
+    background-color: #bcc5c5;
+    padding: .5em;
+    border-radius: 5px;
+}
+
+.manage-address .show-address .addresses-show-div .address-show-menu .address-menus p {
+    font-size: 1.1rem;
+
+}
+
+.manage-address .show-address .addresses-show-div .address-show-menu .address-menus p:hover {
+    background-color: #429b44;
+    color: white;
+    cursor: pointer;
+}
 
 
 /* manage address end */
@@ -387,3 +413,142 @@
 /* end of profile right side */
 
 /* end of profile section */
+
+
+
+/* update address form */
+
+.manage-address .upt_address-form {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgb(0,0,0); */
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+
+.manage-address .upt_address-form-layers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: #f1fcfc;
+    box-shadow: 5px 5px 16px #bcc5c5,
+        -5px -5px 16px #ffffff;
+        width: 600px;
+        margin: 0 auto;
+}
+
+.upt_close i {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-left: 67%;
+}
+.upt_close i:hover, .upt_close i:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.manage-address .upt_address-form .upt_address-form-layers .address_input label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+    margin: 1em 0;
+}
+
+
+.manage-address .upt_address-form .upt_address-form-layers .address_input input {
+    height: 50px;
+    width: 250px;
+    border-radius: 10px;
+    padding-left: 1em;
+}
+
+
+.manage-address .upt_address-form button{
+    background-color: #429b44;
+    color: white;
+    border: none;
+    padding: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1em 1em 1em 1em;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.manage-address .upt_address-form button:hover{
+    background-color: orangered;
+    color: white;
+}
+
+.form-control{
+    outline: none;
+}
+
+.form-control:valid{
+    border-color: #09c372;
+  }
+
+  .form-control:invalid{
+    border-color: #ff3860;
+  }
+
+
+/* start of media queires */
+
+@media screen and (max-width: 700px) {
+
+    .profile-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .profile-right-side{
+        width:auto;
+    }
+
+    .profile-right-side .pro-settings-sec .flex_so{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .profile-right-side .pro-settings-sec form input {
+        margin: 1em 0 0 0;
+    }
+
+
+    /* manager address new */
+
+    .manage-address .address-form-layers{
+        width: 300px;
+    }
+
+    .close i {
+       margin: 0 1em;
+       
+    }
+
+    .manage-address .upt_address-form-layers{
+        width: 300px;
+    }
+
+    .upt_close i {
+        margin: 0 1em;
+    }
+}

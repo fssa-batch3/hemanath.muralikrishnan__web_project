@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- fontawesome stylesheet -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/images/tabicon/icon.png">
+
+    <!-- body base style -->
+
+    <link rel="stylesheet" href="../../assets/css/base_style/body.css">
+
+    <!-- header css -->
+
+    <link rel="stylesheet" href="../../assets/css/auth/reigster.css">
+
+    <title>AgroKart - Ecommerce Seller</title>
+
+</head>
+
+<body>
+
+    <main>
+
+        <!-- seller register starts -->
+
+        <form id="seller_reg_form">
+
+            <div class="input_wrapper">
+
+                <label for="seller_image_url">Profile Image URL</label>
+                <input type="url" name="seller_image_url" id="seller_image_url" required="true"
+                    placeholder="Enter your profile image url" title="please enter valid image url">
+
+            </div>
+
+
+            <div class="input_wrapper">
+
+                <label for="seller_firstname">Firstname</label>
+                <input type="text" name="seller_firstname" id="seller_firstname" required="true" pattern="^[A-Za-z]+$" placeholder="Enter your first name"
+                    title="Please enter valid first name without number, special character and white spaces"
+                    minlenght="3" maxlength="20">
+
+            </div>
+
+            <div class="input_wrapper">
+                <label for="seller_lastname">Lastname</label>
+                <input type="text" name="seller_lastname" id="seller_lastname" placeholder="Enter your last name"
+                    required="true" pattern="^[A-Za-z]+$"
+                    title="Please enter valid last name without number, special character and white spaces"
+                    minlenght="1" maxlength="20">
+            </div>
+
+            <div class="input_wrapper">
+                <label for="seller_email_id">Email Id</label>
+                <input type="email" name="seller_email_id" id="seller_email_id" placeholder="Enter your email id" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$" required="true" title="Please enter valid email id without white spaces">
+            </div>
+
+
+            <div class="input_wrapper">
+                <label for="seller_mobile_number">Mobile Number</label>
+                <input type="tel" name="seller_mobile_number" id="seller_mobile_number" placeholder="Enter your mobile number"  required="true" pattern="^[6-9][0-9]{9}$" minlength="10" maxlength="10" title="Please enter valid mobile number without alphabets, special characters and white spaces">
+            </div>
+
+
+
+        </form>
+
+        <!-- seller register ends -->
+
+    </main>
+
+</body>
+
+</html>

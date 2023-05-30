@@ -6,7 +6,7 @@ body {
 .notify {
     z-index: 5;
     position: fixed;
-    top: 180px;
+    top: 100px;
     right: 20px;
     max-width: 400px;
     font-weight: normal;
@@ -47,4 +47,13 @@ body {
         opacity: 0;
         transform: translate3d(100%, 0, 0);
     }
+}
+
+
+@media screen and (max-width:700px) {
+    #notify,
+.notify{
+    font-size: .8rem;
+}
+    
 }
